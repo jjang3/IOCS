@@ -32,7 +32,7 @@ ibcs_result_path=${current_path}/result
 rewriter_path=${current_path}/asm_rewriter
 
 # Input Result Related Paths
-ibcs_input_result=${arcs_result_path}/$1
+ibcs_input_result=${ibcs_result_path}/$1
 ibcs_bin_file=${ibcs_input_result}/$1.out
 ibcs_out_file=${ibcs_input_result}/${1}_ibcs.out
 ibcs_dwarf_file=${ibcs_input_result}/$1.dwarf
@@ -67,7 +67,7 @@ rewrite()
 
     echo "Rewrite the assembly code" 
     cd ${ibcs_input_path} && make ${input}.out
-    cd ${rewrite_path} && python3 main.py --binary ${input}.out
+    cd ${rewriter_path} && python3 main.py --binary ${input}.out
     cd ${ibcs_input_result} && make lib && make ${input}.new
 }
 
