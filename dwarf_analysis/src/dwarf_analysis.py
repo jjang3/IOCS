@@ -39,6 +39,35 @@ print("sys.path:", sys.path)  # Print sys.path to check the directories
 
 from dwarf_atts import *
 
+class DwarfAnalyzer:
+    def __init__(self, dwarf_info, loc_parser):
+        self.dwarf_info = dwarf_info
+        self.loc_parser = loc_parser
+
+    def analyze_subprog(self, CU, DIE, attributes):
+        return analyze_subprog(CU, self.dwarf_info, DIE, attributes, self.loc_parser)
+
+    def analyze_base(self, attributes):
+        return analyze_base(attributes)
+
+    def analyze_var(self, attributes):
+        return analyze_var(attributes)
+
+    def analyze_typedef(self, attributes):
+        return analyze_typedef(attributes)
+
+    def run(self):
+        for CU in self.dwarf_info.iter_CUs():
+            for DIE in CU.iter_DIEs():
+                if DIE.tag == "DW_TAG_subprogram":
+                    self.analyze_subprog(CU, DIE, DIE.attributes.values())
+                # if DIE.tag == "DW_TAG_base_type":
+                #     self.analyze_base(DIE.attributes.values())
+                # if DIE.tag == "DW_TAG_variable":
+                #     self.analyze_var(DIE.attributes.values())
+                # if DIE.tag == "DW_TAG_typedef":
+                #     self.analyze_typedef(DIE.attributes.values())
+
 def dwarf_analysis(input_binary):
     logger.info("DWARF analysis")
     target_dir = Path(os.path.abspath(input_binary))
@@ -60,24 +89,19 @@ def dwarf_analysis(input_binary):
 
         # get_dwarf_info returns a DWARFInfo context object, which is the
         # starting point for all DWARF-based processing in pyelftools.
-        dwarfinfo = elffile.get_dwarf_info()
+        dwarf_info = elffile.get_dwarf_info()
         
         # The location lists are extracted by DWARFInfo from the .debug_loc
         # section, and returned here as a LocationLists object.
-        location_lists = dwarfinfo.location_lists()
+        location_lists = dwarf_info.location_lists()
 
         # This is required for the descriptions module to correctly decode
         # register names contained in DWARF expressions.
         set_global_machine_arch(elffile.get_machine_arch())
         
-        for CU in dwarfinfo.iter_CUs():
-            for DIE in CU.iter_DIEs():
-                cu_ver = CU['version']
-                if (DIE.tag == "DW_TAG_subprogram"):
-                    analyze_subprog(DIE.attributes.values())
-                if (DIE.tag == "DW_TAG_base_type"):
-                    analyze_base(DIE.attributes.values())
-                if (DIE.tag == "DW_TAG_variable"):
-                    analyze_var(DIE.attributes.values())
-                if (DIE.tag == "DW_TAG_typedef"):
-                    analyze_typedef(DIE.attributes.values())
+        # Create a LocationParser object that parses the DIE attributes and
+        # creates objects representing the actual location information.
+        loc_parser = LocationParser(location_lists)
+
+        analyzer = DwarfAnalyzer(dwarf_info, loc_parser)
+        analyzer.run()
