@@ -68,7 +68,7 @@ rewrite()
     echo "Rewrite the assembly code" 
     cd ${ibcs_input_path} && make ${input}.out
     cd ${rewriter_path} && python3 main.py --binary ${input}.out
-    cd ${ibcs_input_result} && make lib && make ${input}.new
+    # cd ${ibcs_input_result} && make lib && make ${input}.new
 }
 
 while true; do

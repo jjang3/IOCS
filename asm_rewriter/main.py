@@ -12,23 +12,51 @@ from pickle import FALSE
 from tkinter import N
 from termcolor import colored
 from pathlib import Path
+from typing import Optional
 from dataclasses import dataclass, field
 
+from pathlib import Path
+from elftools.dwarf.die import DIE
+from elftools.elf.elffile import DWARFInfo, ELFFile
+from elftools.dwarf.dwarf_expr import DWARFExprParser, DWARFExprOp
+from elftools.dwarf.descriptions import (
+    describe_DWARF_expr, set_global_machine_arch)
+from elftools.dwarf.locationlists import (
+    LocationEntry, LocationExpr, LocationParser)
+from elftools.dwarf.descriptions import describe_form_class
+from elftools.dwarf.callframe import (
+    CallFrameInfo, CIE, FDE, instruction_name, CallFrameInstruction,
+    RegisterRule, DecodedCallFrameTable, CFARule)
+from elftools.dwarf.structs import DWARFStructs
+from elftools.dwarf.descriptions import (describe_CFI_instructions,
+    set_global_machine_arch)
+from elftools.dwarf.enums import DW_EH_encoding_flags
 
-# Get the directory where the current script is located
+# Print current sys.path
+# print("Before cleaning sys.path:")
+# for path in sys.path:
+#     print(path)
+
+# Get the directory of the current Python file (asm_rewriter/main.py)
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Get the parent directory of the current script
-parent_dir = os.path.dirname(current_dir)
+# Get the project root directory (one level up from asm_rewriter)
+project_root = os.path.dirname(current_dir)
 
-# Add the 'utilities' directory from the parent directory to sys.path
-sys.path.append(os.path.join(parent_dir, 'utilities'))
+# Add the 'src' directory from the 'dwarf_analysis' module to sys.path
+sys.path.append(os.path.join(project_root, 'dwarf_analysis', 'src'))
 
-# Add the 'src' directory from the current directory to sys.path
+# Add the 'src' directory relative to the current directory (asm_rewriter/src)
 sys.path.append(os.path.join(current_dir, 'src'))
 
-#from dwarf_analysis import *
-from dwarf_analysis import *
+# Print sys.path after cleaning
+# print("\nAfter cleaning sys.path:")
+# for path in sys.path:
+#     print(path)
+    
+# Now you can import dwarf_analysis and call the dwarf function
+from dwarf_analysis import dwarf_analysis
+
 """
 from gen_table import *
 from bin_analysis import *
@@ -62,19 +90,23 @@ class CustomFormatter(logging.Formatter):
         formatter = logging.Formatter(log_fmt)
         return formatter.format(record)
     
-# Debug options here
-debug_level = logging.DEBUG
-ch = logging.StreamHandler()
-ch.setLevel(debug_level) 
-ch.setFormatter(CustomFormatter())
+def setup_logger(name: str, level=logging.DEBUG, log_disable=False):
+    """Set up a logger with a custom name."""
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
+    
+    # Avoid adding multiple handlers if the logger is already configured
+    if not logger.hasHandlers():
+        ch = logging.StreamHandler()
+        ch.setLevel(level)
+        ch.setFormatter(CustomFormatter())
+        logger.addHandler(ch)
 
-log = logging.getLogger(__name__)
-log.setLevel(debug_level)
+    logger.disabled = log_disable
+    return logger
 
-# create console handler with a higher log level
-log_disable = False
-log.addHandler(ch)
-log.disabled = log_disable
+# Example of creating a logger with a specific name
+log = setup_logger("custom_logger")
 
 @dataclass(unsafe_hash = True)
 class FileData:
@@ -90,6 +122,16 @@ def analyze_directory(target_dir, base_name):
 
 def analyze_binary(args, base_name):
     result_dir = Path(args.binary).resolve().parent.parent / "result" / base_name
+    analysis_file   = result_dir / f"{base_name}.analysis"
+    # Debugging analysis file
+    analysis_file = "/home/jaewon/IBCS/result/tiny/tiny.analysis"
+    with open(analysis_file) as ff:
+        for line in ff:
+            analysis_list = line.split(',')
+    binary_file     = result_dir / f"{base_name}.out"
+    log.debug(binary_file)
+    print(os.path.join(project_root, 'dwarf_analysis', 'src'))
+    dwarf_analysis(binary_file)
 
 def main():
     # Get the size of the terminal
@@ -98,10 +140,6 @@ def main():
     # Create a string that fills the terminal width with spaces
     # Subtract 1 to accommodate the newline character at the end of the string
     empty_space = ' ' * (columns - 1)
-    
-    # Initialize the logger (example, adjust according to your needs)
-    # logging.basicConfig(level=logging.INFO)
-    # log = logging.getLogger(__name__)
 
     # Create the parser
     parser = argparse.ArgumentParser(description='Process some inputs.')

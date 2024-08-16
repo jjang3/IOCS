@@ -21,6 +21,7 @@ result_dir = ${parent_dir}/result
 	cp libMakefile $(result_dir)/$(name)/Makefile
 	$(CC) $(ASMFLAGS) $< -o $(result_dir)/$(name)/$@
 	rm -f $(result_dir)/$(name)/$(name).i
+	echo "main" > $(result_dir)/$(name)/$(name).analysis
 	as $(result_dir)/$(name)/$(name).s -o $(result_dir)/$(name)/$(name).o
 	$(CC) -O0 -gdwarf-2 $(result_dir)/$(name)/$(name).o -o $(result_dir)/$(name)/$@
 
