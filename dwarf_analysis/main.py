@@ -49,7 +49,9 @@ class CustomFormatter(logging.Formatter):
     purp = "\x1b[38;5;13m"
     reset = "\x1b[0m"
     # format = "%(funcName)5s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)"
-    format = "[Line:%(lineno)4s -%(funcName)18s()] %(levelname)7s    %(message)s "
+
+    # Base format for logs
+    format = "[%(filename)17s: Line:%(lineno)4s - %(funcName)-18s] %(levelname)-8s: %(message)s"
 
     FORMATS = {
         logging.DEBUG: yellow + format + reset,

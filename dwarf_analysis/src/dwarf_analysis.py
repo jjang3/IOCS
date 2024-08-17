@@ -43,31 +43,54 @@ class DwarfAnalyzer:
     def __init__(self, dwarf_info, loc_parser):
         self.dwarf_info = dwarf_info
         self.loc_parser = loc_parser
+        self.curr_fun = None  # Initialize as None
 
     def analyze_subprog(self, CU, DIE, attributes):
-        return analyze_subprog(CU, self.dwarf_info, DIE, attributes, self.loc_parser)
+        self.curr_fun = analyze_subprog(CU, self.dwarf_info, DIE, attributes, self.loc_parser)
+
+    def analyze_var(self, CU, DIE, attributes):
+        return analyze_var(CU, self.dwarf_info, DIE, attributes, self.loc_parser, self.curr_fun)
 
     def analyze_base(self, attributes):
         return analyze_base(attributes)
 
-    def analyze_var(self, attributes):
-        return analyze_var(attributes)
-
     def analyze_typedef(self, attributes):
         return analyze_typedef(attributes)
+
+    def finalize_subprog(self):
+        """Finalize the processing of the current function."""
+        if self.curr_fun:
+            logger.info(f"Finalizing function: {self.curr_fun.name}")
+            # Additional finalization logic can go here
+            self.curr_fun = None  # Reset the current function after finalizing
+            print()
 
     def run(self):
         for CU in self.dwarf_info.iter_CUs():
             for DIE in CU.iter_DIEs():
-                if DIE.tag == "DW_TAG_subprogram":
-                    self.analyze_subprog(CU, DIE, DIE.attributes.values())
-                # if DIE.tag == "DW_TAG_base_type":
-                #     self.analyze_base(DIE.attributes.values())
-                # if DIE.tag == "DW_TAG_variable":
-                #     self.analyze_var(DIE.attributes.values())
-                # if DIE.tag == "DW_TAG_typedef":
-                #     self.analyze_typedef(DIE.attributes.values())
+                # Finalize the previous function if a new subprogram is encountered
+                if DIE.tag == "DW_TAG_subprogram" and self.curr_fun is not None:
+                    self.finalize_subprog()
 
+                self.process_die(CU, DIE)
+
+            # Finalize the last subprogram after processing all DIEs
+            if self.curr_fun is not None:
+                self.finalize_subprog()
+        
+
+    def process_die(self, CU, DIE):
+        """Helper method to process a DIE and its children recursively."""
+        # Handle the DIE's tag
+        if DIE.tag == "DW_TAG_subprogram":
+            self.analyze_subprog(CU, DIE, DIE.attributes.values())
+        elif DIE.tag == "DW_TAG_variable":
+            self.analyze_var(CU, DIE, DIE.attributes.values())
+        elif DIE.tag == None:
+            None
+        else:
+            logger.info(f"Not yet handling the tag {DIE.tag}.")
+            
 def dwarf_analysis(input_binary):
     logger.info("DWARF analysis")
     target_dir = Path(os.path.abspath(input_binary))

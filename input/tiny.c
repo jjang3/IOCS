@@ -369,7 +369,7 @@ void process(int fd, struct sockaddr_in *clientaddr){
         } else if(S_ISDIR(sbuf.st_mode)){
             status = 200;
             handle_directory_request(fd, ffd, req.filename);
-        } else {
+        } else { // Lexical block
             status = 400;
             char *msg = "Unknow Error";
             client_error(fd, status, "Error", msg);
