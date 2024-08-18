@@ -33,6 +33,7 @@ class VarData:
     name: Optional[str] = None
     offset: str = None
     var_type: str = None
+    type_name: str = None
 
 fun_list = list()
 class FunData:
@@ -66,12 +67,11 @@ class FunData:
         if self.var_list:
             logger.debug("Variables:")
             for var in self.var_list:
-                logger.debug(f"  - {var.name}: Offset {var.offset}, Type {var.var_type}")
+                logger.debug(f"  - {var.name}: Offset {var.offset}, Variable Type {var.var_type}, Type Name: {var.type_name}")
 
     def __repr__(self):
         """Returns a string representation of the object."""
         return f"FunData(name={self.name}, begin={self.begin}, end={self.end})"
-
 
 def analyze_subprog(CU, dwarf_info, DIE, attribute_values, loc_parser):
     frame_base_pattern = r"\(DW_OP_breg\d+\s\((\w+)\):\s(-?\d+)\)"
@@ -104,8 +104,40 @@ def analyze_subprog(CU, dwarf_info, DIE, attribute_values, loc_parser):
                             offset_value = int(frame_match.group(2))
                             curr_fun.reg_to_use = reg
                             curr_fun.fun_frame_base = offset_value
-            curr_fun.print_data()
             return curr_fun
+
+def get_type_name(dwarf_info: DWARFInfo, type_die: DIE):
+    if 'DW_AT_name' in type_die.attributes:
+        type_name = type_die.attributes['DW_AT_name'].value.decode()
+        logger.debug(f"Got the type name: {type_name}")
+        return type_name
+    else:
+        logger.error(f"No name for the type: {type_die.tag} (Recursive analysis needed)")
+        if 'DW_AT_type' in type_die.attributes:
+            ref_addr = type_die.attributes['DW_AT_type'].value5 + type_die.cu.cu_offset
+            type_die = dwarf_info.get_DIE_from_refaddr(ref_addr, type_die.cu)
+            return get_type_name(dwarf_info, type_die)
+    return None
+        
+def parse_dwarf_type(dwarf_info, DIE, curr_var: VarData):
+    ref_addr = DIE.attributes['DW_AT_type'].value + DIE.cu.cu_offset
+    type_die = dwarf_info.get_DIE_from_refaddr(ref_addr, DIE.cu)
+    # logger.debug(type_die.tag)
+    if type_die.tag == "DW_TAG_base_type":
+        curr_var.var_type = type_die.tag
+        type_name = get_type_name(dwarf_info, type_die)
+        if type_name != None:
+            curr_var.type_name = type_name
+        logger.error("base_type: %s ",type_name)
+    elif type_die.tag == "DW_TAG_pointer_type":
+        curr_var.var_type = type_die.tag
+        type_name = get_type_name(dwarf_info, type_die)
+        if type_name != None:
+            curr_var.type_name = type_name
+    else:
+        curr_var.var_type = type_die.tag
+        logger.error("Not supported yet: %s ",type_die.tag)
+        
 
 def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: FunData):
     offset_pattern = r"\(DW_OP_fbreg:\s*(-?\d+)\)"
@@ -129,6 +161,7 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
                     else:
                         logger.debug(f"Adding variable: {curr_var.name}")
                         curr_fun.add_var(curr_var)
+
         if curr_var != None:
             if (loc_parser.attribute_has_location(attr, CU['version'])):
                 loc = loc_parser.parse_from_attribute(attr,
@@ -144,6 +177,8 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
                     if global_match:
                         addr_value = global_match.group(1)
                         logger.debug(f"Address: {addr_value}")
+            elif (attr.name == "DW_AT_type"):
+                parse_dwarf_type(dwarf_info, DIE, curr_var)
 
 
 def analyze_base(attribute_values, location_lists):

@@ -62,6 +62,7 @@ class DwarfAnalyzer:
         if self.curr_fun:
             logger.info(f"Finalizing function: {self.curr_fun.name}")
             # Additional finalization logic can go here
+            self.curr_fun.print_data()
             self.curr_fun = None  # Reset the current function after finalizing
             print()
 
