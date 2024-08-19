@@ -28,6 +28,15 @@ from dataclasses import dataclass, field
 # Get the same logger instance. Use __name__ to get a logger with a hierarchical name or a specific string to get the exact same logger.
 logger = logging.getLogger('custom_logger')
 
+# This list will contain the typedef variable information of this program
+typedef_list = list()
+@dataclass(unsafe_hash=True)
+class TypeDefData:
+    typedef_name: Optional[str] = None
+    var_type: str = None
+    type_name: str = None
+    type_size: Optional[int] = None
+
 @dataclass(unsafe_hash=True)
 class VarData:
     name: Optional[str] = None
@@ -77,7 +86,7 @@ def analyze_subprog(CU, dwarf_info, DIE, attribute_values, loc_parser):
     frame_base_pattern = r"\(DW_OP_breg\d+\s\((\w+)\):\s(-?\d+)\)"
     for attr in attribute_values:
         if loc_parser.attribute_has_location(attr, CU['version']): 
-            logger.warning("Analyze DW_TAG_subprogram (non-internal function)")
+            logger.warning("Analyze DW_TAG_subprogram")
             low_pc = DIE.attributes['DW_AT_low_pc'].value
             high_pc_attr = DIE.attributes['DW_AT_high_pc']
             high_pc_form_class = describe_form_class(high_pc_attr.form)
@@ -93,6 +102,24 @@ def analyze_subprog(CU, dwarf_info, DIE, attribute_values, loc_parser):
             fun_name = DIE.attributes["DW_AT_name"].value.decode()
             # logger.info("Function name: %s", fun_name)
             curr_fun = FunData(name=fun_name, begin=low_pc, end=high_pc)
+            # Check the source file to see if it belongs to a known library
+            # Check the source file to see if it belongs to a known library
+            decl_file_index = DIE.attributes.get('DW_AT_decl_file', None)
+            if decl_file_index:
+                # source_file = CU['files'][decl_file_index - 1].name
+                file_index = decl_file_index.value
+                for unit in CU:
+                    print(unit)
+                exit()
+                if file_index <= len(CU['files']):
+                    source_file = CU['files'][file_index - 1].name
+                    logger.info("Function %s is declared in %s", fun_name, source_file)
+                    if "lib" in source_file or "include" in source_file:
+                        logger.info("Function %s is likely a library function (declared in %s)", fun_name, source_file)
+                        curr_fun.is_library_function = True
+                else:
+                    logger.error("Error: Declared file index %d is out of range", file_index)
+
             loc = loc_parser.parse_from_attribute(attr, CU['version'])
             if isinstance(loc, list):
                 for loc_entity in loc:
@@ -107,36 +134,58 @@ def analyze_subprog(CU, dwarf_info, DIE, attribute_values, loc_parser):
             return curr_fun
 
 def get_type_name(dwarf_info: DWARFInfo, type_die: DIE):
-    if 'DW_AT_name' in type_die.attributes:
+    if type_die.tag == "DW_TAG_typedef":
+        # In the case of typedef type, we need to not get the name of it, but the type that the typedef refers to first.
+        if 'DW_AT_type' in type_die.attributes:
+            ref_addr = type_die.attributes['DW_AT_type'].value + type_die.cu.cu_offset
+            type_die = dwarf_info.get_DIE_from_refaddr(ref_addr, type_die.cu)
+            return get_type_name(dwarf_info, type_die)
+    elif 'DW_AT_name' in type_die.attributes:
         type_name = type_die.attributes['DW_AT_name'].value.decode()
         logger.debug(f"Got the type name: {type_name}")
         return type_name
     else:
         logger.error(f"No name for the type: {type_die.tag} (Recursive analysis needed)")
         if 'DW_AT_type' in type_die.attributes:
-            ref_addr = type_die.attributes['DW_AT_type'].value5 + type_die.cu.cu_offset
+            ref_addr = type_die.attributes['DW_AT_type'].value + type_die.cu.cu_offset
             type_die = dwarf_info.get_DIE_from_refaddr(ref_addr, type_die.cu)
             return get_type_name(dwarf_info, type_die)
     return None
         
 def parse_dwarf_type(dwarf_info, DIE, curr_var: VarData):
-    ref_addr = DIE.attributes['DW_AT_type'].value + DIE.cu.cu_offset
-    type_die = dwarf_info.get_DIE_from_refaddr(ref_addr, DIE.cu)
-    # logger.debug(type_die.tag)
-    if type_die.tag == "DW_TAG_base_type":
-        curr_var.var_type = type_die.tag
-        type_name = get_type_name(dwarf_info, type_die)
-        if type_name != None:
-            curr_var.type_name = type_name
-        logger.error("base_type: %s ",type_name)
-    elif type_die.tag == "DW_TAG_pointer_type":
-        curr_var.var_type = type_die.tag
-        type_name = get_type_name(dwarf_info, type_die)
-        if type_name != None:
-            curr_var.type_name = type_name
+    if 'DW_AT_type' in DIE.attributes:
+        ref_addr = DIE.attributes['DW_AT_type'].value + DIE.cu.cu_offset
+        type_die = dwarf_info.get_DIE_from_refaddr(ref_addr, DIE.cu)
+        logger.debug(type_die.tag)
+        if type_die.tag == "DW_TAG_base_type":
+            curr_var.var_type = type_die.tag
+            type_name = get_type_name(dwarf_info, type_die)
+            if type_name != None:
+                curr_var.type_name = type_name
+            logger.error("base_type: %s ",type_name)
+        elif type_die.tag == "DW_TAG_pointer_type":
+            curr_var.var_type = type_die.tag
+            type_name = get_type_name(dwarf_info, type_die)
+            if type_name != None:
+                curr_var.type_name = type_name
+        elif type_die.tag == "DW_TAG_typedef":
+            # For the typedef, need to first get the name of the typedef
+            # Next, need to check what is the underlying type of the typedef
+            type_name = get_type_name(dwarf_info, type_die)
+            typedef_ref_addr = type_die.attributes['DW_AT_type'].value + type_die.cu.cu_offset
+            typedef_type_die = dwarf_info.get_DIE_from_refaddr(typedef_ref_addr, type_die.cu)
+            parse_dwarf_type(dwarf_info, typedef_type_die, curr_var)
+            if type_name != None:
+                curr_var.type_name = type_name
+                curr_var.type_size = type_dict[type_name]
+                # exit()
+        else:
+            curr_var.var_type = type_die.tag
+            logger.error("Not supported yet: %s ",type_die.tag)
     else:
-        curr_var.var_type = type_die.tag
-        logger.error("Not supported yet: %s ",type_die.tag)
+        curr_var.var_type = DIE.tag
+        # exit()
+    
         
 
 def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: FunData):
@@ -149,7 +198,7 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
         global_var = True
         logger.warning(f"Global variable")
         # Currently global variable is not supported
-
+    curr_var = None
     for attr in attribute_values:
         if attr.name == "DW_AT_name":
             var_name = DIE.attributes["DW_AT_name"].value.decode()
@@ -180,16 +229,29 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
             elif (attr.name == "DW_AT_type"):
                 parse_dwarf_type(dwarf_info, DIE, curr_var)
 
-
-def analyze_base(attribute_values, location_lists):
-    logger.info("Analyze subprogram BASE")
+def analyze_typedef(CU, dwarf_info, DIE, attribute_values):
+    logger.warning(f"Analyze DW_TAG_typedef")
+    curr_typedef = None
     for attr in attribute_values:
-        logger.debug(attr)
-
-def analyze_typedef(attribute_values, location_lists):
-    logger.info("Analyze subprogram TYPEDEF")
+        if attr.name == "DW_AT_name":
+            typedef_name = DIE.attributes["DW_AT_name"].value.decode()
+            if typedef_name != None:
+                curr_typedef = TypeDefData(typedef_name=typedef_name)
+        if curr_typedef != None:
+            if attr.name == "DW_AT_type":
+                parse_dwarf_type(dwarf_info, DIE, curr_typedef)
+    typedef_list.append(curr_typedef)
+            
+type_dict = dict()
+def analyze_base(CU, dwarf_info, DIE, attribute_values):
+    logger.info("Analyze DW_TAG_base_type")
     for attr in attribute_values:
-        logger.debug(attr)
+        if (attr.name == "DW_AT_name"):
+            base_name = DIE.attributes["DW_AT_name"].value.decode()
+        if (attr.name == "DW_AT_byte_size"):
+            base_size = DIE.attributes["DW_AT_byte_size"].value
+    type_dict[base_name] =  base_size
+    
 
 def analyze_attributes(attribute_values, location_lists):
     for attr in attribute_values:

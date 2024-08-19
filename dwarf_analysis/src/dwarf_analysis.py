@@ -35,7 +35,10 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 # Add the 'src' directory relative to the current directory (asm_rewriter/src)
 sys.path.append(os.path.join(current_dir))
 
-print("sys.path:", sys.path)  # Print sys.path to check the directories
+# print("sys.path:", sys.path)  # Print sys.path to check the directories
+
+global typedef_list
+global type_dict
 
 from dwarf_atts import *
 
@@ -51,11 +54,11 @@ class DwarfAnalyzer:
     def analyze_var(self, CU, DIE, attributes):
         return analyze_var(CU, self.dwarf_info, DIE, attributes, self.loc_parser, self.curr_fun)
 
-    def analyze_base(self, attributes):
-        return analyze_base(attributes)
+    def analyze_typedef(self, CU, DIE, attributes):
+        return analyze_typedef(CU, self.dwarf_info, DIE, attributes)
 
-    def analyze_typedef(self, attributes):
-        return analyze_typedef(attributes)
+    def analyze_base(self, CU, DIE, attributes):
+        return analyze_base(CU, self.dwarf_info, DIE, attributes)
 
     def finalize_subprog(self):
         """Finalize the processing of the current function."""
@@ -78,6 +81,10 @@ class DwarfAnalyzer:
             # Finalize the last subprogram after processing all DIEs
             if self.curr_fun is not None:
                 self.finalize_subprog()
+        for typedef in typedef_list:
+            pprint.pprint(typedef)
+        pprint.pprint(type_dict)
+        logger.critical("Finished DWARF analysis")
         
 
     def process_die(self, CU, DIE):
@@ -85,12 +92,16 @@ class DwarfAnalyzer:
         # Handle the DIE's tag
         if DIE.tag == "DW_TAG_subprogram":
             self.analyze_subprog(CU, DIE, DIE.attributes.values())
-        elif DIE.tag == "DW_TAG_variable":
-            self.analyze_var(CU, DIE, DIE.attributes.values())
-        elif DIE.tag == None:
-            None
-        else:
-            logger.info(f"Not yet handling the tag {DIE.tag}.")
+        # elif DIE.tag == "DW_TAG_variable":
+        #     self.analyze_var(CU, DIE, DIE.attributes.values())
+        # elif DIE.tag == "DW_TAG_typedef":
+        #     self.analyze_typedef(CU, DIE, DIE.attributes.values())
+        # elif DIE.tag == "DW_TAG_base_type":
+        #     self.analyze_base(CU, DIE, DIE.attributes.values())
+        # elif DIE.tag == None:
+        #     None
+        # else:
+        #     logger.info(f"Not yet handling the tag {DIE.tag}.")
             
 def dwarf_analysis(input_binary):
     logger.info("DWARF analysis")
