@@ -37,19 +37,21 @@ sys.path.append(os.path.join(current_dir))
 
 # print("sys.path:", sys.path)  # Print sys.path to check the directories
 
+global fun_list
 global typedef_list
 global type_dict
 
 from dwarf_atts import *
 
 class DwarfAnalyzer:
-    def __init__(self, dwarf_info, loc_parser):
+    def __init__(self, base_name, dwarf_info, loc_parser):
+        self.base_name = base_name
         self.dwarf_info = dwarf_info
         self.loc_parser = loc_parser
         self.curr_fun = None  # Initialize as None
 
     def analyze_subprog(self, CU, DIE, attributes):
-        self.curr_fun = analyze_subprog(CU, self.dwarf_info, DIE, attributes, self.loc_parser)
+        self.curr_fun = analyze_subprog(CU, self.dwarf_info, DIE, attributes, self.loc_parser, self.base_name)
 
     def analyze_var(self, CU, DIE, attributes):
         return analyze_var(CU, self.dwarf_info, DIE, attributes, self.loc_parser, self.curr_fun)
@@ -65,10 +67,11 @@ class DwarfAnalyzer:
         if self.curr_fun:
             logger.info(f"Finalizing function: {self.curr_fun.name}")
             # Additional finalization logic can go here
-            self.curr_fun.print_data()
+            fun_list.append(self.curr_fun)
+            # self.curr_fun.print_data()
+            # print()
             self.curr_fun = None  # Reset the current function after finalizing
-            print()
-
+            
     def run(self):
         for CU in self.dwarf_info.iter_CUs():
             for DIE in CU.iter_DIEs():
@@ -81,9 +84,13 @@ class DwarfAnalyzer:
             # Finalize the last subprogram after processing all DIEs
             if self.curr_fun is not None:
                 self.finalize_subprog()
-        for typedef in typedef_list:
-            pprint.pprint(typedef)
-        pprint.pprint(type_dict)
+        # for typedef in typedef_list:
+        #     pprint.pprint(typedef)
+        # pprint.pprint(type_dict)
+        for fun in fun_list:
+            fun: FunData
+            fun.print_data()
+            print()
         logger.critical("Finished DWARF analysis")
         
 
@@ -92,16 +99,18 @@ class DwarfAnalyzer:
         # Handle the DIE's tag
         if DIE.tag == "DW_TAG_subprogram":
             self.analyze_subprog(CU, DIE, DIE.attributes.values())
-        # elif DIE.tag == "DW_TAG_variable":
-        #     self.analyze_var(CU, DIE, DIE.attributes.values())
-        # elif DIE.tag == "DW_TAG_typedef":
-        #     self.analyze_typedef(CU, DIE, DIE.attributes.values())
-        # elif DIE.tag == "DW_TAG_base_type":
-        #     self.analyze_base(CU, DIE, DIE.attributes.values())
-        # elif DIE.tag == None:
-        #     None
-        # else:
-        #     logger.info(f"Not yet handling the tag {DIE.tag}.")
+            # None
+        elif DIE.tag == "DW_TAG_variable":
+            self.analyze_var(CU, DIE, DIE.attributes.values())
+        elif DIE.tag == "DW_TAG_typedef":
+            self.analyze_typedef(CU, DIE, DIE.attributes.values())
+        elif DIE.tag == "DW_TAG_base_type":
+            self.analyze_base(CU, DIE, DIE.attributes.values())
+        elif DIE.tag == None:
+            None
+        else:
+            logger.info(f"Not yet handling the tag {DIE.tag}.")
+            # None
             
 def dwarf_analysis(input_binary):
     logger.info("DWARF analysis")
@@ -115,7 +124,7 @@ def dwarf_analysis(input_binary):
             analysis_list = line.split(',')
     fp = open(dwarf_outfile, "w") 
     
-    logger.debug("%s\n%s\n%s\n%s", target_dir, base_name, input_binary, dwarf_outfile)
+    # logger.debug("%s\n%s\n%s\n%s", target_dir, base_name, input_binary, dwarf_outfile)
     with open(input_binary, 'rb') as f:
         elffile = ELFFile(f)
         if not elffile.has_dwarf_info():
@@ -138,5 +147,5 @@ def dwarf_analysis(input_binary):
         # creates objects representing the actual location information.
         loc_parser = LocationParser(location_lists)
 
-        analyzer = DwarfAnalyzer(dwarf_info, loc_parser)
+        analyzer = DwarfAnalyzer(base_name, dwarf_info, loc_parser)
         analyzer.run()
