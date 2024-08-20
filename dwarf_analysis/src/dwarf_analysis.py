@@ -87,11 +87,12 @@ class DwarfAnalyzer:
         # for typedef in typedef_list:
         #     pprint.pprint(typedef)
         # pprint.pprint(type_dict)
-        for fun in fun_list:
-            fun: FunData
-            fun.print_data()
-            print()
+        # for fun in fun_list:
+        #     fun: FunData
+        #     fun.print_data()
+        #     print()
         logger.critical("Finished DWARF analysis")
+        return fun_list
         
 
     def process_die(self, CU, DIE):
@@ -148,4 +149,4 @@ def dwarf_analysis(input_binary):
         loc_parser = LocationParser(location_lists)
 
         analyzer = DwarfAnalyzer(base_name, dwarf_info, loc_parser)
-        analyzer.run()
+        return analyzer.run()

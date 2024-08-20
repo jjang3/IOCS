@@ -48,6 +48,25 @@ class VarData:
     ptr_type: Optional[str] = None # Currently not used, if type_name is not found in the type_dict, then we can safely assume that pointer is to an object we cannot handle (e.g., struct)
     type_name: str = None
 
+def print_var_data(var_data: VarData):
+    """Prints the VarData information, omitting fields that are None."""
+    attributes = [
+        ("Name", var_data.name),
+        ("Offset", var_data.offset),
+        ("Var Type", var_data.var_type),
+        ("Ptr Type", var_data.ptr_type),
+        ("Type Name", var_data.type_name),
+    ]
+    
+    # Construct the output string
+    output = []
+    for attr_name, attr_value in attributes:
+        if attr_value is not None:
+            output.append(f"{attr_name}: {attr_value}")
+    
+    # Print the cleaned output
+    logger.debug(", ".join(output))
+
 fun_list = list()
 class FunData:
     def __init__(self, name: str = None, begin: Optional[int] = None, end: Optional[int] = None):

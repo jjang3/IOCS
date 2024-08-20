@@ -54,8 +54,9 @@ sys.path.append(os.path.join(current_dir, 'src'))
 # for path in sys.path:
 #     print(path)
     
-# Now you can import dwarf_analysis and call the dwarf function
-from dwarf_analysis import dwarf_analysis
+# Import from dwarf_analysis and its own src folder
+from dwarf_analysis import *
+from gen_table import *
 
 """
 from gen_table import *
@@ -126,14 +127,31 @@ def analyze_binary(args, base_name):
     result_dir = Path(args.binary).resolve().parent.parent / "result" / base_name
     analysis_file   = result_dir / f"{base_name}.analysis"
     # Debugging analysis file
-    analysis_file = "/home/jaewon/IBCS/result/tiny/tiny.analysis"
+    # analysis_file = "/home/jaewon/IBCS/result/tiny/tiny.analysis"
     with open(analysis_file) as ff:
         for line in ff:
             analysis_list = line.split(',')
     binary_file     = result_dir / f"{base_name}.out"
     log.debug(binary_file)
-    print(os.path.join(project_root, 'dwarf_analysis', 'src'))
-    dwarf_analysis(binary_file)
+    # print(os.path.join(project_root, 'dwarf_analysis', 'src'))
+
+    dwarf_fun_list = dwarf_analysis(binary_file)
+    # for fun in dwarf_fun_list:
+    #     fun: FunData
+    #     fun.print_data()
+
+    fun_table_offsets = generate_table(dwarf_fun_list, result_dir)
+    for fun in fun_table_offsets:
+        if len(fun_table_offsets[fun]) > 0:
+            logger.info(f"Variables for the function: {fun}")
+            for var in fun_table_offsets[fun]:
+                var: VarData
+                # pprint.pprint(var[0])
+                print_var_data(var[0])
+            print()
+        else:
+            logger.warning(f"No variables for {fun}")
+            print()
 
 def main():
     # Get the size of the terminal
