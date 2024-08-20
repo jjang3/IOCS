@@ -15,7 +15,6 @@ from pathlib import Path
 from typing import Optional
 from dataclasses import dataclass, field
 
-from pathlib import Path
 from elftools.dwarf.die import DIE
 from elftools.elf.elffile import DWARFInfo, ELFFile
 from elftools.dwarf.dwarf_expr import DWARFExprParser, DWARFExprOp
@@ -57,9 +56,9 @@ sys.path.append(os.path.join(current_dir, 'src'))
 # Import from dwarf_analysis and its own src folder
 from dwarf_analysis import *
 from gen_table import *
+from rewriter import *
 
 """
-from gen_table import *
 from bin_analysis import *
 from rewriter import *
 from verifier import *
@@ -132,7 +131,9 @@ def analyze_binary(args, base_name):
         for line in ff:
             analysis_list = line.split(',')
     binary_file     = result_dir / f"{base_name}.out"
-    log.debug(binary_file)
+    asm_item        = result_dir / f"{base_name}.s"  # Updated variable name for clarity
+    obj_item        = result_dir / f"{base_name}.o"  # Updated variable name for clarity
+    log.debug(f"{binary_file}, {asm_item}, {obj_item}")
     # print(os.path.join(project_root, 'dwarf_analysis', 'src'))
 
     dwarf_fun_list = dwarf_analysis(binary_file)
@@ -152,6 +153,9 @@ def analyze_binary(args, base_name):
         else:
             logger.warning(f"No variables for {fun}")
             print()
+    
+    rewriter = AsmRewriter(analysis_list, result_dir, asm_item, fun_table_offsets, dwarf_fun_list)
+    patch_count = rewriter.run()
 
 def main():
     # Get the size of the terminal

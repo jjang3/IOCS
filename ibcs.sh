@@ -66,7 +66,10 @@ rewrite()
     fi
 
     echo "Rewrite the assembly code" 
-    cd ${ibcs_input_path} && make ${input}.out
+    if [ ! -f "$ibcs_bin_file" ]; then
+        echo "Generate the original file"
+        cd ${ibcs_input_path} && make ${input}.out
+    fi
     cd ${rewriter_path} && python3 main.py --binary ${input}.out
     # cd ${ibcs_input_result} && make lib && make ${input}.new
 }
