@@ -7,8 +7,12 @@ import shutil
 import pprint 
 import os
 import re
+import signal
 
 from pathlib import Path, PosixPath
+
+from asm_analysis import *
+from dwarf_analysis import *
 
 # Get the same logger instance. Use __name__ to get a logger with a hierarchical name or a specific string to get the exact same logger.
 logger = logging.getLogger('custom_logger')
@@ -320,15 +324,64 @@ class AsmRewriter:
         self.dwarf_info = dwarf_info
         self.patch_count = 0
 
+    def patch_inst(self, dis_inst, temp_inst: PatchingInst, redir_offset):
+        patched_line = None
+        patch_target = None
+        if temp_inst.patch == "src":
+            patch_target = temp_inst.src
+        else:
+            patch_target = temp_inst.dest
+        logger.critical(f"Patching the instruction {dis_inst} | Operand: {patch_target}")
+        # To-do: Need to add Asm Syntax Tree feature later.
+        if patched_line == None:
+            value = 0
+            if temp_inst.prefix == "b":
+                value = 8
+            elif temp_inst.prefix == "w":
+                value = 16
+            elif temp_inst.prefix == "l":
+                value = 32
+            elif temp_inst.prefix == "q":
+                value = 64
+
+            # re.sub(pattern, replacement, string, count=0, flags=0)
+            if temp_inst.opcode == "mov":
+                logger.info("Patching with mov_gs")
+                if temp_inst.patch == "src":
+                    new_opcode = "mov_load_gs"
+                    patched_line = re.sub(
+                        r"^\s*(\S+)\s+(\S+),\s*(\S+)", 
+                        r"%s\t%s, %d, %d\t # %s" % (new_opcode, temp_inst.dest, redir_offset, value, dis_inst.strip()), 
+                        dis_inst
+                    )
+                    logger.warning(patched_line)
+                    
+                elif temp_inst.patch == "dest":
+                    new_opcode = "mov_store_gs"
+                    patched_line = re.sub(
+                        r"^\s*(\S+)\s+(\S+),\s*(\S+)", 
+                        r"%s\t%s, %d, %d\t # %s" % (new_opcode, temp_inst.src, redir_offset, value, dis_inst.strip()), 
+                        dis_inst
+                    )
+                    logger.warning(patched_line)
+
+        if patched_line != None:
+            # patch_inst_list.append(patch_inst_line)
+            return patched_line
+
     def process_asm_file(self):
         # Regexes related to rewriting the asm file
         file_pattern = re.compile(r'\.file\s+"([^"]+)"')
         fun_begin_regex = r'(?<=.type\t)(.*)(?=,\s@function)'
         fun_end_regex   = r'(\t.cfi_endproc)'
         dis_line_regex = r'(?P<opcode>(mov|movz|lea|sub|add|cmp|sal|and|imul|movss))(?P<prefix>l|b|w|q|bl|xw|wl)?\s+(?P<operand1>\S+)(?:,\s*(?P<operand2>\S+))'
+        # Regex to capture offset in operands like -24(%rbp)
+        reg_offset_regex = r'(?P<offset>-?\d+)\(%[a-zA-Z]+\)'
         
         debug = False # This debug flag is for inplace feature; False = Overwrite | True = Don't
         fun_check = False # This is going to be initialized as false for now
+        fun_name = None
+        patching_candidates = set() # This set will consist of a tuple of (variable offset, redirection offset)
         with fileinput.input(self.asm_item, inplace=(not debug), encoding="utf-8", backup='.bak') as f:
             for line in f:
                 # logger.debug(line)
@@ -339,27 +392,77 @@ class AsmRewriter:
 
                 fun_begin = re.search(fun_begin_regex, line)
                 if fun_begin is not None:
-                    # This finds the function declaration in the assembly file and enables the check
+                    # This finds the function declaration in the assembly file and enables the check along with getting the targets
                     fun_check = True
                     fun_name = fun_begin.group(1)
                     if fun_name in self.analysis_list:
                         logger.debug(f"Patching function {fun_name} found")
-                        # exit()
+                    
+                        # self.fun_table_offsets contain the redirection table offset per this particular function
+                        if len(self.fun_table_offsets[fun_name]) > 0:
+                            logger.info(f"Checking the function: {fun_name}")
+                            for var in self.fun_table_offsets[fun_name]:
+                                var: VarData
+                                # Specify the variable type in order to choose the patching candidates. This can be flexible; 
+                                # the current method is to choose specific type (e.g., DW_TAG_base_type), but if necessary, can be
+                                # extended to support specific offsets per function if the result from a taint analysis must be used 
+                                # (e.g., offset: -16 from the function main).
+                                if var[0].var_type == "DW_TAG_base_type":
+                                    logger.debug(f"Adding candidate {var[0].name}")
+                                    patching_candidates.add((var[0].offset, var[1]))
+                                    # print_var_data(var[0]) # Debug function
+                                    # print()
+                                elif var[0].var_type == "DW_TAG_pointer_type" or var[0].var_type == "DW_TAG_array_type":
+                                    # If a heap variable needs to be compartmentalized, then there needs to be a handler here.
+                                    None
+                        if (len(patching_candidates) > 0):
+                            logger.info("Candidates:")
+                            for candidate in patching_candidates:
+                                logger.debug(candidate)
+
                 fun_end = re.search(fun_end_regex, line)
                 if fun_end is not None:
-                    # This detects the function end and disables the check
+                    # This detects the function end and disables the check along with cleanup for sets
                     fun_check = False
+                    fun_name = None
+                    patching_candidates.clear()
                 
                 # ------ Patching ------ #
-                if fun_check == True:
+                if fun_check == True and fun_name != None:
                     logger.debug(line)
+                    temp_inst: PatchingInst = None
                     dis_regex   = re.search(dis_line_regex, line)
                     if dis_regex is not None:
                         opcode = dis_regex.group('opcode')
                         prefix = dis_regex.group('prefix')
-                        operand1 = dis_regex.group('operand1')
-                        operand2 = dis_regex.group('operand2')
-                        logger.warning(f"{opcode} - {prefix} - {operand1} - {operand2}")
+                        operand_1 = dis_regex.group('operand1')
+                        operand_2 = dis_regex.group('operand2')
+                        # logger.warning(f"{opcode} - {prefix} - {operand_1} - {operand_2}")
+                        temp_inst = PatchingInst(opcode, prefix, operand_1, operand_2)
+                        # Check for offsets in operands
+                        for operand, position in [(operand_1, "src"), (operand_2, "dest")]:
+                            if operand:
+                                offset_match = re.search(reg_offset_regex, operand)
+                                if offset_match:
+                                    offset_value = int(offset_match.group('offset'))
+                                    temp_inst.patch = position
+                                    for candidate in patching_candidates:
+                                        if offset_value == candidate[0]:
+                                            logger.warning("Patching target found")
+                                            redir_offset = candidate[1]  # Set redir_offset from candidate[1]
+                                            new_inst = self.patch_inst(line, temp_inst, redir_offset)
+                                            if new_inst != None:
+                                                logger.critical(new_inst)
+                                                break
+                                                exit()
+                                            else:
+                                                # Exit out of entire script if we find a missing instruction
+                                                logger.error("Error, cannot patch the instruction")
+                                                temp_inst.inst_print()
+                                                # os.kill(os.getppid(),signal.SIGTERM)
+                                                # sys.exit(2)
+                                        
+                        temp_inst.inst_print()
                 else:
                     # logger.error("Skip for now")
                     None

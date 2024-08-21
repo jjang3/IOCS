@@ -72,6 +72,7 @@ class CustomFormatter(logging.Formatter):
     yellow = "\x1b[33;20m"
     red = "\x1b[31;20m"
     bold_green = "\x1b[42;1m"
+    light_green = "\x1b[32;1m"  # Changed from bold green to a lighter green
     purp = "\x1b[38;5;13m"
     reset = "\x1b[0m"
     # format = "%(funcName)5s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)"
@@ -84,7 +85,7 @@ class CustomFormatter(logging.Formatter):
         logging.INFO: blue + format + reset,
         logging.WARNING: purp + format + reset,
         logging.ERROR: red + format + reset,
-        logging.CRITICAL: bold_green + format + reset
+        logging.CRITICAL: light_green + format + reset
     }
 
     def format(self, record):
