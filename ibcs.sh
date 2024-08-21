@@ -29,6 +29,9 @@ ibcs_input_path=${current_path}/input
 ibcs_result_path=${current_path}/result
 
 # Rewriter Path
+dwarf_path=${current_path}/dwarf_analysis
+
+# Rewriter Path
 rewriter_path=${current_path}/asm_rewriter
 
 # Input Result Related Paths
@@ -56,6 +59,7 @@ taint_analyze()
 dwarf()
 {
     echo "Extract DWARF information"
+    cd ${dwarf_path} && python3 main.py --binary ${input}.out
 }
 
 rewrite()

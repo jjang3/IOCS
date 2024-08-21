@@ -7,8 +7,9 @@ input=$1
 options=("Migrate" "Analyze" "Rewrite" "Compile")
 
 # This is coreutils path
-coreutils_build_path="/home/jaewon/coreutils_bu/new_build"
-coreutils_src_path="/home/jaewon/coreutils_bu/new_build/src"
+coreutils_build_path="$HOME/coreutils_bu/new_build"
+coreutils_src_path="$HOME/coreutils_bu/new_build/src"
+# UPDATE ME
 
 # This is used to setup test path
 grandp_path=$( cd ../../"$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
@@ -73,10 +74,10 @@ analyze()
 rewrite()
 {
     echo "Rewrite"
-    if [ -f ${result_path}/${input}.s.bak ]
+    if [ -f ${ibcs_input_result}/${input}.s.bak ]
     then 
         echo "Original file found, overwrite the existing asm file"
-        cp ${result_path}/${input}.s.bak ${ibcs_input_result}/${input}.s
+        cp ${ibcs_input_result}/${input}.s.bak ${ibcs_input_result}/${input}.s
     fi
     sleep 1.5
     cd ${rewriter_path} && python3 main.py --binary ${input}.out 
@@ -87,17 +88,17 @@ rewrite()
 compile()
 {
     echo "Migrate back to coreutils and compile" 
-    if [ -z ${result_path}/${input}.s ]
+    if [ -z ${ibcs_input_result}/${input}.s ]
     then
         echo "No source file, please use other option"
         exit
     fi
-    cp ${input_path}/libMakefile ${result_path}/Makefile
-    cd ${result_path}
+    cp ${ibcs_input_path}/libMakefile ${ibcs_input_result}/Makefile
+    cd ${ibcs_input_result}
     make lib
-    cp -rf ${result_path}/lib ${coreutils_src_path}
-    echo ${result_path}/${input}.s
-    as -o ${coreutils_src_path}/${input}.o ${result_path}/${input}.s
+    cp -rf ${ibcs_input_result}/lib ${coreutils_src_path}
+    echo ${ibcs_input_result}/${input}.s
+    as -o ${coreutils_src_path}/${input}.o ${ibcs_input_result}/${input}.s
     sleep 3
     cd ${coreutils_build_path}
     pwd
