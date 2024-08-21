@@ -351,7 +351,7 @@ class AsmRewriter:
                     new_opcode = "mov_load_gs"
                     patched_line = re.sub(
                         r"^\s*(\S+)\s+(\S+),\s*(\S+)", 
-                        r"%s\t%s, %d, %d\t # %s" % (new_opcode, temp_inst.dest, redir_offset, value, dis_inst.strip()), 
+                        r"\t%s\t%s, %d, %d\t # %s" % (new_opcode, temp_inst.dest, redir_offset, value, dis_inst.strip()), 
                         dis_inst
                     )
                     logger.warning(patched_line)
@@ -360,7 +360,27 @@ class AsmRewriter:
                     new_opcode = "mov_store_gs"
                     patched_line = re.sub(
                         r"^\s*(\S+)\s+(\S+),\s*(\S+)", 
-                        r"%s\t%s, %d, %d\t # %s" % (new_opcode, temp_inst.src, redir_offset, value, dis_inst.strip()), 
+                        r"\t%s\t%s, %d, %d\t # %s" % (new_opcode, temp_inst.src, redir_offset, value, dis_inst.strip()), 
+                        dis_inst
+                    )
+                    logger.warning(patched_line)
+
+            if temp_inst.opcode == "cmp":
+                logger.info("Patching with cmp_gs")
+                if temp_inst.patch == "src":
+                    new_opcode = "cmp_load_gs"
+                    patched_line = re.sub(
+                        r"^\s*(\S+)\s+(\S+),\s*(\S+)", 
+                        r"\t%s\t%s, %d, %d\t # %s" % (new_opcode, temp_inst.dest, redir_offset, value, dis_inst.strip()), 
+                        dis_inst
+                    )
+                    logger.warning(patched_line)
+                    
+                elif temp_inst.patch == "dest":
+                    new_opcode = "cmp_store_gs"
+                    patched_line = re.sub(
+                        r"^\s*(\S+)\s+(\S+),\s*(\S+)", 
+                        r"\t%s\t%s, %d, %d\t # %s" % (new_opcode, temp_inst.src, redir_offset, value, dis_inst.strip()), 
                         dis_inst
                     )
                     logger.warning(patched_line)
@@ -431,6 +451,7 @@ class AsmRewriter:
                 if fun_check == True and fun_name != None:
                     logger.debug(line)
                     temp_inst: PatchingInst = None
+                    new_inst = None
                     dis_regex   = re.search(dis_line_regex, line)
                     if dis_regex is not None:
                         opcode = dis_regex.group('opcode')
@@ -453,18 +474,23 @@ class AsmRewriter:
                                             new_inst = self.patch_inst(line, temp_inst, redir_offset)
                                             if new_inst != None:
                                                 logger.critical(new_inst)
+                                                print(new_inst, end='')
                                                 break
                                                 exit()
                                             else:
                                                 # Exit out of entire script if we find a missing instruction
                                                 logger.error("Error, cannot patch the instruction")
                                                 temp_inst.inst_print()
-                                                # os.kill(os.getppid(),signal.SIGTERM)
-                                                # sys.exit(2)
-                                        
+                                                os.kill(os.getppid(),signal.SIGTERM)
+                                                sys.exit(2)
+                        if new_inst == None:
+                            print(line, end='')
                         temp_inst.inst_print()
+                    else: # End else for dis_regex (i.e., non-patching candidates in the functio)
+                        print(line, end='')
                 else:
                     # logger.error("Skip for now")
+                    print(line, end='')
                     None
 
     def run(self):
