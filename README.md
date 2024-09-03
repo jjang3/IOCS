@@ -26,6 +26,11 @@
 2) Execute the IBCS script with the input name (e.g., `bash ibcs.sh tiny`)
 3) Select the option prompted
 
+## Directions for the Dockerfile
+1) `docker build -t ibcs:latest . `
+2) `docker run -it ibcs`
+3) `source /root/venv/bin/activate` once inside the ibcs docker environment
+
 ## Directions for the Coreutils
 1) Update the variables of the `core.sh`file in the `utility_scripts` folder with the proper path towards the `coreutils` (e.g., `$HOME/coreutils`)
 2) Before rewriting, you need to migrate the file into the `IBCS/result/coreutils_bin` folder

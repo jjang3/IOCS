@@ -5,7 +5,7 @@ import pprint
 import copy
 
 from tkinter import FALSE
-from binaryninja.types import MemberName
+# from binaryninja.types import MemberName
 
 from elftools.dwarf.die import DIE
 from elftools.elf.elffile import DWARFInfo, ELFFile

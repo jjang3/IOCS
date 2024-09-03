@@ -1,0 +1,2 @@
+pyelftools==0.29
+termcolor==2.4.0
