@@ -2,14 +2,14 @@
 SHELL           = /bin/zsh
 CC              = gcc
 PIEFLAGS 		= -no-pie -fno-pie
-ASMFLAGS		= -O0 -gdwarf-2 -c
+ASMFLAGS		= -O0 -gdwarf-2 -c -save-temps=obj
 
 LIBFLAGS	    = -Wall -fPIC -shared
 LIBLDFLAGS      = -ldl -mfsgsbase
 LIBTARGET       = lib/table.so
 
-# Pattern rule to generate assembly files (*.s) from C files (*.c)
-%.s: %.c
+# Rule to generate object files from C files (this will also generate assembly and preprocessed files)
+%.o: %.c
 	$(CC) $(ASMFLAGS) $< -o $@
 
 # Target to create the shared library

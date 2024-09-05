@@ -102,6 +102,8 @@ rewrite_dir()
             base_name=$(basename "$file" .c)
             echo "Generating assembly for $file"
             make "${base_name}.s"
+            make "${base_name}.o"
+            rm "${base_name}.i"
         fi
     done
 }
