@@ -29,7 +29,7 @@
 ## Directions for the Dockerfile
 1) `docker build -t ibcs:latest . `
 2) `docker run -it ibcs`
-3) `source /root/venv/bin/activate` once inside the ibcs docker environment
+3) `source /root/venv/bin/activate` once inside the ibcs docker environment and then perform rewriting.
 
 ## Directions for the Coreutils
 1) Update the variables of the `core.sh`file in the `utility_scripts` folder with the proper path towards the `coreutils` (e.g., `$HOME/coreutils`)

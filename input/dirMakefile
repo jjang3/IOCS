@@ -1,0 +1,26 @@
+# Library-related                                                                       
+SHELL           = /bin/zsh
+CC              = gcc
+PIEFLAGS 		= -no-pie -fno-pie
+ASMFLAGS		= -O0 -gdwarf-2 -c
+
+LIBFLAGS	    = -Wall -fPIC -shared
+LIBLDFLAGS      = -ldl -mfsgsbase
+LIBTARGET       = lib/table.so
+
+# Pattern rule to generate assembly files (*.s) from C files (*.c)
+%.s: %.c
+	$(CC) $(ASMFLAGS) $< -o $@
+
+# Target to create the shared library
+lib: $(LIBTARGET)
+	echo $(PWD)
+
+# Creating the lib/table.so shared library from table.c
+$(LIBTARGET): table.c
+	mkdir -p $(dir $@)  # Create the lib directory if it doesn't exist
+	$(CC) $(LIBFLAGS) table.c -o $@ $(LIBLDFLAGS)
+
+# Clean rule to remove build artifacts
+clean:
+	rm -rf lib *.o *.s *.out *.i

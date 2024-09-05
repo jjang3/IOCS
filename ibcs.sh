@@ -3,10 +3,9 @@
 
 PS3="Select options: "
 input=$1
-
 CFLAGS="-O0 -gdwarf-2"
 
-options=("Build" "Taint" "Analyze Taint" "DWARF" "Rewrite")
+options=("Taint" "Analyze Taint" "DWARF" "Rewrite" "Rewrite Directory")
 
 # Folder paths
 grandp_path=$( cd ../../"$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
@@ -41,11 +40,6 @@ ibcs_out_file=${ibcs_input_result}/${1}_ibcs.out
 ibcs_dwarf_file=${ibcs_input_result}/$1.dwarf
 ibcs_analysis_file=${ibcs_input_result}/$1.analysis
 
-build()
-{
-    echo "Build" 
-}
-
 taint()
 {
     echo "Taint analysis"
@@ -60,6 +54,7 @@ dwarf()
 {
     echo "Extract DWARF information"
     cd ${dwarf_path} && python3 main.py --binary ${input}.out
+
 }
 
 rewrite()
@@ -78,15 +73,49 @@ rewrite()
     # cd ${ibcs_input_result} && make lib && make ${input}.new
 }
 
+rewrite_dir()
+{
+    echo "Rewrite the assembly codes for the target directory" 
+    if [ ! -d "$ibcs_result_path" ]; then
+        echo "Result directory doesn't exist"
+        mkdir $ibcs_result_path
+    fi
+    
+    if [ ! -d "$ibcs_input_result" ]; then
+        echo "Input result directory doesn't exist"
+        mkdir $ibcs_input_result
+    fi
+
+    # Copy the Makefile and source files into the input result directory
+    cd "${ibcs_input_path}" || { echo "Failed to change directory to ${ibcs_input_path}"; exit 1; }
+    cp dirMakefile "$ibcs_input_result/Makefile"
+    
+    cd "${ibcs_input_path}/${input}" || { echo "Failed to change directory to ${ibcs_input_path}/${input}"; exit 1; }
+    cp -r ./* "$ibcs_input_result/"
+
+    # Change to the input result directory where the Makefile is now present
+    cd "$ibcs_input_result" || { echo "Failed to change directory to ${ibcs_input_result}"; exit 1; }
+
+    # Generate assembly files for each .c file
+    for file in *.c; do
+        if [ -f "$file" ]; then
+            base_name=$(basename "$file" .c)
+            echo "Generating assembly for $file"
+            make "${base_name}.s"
+        fi
+    done
+}
+
+
 while true; do
     select option in "${options[@]}" Quit
     do
         case $REPLY in
-            1) echo "Selected $option"; build; break;;
-            2) echo "Selected $option"; taint; break;;
-            3) echo "Selected $option"; taint_analyze; break;;
-            4) echo "Selected $option": dwarf; break;;
-            5) echo "Selected $option"; rewrite; break;;
+            1) echo "Selected $option"; taint; break;;
+            2) echo "Selected $option"; taint_analyze; break;;
+            3) echo "Selected $option": dwarf; break;;
+            4) echo "Selected $option"; rewrite; break;;
+            5) echo "Selected $option"; rewrite_dir; break;;
             $((${#options[@]}+1))) echo "Finished!"; break 2;;
             *) echo "Wrong input"; break;
         esac;
