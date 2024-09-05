@@ -113,20 +113,128 @@ log = setup_logger("custom_logger")
 
 @dataclass(unsafe_hash = True)
 class FileData:
-    name: str = None
-    asm_path: str = None
-    obj_path: str = None
-    fun_list: Optional[list] = None
-    intel_path: str = None
+    name: str = None  # Base name of the file without extension
+    asm_path: str = None  # Path to the assembly file (.s)
+    obj_path: str = None  # Path to the object file (.o)
+    fun_list: Optional[list] = None  # Optional list of functions (can be populated later)
+    dwarf_info: Optional[list] = None
+
+# Initialize an empty list to store FileData objects for files encountered.
+file_list = list()
+# This list contains all functions analyzed per asm file
+fun_list = list() 
+# This list will contain all target files based on searching through all directories
+target_list = list()
+
+def visit_dir(dir_list):
+    for root, dirs, files in os.walk(dir_list):  # Walk through the directory structure
+        for file_name in files:
+            temp_file = None  # Temporary variable to hold a matching FileData object
+            tgt_index = None  # Index to locate an existing FileData object if it already exists
+
+            base_name = os.path.splitext(os.path.basename(file_name))[0]  # Extract the file base name (without extension)
+            
+            # Check if there's already a FileData object for the file
+            for index, file_item in enumerate(file_list):
+                if isinstance(file_item, FileData) and file_item.name == base_name:
+                    tgt_index = index  # Save the index if a match is found
+
+            # If a matching FileData object was found, retrieve it, otherwise create a new one
+            if tgt_index is not None:
+                temp_file = file_list[tgt_index]
+            else:
+                temp_file = FileData(base_name)  # Create a new FileData object with the base name
+                file_list.append(temp_file)  # Append the new FileData to the list immediately
+
+            # Check file extensions to update the appropriate path in the FileData object
+            if file_name.endswith(".s"):  # If it's an assembly file
+                file_path = os.path.join(root, file_name)  # Get the full path
+                temp_file.asm_path = file_path  # Store the assembly file path
+                # logger.debug(f"Updated asm_path for {temp_file}")
+            elif file_name.endswith(".o"):  # If it's an object file
+                file_path = os.path.join(root, file_name)  # Get the full path
+                temp_file.obj_path = file_path  # Store the object file path
+                # logger.debug(f"Updated obj_path for {temp_file}")
+
+
+def find_funs(file_list):
+    fun_regex = re.compile(r'\t\.type\s+.*,\s*@function\n\b(^.[a-zA-Z_.\d]+)\s*:', re.MULTILINE)
+    for file_item in file_list:
+        if file_item.asm_path != None:
+            with open(file_item.asm_path, 'r') as asm_file:
+                asm_string = asm_file.read()
+                fun_names = fun_regex.findall(asm_string)
+            for name in fun_names:
+                fun_list.append(name)
+            if file_item.fun_list == None:
+                file_item.fun_list = fun_list.copy()
+            fun_list.clear()
 
 def analyze_directory(target_dir, base_name):
-    analysis_file = target_dir / f"{base_name}.analysis"
-    # analysis_list = process_analysis_file(analysis_file)
+    result_dir = target_dir
+    logger.debug(result_dir)
+
+    # Check subdirectories
+    visit_dir(target_dir)
+
+    # Find function(s) from all the files
+    find_funs(file_list)
+
+    # Debugging analysis file
+    analysis_list = list()
+    analysis_file = result_dir / f"{base_name}.analysis"
+    with open(analysis_file) as ff:
+        for line in ff:
+            analysis_list = line.split(',')
+    for file_item in file_list:
+        if file_item.fun_list != None:
+            file_fun_list = file_item.fun_list
+            found = [element for element in analysis_list if element in file_fun_list]
+            if found:
+                target_list.append(file_item)
+    
+    dwarf_fun_list = list()
+    # Generate DWARF information for each file
+    for file_item in target_list:
+        file_item: FileData
+        log.info("Analyzing %s", file_item) 
+        file_item.dwarf_info = dwarf_analysis(file_item.obj_path)
+        for fun in file_item.dwarf_info:
+            dwarf_fun_list.append(fun)
+            fun: FunData
+            # logger.info(fun.name)
+            # for var in fun.var_list:
+            #     print_var_data(var)
+
+    fun_table_offsets = generate_table(dwarf_fun_list, result_dir)
+    pprint.pprint(fun_table_offsets)
+    for fun in fun_table_offsets:
+        if len(fun_table_offsets[fun]) > 0:
+            logger.info(f"Variables for the function: {fun}")
+            for var in fun_table_offsets[fun]:
+                var: VarData
+                # pprint.pprint(var[0])
+                print_var_data(var[0])
+            print()
+        else:
+            logger.warning(f"No variables for {fun}")
+            print()
+
+    patch_count = 0
+    for file_item in target_list:
+        file_item: FileData
+        log.info("Rewriting %s", file_item)
+            
+        rewriter = AsmRewriter(analysis_list, result_dir, file_item.asm_path, fun_table_offsets, dwarf_fun_list)
+        patch_count += rewriter.run()
+    
 
 def analyze_binary(args, base_name):
+    logger.debug("Analyzing a binary")
     result_dir = Path(args.binary).resolve().parent.parent / "result" / base_name
     analysis_file   = result_dir / f"{base_name}.analysis"
     # Debugging analysis file
+    analysis_list = list()
     # analysis_file = "/home/jaewon/IBCS/result/tiny/tiny.analysis"
     with open(analysis_file) as ff:
         for line in ff:
@@ -171,7 +279,7 @@ def main():
 
     # Add arguments
     parser.add_argument('--binary', type=str, help='Path to a binary file')
-    parser.add_argument('--directory', type=str, help='Specify a directory (optional)', default=None)
+    parser.add_argument('--dir', type=str, help='Specify a directory (optional)', default=None)
 
     # Parse arguments
     args = parser.parse_args()
@@ -180,15 +288,14 @@ def main():
     base_name = None
     if args.binary is not None:
         base_name = Path(args.binary).stem  # Extracts the base name without extension
+    elif args.dir is not None:
+        base_name = Path(args.dir).stem  # Extracts the base name without extension
 
     # Perform the appropriate analysis based on the provided arguments
-    if args.directory is not None:
+    if args.dir is not None:
         log.info("Analyzing the directory")
         # Handle directory-based processing
-        target_dir = Path(args.directory).resolve()
-        if base_name is None:
-            log.error("Base name could not be determined since no binary was provided.")
-            return
+        target_dir = Path(args.dir).resolve()
         analyze_directory(target_dir, base_name)
     elif args.binary is not None:
         log.info("Analyzing the binary")

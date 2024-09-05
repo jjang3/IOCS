@@ -1,16 +1,43 @@
-# Library-related                                                                       
+# General settings
 SHELL           = /bin/zsh
+ASM             = as
 CC              = gcc
-PIEFLAGS 		= -no-pie -fno-pie
-ASMFLAGS		= -O0 -gdwarf-2 -c -save-temps=obj
+ASMFLAGS        = -O0 -gdwarf-2
+CFLAGS          = -O0 -gdwarf-2 -c
+LDFLAGS         = -no-pie
 
-LIBFLAGS	    = -Wall -fPIC -shared
-LIBLDFLAGS      = -ldl -mfsgsbase
-LIBTARGET       = lib/table.so
+# Rule to regenerate object files from assembly (.s) files, excluding table.s
+%.o: %.s
+	if [ "$<" != "table.s" ]; then \
+		$(ASM) $(ASMFLAGS) $< -o $@; \
+		$(info Finished generating $@ from $<); \
+	fi
 
-# Rule to generate object files from C files (this will also generate assembly and preprocessed files)
+# Rule to generate object files from C files, excluding table.c explicitly
 %.o: %.c
-	$(CC) $(ASMFLAGS) $< -o $@
+	if [ "$<" != "table.c" ]; then \
+		$(CC) $(CFLAGS) $< -o $@; \
+		$(info Finished generating $@ from $<); \
+	fi
+
+# List of object files from .s files, explicitly excluding table.s and table.o
+OBJFILES_FROM_ASM = $(filter-out table.s, $(patsubst %.s, %.o, $(wildcard *.s)))
+
+# List of object files from .c files, explicitly excluding table.c
+OBJFILES_FROM_C = $(filter-out table.c, $(patsubst %.c, %.o, $(wildcard *.c)))
+
+# Combine object files from C and ASM, excluding table.o if created
+OBJFILES_EXCLUDE_TABLE = $(filter-out table.o, $(sort $(OBJFILES_FROM_ASM) $(OBJFILES_FROM_C)))
+
+# Force `make rebuild` to regenerate all object files from assembly files (excluding table.s)
+.PHONY: rebuild
+rebuild: $(OBJFILES_FROM_ASM)
+	$(info Rebuilt object files from modified assembly files (excluding table.s))
+
+# Target to create the `ibcs.new` executable from object files, excluding table.o
+ibcs.new: $(OBJFILES_EXCLUDE_TABLE)
+	$(CC) $(OBJFILES_EXCLUDE_TABLE) $(LDFLAGS) -o $@
+	$(info Linked $(OBJFILES_EXCLUDE_TABLE) into ibcs.new)
 
 # Target to create the shared library
 lib: $(LIBTARGET)
@@ -18,9 +45,10 @@ lib: $(LIBTARGET)
 
 # Creating the lib/table.so shared library from table.c
 $(LIBTARGET): table.c
-	mkdir -p $(dir $@)  # Create the lib directory if it doesn't exist
+	mkdir -p $(dir $@)
 	$(CC) $(LIBFLAGS) table.c -o $@ $(LIBLDFLAGS)
+
 
 # Clean rule to remove build artifacts
 clean:
-	rm -rf lib *.o *.s *.out *.i
+	rm -rf lib *.o ibcs.new

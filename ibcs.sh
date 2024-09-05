@@ -106,6 +106,8 @@ rewrite_dir()
             rm "${base_name}.i"
         fi
     done
+
+    cd ${rewriter_path} && python3 main.py --dir ${ibcs_input_result}
 }
 
 

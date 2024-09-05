@@ -42,12 +42,12 @@ global typedef_list
 global type_dict
 
 from dwarf_atts import *
-
 class DwarfAnalyzer:
-    def __init__(self, base_name, dwarf_info, loc_parser):
+    def __init__(self, base_name, dwarf_info, loc_parser, fp):
         self.base_name = base_name
         self.dwarf_info = dwarf_info
         self.loc_parser = loc_parser
+        self.fp = fp
         self.curr_fun = None  # Initialize as None
 
     def analyze_subprog(self, CU, DIE, attributes):
@@ -66,12 +66,9 @@ class DwarfAnalyzer:
         """Finalize the processing of the current function."""
         if self.curr_fun:
             logger.info(f"Finalizing function: {self.curr_fun.name}")
-            # Additional finalization logic can go here
             fun_list.append(self.curr_fun)
-            # self.curr_fun.print_data()
-            # print()
             self.curr_fun = None  # Reset the current function after finalizing
-            
+
     def run(self):
         for CU in self.dwarf_info.iter_CUs():
             for DIE in CU.iter_DIEs():
@@ -84,15 +81,37 @@ class DwarfAnalyzer:
             # Finalize the last subprogram after processing all DIEs
             if self.curr_fun is not None:
                 self.finalize_subprog()
-        # for typedef in typedef_list:
-        #     pprint.pprint(typedef)
-        # pprint.pprint(type_dict)
-        # for fun in fun_list:
-        #     fun: FunData
-        #     fun.print_data()
-        #     print()
+
+        # After processing all DIEs, write the function data to the file
+        self.write_function_data_to_file(fun_list)
+
         logger.critical("Finished DWARF analysis")
         return fun_list
+
+    def write_function_data_to_file(self, fun_list):
+        """Writes the processed function data to the specified file."""
+        fp = self.fp
+        fp.write(f"FunCount: {len(fun_list)}\n")
+        
+        for fun in fun_list:
+            fp.write(f"\n-------------FunBegin-----------------\n")
+            fp.write(f"fun_name: {fun.name}\n")
+            fp.write(f"FunBegin: {fun.begin}\n")
+            fp.write(f"FunEnd: {fun.end}\n")
+            
+            for idx, var in enumerate(fun.var_list):
+                fp.write(f"    -------------------------------\n")
+                fp.write(f"\tVarName: {var.name}\n")
+                fp.write(f"\tOffset: {var.offset}\n")
+                fp.write(f"\tVarType: {var.var_type}\n")
+                fp.write(f"\tBaseType: {var.type_name}\n")
+                fp.write(f"    -------------VarEnd------------\n")
+            
+            fp.write(f"\n--------------FunEnd------------------\n")
+        
+        fp.write("\n")
+        fp.close()
+
         
 
     def process_die(self, CU, DIE):
@@ -119,12 +138,9 @@ def dwarf_analysis(input_binary):
     base_name = Path(input_binary).stem
     # logger.debug(base_name)
     dwarf_outfile   = target_dir.parent.joinpath("%s.dwarf" % base_name)
-    analysis_file   = target_dir.parent.joinpath("%s.analysis" % base_name)
-    with open(analysis_file) as ff:
-        for line in ff:
-            analysis_list = line.split(',')
+    logger.debug(dwarf_outfile)
     fp = open(dwarf_outfile, "w") 
-    
+    # exit()
     # logger.debug("%s\n%s\n%s\n%s", target_dir, base_name, input_binary, dwarf_outfile)
     with open(input_binary, 'rb') as f:
         elffile = ELFFile(f)
@@ -148,5 +164,6 @@ def dwarf_analysis(input_binary):
         # creates objects representing the actual location information.
         loc_parser = LocationParser(location_lists)
 
-        analyzer = DwarfAnalyzer(base_name, dwarf_info, loc_parser)
+        analyzer = DwarfAnalyzer(base_name, dwarf_info, loc_parser, fp)
+        
         return analyzer.run()

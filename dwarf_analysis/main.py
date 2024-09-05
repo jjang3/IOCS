@@ -93,12 +93,16 @@ def main():
 
     # Add arguments
     parser.add_argument('--binary', type=str, help='Path to a binary file')
-      # Parse arguments
+    parser.add_argument('--dir', type=str, help='Path to a directory')
+
+    # Parse arguments
     args = parser.parse_args()
 
     # Determine base_name if binary is provided
     if args.binary is not None:
         dwarf_analysis(args.binary)
+
+
 
 # Call main function
 if __name__ == '__main__':

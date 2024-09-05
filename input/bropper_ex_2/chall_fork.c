@@ -33,7 +33,7 @@ void serve(int fd) {
 int main() {
     Serve socket = Serve_Create();
 
-    if(socket.Bind(&socket, "0.0.0.0", 80) < 0){
+    if(socket.Bind(&socket, "0.0.0.0", 1337) < 0){
         perror("Binding socket error :");
         exit(1);
     } else if (socket.Listen(&socket, serve, 5) < 0){
