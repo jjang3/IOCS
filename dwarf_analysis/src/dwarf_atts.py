@@ -250,8 +250,9 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
                     offset_match = re.search(offset_pattern, offset)
                     if offset_match:
                         offset_value = int(offset_match.group(1))
-                        logger.debug(f"Register Offset: {curr_fun.reg_to_use}{curr_fun.fun_frame_base + offset_value}")
-                        curr_var.offset = offset_value
+                        final_offset = curr_fun.fun_frame_base + offset_value
+                        logger.debug(f"Register Offset: {curr_fun.reg_to_use}{final_offset}")
+                        curr_var.offset = final_offset
                     global_match = re.search(global_pattern, offset)
                     if global_match:
                         addr_value = global_match.group(1)

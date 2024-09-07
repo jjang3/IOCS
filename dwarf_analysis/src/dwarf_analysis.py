@@ -86,7 +86,9 @@ class DwarfAnalyzer:
         self.write_function_data_to_file(fun_list)
 
         logger.critical("Finished DWARF analysis")
-        return fun_list
+        return_fun_list = fun_list.copy()
+        fun_list.clear()
+        return return_fun_list
 
     def write_function_data_to_file(self, fun_list):
         """Writes the processed function data to the specified file."""

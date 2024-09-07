@@ -365,6 +365,16 @@ class AsmRewriter:
                     )
                     logger.warning(patched_line)
 
+            if temp_inst.opcode == "lea":
+                logger.info("Patching with lea_gs")
+                new_opcode = "lea_gs"
+                patched_line = re.sub(
+                    r"^\s*(\S+)\s+(\S+),\s*(\S+)", 
+                    r"\t%s\t%s, %d, %d\t # %s" % (new_opcode, temp_inst.dest, redir_offset, value, dis_inst.strip()), 
+                    dis_inst
+                )
+                logger.warning(patched_line)
+
             if temp_inst.opcode == "cmp":
                 logger.info("Patching with cmp_gs")
                 if temp_inst.patch == "src":

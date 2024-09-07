@@ -195,9 +195,11 @@ def analyze_directory(target_dir, base_name):
     
     dwarf_fun_list = list()
     # Generate DWARF information for each file
+    
     for file_item in target_list:
         file_item: FileData
         log.info("Analyzing %s", file_item) 
+        # if file_item.name == "chall_fork": # Use this to debug a particular file
         file_item.dwarf_info = dwarf_analysis(file_item.obj_path)
         for fun in file_item.dwarf_info:
             dwarf_fun_list.append(fun)
