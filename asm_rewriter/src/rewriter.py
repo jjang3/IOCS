@@ -355,7 +355,6 @@ class AsmRewriter:
                         dis_inst
                     )
                     logger.warning(patched_line)
-                    
                 elif temp_inst.patch == "dest":
                     new_opcode = "mov_store_gs"
                     patched_line = re.sub(
@@ -370,7 +369,7 @@ class AsmRewriter:
                 new_opcode = "lea_gs"
                 patched_line = re.sub(
                     r"^\s*(\S+)\s+(\S+),\s*(\S+)", 
-                    r"\t%s\t%s, %d, %d\t # %s" % (new_opcode, temp_inst.dest, redir_offset, value, dis_inst.strip()), 
+                    r"\t%s\t%s, %d\t # %s" % (new_opcode, temp_inst.dest, redir_offset, dis_inst.strip()), 
                     dis_inst
                 )
                 logger.warning(patched_line)
@@ -412,6 +411,10 @@ class AsmRewriter:
         fun_check = False # This is going to be initialized as false for now
         fun_name = None
         patching_candidates = set() # This set will consist of a tuple of (variable offset, redirection offset)
+        
+        # ANSI escape codes for colors
+        LIGHT_BLUE = "\033[96m"
+        RESET = "\033[0m"
         with fileinput.input(self.asm_item, inplace=(not debug), encoding="utf-8", backup='.bak') as f:
             for line in f:
                 # logger.debug(line)
@@ -438,11 +441,16 @@ class AsmRewriter:
                                 # extended to support specific offsets per function if the result from a taint analysis must be used 
                                 # (e.g., offset: -16 from the function main).
                                 if var[0].var_type == "DW_TAG_base_type":
-                                    logger.debug(f"Adding candidate {var[0].name}")
+                                    logger.debug(f"{LIGHT_BLUE}Adding candidate {var[0].name}{RESET}")
                                     patching_candidates.add((var[0].offset, var[1]))
                                     # print_var_data(var[0]) # Debug function
                                     # print()
-                                elif var[0].var_type == "DW_TAG_pointer_type" or var[0].var_type == "DW_TAG_array_type":
+                                elif var[0].var_type == "DW_TAG_array_type":
+                                    logger.debug(f"{LIGHT_BLUE}Adding candidate {var[0].name}{RESET}")
+                                    patching_candidates.add((var[0].offset, var[1]))
+                                    # exit()
+                                    # print_var_data(var[0]) # Debug function
+                                elif var[0].var_type == "DW_TAG_pointer_type":
                                     # If a heap variable needs to be compartmentalized, then there needs to be a handler here.
                                     None
                         if (len(patching_candidates) > 0):
@@ -455,6 +463,7 @@ class AsmRewriter:
                     # This detects the function end and disables the check along with cleanup for sets
                     fun_check = False
                     fun_name = None
+                    logger.error("Patching candidates cleared")
                     patching_candidates.clear()
                 
                 # ------ Patching ------ #
@@ -476,8 +485,13 @@ class AsmRewriter:
                                 offset_match = re.search(reg_offset_regex, operand)
                                 if offset_match:
                                     offset_value = int(offset_match.group('offset'))
+                                    logger.warning(f"Searching the offset: {offset_value}")
+                                    # Format patching_candidates using pprint.pformat and pass it to logger
+                                    if len(patching_candidates) > 0:
+                                        logger.debug(f"{LIGHT_BLUE}Patching candidates for the function {fun_name}:\n{pprint.pformat(patching_candidates)}{RESET}")
                                     temp_inst.patch = position
                                     for candidate in patching_candidates:
+                                        # logger.debug(f"{offset_value} | {candidate[0]}")
                                         if offset_value == candidate[0]:
                                             logger.warning("Patching target found")
                                             redir_offset = candidate[1]  # Set redir_offset from candidate[1]

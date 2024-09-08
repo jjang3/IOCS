@@ -3,8 +3,13 @@ SHELL           = /bin/zsh
 ASM             = as
 CC              = gcc
 ASMFLAGS        = -O0 -gdwarf-2
-CFLAGS          = -O0 -gdwarf-2 -c
+CFLAGS          = -O0 -gdwarf-2 -c -save-temps=obj
 LDFLAGS         = -no-pie
+
+# Add this to the General settings
+LIBTARGET       = lib/table.so
+LIBFLAGS        = -fPIC -O2 -mfsgsbase
+LIBLDFLAGS      = -shared
 
 # Rule to regenerate object files from assembly (.s) files, excluding table.s
 %.o: %.s
@@ -41,13 +46,14 @@ ibcs.new: $(OBJFILES_EXCLUDE_TABLE)
 
 # Target to create the shared library
 lib: $(LIBTARGET)
-	echo $(PWD)
+	$(info Creating shared library $(LIBTARGET))
+	@echo $(PWD)
 
 # Creating the lib/table.so shared library from table.c
 $(LIBTARGET): table.c
 	mkdir -p $(dir $@)
 	$(CC) $(LIBFLAGS) table.c -o $@ $(LIBLDFLAGS)
-
+	$(info Finished building $(LIBTARGET))
 
 # Clean rule to remove build artifacts
 clean:

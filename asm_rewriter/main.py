@@ -200,6 +200,10 @@ def analyze_directory(target_dir, base_name):
         file_item: FileData
         log.info("Analyzing %s", file_item) 
         # if file_item.name == "chall_fork": # Use this to debug a particular file
+        if file_item.obj_path == None:
+            logger.error("No obj file exists (maybe from reassembly error, please generate a new obj file)")
+            os.kill(os.getppid(),signal.SIGTERM)
+            sys.exit(2)
         file_item.dwarf_info = dwarf_analysis(file_item.obj_path)
         for fun in file_item.dwarf_info:
             dwarf_fun_list.append(fun)
@@ -209,7 +213,9 @@ def analyze_directory(target_dir, base_name):
             #     print_var_data(var)
 
     fun_table_offsets = generate_table(dwarf_fun_list, result_dir)
+    logger.info("Redirection table offsets:")
     pprint.pprint(fun_table_offsets)
+    
     for fun in fun_table_offsets:
         if len(fun_table_offsets[fun]) > 0:
             logger.info(f"Variables for the function: {fun}")

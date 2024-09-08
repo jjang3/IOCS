@@ -5,7 +5,7 @@ PS3="Select options: "
 input=$1
 CFLAGS="-O0 -gdwarf-2"
 
-options=("Taint" "Analyze Taint" "DWARF" "Rewrite" "Rewrite Directory")
+options=("Build File" "Build Dir." "DWARF" "Rewrite File" "Rewrite Dir.")
 
 # Folder paths
 grandp_path=$( cd ../../"$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
@@ -40,17 +40,55 @@ ibcs_out_file=${ibcs_input_result}/${1}_ibcs.out
 ibcs_dwarf_file=${ibcs_input_result}/$1.dwarf
 ibcs_analysis_file=${ibcs_input_result}/$1.analysis
 
-taint()
+build()
 {
-    echo "Taint analysis"
+    echo "Build a file"
+    if [ ! -f "$ibcs_bin_file" ]; then
+        echo "Generate the original file"
+        cd ${ibcs_input_path} && make ${input}.out
+    fi
 }
 
-taint_analyze()
+build_dir()
 {
-    echo "Find vulnerable data"
+    echo "Build a directory"
+
+    if [ ! -d "$ibcs_input_result" ]; then
+        echo "Input result directory doesn't exist, creating it."
+        mkdir $ibcs_input_result
+    else
+        echo "Input result directory exists, cleaning it."
+        rm -rf "${ibcs_input_result:?}/"*
+    fi
+
+
+    # Copy the Makefile and source files into the input result directory
+    cd "${ibcs_input_path}" || { echo "Failed to change directory to ${ibcs_input_path}"; exit 1; }
+    cp dirMakefile "$ibcs_input_result/Makefile"
+    
+    cd "${ibcs_input_path}/${input}" || { echo "Failed to change directory to ${ibcs_input_path}/${input}"; exit 1; }
+    cp -r ./* "$ibcs_input_result/"
+
+    # Change to the input result directory where the Makefile is now present
+    cd "$ibcs_input_result" || { echo "Failed to change directory to ${ibcs_input_result}"; exit 1; }
+
+    # Create or overwrite the .analysis file
+    analysis_file="${ibcs_input_result}/${input}.analysis"
+    echo "main" > "$analysis_file"
+
+    # Generate assembly files for each .c file
+    for file in *.c; do
+        if [ -f "$file" ]; then
+            base_name=$(basename "$file" .c)
+            echo "Generating assembly for $file"
+            make "${base_name}.s"
+            make "${base_name}.o"
+            rm "${base_name}.i"
+        fi
+    done
 }
 
-dwarf()
+dwarf_analysis()
 {
     echo "Extract DWARF information"
     cd ${dwarf_path} && python3 main.py --binary ${input}.out
@@ -65,10 +103,6 @@ rewrite()
     fi
 
     echo "Rewrite the assembly code" 
-    if [ ! -f "$ibcs_bin_file" ]; then
-        echo "Generate the original file"
-        cd ${ibcs_input_path} && make ${input}.out
-    fi
     cd ${rewriter_path} && python3 main.py --binary ${input}.out
     # cd ${ibcs_input_result} && make lib && make ${input}.new
 }
@@ -80,32 +114,6 @@ rewrite_dir()
         echo "Result directory doesn't exist"
         mkdir $ibcs_result_path
     fi
-    
-    if [ ! -d "$ibcs_input_result" ]; then
-        echo "Input result directory doesn't exist"
-        mkdir $ibcs_input_result
-    fi
-
-    # Copy the Makefile and source files into the input result directory
-    cd "${ibcs_input_path}" || { echo "Failed to change directory to ${ibcs_input_path}"; exit 1; }
-    cp dirMakefile "$ibcs_input_result/Makefile"
-    
-    cd "${ibcs_input_path}/${input}" || { echo "Failed to change directory to ${ibcs_input_path}/${input}"; exit 1; }
-    cp -r ./* "$ibcs_input_result/"
-
-    # Change to the input result directory where the Makefile is now present
-    cd "$ibcs_input_result" || { echo "Failed to change directory to ${ibcs_input_result}"; exit 1; }
-
-    # Generate assembly files for each .c file
-    for file in *.c; do
-        if [ -f "$file" ]; then
-            base_name=$(basename "$file" .c)
-            echo "Generating assembly for $file"
-            make "${base_name}.s"
-            make "${base_name}.o"
-            rm "${base_name}.i"
-        fi
-    done
 
     cd ${rewriter_path} && python3 main.py --dir ${ibcs_input_result}
 }
@@ -115,9 +123,9 @@ while true; do
     select option in "${options[@]}" Quit
     do
         case $REPLY in
-            1) echo "Selected $option"; taint; break;;
-            2) echo "Selected $option"; taint_analyze; break;;
-            3) echo "Selected $option": dwarf; break;;
+            1) echo "Selected $option"; build; break;;
+            2) echo "Selected $option"; build_dir; break;;
+            3) echo "Selected $option": dwarf_analysis; break;;
             4) echo "Selected $option"; rewrite; break;;
             5) echo "Selected $option"; rewrite_dir; break;;
             $((${#options[@]}+1))) echo "Finished!"; break 2;;

@@ -135,6 +135,7 @@ class DwarfAnalyzer:
             # None
             
 def dwarf_analysis(input_binary):
+    
     logger.info("DWARF analysis")
     target_dir = Path(os.path.abspath(input_binary))
     base_name = Path(input_binary).stem
