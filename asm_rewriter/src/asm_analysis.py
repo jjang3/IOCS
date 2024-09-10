@@ -12,13 +12,14 @@ import re
 logger = logging.getLogger('custom_logger')
 
 class PatchingInst:
-    def __init__(self, opcode, prefix, operand_1, operand_2):
+    def __init__(self, opcode, prefix, operand_1, operand_2, assembly_code = None):
         # This is based on AT&T syntax, where it is opcode, src, dest ->
         self.opcode = opcode
         self.prefix = prefix
         self.src = operand_1
         self.dest = operand_2
         self.patch = None
+        self.assembly_code: assembly_code
     
     def inst_print(self):
         logger.debug(
@@ -28,6 +29,7 @@ class PatchingInst:
             f"  - Source      : {self.src}\n"
             f"  - Destination : {self.dest}\n"
             f"  - Patching    : {self.patch}\n"
+            f"  - Assembly    : {self.assembly_code if self.assembly_code else 'N/A'}\n"
             # f"  - Pointer     : {getattr(self, 'ptr_op', 'N/A')}\n" # Need to be added later
         )
 
@@ -55,24 +57,31 @@ LIGHT_BLUE = "\033[96m"
 RESET = "\033[0m"
 
 class BinAnalysis:    
-    def analyze_bb(self, bb, type):
-        for inst in bb: 
-            if type is "llil":
-                inst: LowLevelILInstruction
+    def analyze_inst(self, inst):
+        if isinstance(inst, LowLevelILInstruction):
             addr = inst.address
             dis_inst = self.bv.get_disassembly(addr)
             logger.debug(inst)
             logger.debug(f"{LIGHT_BLUE}{chr(int(arrow[2:], 16))} {dis_inst}{RESET}")
             print()
-            
-    def analyze_fun(self):
-        llil_fun_ssa = self.fun.low_level_il.ssa_form
-        for llil_bb_ssa in llil_fun_ssa:
-            self.analyze_bb(llil_bb_ssa, "llil")
+        elif isinstance(inst, MediumLevelILInstruction):
+            logger.debug(inst)
+        else:
+            logger.warning(f"Skipping instruction of unexpected type: {inst}")
 
-    def bn_analysis(self, analysis_list):
+    def analyze_bb(self, bb):
+        for inst in bb:
+            # Ensure the correct type before proceeding
+            self.analyze_inst(inst)
+
+    def analyze_fun(self):
+        llil_fun = self.fun.low_level_il
+        for llil_bb in llil_fun:
+            self.analyze_bb(llil_bb)
+
+    def asm_lex_analysis(self, analysis_list):
         print("")
-        columns, rows = shutil.get_terminal_size(fallback=(80, 20))      
+        columns, rows = shutil.get_terminal_size(fallback=(80, 20))
         logger.info("Binary analysis (Binary Ninja)")
         for func in self.bv.functions:
             func: Function 
@@ -81,7 +90,11 @@ class BinAnalysis:
                 addr_range = func.address_ranges[0]
                 self.begin   = addr_range.start
                 self.end     = addr_range.end
-                logger.info("Function: %s\t| begin: %s | end: %s", self.fun, self.begin, self.end)
+                # Format the log message to span across the width of the terminal
+                log_message = f"Function: {self.fun}\t| begin: {self.begin} | end: {self.end}"
+                if len(log_message) > columns:
+                    log_message = log_message[:columns-3] + "..."
+                logger.info(log_message)
                 self.analyze_fun()
       
     def __init__(self, bv):
@@ -113,6 +126,6 @@ def process_binary(input_binary, analysis_list):
 
     # Create a BinAnalysis object and run the analysis
     bn = BinAnalysis(bv)
-    return bn.bn_analysis(analysis_list)
+    return bn.asm_lex_analysis(analysis_list)
 
    
