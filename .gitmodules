@@ -1,0 +1,3 @@
+[submodule "exploits/bropper_ex_2/Bropper"]
+	path = exploits/bropper_ex_2/Bropper
+	url = https://github.com/Hakumarachi/Bropper
