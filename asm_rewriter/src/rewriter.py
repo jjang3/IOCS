@@ -11,7 +11,7 @@ import signal
 
 from pathlib import Path, PosixPath
 
-from asm_analysis import *
+from asm_analysis import * # Imports PatchingInst
 from dwarf_analysis import *
 
 # Get the same logger instance. Use __name__ to get a logger with a hierarchical name or a specific string to get the exact same logger.
