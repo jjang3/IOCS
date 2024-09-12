@@ -5,7 +5,7 @@ PS3="Select options: "
 input=$1
 CFLAGS="-O0 -gdwarf-2"
 
-options=("Build File" "Build Dir." "DWARF" "Rewrite File" "Rewrite Dir.")
+options=("Build File" "Build Dir." "Rewrite File" "Rewrite Dir.")
 
 # Folder paths
 grandp_path=$( cd ../../"$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
@@ -88,12 +88,14 @@ build_dir()
     done
 }
 
-dwarf_analysis()
-{
-    echo "Extract DWARF information"
-    cd ${dwarf_path} && python3 main.py --binary ${input}.out
+# dwarf_analysis()
+# {
+#     echo "Extract DWARF information"
+#     cd ${dwarf_path} && python3 main.py --binary ${input}.out
 
-}
+# }
+# 3) echo "Selected $option": dwarf_analysis; break;;
+            
 
 rewrite()
 {
@@ -125,9 +127,8 @@ while true; do
         case $REPLY in
             1) echo "Selected $option"; build; break;;
             2) echo "Selected $option"; build_dir; break;;
-            3) echo "Selected $option": dwarf_analysis; break;;
-            4) echo "Selected $option"; rewrite; break;;
-            5) echo "Selected $option"; rewrite_dir; break;;
+            3) echo "Selected $option"; rewrite; break;;
+            4) echo "Selected $option"; rewrite_dir; break;;
             $((${#options[@]}+1))) echo "Finished!"; break 2;;
             *) echo "Wrong input"; break;
         esac;

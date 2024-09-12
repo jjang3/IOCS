@@ -67,6 +67,10 @@ def print_var_data(var_data: VarData):
     # Print the cleaned output
     logger.debug(", ".join(output))
 
+ # ANSI escape codes for colors
+LIGHT_BLUE = "\033[96m"
+RESET = "\033[0m"
+
 fun_list = list()
 class FunData:
     def __init__(self, name: str = None, begin: Optional[int] = None, end: Optional[int] = None):
@@ -194,7 +198,7 @@ def parse_dwarf_type(dwarf_info, DIE, curr_var: VarData):
             type_name = get_type_name(dwarf_info, type_die)
             if type_name != None:
                 curr_var.type_name = type_name
-            logger.error("base_type: %s ",type_name)
+            logger.debug(f"{LIGHT_BLUE}base_type: {type_name}{RESET}")
         elif type_die.tag == "DW_TAG_pointer_type" or type_die.tag == "DW_TAG_array_type":
             curr_var.var_type = type_die.tag
             type_name = get_type_name(dwarf_info, type_die)

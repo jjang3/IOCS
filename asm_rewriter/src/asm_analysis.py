@@ -28,7 +28,6 @@ class PatchingInst:
             f"  - Prefix      : {self.prefix}\n"
             f"  - Source      : {self.src}\n"
             f"  - Destination : {self.dest}\n"
-            f"  - Patching    : {self.patch}\n"
             f"  - Assembly    : {self.assembly_code if self.assembly_code else 'N/A'}\n"
             # f"  - Pointer     : {getattr(self, 'ptr_op', 'N/A')}\n" # Need to be added later
         )
@@ -144,12 +143,26 @@ class BinAnalysis:
             if imm1:
                 operand1 = int(imm1.replace('$0x', '0x'), 16)  # Convert immediate value to int
             else:
-                operand1 = register1 if register1 else f"[{register1}+{offset1}]" if offset1 else None
+                if offset1 and not register1:
+                    # Only offset, convert to plain int (no register, no brackets)
+                    operand1 = str(int(offset1, 16))  # Convert offset from hex to integer
+                elif register1 and offset1:
+                    # Both register and offset exist
+                    operand1 = f"{int(offset1, 16)}({register1})"
+                else:
+                    operand1 = register1 if register1 else None
 
             if imm2:
                 operand2 = int(imm2.replace('$0x', '0x'), 16)  # Convert immediate value to int
             else:
-                operand2 = register2 if register2 else f"[{register2}+{offset2}]" if offset2 else None
+                if offset2 and not register2:
+                    # Only offset, convert to plain int (no register, no brackets)
+                    operand2 = str(int(offset2, 16))
+                elif register2 and offset2:
+                    # Both register and offset exist
+                    operand2 = f"{int(offset2, 16)}({register2})"
+                else:
+                    operand2 = register2 if register2 else None
 
             # Determine the appropriate prefix based on memory size or register type
             prefix = ""
@@ -190,7 +203,6 @@ class BinAnalysis:
             logger.debug(f"{LIGHT_BLUE}Opcode: {opcode} with prefix: {prefix}{RESET}")
             logger.debug(f"{LIGHT_BLUE}Operand 1: {operand1} (Memory size: {memsize1}, Register: {register1}, Offset: {offset1}, Immediate: {imm1}){RESET}")
             logger.debug(f"{LIGHT_BLUE}Operand 2: {operand2} (Memory size: {memsize2}, Register: {register2}, Offset: {offset2}, Immediate: {imm2}){RESET}")
-
 
     def analyze_inst(self, inst):
         if isinstance(inst, LowLevelILInstruction):
