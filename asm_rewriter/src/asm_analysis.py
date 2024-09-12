@@ -55,14 +55,21 @@ arrow = 'U+21B3'
 LIGHT_BLUE = "\033[96m"
 RESET = "\033[0m"
 
-class BinAnalysis:
-    suffix_map = {
+suffix_map = {
         "qword": "q",  # Quadword -> q
         "dword": "l",  # Doubleword -> l
         "word": "w",   # Word -> w
         "byte": "b"    # Byte -> b
-    }
+}
+xfer_insts = {
+    'jmp', 'je', 'jz', 'jne', 'jnz', 'jg', 'jnle', 'jge', 'jnl', 'jl', 'jnge',
+    'jle', 'jng', 'ja', 'jnbe', 'jae', 'jnb', 'jb', 'jnae', 'jbe', 'jna', 'jc',
+    'jnc', 'jo', 'jno', 'js', 'jns', 'jp', 'jpe', 'jnp', 'jpo', 'call', 'ret',
+    'loop', 'loope', 'loopz', 'loopne', 'loopnz', 'jmpf', 'int', 'iret', 'syscall',
+    'sysenter', 'sysexit'
+}
 
+class BinAnalysis:
     def determine_prefix_from_registers(self, reg1, reg2):
         if reg1 and reg2:
             if reg1.startswith("%r") and reg2.startswith("%r"):  # 64-bit registers
@@ -93,7 +100,7 @@ class BinAnalysis:
                 return "b"
         return ""
 
-    def process_instruction(self, dis_inst):
+    def process_dis_inst(self, dis_inst):
         dis_line_regex = r"""
         (?P<opcode>\w+)\s+
         (?P<operand1>
@@ -168,10 +175,10 @@ class BinAnalysis:
             prefix = ""
             if memsize1:
                 memsize1 = memsize1.strip()  # Remove extra spaces
-                prefix = self.suffix_map.get(memsize1.split()[0], "")  # Get the prefix without "ptr"
+                prefix = suffix_map.get(memsize1.split()[0], "")  # Get the prefix without "ptr"
             elif memsize2:
                 memsize2 = memsize2.strip()  # Remove extra spaces
-                prefix = self.suffix_map.get(memsize2.split()[0], "")  # Get the prefix without "ptr"
+                prefix = suffix_map.get(memsize2.split()[0], "")  # Get the prefix without "ptr"
             else:
                 # Determine prefix based on registers and immediate values
                 if imm1 and register2:  # If operand1 is an immediate and operand2 is a register
@@ -193,37 +200,76 @@ class BinAnalysis:
                 prefix=prefix,
                 operand_1=operand1,
                 operand_2=operand2,
-                assembly_code=dis_inst  # The full instruction text
+                assembly_code=dis_inst  # The full instruction text in the Intel syntax
             )
 
             # Use the PatchingInst's inst_print method to display the patching details
-            patching_inst.inst_print()
+            # patching_inst.inst_print()
 
             # Log the results with the debug logger
-            logger.debug(f"{LIGHT_BLUE}Opcode: {opcode} with prefix: {prefix}{RESET}")
-            logger.debug(f"{LIGHT_BLUE}Operand 1: {operand1} (Memory size: {memsize1}, Register: {register1}, Offset: {offset1}, Immediate: {imm1}){RESET}")
-            logger.debug(f"{LIGHT_BLUE}Operand 2: {operand2} (Memory size: {memsize2}, Register: {register2}, Offset: {offset2}, Immediate: {imm2}){RESET}")
+            # logger.debug(f"{LIGHT_BLUE}Opcode: {opcode} with prefix: {prefix}{RESET}")
+            # logger.debug(f"{LIGHT_BLUE}Operand 1: {operand1} (Memory size: {memsize1}, Register: {register1}, Offset: {offset1}, Immediate: {imm1}){RESET}")
+            # logger.debug(f"{LIGHT_BLUE}Operand 2: {operand2} (Memory size: {memsize2}, Register: {register2}, Offset: {offset2}, Immediate: {imm2}){RESET}")
+            
+            if opcode in xfer_insts:
+                return None
+            else:
+                return patching_inst
+        else:
+            return None
 
-    def analyze_inst(self, inst):
+    def gen_ast(self, inst, fun):
+        if isinstance(inst, LowLevelILInstruction) and isinstance(fun, LowLevelILFunction):
+            logger.info("Generating the Assembly Syntax Tree")
+            reg_def = fun.get_ssa_reg_definition(inst)
+            logger.debug(reg_def)
+            if reg_def != None:
+                if type(reg_def.src) == binaryninja.lowlevelil.LowLevelILConstPtr:
+                    logger.error("Global, return None")
+                    return None
+        else:
+            return None
+
+
+    def analyze_inst(self, inst, fun):
+        transfer_ILs = (
+            binaryninja.commonil.ControlFlow,
+            binaryninja.commonil.Call,
+            binaryninja.commonil.Return,
+            binaryninja.commonil.BranchType
+        )
+        
+        if isinstance(inst, transfer_ILs):
+            return
+            
         if isinstance(inst, LowLevelILInstruction):
+            logger.info(f"Analyzing the instruction: {inst}")
             addr = inst.address
             dis_inst = self.bv.get_disassembly(addr)
-            pro_inst = self.process_instruction(dis_inst)
+            pro_inst: PatchingInst
+            pro_inst = self.process_dis_inst(dis_inst)
+            if pro_inst != None:
+                pro_inst.inst_print()
+            
+            asm_syntax_tree = self.gen_ast(fun, inst)
+            print()
             
         elif isinstance(inst, MediumLevelILInstruction):
             logger.debug(inst)
+            print()
         else:
             logger.warning(f"Skipping instruction of unexpected type: {inst}")
+            print()
 
-    def analyze_bb(self, bb):
+    def analyze_bb(self, bb, fun):
         for inst in bb:
             # Ensure the correct type before proceeding
-            self.analyze_inst(inst)
+            self.analyze_inst(inst, fun)
 
     def analyze_fun(self):
         llil_fun = self.fun.low_level_il
         for llil_bb in llil_fun:
-            self.analyze_bb(llil_bb)
+            self.analyze_bb(llil_bb, llil_fun)
 
     def asm_lex_analysis(self, analysis_list):
         print("")
