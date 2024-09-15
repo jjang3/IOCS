@@ -31,54 +31,23 @@ class PatchingInst:
             f"  - Assembly    : {self.assembly_code if self.assembly_code else 'N/A'}\n"
             # f"  - Pointer     : {getattr(self, 'ptr_op', 'N/A')}\n" # Need to be added later
         )
-class BnNode:
-    """
-    Base class for nodes in the Binary Ninja Abstract Syntax Tree (AST).
-    This serves as a common interface for all AST node types.
-    """
-    def __init__(self, is_root=False):
-        self.is_root = is_root
-
-    def __repr__(self):
-        return f"{self.__class__.__name__}(is_root={self.is_root})"
-
-
-class RegNode(BnNode):
-    """
-    AST node representing a register or constant.
-    
-    Attributes:
-        value: The value or register associated with this node.
-    """
-    def __init__(self, value, is_root=False):
-        super().__init__(is_root)
-        self.value = value
-
-
-class BnSSAOp(BnNode):
-    """
-    AST node representing an SSA operation.
-    
-    Attributes:
-        left: Left operand of the operation.
-        op: The operation (e.g., addition, assignment).
-        right: Right operand of the operation.
-    """
-    def __init__(self, left, op, right, is_root=False):
-        super().__init__(is_root)
-        self.left = left
-        self.op = op
-        self.right = right
 
 
 from binaryninja import *
 from binaryninja.binaryview import BinaryViewType
 from binaryninja.architecture import Architecture, ArchitectureHook
+from binaryninja.enums import LowLevelILOperation
+
 
 arrow = 'U+21B3'
  # ANSI escape codes for colors
 LIGHT_BLUE = "\033[96m"
+LIGHT_GREEN = "\033[92m"
 RESET = "\033[0m"
+PURPLE = "\033[95m"
+PINK = "\033[95m"
+DARK_GREEN = "\033[32m"  # Darker shade of green
+CYAN = "\033[36m"        # Cyan color as a different shade of blue
 
 suffix_map = {
         "qword": "q",  # Quadword -> q
@@ -94,7 +63,281 @@ xfer_insts = {
     'sysenter', 'sysexit'
 }
 
+arith_bitwise_ops = {
+    LowLevelILOperation.LLIL_ADD, LowLevelILOperation.LLIL_SUB, LowLevelILOperation.LLIL_MUL,
+    LowLevelILOperation.LLIL_DIVU, LowLevelILOperation.LLIL_DIVS, LowLevelILOperation.LLIL_MODU,
+    LowLevelILOperation.LLIL_MODS, LowLevelILOperation.LLIL_AND, LowLevelILOperation.LLIL_OR,
+    LowLevelILOperation.LLIL_XOR, LowLevelILOperation.LLIL_LSL, LowLevelILOperation.LLIL_LSR,
+    LowLevelILOperation.LLIL_ASR, LowLevelILOperation.LLIL_ROR, LowLevelILOperation.LLIL_ROL,
+    LowLevelILOperation.LLIL_NEG, LowLevelILOperation.LLIL_NOT
+}
+
+ignore_ops = {
+    LowLevelILOperation.LLIL_PUSH, LowLevelILOperation.LLIL_CONST_PTR
+}
+
+
+class ASTNode:
+    """
+    Base class for nodes in the Abstract Syntax Tree (AST).
+    """
+    def __init__(self, is_root=False):
+        self.is_root = is_root
+        if is_root == True:
+            logger.debug(f"Created {self.__class__.__name__} with is_root={self.is_root}")
+
+    def print_tree(self, prefix="", is_last=True, direction="root"):
+        """
+        Recursively prints the AST tree with direction indicators.
+        """
+        connector = "└── " if is_last else "├── "
+        direction_indicator = f"({direction})" if direction != "root" else ""
+        
+        # logger.debug(f"Printing tree for {self.__class__.__name__} {direction_indicator}")
+        print(prefix + connector + repr(self) + direction_indicator)
+        
+        new_prefix = prefix + ("    " if is_last else "│   ")
+        
+        if hasattr(self, 'left') and self.left:
+            self.left.print_tree(new_prefix, is_last=False, direction="left")
+        
+        if hasattr(self, 'right') and self.right:
+            self.right.print_tree(new_prefix, is_last=True, direction="right")
+
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}(is_root={self.is_root})"
+
+    @staticmethod
+    def create_node(llil_fun, llil_inst, is_root=False):
+        logger.debug(f"Create node called with llil_inst={llil_inst} and is_root={is_root}")
+
+        # Handle SSA Register
+        if isinstance(llil_inst, binaryninja.lowlevelil.SSARegister):
+            logger.debug(f"{LIGHT_GREEN}Creating SSA Register node.{RESET}")
+            return RegisterNode.create_node_from_ssa_reg(llil_fun, llil_inst, is_root)
+
+        # Handle Regular Register
+        elif isinstance(llil_inst, binaryninja.lowlevelil.ILRegister):
+            logger.debug(f"{LIGHT_GREEN}Creating IL Register node.{RESET}")
+            return RegisterNode.create_node_from_register(llil_inst, is_root)
+
+        # Handle Constant Value
+        elif isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILConst):
+            logger.debug(f"{LIGHT_GREEN}Creating Constant node with value {llil_inst.constant}.{RESET}")
+            return RegisterNode.create_node_from_constant(llil_inst.constant, is_root)
+
+        # Handle Operations
+        elif isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILInstruction):
+            op_name = llil_inst.operation.name
+            logger.debug(f"{LIGHT_GREEN}Creating Operation node for op {op_name}.{RESET}")
+            
+            # Recursively create the left and right nodes
+            left = ASTNode.create_node(llil_fun, llil_inst.left) if hasattr(llil_inst, 'left') else None
+            right = ASTNode.create_node(llil_fun, llil_inst.right) if hasattr(llil_inst, 'right') else None
+
+            logger.debug(f"Created left node: {left}, right node: {right} for operation: {op_name}")
+            return OperationNode(left, op_name, right, is_root=is_root)
+
+        else:
+            logger.error(f"Unhandled instruction type: {type(llil_inst)}.")
+            raise NotImplementedError(f"Unhandled LLIL instruction type: {type(llil_inst)}")
+
+class RegisterNode(ASTNode):
+    """
+    AST node representing a register or constant.
+    """
+    def __init__(self, value, is_root=False):
+        super().__init__(is_root)
+        self.value = value
+        logger.debug(f"{LIGHT_GREEN}Created RegisterNode with value={self.value}{RESET}")
+
+    @staticmethod
+    def create_node_from_ssa_reg(llil_fun, llil_inst, is_root=False):
+        logger.debug(f"{LIGHT_GREEN}Creating RegisterNode from SSARegister: {llil_inst}{RESET}")
+        return RegisterNode(llil_inst, is_root)
+
+    @staticmethod
+    def create_node_from_reg(llil_inst, is_root=False):
+        logger.debug(f"{LIGHT_GREEN}Creating RegisterNode from ILRegister: {llil_inst}{RESET}")
+        return RegisterNode(llil_inst, is_root)
+
+    @staticmethod
+    def create_node_from_const(const_value, is_root=False):
+        logger.debug(f"{LIGHT_GREEN}Creating RegisterNode from const: {const_value}{RESET}")
+        return RegisterNode(const_value, is_root)
+
+    def __repr__(self):
+        return f"RegisterNode(value={self.value}, is_root={self.is_root})"
+
+class OperationNode(ASTNode):
+    """
+    AST node representing an operation involving other nodes.
+    """
+    def __init__(self, left, op, right, is_root=False):
+        super().__init__(is_root)
+        self.left = left
+        self.op = op
+        self.right = right
+        logger.debug(f"Created OperationNode with operation={self.op}")
+
+    @staticmethod
+    def create_from_operation(llil_fun, llil_inst, is_root=False):
+        logger.debug(f"Creating OperationNode for instruction: {llil_inst}")
+        if isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILLoadSsa):
+            right = ASTNode.create_node(llil_fun, llil_inst.src)
+            return OperationNode(None, llil_inst.operation, right, is_root)
+        elif isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILZx):
+            right = ASTNode.create_node(llil_fun, llil_inst.src)
+            return OperationNode(None, llil_inst.operation, right, is_root)
+        elif isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILLowPart):
+            right = ASTNode.create_node(llil_fun, llil_inst.src)
+            return OperationNode(None, llil_inst.operation, right, is_root)
+        elif isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILStore):
+            logger.debug(f"Handling LowLevelILStore operation at address {llil_inst.address}.")
+            dest = ASTNode.create_node(llil_fun, llil_inst.dest)
+            src = ASTNode.create_node(llil_fun, llil_inst.src)
+            return OperationNode(dest, "store", src, is_root=is_root)
+        elif binaryninja.commonil.Arithmetic in llil_inst.__class__.__bases__:
+            left = ASTNode.create_node(llil_fun, llil_inst.left)
+            right = ASTNode.create_node(llil_fun, llil_inst.right)
+            return OperationNode(left, llil_inst.operation, right, is_root)
+        return None
+
+    def __repr__(self):
+        return f"OperationNode(op={self.op}, is_root={self.is_root})"
+
+    def print_tree(self, prefix="", is_last=True, direction="root"):
+        """
+        Recursively prints the AST tree with direction indicators.
+        """
+        connector = "└── " if is_last else "├── "
+        direction_indicator = f"({direction})" if direction != "root" else ""
+        # logger.debug(f"Printing tree for OperationNode {direction_indicator}")
+        print(prefix + connector + f"OperationNode(op={self.op}, is_root={self.is_root}){direction_indicator}")
+        
+        new_prefix = prefix + ("    " if is_last else "│   ")
+        
+        if self.left:
+            self.left.print_tree(new_prefix, is_last=False, direction="left")
+        if self.right:
+            self.right.print_tree(new_prefix, is_last=True, direction="right")
+
 class BinAnalysis:
+    def gen_ast(self, llil_fun, llil_inst, is_root=False):
+        """
+        Generate an AST node based on a given Low-Level IL instruction or assembly instruction.
+
+        Args:
+            llil_fun: The function in which the instruction resides.
+            llil_inst: The Low-Level IL instruction or register.
+            asm_inst: Optional; the associated assembly instruction (default is None).
+            is_root: Boolean flag to indicate whether this node is a root node (default is False).
+
+        Returns:
+            A RegNode, BnSSAOp, or None if the instruction cannot be resolved.
+        
+        Example for handling:
+        
+        1. Move instruction: 'mov %edi, %rax'
+           - SSA form: %rax#1 = %edi#1
+           - The function will detect the register assignment (LLIL_SET_REG_SSA)
+           - Left operand: %rax#1 (generated using gen_ast)
+           - Right operand: %edi#1 (generated using gen_ast)
+           - Result: BnSSAOp representing the operation "%rax#1 = %edi#1"
+        
+        2. Addition instruction: 'addl $512, %rax'
+           - SSA form: %rax#2 = %rax#1 + $512
+           - The function will detect an arithmetic operation (addition)
+           - Left operand: %rax#1 (generated using gen_ast)
+           - Right operand: $512 (generated as a constant node)
+           - Result: BnSSAOp representing the operation "%rax#2 = %rax#1 + $512"
+        """
+        """
+        Generate an AST node based on a given Low-Level IL instruction.
+        """
+        # Use ASTNode's factory method to create nodes
+        # logger.debug(f"Generating AST for llil_inst: {llil_inst}")
+
+        # Handle SSA Register
+        if isinstance(llil_inst, binaryninja.lowlevelil.SSARegister):
+            logger.debug(f"Handling SSARegister: {llil_inst}")
+            reg_def = llil_fun.get_ssa_reg_definition(llil_inst)
+            if reg_def is not None:
+                try:
+                    if isinstance(reg_def.src, binaryninja.lowlevelil.LowLevelILConstPtr):
+                        # If global variable detected, log and skip this instruction
+                        logger.error("Global variable detected")
+                        return None  # Return None and continue the rest of the analysis
+                    return RegisterNode.create_node_from_ssa_reg(llil_fun, llil_inst, is_root)
+                except Exception as e:
+                    logger.error(f"Error generating node: {e}")
+                    return RegisterNode(llil_inst, is_root)
+            return RegisterNode.create_node_from_ssa_reg(llil_fun, llil_inst, is_root)
+
+        # Handle Regular Register
+        elif isinstance(llil_inst, binaryninja.lowlevelil.ILRegister):
+            logger.debug(f"Handling ILRegister: {llil_inst}")
+            return RegisterNode.create_node_from_reg(llil_inst, is_root)
+
+        # Handle Constant Value
+        elif isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILConst):
+            logger.debug(f"Handling Constant Value: {llil_inst.constant}")
+            return RegisterNode.create_node_from_const(llil_inst.constant, is_root)
+        
+        # Handle SSA operations
+        if hasattr(llil_inst, 'ssa_form'):
+            inst_ssa = llil_inst.ssa_form
+            op_name = inst_ssa.operation.name
+            logger.debug(f"Generating AST for operation: {op_name}")
+            
+            if inst_ssa.operation in [LowLevelILOperation.LLIL_REG_SSA, LowLevelILOperation.LLIL_REG_SSA_PARTIAL]:
+                logger.debug(f"{PURPLE}Handling {op_name}: inst_ssa{RESET}")
+                return self.gen_ast(llil_fun, inst_ssa.src)
+            
+            elif inst_ssa.operation in [LowLevelILOperation.LLIL_SET_REG_SSA, LowLevelILOperation.LLIL_SET_REG_SSA_PARTIAL, LowLevelILOperation.LLIL_STORE_SSA]:
+                logger.debug(f"{PINK}Handling {op_name}: Assigning {inst_ssa.dest} ({type(inst_ssa.dest)}) from {inst_ssa.src} ({type(inst_ssa.src)}){RESET}")
+                left = self.gen_ast(llil_fun, inst_ssa.dest)
+                right = self.gen_ast(llil_fun, inst_ssa.src)
+                # Only create OperationNode if both left and right are valid
+                if left is not None and right is not None:
+                    return OperationNode(left, "=", right, True)
+                else:
+                    logger.error("Either LR node is None, skipping operation.")
+                    return None
+
+            elif inst_ssa.operation in [LowLevelILOperation.LLIL_ZX, LowLevelILOperation.LLIL_LOAD_SSA, LowLevelILOperation.LLIL_SX]:
+                logger.debug(f"{DARK_GREEN}Handling {op_name}: {inst_ssa.src}{RESET}")
+                right = self.gen_ast(llil_fun, llil_inst.src)
+
+                # Only create OperationNode if the right operand is valid
+                if right is not None:
+                    return OperationNode(None, op_name, right, is_root)
+                else:
+                    logger.debug(f"Right node is None for {op_name}, skipping operation.")
+                    return None
+
+            elif inst_ssa.operation in arith_bitwise_ops:
+                logger.debug(f"{CYAN}Handling {op_name}: {inst_ssa.left}, {inst_ssa.right}{RESET}")
+                left = self.gen_ast(llil_fun, inst_ssa.left)
+                right = self.gen_ast(llil_fun, inst_ssa.right)
+                return OperationNode(left, op_name, right, is_root)
+
+             # Handle Ignored operations
+            elif inst_ssa.operation in ignore_ops:
+                logger.error(f"Ignoring instruction type: {llil_inst}, {llil_inst.operation}")
+                return None
+
+            # Unhandled instruction
+            else:
+                logger.error(f"Unhandled instruction type: {llil_inst}, {llil_inst.operation}")
+                raise NotImplementedError(f"Unhandled LLIL instruction type: {op_name}")
+
+        # If no SSA form, unhandled instruction
+        else:
+            logger.error(f"Instruction does not have SSA form: {llil_inst}")
+            raise NotImplementedError(f"Unhandled instruction without SSA form: {llil_inst}")
+
     def determine_prefix_from_registers(self, reg1, reg2):
         if reg1 and reg2:
             if reg1.startswith("%r") and reg2.startswith("%r"):  # 64-bit registers
@@ -243,132 +486,6 @@ class BinAnalysis:
         else:
             return None
 
-    def gen_ast(self, llil_fun, llil_inst, asm_inst=None, is_root=False):
-        """
-        Generate an AST node based on a given Low-Level IL instruction or assembly instruction.
-
-        Args:
-            llil_fun: The function in which the instruction resides.
-            llil_inst: The Low-Level IL instruction or register.
-            asm_inst: Optional; the associated assembly instruction (default is None).
-            is_root: Boolean flag to indicate whether this node is a root node (default is False).
-
-        Returns:
-            A RegNode or BnSSAOp node, or None if the instruction cannot be resolved.
-        
-        Example for handling:
-        
-        1. Move instruction: 'mov %edi, %rax'
-           - SSA form: %rax#1 = %edi#1
-           - The function will detect the register assignment (LLIL_SET_REG_SSA)
-           - Left operand: %rax#1 (generated using gen_ast)
-           - Right operand: %edi#1 (generated using gen_ast)
-           - Result: BnSSAOp representing the operation "%rax#1 = %edi#1"
-        
-        2. Addition instruction: 'addl $512, %rax'
-           - SSA form: %rax#2 = %rax#1 + $512
-           - The function will detect an arithmetic operation (addition)
-           - Left operand: %rax#1 (generated using gen_ast)
-           - Right operand: $512 (generated as a constant node)
-           - Result: BnSSAOp representing the operation "%rax#2 = %rax#1 + $512"
-        """
-        
-        if asm_inst is None:
-            # Handling different types of Low-Level IL instructions
-            if isinstance(llil_inst, binaryninja.lowlevelil.SSARegister):
-                # Register SSA
-                reg_def = llil_fun.get_ssa_reg_definition(llil_inst)
-                if reg_def is not None:
-                    try:
-                        if isinstance(reg_def.src, binaryninja.lowlevelil.LowLevelILConstPtr):
-                            logger.error("Global variable detected")
-                            return None
-                        return RegNode(llil_inst, is_root=is_root)
-                    except Exception as e:
-                        logger.error(f"Error generating node: {e}")
-                        return RegNode(llil_inst, is_root=is_root)
-                return RegNode(llil_inst, is_root=is_root)
-
-            elif isinstance(llil_inst, binaryninja.lowlevelil.ILRegister):
-                # Regular register
-                return RegNode(llil_inst, is_root=is_root)
-
-            elif isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILConst):
-                # Constant value
-                return RegNode(llil_inst.constant, is_root=is_root)
-
-            elif isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILRegSsa):
-                # Register SSA expression
-                return self.gen_ast(llil_fun, llil_inst.src, is_root=is_root)
-
-            elif isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILRegSsaPartial):
-                logger.debug("RegisterSSAPartial")
-                reg_def = llil_fun.get_ssa_reg_definition(llil_inst.full_reg)
-                if reg_def is not None:
-                    try:
-                        if isinstance(reg_def.src, binaryninja.lowlevelil.LowLevelILConstPtr):
-                            logger.error("Global variable detected")
-                            return None
-                        return RegNode(llil_inst.full_reg, is_root=is_root)
-                    except Exception as e:
-                        logger.error(f"Error generating node: {e}")
-                        return RegNode(llil_inst.full_reg, is_root=is_root)
-
-            elif isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILLoadSsa):
-                # Memory load operation (SSA)
-                right = self.gen_ast(llil_fun, llil_inst.src)
-                return BnSSAOp(None, llil_inst.operation, right, is_root=is_root)
-
-            elif isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILZx):
-                # Zero extend operation
-                right = self.gen_ast(llil_fun, llil_inst.src)
-                return BnSSAOp(None, llil_inst.operation, right, is_root=is_root)
-
-            elif isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILLowPart):
-                # Low part extraction operation
-                right = self.gen_ast(llil_fun, llil_inst.src)
-                return BnSSAOp(None, llil_inst.operation, right, is_root=is_root)
-
-            elif binaryninja.commonil.Arithmetic in llil_inst.__class__.__bases__:
-                # Arithmetic operation
-                logger.debug(f"{llil_inst} Arithmetic")
-                left = self.gen_ast(llil_fun, llil_inst.left)
-                right = self.gen_ast(llil_fun, llil_inst.right)
-                return BnSSAOp(left, llil_inst.operation, right, is_root=is_root)
-
-            inst_ssa = llil_inst.ssa_form
-            logger.debug(inst_ssa)
-
-            if inst_ssa.operation == LowLevelILOperation.LLIL_SET_REG_SSA:
-                # SSA Register assignment
-                left = self.gen_ast(llil_fun, inst_ssa.dest)
-                right = self.gen_ast(llil_fun, inst_ssa.src)
-                return BnSSAOp(left, "=", right, is_root=True)  # This is a root node
-
-            if inst_ssa.operation == LowLevelILOperation.LLIL_SET_REG_SSA_PARTIAL:
-                # Partial SSA Register assignment
-                left = self.gen_ast(llil_fun, inst_ssa.dest)
-                right = self.gen_ast(llil_fun, inst_ssa.src)
-                root_node = BnSSAOp(left, "=", right, is_root=True)  # This is a root node
-                logger.debug(root_node)
-                return root_node
-
-            if inst_ssa.operation == LowLevelILOperation.LLIL_STORE_SSA:
-                # SSA store operation
-                left = self.gen_ast(llil_fun, inst_ssa.dest)
-                right = self.gen_ast(llil_fun, inst_ssa.src)
-                return BnSSAOp(left, "=", right, is_root=True)  # This is a root node
-
-        else:
-            # Assembly instruction handling
-            logger.debug(asm_inst.inst_print())
-            left = RegNode(asm_inst.dest)
-            right = RegNode(asm_inst.src)
-            return BnSSAOp(left, asm_inst.inst_type, right, is_root=True)  # This is a root node
-
-        return None  # Default return if no valid case is matched.
-
-
     def analyze_inst(self, inst, fun):
         transfer_ILs = (
             binaryninja.commonil.ControlFlow,
@@ -386,10 +503,13 @@ class BinAnalysis:
             dis_inst = self.bv.get_disassembly(addr)
             pro_inst: PatchingInst
             pro_inst = self.process_dis_inst(dis_inst)
-            if pro_inst != None:
-                pro_inst.inst_print()
+            # if pro_inst != None:
+            #     pro_inst.inst_print()
             
             asm_syntax_tree = self.gen_ast(fun, inst)
+            # Print the AST in a binary tree-like structure
+            if asm_syntax_tree:
+                asm_syntax_tree.print_tree()
             print()
             
         elif isinstance(inst, MediumLevelILInstruction):

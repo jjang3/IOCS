@@ -239,9 +239,15 @@ def analyze_binary(args, base_name):
     # Debugging analysis file
     analysis_list = list()
     # analysis_file = "/home/jaewon/IBCS/result/tiny/tiny.analysis"
-    with open(analysis_file) as ff:
+    
+    # Read the analysis file and handle newlines
+    with open(analysis_file, 'r') as ff:
         for line in ff:
-            analysis_list = line.split(',')
+            # Strip whitespace and split by commas
+            cleaned_line = line.strip()
+            if cleaned_line:
+                analysis_list.extend(cleaned_line.split(','))
+
     binary_file     = result_dir / f"{base_name}.out"
     asm_item        = result_dir / f"{base_name}.s"  # Updated variable name for clarity
     obj_item        = result_dir / f"{base_name}.o"  # Updated variable name for clarity
