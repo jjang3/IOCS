@@ -231,10 +231,16 @@ def analyze_directory(target_dir, base_name):
         rewriter = AsmRewriter(analysis_list, result_dir, file_item.asm_path, fun_table_offsets, dwarf_fun_list)
         patch_count += rewriter.run()
     
+def clean_redundant_result_path(path):
+    # Convert the path to a string, replace 'result/result' with 'result', and return it as a Path object
+    return Path(str(path).replace('/result/result', '/result'))
 
 def analyze_binary(args, base_name):
     logger.debug("Analyzing a binary")
     result_dir = Path(args.binary).resolve().parent.parent / "result" / base_name
+    result_dir = clean_redundant_result_path(result_dir)
+    logger.debug(f"Cleaned result directory: {result_dir}")
+    
     analysis_file   = result_dir / f"{base_name}.analysis"
     # Debugging analysis file
     analysis_list = list()
@@ -260,7 +266,7 @@ def analyze_binary(args, base_name):
     #     fun.print_data()
 
     asm_tree_list = process_binary(binary_file, analysis_list)
-
+    
     # fun_table_offsets = generate_table(dwarf_fun_list, result_dir)
     # for fun in fun_table_offsets:
     #     if len(fun_table_offsets[fun]) > 0:
