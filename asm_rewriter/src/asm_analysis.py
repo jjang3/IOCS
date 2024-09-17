@@ -224,6 +224,7 @@ class OperationNode(ASTNode):
             self.right.print_tree(new_prefix, is_last=True, direction="right")
 
 class BinAnalysis:
+    asm_trees = set()
     def gen_ast(self, llil_fun, llil_inst, is_root=False):
         """
         Generate an AST node based on a given Low-Level IL instruction or assembly instruction.
@@ -291,9 +292,14 @@ class BinAnalysis:
             op_name = inst_ssa.operation.name
             logger.debug(f"Generating AST for operation: {op_name}")
             
-            if inst_ssa.operation in [LowLevelILOperation.LLIL_REG_SSA, LowLevelILOperation.LLIL_REG_SSA_PARTIAL]:
+            if inst_ssa.operation in [LowLevelILOperation.LLIL_REG_SSA]:
                 logger.debug(f"{PURPLE}Handling {op_name}: inst_ssa{RESET}")
                 return self.gen_ast(llil_fun, inst_ssa.src)
+        
+            elif inst_ssa.operation in [LowLevelILOperation.LLIL_REG_SSA_PARTIAL]:
+                logger.debug(f"{PURPLE}Handling {op_name}: inst_ssa{RESET}")
+                # Partial is like of %rax.eax
+                return self.gen_ast(llil_fun, inst_ssa.full_reg)
             
             elif inst_ssa.operation in [LowLevelILOperation.LLIL_SET_REG_SSA, LowLevelILOperation.LLIL_SET_REG_SSA_PARTIAL, LowLevelILOperation.LLIL_STORE_SSA]:
                 logger.debug(f"{PINK}Handling {op_name}: Assigning {inst_ssa.dest} ({type(inst_ssa.dest)}) from {inst_ssa.src} ({type(inst_ssa.src)}){RESET}")
@@ -510,6 +516,7 @@ class BinAnalysis:
             # Print the AST in a binary tree-like structure
             if asm_syntax_tree:
                 asm_syntax_tree.print_tree()
+                self.asm_trees.add(asm_syntax_tree)
             print()
             
         elif isinstance(inst, MediumLevelILInstruction):
@@ -533,6 +540,7 @@ class BinAnalysis:
         print("")
         columns, rows = shutil.get_terminal_size(fallback=(80, 20))
         logger.info("Binary analysis (Binary Ninja)")
+        fun_asm_trees = dict() # This will contain the asm trees per function
         for func in self.bv.functions:
             func: Function 
             if func.name in analysis_list:
@@ -541,11 +549,19 @@ class BinAnalysis:
                 self.begin   = addr_range.start
                 self.end     = addr_range.end
                 # Format the log message to span across the width of the terminal
+
+                self.analyze_fun()
                 log_message = f"Function: {self.fun}\t| begin: {self.begin} | end: {self.end}"
                 if len(log_message) > columns:
                     log_message = log_message[:columns-3] + "..."
                 logger.info(log_message)
-                self.analyze_fun()
+                for tree in self.asm_trees:
+                    tree: ASTNode
+                    tree.print_tree()
+                    print()
+                fun_asm_trees[func.name] = self.asm_trees.copy()  # Store set in dict
+                self.asm_trees.clear()  # Clear the set for the next function
+
       
     def __init__(self, bv):
         self.bv = bv
