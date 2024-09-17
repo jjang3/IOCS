@@ -29,3 +29,4 @@ archive.py
 *.pyc
 .gdb_history
 *.code-workspace
+nginx

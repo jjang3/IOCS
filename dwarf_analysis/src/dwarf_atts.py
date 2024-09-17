@@ -39,7 +39,6 @@ class TypeDefData:
     type_size: Optional[int] = None
 
 type_dict = dict()
-
 @dataclass(unsafe_hash=True)
 class VarData:
     name: Optional[str] = None
@@ -66,6 +65,33 @@ def print_var_data(var_data: VarData):
     
     # Print the cleaned output
     logger.debug(", ".join(output))
+
+struct_list = list()
+@dataclass(unsafe_hash = True)
+class StructData:
+    name: Optional[str] = None
+    offset: str = None
+    size: int = None
+    line: int = None
+
+def print_struct_data(struct_data: StructData):
+    """Prints the StructData information, omitting fields that are None."""
+    attributes = [
+        ("Name", struct_data.name),
+        ("Offset", struct_data.offset),
+        ("Size", struct_data.size),
+        ("Line", struct_data.line),
+    ]
+    
+    # Construct the output string
+    output = []
+    for attr_name, attr_value in attributes:
+        if attr_value is not None:
+            output.append(f"{attr_name}: {attr_value}")
+    
+    # Print the cleaned output
+    logger.debug(", ".join(output))
+
 
  # ANSI escape codes for colors
 LIGHT_BLUE = "\033[96m"
@@ -178,10 +204,10 @@ def get_type_name(dwarf_info: DWARFInfo, type_die: DIE):
             return get_type_name(dwarf_info, type_die)
     elif 'DW_AT_name' in type_die.attributes:
         type_name = type_die.attributes['DW_AT_name'].value.decode()
-        logger.debug(f"Got the type name: {type_name}")
+        logger.debug(f"{LIGHT_BLUE}Got the type name: {type_name}{RESET}")
         return type_name
     else:
-        logger.error(f"No name for the type: {type_die.tag} (Recursive analysis needed)")
+        logger.warning(f"No name for the type: {type_die.tag} (Recursive analysis needed)")
         if 'DW_AT_type' in type_die.attributes:
             ref_addr = type_die.attributes['DW_AT_type'].value + type_die.cu.cu_offset
             type_die = dwarf_info.get_DIE_from_refaddr(ref_addr, type_die.cu)
@@ -198,7 +224,7 @@ def parse_dwarf_type(dwarf_info, DIE, curr_var: VarData):
             type_name = get_type_name(dwarf_info, type_die)
             if type_name != None:
                 curr_var.type_name = type_name
-            logger.debug(f"{LIGHT_BLUE}base_type: {type_name}{RESET}")
+            # logger.debug(f"{LIGHT_BLUE}base_type: {type_name}{RESET}")
         elif type_die.tag == "DW_TAG_pointer_type" or type_die.tag == "DW_TAG_array_type":
             curr_var.var_type = type_die.tag
             type_name = get_type_name(dwarf_info, type_die)
@@ -213,6 +239,10 @@ def parse_dwarf_type(dwarf_info, DIE, curr_var: VarData):
             parse_dwarf_type(dwarf_info, typedef_type_die, curr_var)
             if type_name != None:
                 curr_var.type_name = type_name
+        # elif type_die.tag == "DW_TAG_structure_type":
+        #     # For the struct, need to get the type name of struct
+        #     type_name = get_type_name(dwarf_info, type_die)
+        #     exit()
         else:
             curr_var.var_type = type_die.tag
             logger.error("Not supported yet: %s ",type_die.tag)
@@ -263,6 +293,7 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
                         logger.debug(f"Address: {addr_value}")
             elif (attr.name == "DW_AT_type"):
                 parse_dwarf_type(dwarf_info, DIE, curr_var)
+    print()
 
 def analyze_typedef(CU, dwarf_info, DIE, attribute_values):
     print()
@@ -290,6 +321,25 @@ def analyze_base(CU, dwarf_info, DIE, attribute_values):
             base_size = DIE.attributes["DW_AT_byte_size"].value
     type_dict[base_name] =  base_size
     
+def analyze_struct(CU, dwarf_info, DIE, attribute_values):
+    print()
+    logger.info("Analyze DW_TAG_struct_type")
+    for attr in attribute_values:
+        if (attr.name == "DW_AT_name"):
+            struct_name = DIE.attributes["DW_AT_name"].value.decode()
+        if (attr.name == "DW_AT_byte_size"):
+            struct_size = DIE.attributes["DW_AT_byte_size"].value
+        if (attr.name == 'DW_AT_decl_line'):
+            line_num    = DIE.attributes['DW_AT_decl_line'].value
+    logger.debug(f"{struct_name} and {struct_size} and {line_num}")
+    temp_struct = StructData(name=struct_name,size=struct_size,line=line_num)
+    return temp_struct
+
+def analyze_member(CU, dwarf_info, DIE, attribute_values):
+    print()
+    logger.info("Analyze DW_TAG_member")
+    # Need to finalize the DW_TAG_struct_type
+    # exit()
 
 def analyze_attributes(attribute_values, location_lists):
     for attr in attribute_values:

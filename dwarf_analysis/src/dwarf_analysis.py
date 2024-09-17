@@ -49,6 +49,7 @@ class DwarfAnalyzer:
         self.loc_parser = loc_parser
         self.fp = fp
         self.curr_fun = None  # Initialize as None
+        self.curr_struct = None
 
     def analyze_subprog(self, CU, DIE, attributes):
         self.curr_fun = analyze_subprog(CU, self.dwarf_info, DIE, attributes, self.loc_parser, self.base_name)
@@ -61,6 +62,12 @@ class DwarfAnalyzer:
 
     def analyze_base(self, CU, DIE, attributes):
         return analyze_base(CU, self.dwarf_info, DIE, attributes)
+
+    def analyze_struct(self, CU, DIE, attributes):
+        return analyze_struct(CU, self.dwarf_info, DIE, attributes)
+    
+    def analyze_member(self, CU, DIE, attributes):
+        return analyze_member(CU, self.dwarf_info, DIE, attributes)
 
     def finalize_subprog(self):
         """Finalize the processing of the current function."""
@@ -128,7 +135,17 @@ class DwarfAnalyzer:
             self.analyze_typedef(CU, DIE, DIE.attributes.values())
         elif DIE.tag == "DW_TAG_base_type":
             self.analyze_base(CU, DIE, DIE.attributes.values())
+        elif DIE.tag == "DW_TAG_structure_type":
+            self.curr_struct = self.analyze_struct(CU, DIE, DIE.attributes.values())
+            print(self.curr_struct)
+        elif DIE.tag == "DW_TAG_member":
+            self.analyze_member(CU, DIE, DIE.attributes.values())
         elif DIE.tag == None:
+            if self.curr_struct != None:
+                logger.debug("Clearing the struct")
+                print_struct_data(self.curr_struct)
+                self.curr_struct = None
+                exit()
             None
         else:
             logger.info(f"Not yet handling the tag {DIE.tag}.")

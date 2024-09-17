@@ -265,7 +265,7 @@ def analyze_binary(args, base_name):
     #     fun: FunData
     #     fun.print_data()
 
-    asm_tree_list = process_binary(binary_file, analysis_list)
+    # asm_tree_list = process_binary(binary_file, analysis_list)
     
     # fun_table_offsets = generate_table(dwarf_fun_list, result_dir)
     # for fun in fun_table_offsets:
