@@ -37,6 +37,7 @@ sys.path.append(os.path.join(current_dir))
 
 # print("sys.path:", sys.path)  # Print sys.path to check the directories
 
+global struct_list
 global fun_list
 global typedef_list
 global type_dict
@@ -50,6 +51,7 @@ class DwarfAnalyzer:
         self.fp = fp
         self.curr_fun = None  # Initialize as None
         self.curr_struct = None
+        self.curr_members = None
 
     def analyze_subprog(self, CU, DIE, attributes):
         self.curr_fun = analyze_subprog(CU, self.dwarf_info, DIE, attributes, self.loc_parser, self.base_name)
@@ -67,7 +69,7 @@ class DwarfAnalyzer:
         return analyze_struct(CU, self.dwarf_info, DIE, attributes)
     
     def analyze_member(self, CU, DIE, attributes):
-        return analyze_member(CU, self.dwarf_info, DIE, attributes)
+        return analyze_member(CU, self.dwarf_info, DIE, attributes, self.loc_parser)
 
     def finalize_subprog(self):
         """Finalize the processing of the current function."""
@@ -127,29 +129,43 @@ class DwarfAnalyzer:
         """Helper method to process a DIE and its children recursively."""
         # Handle the DIE's tag
         if DIE.tag == "DW_TAG_subprogram":
-            self.analyze_subprog(CU, DIE, DIE.attributes.values())
+            fun_name = DIE.attributes["DW_AT_name"].value.decode()
+            if fun_name != "process": # Debugging purpose
+                None
+            else:
+                self.analyze_subprog(CU, DIE, DIE.attributes.values())
             # None
         elif DIE.tag == "DW_TAG_variable":
-            self.analyze_var(CU, DIE, DIE.attributes.values())
+            # self.analyze_var(CU, DIE, DIE.attributes.values())
+            None
         elif DIE.tag == "DW_TAG_typedef":
             self.analyze_typedef(CU, DIE, DIE.attributes.values())
+            None
         elif DIE.tag == "DW_TAG_base_type":
-            self.analyze_base(CU, DIE, DIE.attributes.values())
-        elif DIE.tag == "DW_TAG_structure_type":
-            self.curr_struct = self.analyze_struct(CU, DIE, DIE.attributes.values())
-            print(self.curr_struct)
-        elif DIE.tag == "DW_TAG_member":
-            self.analyze_member(CU, DIE, DIE.attributes.values())
+            # self.analyze_base(CU, DIE, DIE.attributes.values())
+            None
+        # elif DIE.tag == "DW_TAG_structure_type":
+        #     # Creating a struct. This struct will not have the offset value (this is determined when the variable is initialized)
+        #     self.curr_struct = self.analyze_struct(CU, DIE, DIE.attributes.values())
+        #     # Creating a list for struct members that will be stored in the StructData
+        #     self.curr_members = list()
+        # elif DIE.tag == "DW_TAG_member":
+        #     member = self.analyze_member(CU, DIE, DIE.attributes.values())
+        #     self.curr_members.append(member)
         elif DIE.tag == None:
             if self.curr_struct != None:
+                self.curr_struct.member_list = self.curr_members.copy()
+                print()
                 logger.debug("Clearing the struct")
                 print_struct_data(self.curr_struct)
+                struct_list.append(self.curr_struct)
                 self.curr_struct = None
-                exit()
+                self.curr_members.clear()
+                # exit()
             None
         else:
-            logger.info(f"Not yet handling the tag {DIE.tag}.")
-            # None
+            # logger.info(f"Not yet handling the tag {DIE.tag}.")
+            None
             
 def dwarf_analysis(input_binary):
     

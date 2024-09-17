@@ -29,15 +29,6 @@ from dataclasses import dataclass, field
 # Get the same logger instance. Use __name__ to get a logger with a hierarchical name or a specific string to get the exact same logger.
 logger = logging.getLogger('custom_logger')
 
-# This list will contain the typedef variable information of this program
-typedef_list = list()
-@dataclass(unsafe_hash=True)
-class TypeDefData:
-    typedef_name: Optional[str] = None
-    var_type: str = None
-    type_name: str = None
-    type_size: Optional[int] = None
-
 type_dict = dict()
 @dataclass(unsafe_hash=True)
 class VarData:
@@ -66,13 +57,13 @@ def print_var_data(var_data: VarData):
     # Print the cleaned output
     logger.debug(", ".join(output))
 
-struct_list = list()
 @dataclass(unsafe_hash = True)
 class StructData:
     name: Optional[str] = None
     offset: str = None
     size: int = None
     line: int = None
+    member_list: Optional[list] = None
 
 def print_struct_data(struct_data: StructData):
     """Prints the StructData information, omitting fields that are None."""
@@ -91,12 +82,25 @@ def print_struct_data(struct_data: StructData):
     
     # Print the cleaned output
     logger.debug(", ".join(output))
+    for member in struct_data.member_list:
+        print_var_data(member)
+
+# This list will contain the typedef variable information of this program
+typedef_list = list()
+@dataclass(unsafe_hash=True)
+class TypeDefData:
+    typedef_name: Optional[str] = None
+    var_type: str = None
+    type_name: str = None
+    type_size: Optional[int] = None
+    struct: Optional[StructData] = None
 
 
  # ANSI escape codes for colors
 LIGHT_BLUE = "\033[96m"
 RESET = "\033[0m"
 
+# Global function list 
 fun_list = list()
 class FunData:
     def __init__(self, name: str = None, begin: Optional[int] = None, end: Optional[int] = None):
@@ -207,7 +211,7 @@ def get_type_name(dwarf_info: DWARFInfo, type_die: DIE):
         logger.debug(f"{LIGHT_BLUE}Got the type name: {type_name}{RESET}")
         return type_name
     else:
-        logger.warning(f"No name for the type: {type_die.tag} (Recursive analysis needed)")
+        logger.warning(f"No name for the type: {type_die.tag}")
         if 'DW_AT_type' in type_die.attributes:
             ref_addr = type_die.attributes['DW_AT_type'].value + type_die.cu.cu_offset
             type_die = dwarf_info.get_DIE_from_refaddr(ref_addr, type_die.cu)
@@ -215,11 +219,17 @@ def get_type_name(dwarf_info: DWARFInfo, type_die: DIE):
     return None
         
 def parse_dwarf_type(dwarf_info, DIE, curr_var: VarData):
+    logger.info(f"Parsing DWARF Type for the tag: {DIE.tag}")
     if 'DW_AT_type' in DIE.attributes:
         ref_addr = DIE.attributes['DW_AT_type'].value + DIE.cu.cu_offset
         type_die = dwarf_info.get_DIE_from_refaddr(ref_addr, DIE.cu)
         logger.debug(type_die.tag)
-        if type_die.tag == "DW_TAG_base_type":
+        if DIE.tag == "DW_TAG_base_type":
+            curr_var.var_type = type_die.tag
+            type_name = get_type_name(dwarf_info, type_die)
+            if type_name != None:
+                curr_var.type_name = type_name
+        elif type_die.tag == "DW_TAG_base_type":
             curr_var.var_type = type_die.tag
             type_name = get_type_name(dwarf_info, type_die)
             if type_name != None:
@@ -233,19 +243,25 @@ def parse_dwarf_type(dwarf_info, DIE, curr_var: VarData):
         elif type_die.tag == "DW_TAG_typedef":
             # For the typedef, need to first get the name of the typedef
             # Next, need to check what is the underlying type of the typedef
-            type_name = get_type_name(dwarf_info, type_die)
             typedef_ref_addr = type_die.attributes['DW_AT_type'].value + type_die.cu.cu_offset
             typedef_type_die = dwarf_info.get_DIE_from_refaddr(typedef_ref_addr, type_die.cu)
             parse_dwarf_type(dwarf_info, typedef_type_die, curr_var)
+        elif type_die.tag == "DW_TAG_structure_type":
+            # For the struct, need to get the type name of struct
+            type_name = get_type_name(dwarf_info, type_die)
+            curr_var.var_type = type_die.tag
             if type_name != None:
                 curr_var.type_name = type_name
-        # elif type_die.tag == "DW_TAG_structure_type":
-        #     # For the struct, need to get the type name of struct
-        #     type_name = get_type_name(dwarf_info, type_die)
-        #     exit()
+            else:
+                logger.debug(curr_var)
         else:
             curr_var.var_type = type_die.tag
             logger.error("Not supported yet: %s ",type_die.tag)
+    elif 'DW_AT_name' in DIE.attributes:
+        # This is for the case where typedef is simply used (e.g., uint16_t)
+        type_name = get_type_name(dwarf_info, DIE)
+        if type_name != None:
+            curr_var.type_name = type_name
     else:
         curr_var.var_type = DIE.tag
     
@@ -303,6 +319,7 @@ def analyze_typedef(CU, dwarf_info, DIE, attribute_values):
         if attr.name == "DW_AT_name":
             typedef_name = DIE.attributes["DW_AT_name"].value.decode()
             if typedef_name != None:
+                logger.debug(f"Name: {typedef_name}")
                 curr_typedef = TypeDefData(typedef_name=typedef_name)
         if curr_typedef != None:
             if attr.name == "DW_AT_type":
@@ -321,25 +338,51 @@ def analyze_base(CU, dwarf_info, DIE, attribute_values):
             base_size = DIE.attributes["DW_AT_byte_size"].value
     type_dict[base_name] =  base_size
     
-def analyze_struct(CU, dwarf_info, DIE, attribute_values):
-    print()
-    logger.info("Analyze DW_TAG_struct_type")
-    for attr in attribute_values:
-        if (attr.name == "DW_AT_name"):
-            struct_name = DIE.attributes["DW_AT_name"].value.decode()
-        if (attr.name == "DW_AT_byte_size"):
-            struct_size = DIE.attributes["DW_AT_byte_size"].value
-        if (attr.name == 'DW_AT_decl_line'):
-            line_num    = DIE.attributes['DW_AT_decl_line'].value
-    logger.debug(f"{struct_name} and {struct_size} and {line_num}")
-    temp_struct = StructData(name=struct_name,size=struct_size,line=line_num)
-    return temp_struct
+# def analyze_struct(CU, dwarf_info, DIE, attribute_values):
+#     print()
+#     logger.info("Analyze DW_TAG_struct_type")
+#     struct_name = None
+#     struct_size = None
+#     line_num = None
+#     pprint.pprint(attribute_values)
+#     for attr in attribute_values:
+#         if (attr.name == "DW_AT_name"):
+#             struct_name = DIE.attributes["DW_AT_name"].value.decode()
+#         if (attr.name == "DW_AT_byte_size"):
+#             struct_size = DIE.attributes["DW_AT_byte_size"].value
+#         if (attr.name == 'DW_AT_decl_line'):
+#             line_num    = DIE.attributes['DW_AT_decl_line'].value
+#     logger.debug(f"{struct_name} and {struct_size} and {line_num}")
+#     temp_struct = StructData(name=struct_name,size=struct_size,line=line_num)
+#     return temp_struct
 
-def analyze_member(CU, dwarf_info, DIE, attribute_values):
-    print()
-    logger.info("Analyze DW_TAG_member")
-    # Need to finalize the DW_TAG_struct_type
-    # exit()
+# def analyze_member(CU, dwarf_info, DIE, attribute_values, loc_parser):
+#     print()
+#     mem_off_regex = r"(?<=\(DW_OP_plus_uconst:\s)(.*)(?=\))"
+#     logger.info("Analyze DW_TAG_member")
+#     # Need to finalize the DW_TAG_struct_type
+#     member_var = None
+#     for attr in attribute_values:
+#         if (attr.name == "DW_AT_name"):
+#             member_name = DIE.attributes["DW_AT_name"].value.decode()
+#             if attr.name == "DW_AT_name":
+#                 member_name = DIE.attributes["DW_AT_name"].value.decode()
+#                 if member_name != None:
+#                     member_var = VarData(name=member_name)
+#         if member_var != None:
+#             if loc_parser.attribute_has_location(attr, CU['version']):
+#                 loc = loc_parser.parse_from_attribute(attr,
+#                                                     CU['version'])
+#                 if(attr.name == "DW_AT_data_member_location"):
+#                     if isinstance(loc, LocationExpr):
+#                         offset = describe_DWARF_expr(loc.loc_expr, dwarf_info.structs, CU.cu_offset)
+#                         offset_match = re.search(mem_off_regex, offset)
+#                         if offset_match:
+#                             offset_value = int(offset_match.group(1))
+#                             logger.debug(f"Offset value: {offset_value}")
+#     if member_var != None:
+#         return member_var
+    
 
 def analyze_attributes(attribute_values, location_lists):
     for attr in attribute_values:
