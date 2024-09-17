@@ -48,6 +48,9 @@ PURPLE = "\033[95m"
 PINK = "\033[95m"
 DARK_GREEN = "\033[32m"  # Darker shade of green
 CYAN = "\033[36m"        # Cyan color as a different shade of blue
+DARK_RED = "\033[31m"    # Darker red color
+
+
 
 suffix_map = {
         "qword": "q",  # Quadword -> q
@@ -76,7 +79,6 @@ ignore_ops = {
     LowLevelILOperation.LLIL_PUSH, LowLevelILOperation.LLIL_CONST_PTR
 }
 
-
 class ASTNode:
     """
     Base class for nodes in the Abstract Syntax Tree (AST).
@@ -85,12 +87,16 @@ class ASTNode:
         self.is_root = is_root
         if is_root == True:
             logger.debug(f"Created {self.__class__.__name__} with is_root={self.is_root}")
+            # exit()
 
     def print_tree(self, prefix="", is_last=True, direction="root"):
         """
         Recursively prints the AST tree with direction indicators.
         """
-        connector = "└── " if is_last else "├── "
+        if self.is_root:
+            connector = "⬤ "  # Symbol for root node
+        else:
+            connector = "└── " if is_last else "├── "
         direction_indicator = f"({direction})" if direction != "root" else ""
         
         # logger.debug(f"Printing tree for {self.__class__.__name__} {direction_indicator}")
@@ -174,25 +180,30 @@ class OperationNode(ASTNode):
     """
     AST node representing an operation involving other nodes.
     """
-    def __init__(self, left, op, right, is_root=False):
+    def __init__(self, left, op, right, is_root=False, dis_inst=None):
         super().__init__(is_root)
         self.left = left
         self.op = op
         self.right = right
+        self.dis_inst = dis_inst
         logger.debug(f"Created OperationNode with operation={self.op}")
+        # if self.dis_inst != None:
+        #     dis_inst.inst_print()
+        if is_root == True:
+            logger.debug(f"{DARK_RED}----------------------------------------------{RESET}\n")
 
     @staticmethod
     def create_from_operation(llil_fun, llil_inst, is_root=False):
         logger.debug(f"Creating OperationNode for instruction: {llil_inst}")
         if isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILLoadSsa):
             right = ASTNode.create_node(llil_fun, llil_inst.src)
-            return OperationNode(None, llil_inst.operation, right, is_root)
+            return OperationNode(None, llil_inst.operation, right, is_root=is_root)
         elif isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILZx):
             right = ASTNode.create_node(llil_fun, llil_inst.src)
-            return OperationNode(None, llil_inst.operation, right, is_root)
+            return OperationNode(None, llil_inst.operation, right, is_root=is_root)
         elif isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILLowPart):
             right = ASTNode.create_node(llil_fun, llil_inst.src)
-            return OperationNode(None, llil_inst.operation, right, is_root)
+            return OperationNode(None, llil_inst.operation, right, is_root=is_root)
         elif isinstance(llil_inst, binaryninja.lowlevelil.LowLevelILStore):
             logger.debug(f"Handling LowLevelILStore operation at address {llil_inst.address}.")
             dest = ASTNode.create_node(llil_fun, llil_inst.dest)
@@ -201,7 +212,7 @@ class OperationNode(ASTNode):
         elif binaryninja.commonil.Arithmetic in llil_inst.__class__.__bases__:
             left = ASTNode.create_node(llil_fun, llil_inst.left)
             right = ASTNode.create_node(llil_fun, llil_inst.right)
-            return OperationNode(left, llil_inst.operation, right, is_root)
+            return OperationNode(left, llil_inst.operation, right, is_root=is_root)
         return None
 
     def __repr__(self):
@@ -211,7 +222,10 @@ class OperationNode(ASTNode):
         """
         Recursively prints the AST tree with direction indicators.
         """
-        connector = "└── " if is_last else "├── "
+        if self.is_root:
+            connector = "⬤ "  # Symbol for root node
+        else:
+            connector = "└── " if is_last else "├── "
         direction_indicator = f"({direction})" if direction != "root" else ""
         # logger.debug(f"Printing tree for OperationNode {direction_indicator}")
         print(prefix + connector + f"OperationNode(op={self.op}, is_root={self.is_root}){direction_indicator}")
@@ -225,6 +239,7 @@ class OperationNode(ASTNode):
 
 class BinAnalysis:
     asm_trees = set()
+    dis_inst = None # Current disassembly instruction
     def gen_ast(self, llil_fun, llil_inst, is_root=False):
         """
         Generate an AST node based on a given Low-Level IL instruction or assembly instruction.
@@ -307,7 +322,7 @@ class BinAnalysis:
                 right = self.gen_ast(llil_fun, inst_ssa.src)
                 # Only create OperationNode if both left and right are valid
                 if left is not None and right is not None:
-                    return OperationNode(left, "=", right, True)
+                    return OperationNode(left, "=", right, True, dis_inst=self.dis_inst)
                 else:
                     logger.error("Either LR node is None, skipping operation.")
                     return None
@@ -509,13 +524,15 @@ class BinAnalysis:
             dis_inst = self.bv.get_disassembly(addr)
             pro_inst: PatchingInst
             pro_inst = self.process_dis_inst(dis_inst)
-            # if pro_inst != None:
-            #     pro_inst.inst_print()
+            if pro_inst != None:
+                self.dis_inst = pro_inst
+                # pro_inst.inst_print()
             
             asm_syntax_tree = self.gen_ast(fun, inst)
             # Print the AST in a binary tree-like structure
             if asm_syntax_tree:
-                asm_syntax_tree.print_tree()
+                # asm_syntax_tree.print_tree()
+                # asm_syntax_tree.dis_inst.inst_print()
                 self.asm_trees.add(asm_syntax_tree)
             print()
             
@@ -558,6 +575,7 @@ class BinAnalysis:
                 for tree in self.asm_trees:
                     tree: ASTNode
                     tree.print_tree()
+                    tree.dis_inst.inst_print()
                     print()
                 fun_asm_trees[func.name] = self.asm_trees.copy()  # Store set in dict
                 self.asm_trees.clear()  # Clear the set for the next function
