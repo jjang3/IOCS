@@ -141,11 +141,9 @@ class DwarfAnalyzer:
             return
         elif DIE.tag == "DW_TAG_variable":
             self.analyze_var(CU, DIE, DIE.attributes.values())
-            None
             return
         elif DIE.tag == "DW_TAG_base_type":
-            # self.analyze_base(CU, DIE, DIE.attributes.values())
-            None
+            self.analyze_base(CU, DIE, DIE.attributes.values())
             return
         if DIE.tag == "DW_TAG_structure_type":
             # Process and create StructData
@@ -161,12 +159,12 @@ class DwarfAnalyzer:
             self.curr_typedef = self.analyze_typedef(CU, DIE, DIE.attributes.values())
             if self.curr_typedef and self.curr_typedef.var_type == "DW_TAG_structure_type":
                 # Associate the typedef with the most recent struct
-                recent_struct = struct_list.pop()
+                recent_struct = struct_list[-1]
+                # Modified from the pop method to keep the data inside the struct_list in case
                 logger.debug("Associate the typedef with the most recent struct")
                 print_struct_data(recent_struct)
                 self.curr_typedef.struct = recent_struct
                 self.curr_typedef = None
-            None
             return
         elif DIE.tag == None:
             if self.stored_typedef is not None:
@@ -182,11 +180,9 @@ class DwarfAnalyzer:
                 struct_list.append(self.curr_struct)
                 self.curr_struct = None
                 self.curr_members.clear()
-            None
             return
         else:
             logger.info(f"Not yet handling the tag {DIE.tag}.")
-            None
             return
             
 def dwarf_analysis(input_binary):
