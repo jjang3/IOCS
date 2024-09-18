@@ -261,9 +261,10 @@ def analyze_binary(args, base_name):
     # print(os.path.join(project_root, 'dwarf_analysis', 'src'))
 
     dwarf_fun_list = dwarf_analysis(binary_file)
-    # for fun in dwarf_fun_list:
-    #     fun: FunData
-    #     fun.print_data()
+    print()
+    for fun in dwarf_fun_list:
+        fun: FunData
+        fun.print_data()
 
     # asm_tree_list = process_binary(binary_file, analysis_list)
     

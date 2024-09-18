@@ -40,6 +40,7 @@ typedef struct {
     const char *mime_type;
 } mime_map;
 
+
 mime_map meme_types [] = {
     {".css", "text/css"},
     {".gif", "image/gif"},
@@ -56,6 +57,7 @@ mime_map meme_types [] = {
     {".xml", "text/xml"},
     {NULL, NULL},
 };
+
 
 char *default_mime_type = "text/plain";
 

@@ -50,8 +50,10 @@ class DwarfAnalyzer:
         self.loc_parser = loc_parser
         self.fp = fp
         self.curr_fun = None  # Initialize as None
-        self.curr_struct = None
-        self.curr_members = None
+        self.curr_struct = None # Current structure (if any)
+        self.curr_members = None # Current member (if any)
+        self.curr_typedef = None # Current typedef (if any)
+        self.stored_typedef = None  # Store typedef for later use
 
     def analyze_subprog(self, CU, DIE, attributes):
         self.curr_fun = analyze_subprog(CU, self.dwarf_info, DIE, attributes, self.loc_parser, self.base_name)
@@ -77,6 +79,10 @@ class DwarfAnalyzer:
             logger.info(f"Finalizing function: {self.curr_fun.name}")
             fun_list.append(self.curr_fun)
             self.curr_fun = None  # Reset the current function after finalizing
+            # Debugging all the typedef information stored
+            # for typedef in typedef_list:
+            #     print_typedef_data(typedef)
+            
 
     def run(self):
         for CU in self.dwarf_info.iter_CUs():
@@ -84,7 +90,6 @@ class DwarfAnalyzer:
                 # Finalize the previous function if a new subprogram is encountered
                 if DIE.tag == "DW_TAG_subprogram" and self.curr_fun is not None:
                     self.finalize_subprog()
-
                 self.process_die(CU, DIE)
 
             # Finalize the last subprogram after processing all DIEs
@@ -117,7 +122,6 @@ class DwarfAnalyzer:
                 fp.write(f"\tVarType: {var.var_type}\n")
                 fp.write(f"\tBaseType: {var.type_name}\n")
                 fp.write(f"    -------------VarEnd------------\n")
-            
             fp.write(f"\n--------------FunEnd------------------\n")
         
         fp.write("\n")
@@ -130,42 +134,60 @@ class DwarfAnalyzer:
         # Handle the DIE's tag
         if DIE.tag == "DW_TAG_subprogram":
             fun_name = DIE.attributes["DW_AT_name"].value.decode()
-            if fun_name != "process": # Debugging purpose
-                None
-            else:
-                self.analyze_subprog(CU, DIE, DIE.attributes.values())
-            # None
+            # if fun_name != "process": # Debugging purpose
+            #     None
+            # else:
+            self.analyze_subprog(CU, DIE, DIE.attributes.values())
+            return
         elif DIE.tag == "DW_TAG_variable":
-            # self.analyze_var(CU, DIE, DIE.attributes.values())
+            self.analyze_var(CU, DIE, DIE.attributes.values())
             None
-        elif DIE.tag == "DW_TAG_typedef":
-            self.analyze_typedef(CU, DIE, DIE.attributes.values())
-            None
+            return
         elif DIE.tag == "DW_TAG_base_type":
             # self.analyze_base(CU, DIE, DIE.attributes.values())
             None
-        # elif DIE.tag == "DW_TAG_structure_type":
-        #     # Creating a struct. This struct will not have the offset value (this is determined when the variable is initialized)
-        #     self.curr_struct = self.analyze_struct(CU, DIE, DIE.attributes.values())
-        #     # Creating a list for struct members that will be stored in the StructData
-        #     self.curr_members = list()
-        # elif DIE.tag == "DW_TAG_member":
-        #     member = self.analyze_member(CU, DIE, DIE.attributes.values())
-        #     self.curr_members.append(member)
+            return
+        if DIE.tag == "DW_TAG_structure_type":
+            # Process and create StructData
+            self.curr_struct = self.analyze_struct(CU, DIE, DIE.attributes.values())
+            self.curr_members = list()  # Initialize members list
+            return
+        elif DIE.tag == "DW_TAG_member":
+            # Process members and append to the current struct
+            member = self.analyze_member(CU, DIE, DIE.attributes.values())
+            self.curr_members.append(member)
+            return
+        elif DIE.tag == "DW_TAG_typedef":
+            self.curr_typedef = self.analyze_typedef(CU, DIE, DIE.attributes.values())
+            if self.curr_typedef and self.curr_typedef.var_type == "DW_TAG_structure_type":
+                # Associate the typedef with the most recent struct
+                recent_struct = struct_list.pop()
+                logger.debug("Associate the typedef with the most recent struct")
+                print_struct_data(recent_struct)
+                self.curr_typedef.struct = recent_struct
+                self.curr_typedef = None
+            None
+            return
         elif DIE.tag == None:
-            if self.curr_struct != None:
+            if self.stored_typedef is not None:
+                self.stored_typedef.struct.member_list = self.curr_members.copy()
+                logger.debug(f"Adding members to struct typedef: {self.stored_typedef.typedef_name}")
+                logger.warning("Clearing the struct")
+                self.stored_typedef = None # Clear the stored typedef as well
+                self.curr_members.clear()
+            elif self.curr_struct is not None:
                 self.curr_struct.member_list = self.curr_members.copy()
-                print()
-                logger.debug("Clearing the struct")
-                print_struct_data(self.curr_struct)
+                logger.warning("Clearing the struct")
+                # print_struct_data(self.curr_struct)
                 struct_list.append(self.curr_struct)
                 self.curr_struct = None
                 self.curr_members.clear()
-                # exit()
             None
+            return
         else:
-            # logger.info(f"Not yet handling the tag {DIE.tag}.")
+            logger.info(f"Not yet handling the tag {DIE.tag}.")
             None
+            return
             
 def dwarf_analysis(input_binary):
     
