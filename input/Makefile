@@ -5,6 +5,7 @@ PIEFLAGS 		= -no-pie -fno-pie
 ASMFLAGS		= -O0 -gdwarf-2 -c -save-temps=obj
 INTELFLAGS		= -O0 -gdwarf-2 -S -masm=intel
 
+# Directories
 parent_dir := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/../)
 result_dir = ${parent_dir}/result
 

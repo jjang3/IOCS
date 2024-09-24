@@ -30,3 +30,6 @@ archive.py
 .gdb_history
 *.code-workspace
 nginx
+nginx_build
+nginx-1.3.9
+nginx-1.4.0

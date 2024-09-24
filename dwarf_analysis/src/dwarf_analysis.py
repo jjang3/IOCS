@@ -12,6 +12,7 @@ from elftools.elf.elffile import DWARFInfo, ELFFile
 from elftools.dwarf.dwarf_expr import DWARFExprParser, DWARFExprOp
 from elftools.dwarf.descriptions import (
     describe_DWARF_expr, set_global_machine_arch)
+from elftools.dwarf.descriptions import describe_reg_name, describe_CFI_register_rule, describe_CFI_CFA_rule
 from elftools.dwarf.locationlists import (
     LocationEntry, LocationExpr, LocationParser)
 from elftools.dwarf.descriptions import describe_form_class
@@ -44,11 +45,12 @@ global type_dict
 
 from dwarf_atts import *
 class DwarfAnalyzer:
-    def __init__(self, base_name, dwarf_info, loc_parser, fp):
+    def __init__(self, base_name, dwarf_info, loc_parser, fp, elffile):
         self.base_name = base_name
         self.dwarf_info = dwarf_info
         self.loc_parser = loc_parser
         self.fp = fp
+        self.elffile = elffile
         self.curr_fun = None  # Initialize as None
         self.curr_struct = None # Current structure (if any)
         self.curr_members = None # Current member (if any)
@@ -82,9 +84,94 @@ class DwarfAnalyzer:
             # Debugging all the typedef information stored
             # for typedef in typedef_list:
             #     print_typedef_data(typedef)
-            
+                
+    def analyze_eh_frame(self):
+        """ Analyze the .eh_frame and .debug_frame sections and extract CFA and frame-related information """
+        dwarf_info = self.elffile.get_dwarf_info()
+        cfi_entries = self.get_cfi_entries(dwarf_info)
+
+        if not cfi_entries:
+            logger.error("No CFI entries found in either .debug_frame or .eh_frame.")
+            return
+
+        logger.info("Analyzing CFI section for CFA information.")
+
+        # Iterate through the CIE and FDE entries
+        for entry in cfi_entries:
+            if isinstance(entry, CIE):
+                self.log_cie_details(entry)
+            elif isinstance(entry, FDE):
+                logger.info(f"FDE: Start PC: {entry['initial_location']}, Range: {entry['address_range']}")
+                self.process_fde_instructions(entry)
+
+    def get_cfi_entries(self, dwarf_info):
+        """ Get CFI entries from .debug_frame or fallback to .eh_frame """
+        cfi_entries = None
+
+        if dwarf_info.debug_frame_sec:
+            logger.info("Analyzing .debug_frame section for CFA information.")
+            try:
+                cfi_entries = dwarf_info.CFI_entries()
+            except AttributeError:
+                logger.error(".debug_frame section is not valid.")
+
+        if not cfi_entries:
+            logger.info("Trying .eh_frame section for CFA information.")
+            cfi_entries = dwarf_info.EH_CFI_entries()
+
+        return cfi_entries
+
+    def log_cie_details(self, cie):
+        """ Log details about CIE (Common Information Entry) """
+        code_alignment = cie.header.get('code_alignment_factor', 'N/A')
+        data_alignment = cie.header.get('data_alignment_factor', 'N/A')
+        return_column = cie.header.get('return_address_column', 'N/A')
+
+        logger.debug(f"CIE: Code alignment: {code_alignment}, Data alignment: {data_alignment}, Return column: {return_column}")
+
+    def process_fde_instructions(self, fde):
+        """ Process the Frame Description Entry (FDE) instructions to extract CFA details """
+        decoded_table = fde.get_decoded()
+
+        # Iterate over each row in the decoded call frame table
+        for row in decoded_table.table:
+            logger.info(f"PC: {row['pc']}, CFA: {describe_CFI_CFA_rule(row['cfa'])}")
+
+            # Process any instructions in the row
+            if 'instructions' in row:
+                self.process_instructions(row['instructions'])
+            else:
+                logger.debug(f"No instructions found for PC: {row['pc']}")
+
+    def process_instructions(self, instructions):
+        """ Process the list of instructions in the row """
+        for instruction in instructions:
+            if instruction.op_name == 'DW_CFA_def_cfa':
+                reg_num, offset = instruction.args
+                reg_name = describe_reg_name(reg_num, 'x86_64')  # Assuming x86_64 architecture
+                logger.info(f"CFA defined as register {reg_name} with offset {offset}")
+            elif instruction.op_name == 'DW_CFA_def_cfa_offset':
+                offset = instruction.args[0]
+                logger.info(f"CFA offset set to {offset}")
+                logger.info(f"Stack pointer moved down by {offset} bytes relative to the CFA.")
+            elif instruction.op_name == 'DW_CFA_offset':
+                reg_num, offset = instruction.args
+                reg_name = describe_reg_name(reg_num, 'x86_64')
+                logger.info(f"Register {reg_name} saved at offset {offset} relative to CFA")
+                if reg_num == 16:  # Register 16 is RIP in x86_64
+                    logger.info(f"Return address (RIP) saved at offset {offset} relative to CFA.")
+            elif instruction.op_name == 'DW_CFA_advance_loc':
+                loc_increment = instruction.args[0]
+                logger.debug(f"Advance location by {loc_increment}")
+            else:
+                logger.debug(f"Unhandled DWARF instruction: {instruction.op_name}")
+
 
     def run(self):
+        # Add .eh_frame analysis after DWARF analysis
+        self.analyze_eh_frame()
+
+        exit()
         for CU in self.dwarf_info.iter_CUs():
             for DIE in CU.iter_DIEs():
                 # Finalize the previous function if a new subprogram is encountered
@@ -218,6 +305,6 @@ def dwarf_analysis(input_binary):
         # creates objects representing the actual location information.
         loc_parser = LocationParser(location_lists)
 
-        analyzer = DwarfAnalyzer(base_name, dwarf_info, loc_parser, fp)
+        analyzer = DwarfAnalyzer(base_name, dwarf_info, loc_parser, fp, elffile)
         
         return analyzer.run()

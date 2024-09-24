@@ -36,4 +36,7 @@
 2) Before rewriting, you need to migrate the file into the `IBCS/result/coreutils_bin` folder
 3) Then rewrite the code by using the `rewrite` option
 4) `compile` option will rewrite the assembly file in the `IBCS/result/coreutils_bin` folder, which will then copy necessary files back to the `coreutils` folder (which is the variable `$coreutils_src_path` in the `core.sh`)
+
+## Directions for the NGINX
+
 ---

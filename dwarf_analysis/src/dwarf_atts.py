@@ -206,6 +206,7 @@ class FunData:
 def analyze_subprog(CU: CompileUnit, dwarf_info, DIE, attribute_values, loc_parser
                     , base_name):
     frame_base_pattern = r"\(DW_OP_breg\d+\s\((\w+)\):\s(-?\d+)\)"
+    cfa_pattern = b'\x9c'  # DW_OP_call_frame_cfa
     for attr in attribute_values:
         if loc_parser.attribute_has_location(attr, CU['version']): 
             print()
@@ -220,7 +221,6 @@ def analyze_subprog(CU: CompileUnit, dwarf_info, DIE, attribute_values, loc_pars
             else:
                 logger.error("Error: Invalid DW_AT_high_pc form class: %s", high_pc_form_class)
                 continue
-            
             # Check the source file to see if it belongs to a known library
             parsed_base_name = None
             decl_file_attr = DIE.attributes.get('DW_AT_decl_file')
@@ -246,17 +246,70 @@ def analyze_subprog(CU: CompileUnit, dwarf_info, DIE, attribute_values, loc_pars
             fun_name = DIE.attributes["DW_AT_name"].value.decode()
             # logger.info("Function name: %s", fun_name)
             curr_fun = FunData(name=fun_name, begin=low_pc, end=high_pc)
+
+            logger.debug(f"Function name: {fun_name}")
+
+            # 1. Check for DW_AT_frame_base
+            frame_base_attr = DIE.attributes.get('DW_AT_frame_base')
+            if frame_base_attr:
+                logger.debug(f"DW_AT_frame_base found for function {fun_name}")
+                # Check if it's a location list or a single location
+                loc = loc_parser.parse_from_attribute(frame_base_attr, CU['version'])
+                # Handle a list of location entries (location list)
+                if isinstance(loc, list):
+                    logger.debug("Parsing location list for DW_AT_frame_base")
+                    for loc_entity in loc:
+                        if isinstance(loc_entity, LocationEntry):
+                            offset_expr = describe_DWARF_expr(loc_entity.loc_expr, dwarf_info.structs, CU.cu_offset)
+                            logger.debug(f"Location expression: {offset_expr}")
+                            
+                            # Handle CFA or rbp
+                            if "DW_OP_call_frame_cfa" in offset_expr:
+                                logger.info(f"Function {fun_name} uses DW_OP_call_frame_cfa for frame base")
+                                curr_fun.reg_to_use = "cfa"
+                                curr_fun.fun_frame_base = 0  # No offset for CFA itself
+                            else:
+                                frame_match = re.search(frame_base_pattern, offset_expr)
+                                if frame_match:
+                                    reg = frame_match.group(1)
+                                    offset_value = int(frame_match.group(2))
+                                    logger.info(f"Function {fun_name} uses register {reg} with offset {offset_value}")
+                                    curr_fun.reg_to_use = reg
+                                    curr_fun.fun_frame_base = offset_value
+                # Single location expression case
+                else:
+                    decoded_frame_base = describe_DWARF_expr(frame_base_attr.value, dwarf_info.structs, CU.cu_offset)
+                    logger.debug(f"Single location for DW_AT_frame_base: {decoded_frame_base}")
+                    if "DW_OP_call_frame_cfa" in decoded_frame_base:
+                        logger.info(f"Function {fun_name} uses DW_OP_call_frame_cfa")
+                        curr_fun.reg_to_use = "cfa"
+                        curr_fun.fun_frame_base = 0  # No offset for CFA
+                    else:
+                        frame_match = re.search(frame_base_pattern, decoded_frame_base)
+                        if frame_match:
+                            reg = frame_match.group(1)
+                            offset_value = int(frame_match.group(2))
+                            logger.info(f"Function {fun_name} uses register {reg} with offset {offset_value}")
+                            curr_fun.reg_to_use = reg
+                            curr_fun.fun_frame_base = offset_value
+                # exit()
+
+
             loc = loc_parser.parse_from_attribute(attr, CU['version'])
             if isinstance(loc, list):
+                logger.debug("Parsing location list")
                 for loc_entity in loc:
                     if isinstance(loc_entity, LocationEntry):
                         offset = describe_DWARF_expr(loc_entity.loc_expr, dwarf_info.structs, CU.cu_offset)
                         frame_match = re.search(frame_base_pattern, offset)
+
                         if "rbp" in offset and frame_match:
                             reg = frame_match.group(1)
                             offset_value = int(frame_match.group(2))
                             curr_fun.reg_to_use = reg
                             curr_fun.fun_frame_base = offset_value
+
+            
             return curr_fun
 
 def get_type_name(dwarf_info: DWARFInfo, type_die: DIE, from_typedef=False):

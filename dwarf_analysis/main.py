@@ -46,19 +46,20 @@ class CustomFormatter(logging.Formatter):
     yellow = "\x1b[33;20m"
     red = "\x1b[31;20m"
     bold_green = "\x1b[42;1m"
+    light_green = "\x1b[32;1m"  # Changed from bold green to a lighter green
     purp = "\x1b[38;5;13m"
     reset = "\x1b[0m"
     # format = "%(funcName)5s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)"
-
-    # Base format for logs
     format = "[%(filename)17s: Line:%(lineno)4s - %(funcName)-18s] %(levelname)-8s: %(message)s"
+
+
 
     FORMATS = {
         logging.DEBUG: yellow + format + reset,
         logging.INFO: blue + format + reset,
         logging.WARNING: purp + format + reset,
         logging.ERROR: red + format + reset,
-        logging.CRITICAL: bold_green + format + reset
+        logging.CRITICAL: light_green + format + reset
     }
 
     def format(self, record):
@@ -66,20 +67,24 @@ class CustomFormatter(logging.Formatter):
         formatter = logging.Formatter(log_fmt)
         return formatter.format(record)
     
-# Debug options here
-debug_level = logging.DEBUG
-ch = logging.StreamHandler()
-ch.setLevel(debug_level) 
-ch.setFormatter(CustomFormatter())
-
-log = logging.getLogger(__name__)
-log.setLevel(debug_level)
-
-# create console handler with a higher log level
-log_disable = False
-log.addHandler(ch)
-log.disabled = log_disable
+def setup_logger(name: str, level=logging.DEBUG, log_disable=False):
+    """Set up a logger with a custom name."""
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
     
+    # Avoid adding multiple handlers if the logger is already configured
+    if not logger.hasHandlers():
+        ch = logging.StreamHandler()
+        ch.setLevel(level)
+        ch.setFormatter(CustomFormatter())
+        logger.addHandler(ch)
+
+    logger.disabled = log_disable
+    return logger
+
+# Example of creating a logger with a specific name
+log = setup_logger("custom_logger")
+
 def main():
     # Get the size of the terminal
     columns, rows = shutil.get_terminal_size(fallback=(80, 20))
@@ -100,9 +105,8 @@ def main():
 
     # Determine base_name if binary is provided
     if args.binary is not None:
+        logger.debug(f"Processing {args.binary}")
         dwarf_analysis(args.binary)
-
-
 
 # Call main function
 if __name__ == '__main__':
