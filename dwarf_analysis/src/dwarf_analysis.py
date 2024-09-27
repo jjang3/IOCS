@@ -84,7 +84,19 @@ class DwarfAnalyzer:
             # Debugging all the typedef information stored
             # for typedef in typedef_list:
             #     print_typedef_data(typedef)
-                
+    
+    def get_architecture(self):
+        """ Get the architecture from the ELF file """
+        return self.elffile.get_machine_arch()
+
+    def describe_CFI_CFA_rule(self, cfa):
+        """ Describe the CFA rule for debugging purposes """
+        if isinstance(cfa, tuple) and len(cfa) == 2:
+            reg_num, offset = cfa
+            reg_name = describe_reg_name(reg_num, self.get_architecture())
+            return f"{reg_name} + {offset}"
+        return str(cfa)
+
     def analyze_eh_frame(self):
         """ Analyze the .eh_frame and .debug_frame sections and extract CFA and frame-related information """
         dwarf_info = self.elffile.get_dwarf_info()
@@ -153,7 +165,6 @@ class DwarfAnalyzer:
             elif instruction.op_name == 'DW_CFA_def_cfa_offset':
                 offset = instruction.args[0]
                 logger.info(f"CFA offset set to {offset}")
-                logger.info(f"Stack pointer moved down by {offset} bytes relative to the CFA.")
             elif instruction.op_name == 'DW_CFA_offset':
                 reg_num, offset = instruction.args
                 reg_name = describe_reg_name(reg_num, 'x86_64')
@@ -163,6 +174,10 @@ class DwarfAnalyzer:
             elif instruction.op_name == 'DW_CFA_advance_loc':
                 loc_increment = instruction.args[0]
                 logger.debug(f"Advance location by {loc_increment}")
+            elif instruction.op_name == 'DW_CFA_remember_state':
+                logger.debug("Remember current state")
+            elif instruction.op_name == 'DW_CFA_restore_state':
+                logger.debug("Restore previously remembered state")
             else:
                 logger.debug(f"Unhandled DWARF instruction: {instruction.op_name}")
 
@@ -171,7 +186,7 @@ class DwarfAnalyzer:
         # Add .eh_frame analysis after DWARF analysis
         self.analyze_eh_frame()
 
-        exit()
+        # exit()
         for CU in self.dwarf_info.iter_CUs():
             for DIE in CU.iter_DIEs():
                 # Finalize the previous function if a new subprogram is encountered
@@ -220,7 +235,8 @@ class DwarfAnalyzer:
         """Helper method to process a DIE and its children recursively."""
         # Handle the DIE's tag
         if DIE.tag == "DW_TAG_subprogram":
-            fun_name = DIE.attributes["DW_AT_name"].value.decode()
+            # print(DIE.attributes)
+            # fun_name = DIE.attributes["DW_AT_name"].value.decode()
             # if fun_name != "process": # Debugging purpose
             #     None
             # else:

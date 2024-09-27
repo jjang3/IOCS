@@ -207,6 +207,7 @@ def analyze_subprog(CU: CompileUnit, dwarf_info, DIE, attribute_values, loc_pars
                     , base_name):
     frame_base_pattern = r"\(DW_OP_breg\d+\s\((\w+)\):\s(-?\d+)\)"
     cfa_pattern = b'\x9c'  # DW_OP_call_frame_cfa
+    logger.debug(attribute_values)
     for attr in attribute_values:
         if loc_parser.attribute_has_location(attr, CU['version']): 
             print()
@@ -311,6 +312,8 @@ def analyze_subprog(CU: CompileUnit, dwarf_info, DIE, attribute_values, loc_pars
 
             
             return curr_fun
+        else:
+            logger.error("Attribute does not have the location")
 
 def get_type_name(dwarf_info: DWARFInfo, type_die: DIE, from_typedef=False):
     seen_dies = set()  # To track visited DIEs and avoid infinite loops
@@ -528,9 +531,11 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
         # If curr_var is set, process its attributes (such as location and type).
         if curr_var is not None:
             # Check for location information using loc_parser.
-            if loc_parser.attribute_has_location(attr, CU['version']):
-                loc = loc_parser.parse_from_attribute(attr, CU['version'])
+            if loc_parser.attribute_has_location(attr, CU.header['version']):
+                print(attr)
+                loc = loc_parser.parse_from_attribute(attr, CU.header['version'], die=DIE)
                 if isinstance(loc, LocationExpr):
+                            
                     # Extract frame base offset from the location expression.
                     offset = describe_DWARF_expr(loc.loc_expr, dwarf_info.structs, CU.cu_offset)
                     offset_match = re.search(offset_pattern, offset)
