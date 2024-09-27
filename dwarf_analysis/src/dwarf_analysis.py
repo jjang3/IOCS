@@ -57,8 +57,10 @@ class DwarfAnalyzer:
         self.curr_typedef = None # Current typedef (if any)
         self.stored_typedef = None  # Store typedef for later use
 
-    def analyze_subprog(self, CU, DIE, attributes):
-        self.curr_fun = analyze_subprog(CU, self.dwarf_info, DIE, attributes, self.loc_parser, self.base_name)
+    def analyze_subprog(self, CU, DIE):
+        self.curr_fun = analyze_subprog(CU, self.dwarf_info, DIE, self.loc_parser)
+        if self.curr_fun != None:
+            self.curr_fun.print_data()
 
     def analyze_var(self, CU, DIE, attributes):
         return analyze_var(CU, self.dwarf_info, DIE, attributes, self.loc_parser, self.curr_fun)
@@ -74,6 +76,9 @@ class DwarfAnalyzer:
     
     def analyze_member(self, CU, DIE, attributes):
         return analyze_member(CU, self.dwarf_info, DIE, attributes, self.loc_parser)
+    
+    def analyze_inlined_fun(self, CU, DIE):
+        analyze_inlined(CU, self.dwarf_info, DIE, self.loc_parser)
 
     def finalize_subprog(self):
         """Finalize the processing of the current function."""
@@ -81,6 +86,7 @@ class DwarfAnalyzer:
             logger.info(f"Finalizing function: {self.curr_fun.name}")
             fun_list.append(self.curr_fun)
             self.curr_fun = None  # Reset the current function after finalizing
+            print()
             # Debugging all the typedef information stored
             # for typedef in typedef_list:
             #     print_typedef_data(typedef)
@@ -229,19 +235,17 @@ class DwarfAnalyzer:
         fp.write("\n")
         fp.close()
 
-        
-
     def process_die(self, CU, DIE):
         """Helper method to process a DIE and its children recursively."""
         # Handle the DIE's tag
         if DIE.tag == "DW_TAG_subprogram":
-            # print(DIE.attributes)
-            # fun_name = DIE.attributes["DW_AT_name"].value.decode()
-            # if fun_name != "process": # Debugging purpose
-            #     None
-            # else:
-            self.analyze_subprog(CU, DIE, DIE.attributes.values())
-            return
+            # Check if this is an inlined function by looking for DW_AT_abstract_origin
+            if 'DW_AT_abstract_origin' in DIE.attributes:
+                self.analyze_inlined_fun(CU, DIE)
+            else:
+                # Process the subprogram as a normal function
+                self.analyze_subprog(CU, DIE)
+                return
         elif DIE.tag == "DW_TAG_variable":
             self.analyze_var(CU, DIE, DIE.attributes.values())
             return
