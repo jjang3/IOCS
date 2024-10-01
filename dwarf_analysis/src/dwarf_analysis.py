@@ -44,6 +44,7 @@ global typedef_list
 global type_dict
 
 from dwarf_atts import *
+
 class DwarfAnalyzer:
     def __init__(self, base_name, dwarf_info, loc_parser, fp, elffile):
         self.base_name = base_name
@@ -56,14 +57,15 @@ class DwarfAnalyzer:
         self.curr_members = None # Current member (if any)
         self.curr_typedef = None # Current typedef (if any)
         self.stored_typedef = None  # Store typedef for later use
+        self.cfa_dict = {}
 
     def analyze_subprog(self, CU, DIE):
-        self.curr_fun = analyze_subprog(CU, self.dwarf_info, DIE, self.loc_parser)
+        self.curr_fun = analyze_subprog(CU, self.dwarf_info, DIE, self.loc_parser, self.cfa_dict)
         if self.curr_fun != None:
             self.curr_fun.print_data()
 
     def analyze_var(self, CU, DIE, attributes):
-        return analyze_var(CU, self.dwarf_info, DIE, attributes, self.loc_parser, self.curr_fun)
+        return analyze_var(CU, self.dwarf_info, DIE, attributes, self.loc_parser, self.curr_fun, self.cfa_dict)
 
     def analyze_typedef(self, CU, DIE, attributes):
         return analyze_typedef(CU, self.dwarf_info, DIE, attributes)
@@ -78,7 +80,7 @@ class DwarfAnalyzer:
         return analyze_member(CU, self.dwarf_info, DIE, attributes, self.loc_parser)
     
     def analyze_inlined_fun(self, CU, DIE):
-        analyze_inlined(CU, self.dwarf_info, DIE, self.loc_parser)
+        analyze_inlined(CU, self.dwarf_info, DIE, self.loc_parser, self.cfa_dict)
 
     def finalize_subprog(self):
         """Finalize the processing of the current function."""
@@ -153,13 +155,31 @@ class DwarfAnalyzer:
 
         # Iterate over each row in the decoded call frame table
         for row in decoded_table.table:
-            logger.info(f"PC: {row['pc']}, CFA: {describe_CFI_CFA_rule(row['cfa'])}")
+            pc = row['pc']
+            cfa_rule = row['cfa']
+
+            # Parse the CFA rule to extract register and offset details
+            cfa_description = describe_CFI_CFA_rule(cfa_rule)
+            logger.info(f"PC: {pc}, CFA: {cfa_description}")
+
+            if isinstance(cfa_rule, CFARule):
+                if cfa_rule.reg is not None:
+                    # Use describe_CFI_CFA_rule to get a human-readable register name and offset
+                    readable_cfa = describe_CFI_CFA_rule(cfa_rule)
+
+                    # Store the human-readable CFA information
+                    self.cfa_dict[pc] = readable_cfa
+                else:
+                    # Handle other cases, such as expressions, if applicable
+                    logger.warning(f"CFA for PC {pc} has no direct register base")
+            else:
+                logger.error(f"Unexpected CFA rule type for PC {pc}")
 
             # Process any instructions in the row
-            if 'instructions' in row:
-                self.process_instructions(row['instructions'])
-            else:
-                logger.debug(f"No instructions found for PC: {row['pc']}")
+            # if 'instructions' in row:
+            #     self.process_instructions(row['instructions'])
+            # else:
+            #     logger.debug(f"No instructions found for PC: {row['pc']}")
 
     def process_instructions(self, instructions):
         """ Process the list of instructions in the row """

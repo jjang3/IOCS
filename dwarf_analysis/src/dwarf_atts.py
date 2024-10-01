@@ -174,12 +174,13 @@ class FunData:
     def print_data(self):
         """Prints the function's data in a detailed and color-coded format."""
         logger.info(f"{LIGHT_BLUE}Function Name: {self.name}{RESET}")
-        logger.debug(f"{CYAN}Begin Address: {hex(self.begin) if self.begin is not None else 'None'}{RESET}")
-        logger.debug(f"{CYAN}End Address: {hex(self.end) if self.end else 'None'}{RESET}")
+        logger.debug(f"{CYAN}Begin Address: {(self.begin) if self.begin is not None else 'None'}{RESET}")
+        logger.debug(f"{CYAN}End Address: {(self.end) if self.end else 'None'}{RESET}")
         
         if self.fun_frame_base is not None:
-            logger.debug(f"{CYAN}Frame base: {self.reg_to_use}-{self.fun_frame_base}{RESET}")
-        
+            sign = '+' if self.fun_frame_base >= 0 else ''
+            logger.debug(f"{CYAN}Frame base: {self.reg_to_use}{sign}{self.fun_frame_base}{RESET}")
+
         if self.is_inlined:
             logger.debug(f"{YELLOW}This function is inlined{RESET}")
             for idx, (begin, end) in enumerate(self.inlined_instances):
@@ -230,46 +231,98 @@ def parse_pc_range(DIE):
         logger.warning("Function has no valid DW_AT_low_pc or DW_AT_high_pc")
         return None, None
 
-def parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun):
-    """Helper function to handle DW_AT_frame_base attribute."""
-    frame_base_pattern = r"\(DW_OP_breg\d+\s\((\w+)\):\s(-?\d+)\)"
+def parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun, cfa_dict):
+    """Helper function to handle DW_AT_frame_base attribute using CFA information from cfa_dict."""
     
     frame_base_attr = DIE.attributes.get('DW_AT_frame_base', None)
     if frame_base_attr:
-        logger.debug(f"DW_AT_frame_base found for function {curr_fun.name}")
+        logger.debug(f"DW_AT_frame_base found for function '{curr_fun.name}'")
+
+        # Parse the frame base attribute using loc_parser
         loc = loc_parser.parse_from_attribute(frame_base_attr, CU['version'])
+        
         if isinstance(loc, list):
+            # Iterate over location entries to extract relevant frame base information
             for loc_entity in loc:
                 if isinstance(loc_entity, LocationEntry):
-                    offset_expr = describe_DWARF_expr(loc_entity.loc_expr, dwarf_info.structs, CU.cu_offset)
-                    if "DW_OP_call_frame_cfa" in offset_expr:
-                        logger.info(f"Function {curr_fun.name} uses DW_OP_call_frame_cfa for frame base")
-                        curr_fun.reg_to_use = "cfa"
-                        curr_fun.fun_frame_base = 0  # No offset for CFA itself
-                    else:
-                        frame_match = re.search(frame_base_pattern, offset_expr)
-                        if frame_match:
-                            reg = frame_match.group(1)
-                            offset_value = int(frame_match.group(2))
-                            logger.info(f"Function {curr_fun.name} uses register {reg} with offset {offset_value}")
-                            curr_fun.reg_to_use = reg
-                            curr_fun.fun_frame_base = offset_value
-        else:
-            decoded_frame_base = describe_DWARF_expr(frame_base_attr.value, dwarf_info.structs, CU.cu_offset)
-            if "DW_OP_call_frame_cfa" in decoded_frame_base:
-                logger.info(f"Function {curr_fun.name} uses DW_OP_call_frame_cfa")
-                curr_fun.reg_to_use = "cfa"
-                curr_fun.fun_frame_base = 0  # No offset for CFA
-            else:
-                frame_match = re.search(frame_base_pattern, decoded_frame_base)
-                if frame_match:
-                    reg = frame_match.group(1)
-                    offset_value = int(frame_match.group(2))
-                    logger.info(f"Function {curr_fun.name} uses register {reg} with offset {offset_value}")
-                    curr_fun.reg_to_use = reg
-                    curr_fun.fun_frame_base = offset_value
+                    pc_begin = loc_entity.begin_offset
+                    pc_end = loc_entity.end_offset
+                    logger.info(f"Function '{curr_fun.name}' uses frame base for PC range {hex(pc_begin)} - {hex(pc_end)}")
 
-def analyze_subprog(CU: CompileUnit, dwarf_info, DIE, loc_parser):
+                    # Set frame base for each PC in the range based on cfa_dict
+                    for pc in range(pc_begin, pc_end + 1):
+                        if pc in cfa_dict:
+                            cfa_value = cfa_dict[pc]
+                            if not hasattr(curr_fun, 'frame_base_dict'):
+                                curr_fun.frame_base_dict = {}
+                            curr_fun.frame_base_dict[pc] = ("cfa", cfa_value)
+                            logger.debug(f"Set CFA-based frame base for PC {hex(pc)}: ('cfa', {cfa_value})")
+                        else:
+                            logger.warning(f"No CFA value found in cfa_dict for PC {hex(pc)} in function '{curr_fun.name}'")
+
+            # Determine the general frame base to use for the function based on `cfa_dict` values
+            if curr_fun.frame_base_dict:
+                # For simplicity, pick the frame base from the midpoint of the function range as representative
+                midpoint_pc = (curr_fun.begin + curr_fun.end) // 2
+                if midpoint_pc in curr_fun.frame_base_dict:
+                    cfa_type, cfa_value = curr_fun.frame_base_dict[midpoint_pc]
+                    curr_fun.reg_to_use = cfa_value.split('+')[0]  # e.g., 'rbp' or 'rsp'
+                    curr_fun.fun_frame_base = int(cfa_value.split('+')[1])  # e.g., offset value
+                else:
+                    logger.warning(f"Midpoint PC {hex(midpoint_pc)} not found in frame_base_dict for function '{curr_fun.name}'")
+        else:
+            # Handle non-location list attributes (directly decoded frame base)
+            decoded_frame_base = describe_DWARF_expr(frame_base_attr.value, dwarf_info.structs, CU.cu_offset)
+            logger.debug(f"Decoded frame base: {decoded_frame_base}")
+
+            if "DW_OP_call_frame_cfa" in decoded_frame_base:
+                logger.info(f"Function '{curr_fun.name}' uses DW_OP_call_frame_cfa for frame base for entire function range")
+
+                # Use the CFA values from cfa_dict for each PC in the function range
+                for pc in range(curr_fun.begin, curr_fun.end + 1):
+                    if pc in cfa_dict:
+                        cfa_value = cfa_dict[pc]
+                        if not hasattr(curr_fun, 'frame_base_dict'):
+                            curr_fun.frame_base_dict = {}
+                        curr_fun.frame_base_dict[pc] = ("cfa", cfa_value)
+                        logger.debug(f"Set CFA-based frame base for PC {hex(pc)}: ('cfa', {cfa_value})")
+
+                # Check if we have consistent CFA values with rbp and offset +16
+                consistent_rbp_offset = False
+                for cfa_type, cfa_value in curr_fun.frame_base_dict.values():
+                    if cfa_type == "cfa" and "rbp" in cfa_value:
+                        reg, offset = cfa_value.split('+')
+                        offset = int(offset)
+                        if reg.strip() == "rbp" and offset == 16:
+                            consistent_rbp_offset = True
+                            break
+
+                if consistent_rbp_offset:
+                    logger.info(f"Using rbp + 16 as the frame base for function '{curr_fun.name}'")
+                    curr_fun.reg_to_use = "rbp"
+                    curr_fun.fun_frame_base = 16
+                else:
+                    logger.warning(f"No consistent 'rbp + 16' found in CFA values for function '{curr_fun.name}'")
+
+            else:
+                # Assume other frame bases are also using rbp with offset found from cfa_dict if available
+                logger.warning(f"Non-CFA frame base expression detected, attempting to derive frame base")
+                for pc in range(curr_fun.begin, curr_fun.end + 1):
+                    if pc in cfa_dict:
+                        cfa_value = cfa_dict[pc]
+                        if "rbp" in cfa_value:
+                            reg, offset = cfa_value.split('+')
+                            curr_fun.reg_to_use = reg.strip()
+                            curr_fun.fun_frame_base = int(offset)
+                            logger.info(f"Using derived frame base '{reg.strip()} + {offset}' for function '{curr_fun.name}'")
+                            break
+
+    else:
+        # If there's no DW_AT_frame_base attribute, log a warning
+        logger.warning(f"No DW_AT_frame_base found for function '{curr_fun.name}', unable to determine frame base")
+
+
+def analyze_subprog(CU: CompileUnit, dwarf_info, DIE, loc_parser, cfa_dict):
     """Analyze subprogram DIE and extract function data."""
     fun_name_attr = DIE.attributes.get("DW_AT_name", None)
     if fun_name_attr:
@@ -294,16 +347,16 @@ def analyze_subprog(CU: CompileUnit, dwarf_info, DIE, loc_parser):
     if low_pc is not None and high_pc is not None:
         curr_fun.begin = low_pc
         curr_fun.end = high_pc
-        logger.debug(f"Set begin: {hex(curr_fun.begin)}, end: {hex(curr_fun.end)}")
+        # logger.debug(f"Set begin: {hex(curr_fun.begin)}, end: {hex(curr_fun.end)}")
 
     # Handle frame base
-    parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun)
+    parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun, cfa_dict)
 
     # Finalize analysis for subprogram
     logger.info("Finished analyzing subprogram")
     return curr_fun
 
-def analyze_inlined(CU: CompileUnit, dwarf_info, DIE, loc_parser):
+def analyze_inlined(CU: CompileUnit, dwarf_info, DIE, loc_parser, cfa_dict):
     """Process an inlined function by updating its low_pc, high_pc, and frame base."""
     abstract_origin_offset = DIE.attributes['DW_AT_abstract_origin'].value
     abstract_origin = dwarf_info.get_DIE_from_refaddr(abstract_origin_offset)
@@ -319,7 +372,7 @@ def analyze_inlined(CU: CompileUnit, dwarf_info, DIE, loc_parser):
                 curr_fun.begin = low_pc
                 curr_fun.end = high_pc
                 logger.info(f"Updated inlined function {abstract_name} with begin: {hex(low_pc)}, end: {hex(high_pc)}")
-                parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun)
+                parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun, cfa_dict)
                 curr_fun.print_data()
             else:
                 logger.warning(f"Inlined function {abstract_name} missing PC range")
@@ -497,13 +550,12 @@ def process_structure_type(dwarf_info, type_die, curr_var):
         logger.debug(f"Unnamed structure for variable: {curr_var}")
 
 
-
-def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: FunData):
+def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: FunData, cfa_dict):
     """
     Analyzes a DW_TAG_variable DIE within the context of a function (curr_fun).
 
     Parameters:
-    CU: Compilation Unit that contains this DIE.
+    CU: Compilation Unit that contains this DIE.gcc 
     dwarf_info: DWARFInfo object for accessing DIE data.
     DIE: Current DIE being analyzed (expected to be a DW_TAG_variable).
     attribute_values: Attributes associated with this DIE.
@@ -519,6 +571,7 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
     global_pattern = r"(?<=\(DW_OP_addr:\s)(.*)(?=\))"
     global_var = False
 
+
     # Check if the variable belongs to a function (global vars are not supported here).
     if curr_fun is not None:
         logger.warning(f"Analyze DW_TAG_variable for the Fun: {curr_fun.name}")
@@ -532,6 +585,7 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
 
     # Iterate through the attributes of the DW_TAG_variable DIE.
     for attr in attribute_values:
+
         # Handle DW_AT_name attribute (to extract the variable's name).
         if attr.name == "DW_AT_name":
             var_name = DIE.attributes["DW_AT_name"].value.decode()
@@ -547,8 +601,34 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
             # Check for location information using loc_parser.
             if loc_parser.attribute_has_location(attr, CU.header['version']):
                 loc = loc_parser.parse_from_attribute(attr, CU.header['version'], die=DIE)
-                if isinstance(loc, LocationExpr):
+                if isinstance(loc, list):
+                    # Iterate through location entries to extract PC ranges
+                    for loc_entry in loc:
+                        if isinstance(loc_entry, LocationEntry):
+                            pc_begin = loc_entry.begin_offset
+                            pc_end = loc_entry.end_offset
+                            logger.warning(f"Variable {curr_var.name} is valid from PC {(pc_begin)} to {(pc_end)}")
                             
+                            # Extract frame base offset from the location expression if available
+                            offset = describe_DWARF_expr(loc_entry.loc_expr, dwarf_info.structs, CU.cu_offset)
+                            offset_match = re.search(offset_pattern, offset)
+
+                            if offset_match:
+                                # Compute the variable's offset relative to the function's frame base.
+                                offset_value = int(offset_match.group(1))
+                                if curr_fun.fun_frame_base is not None:
+                                    final_offset = curr_fun.fun_frame_base + offset_value
+                                    logger.debug(f"Register Offset: {curr_fun.reg_to_use}{final_offset}")
+                                    curr_var.offset = final_offset
+
+                            # Handle global variables by extracting their address.
+                            global_match = re.search(global_pattern, offset)
+                            if global_match:
+                                addr_value = global_match.group(1)
+                                logger.debug(f"Address: {addr_value}")
+                    # exit()
+                elif isinstance(loc, LocationExpr):
+
                     # Extract frame base offset from the location expression.
                     offset = describe_DWARF_expr(loc.loc_expr, dwarf_info.structs, CU.cu_offset)
                     offset_match = re.search(offset_pattern, offset)
@@ -561,18 +641,14 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
                         curr_var.offset = final_offset
 
                         # Handle struct type variables by resolving their members and offsets.
-                        if curr_var.var_type == "DW_TAG_structure_type":
-                            if curr_var.member_list is None:
-                                # Find the struct in the struct_list and copy its members.
-                                for struct in struct_list:
-                                    struct: StructData
-                                    if curr_var.type_name == struct.name:
-                                        curr_var.member_list = struct.member_list.copy()
+                        if curr_var.var_type == "DW_TAG_structure_type" and curr_var.member_list is None:
+                            for struct in struct_list:
+                                if curr_var.type_name == struct.name:
+                                    curr_var.member_list = struct.member_list.copy()
 
-                            # Adjust member offsets based on the struct's offset in the frame.
                             for member in curr_var.member_list:
-                                member: VarData
                                 member.offset += curr_var.offset
+                    
 
                     # Handle global variables by extracting their address.
                     global_match = re.search(global_pattern, offset)
