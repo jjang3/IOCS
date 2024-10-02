@@ -1,15 +1,14 @@
-#Library-related                                                                       
+# Library-related                                                                       
 SHELL           = /bin/zsh
 CC              = gcc
-PIEFLAGS 		= -no-pie -fno-pie
-ASMFLAGS		= -O0 -gdwarf-2 -c -save-temps=obj
-INTELFLAGS		= -O0 -gdwarf-2 -S -masm=intel
+PIEFLAGS        = -no-pie -fno-pie
+ASMFLAGS        = -save-temps=obj -fno-omit-frame-pointer -g -O3
 
 # Directories
-parent_dir := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/../)
-result_dir = ${parent_dir}/result
+parent_dir      := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/../)
+result_dir      = ${parent_dir}/result
 
-%.out: %.c	# This is for one file
+%.out: %.c   # This is for one file
 	$(eval name := $(basename $@))
 
 	@echo $(name)
@@ -20,15 +19,25 @@ result_dir = ${parent_dir}/result
 	fi
 
 	cp libMakefile $(result_dir)/$(name)/Makefile
-	$(CC) $(ASMFLAGS) $< -o $(result_dir)/$(name)/$@
+
+	# Compile the source file and generate the intermediate assembly file
+	$(CC) $(ASMFLAGS) -S $< -o $(result_dir)/$(name)/$(name).s
+
+	# Assemble the assembly file to an object file
+	as $(result_dir)/$(name)/$(name).s -o $(result_dir)/$(name)/$(name).o
+
+	# Link the object file to create the final executable
+	$(CC) $(result_dir)/$(name)/$(name).o -o $(result_dir)/$(name)/$@
+
+	# Remove intermediate files if needed
 	rm -f $(result_dir)/$(name)/$(name).i
+
+	# Create analysis file if it doesn't exist
 	if [ ! -f "$(result_dir)/$(name)/$(name).analysis" ]; then \
 		echo "main" > $(result_dir)/$(name)/$(name).analysis; \
 	fi
-	exit
-	as $(result_dir)/$(name)/$(name).s -o $(result_dir)/$(name)/$(name).o
-	$(CC) -O0 -gdwarf-2 $(result_dir)/$(name)/$(name).o -o $(result_dir)/$(name)/$@
 
+	# Check if taint input file exists
 	if [ ! -e $(result_dir)/$(name)/taint.in ]; then \
 		echo "Taint Input File Doesn't exist"; \
 	fi

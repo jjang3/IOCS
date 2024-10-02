@@ -45,6 +45,16 @@ global type_dict
 
 from dwarf_atts import *
 
+ # ANSI escape codes for colors
+LIGHT_BLUE = "\033[96m"
+RESET = "\033[0m"
+YELLOW = "\033[93m"
+GREEN = "\033[92m"
+CYAN = "\033[36m"
+MAGENTA = "\033[95m"
+ORANGE = "\033[38;5;214m" 
+BRIGHT_RED = "\033[91m"
+
 class DwarfAnalyzer:
     def __init__(self, base_name, dwarf_info, loc_parser, fp, elffile):
         self.base_name = base_name
@@ -85,7 +95,9 @@ class DwarfAnalyzer:
     def finalize_subprog(self):
         """Finalize the processing of the current function."""
         if self.curr_fun:
-            logger.info(f"Finalizing function: {self.curr_fun.name}")
+            logger.critical(f"Finalizing function: {self.curr_fun.name}")
+            if self.curr_fun.name == "process":
+                exit()
             fun_list.append(self.curr_fun)
             self.curr_fun = None  # Reset the current function after finalizing
             print()
@@ -160,7 +172,7 @@ class DwarfAnalyzer:
 
             # Parse the CFA rule to extract register and offset details
             cfa_description = describe_CFI_CFA_rule(cfa_rule)
-            logger.info(f"PC: {pc}, CFA: {cfa_description}")
+            # logger.info(f"PC: {pc}, CFA: {cfa_description}")
 
             if isinstance(cfa_rule, CFARule):
                 if cfa_rule.reg is not None:
@@ -279,6 +291,8 @@ class DwarfAnalyzer:
             return
         elif DIE.tag == "DW_TAG_member":
             # Process members and append to the current struct
+            if self.curr_struct == None: # Debugging
+                return
             member = self.analyze_member(CU, DIE, DIE.attributes.values())
             self.curr_members.append(member)
             return
@@ -288,7 +302,7 @@ class DwarfAnalyzer:
                 # Associate the typedef with the most recent struct
                 recent_struct = struct_list[-1]
                 # Modified from the pop method to keep the data inside the struct_list in case
-                logger.debug("Associate the typedef with the most recent struct")
+                logger.debug(f"{GREEN}Associate the typedef with the most recent struct{RESET}")
                 print_struct_data(recent_struct)
                 self.curr_typedef.struct = recent_struct
                 self.curr_typedef = None
@@ -309,7 +323,7 @@ class DwarfAnalyzer:
                 self.curr_members.clear()
             return
         else:
-            logger.info(f"Not yet handling the tag {DIE.tag}.")
+            # logger.info(f"Not yet handling the tag {DIE.tag}.\n")
             return
             
 def dwarf_analysis(input_binary):

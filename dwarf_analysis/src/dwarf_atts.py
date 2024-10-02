@@ -141,6 +141,9 @@ RESET = "\033[0m"
 YELLOW = "\033[93m"
 GREEN = "\033[92m"
 CYAN = "\033[36m"
+MAGENTA = "\033[95m"
+ORANGE = "\033[38;5;214m" 
+BRIGHT_RED = "\033[91m"
 
 # Global function list 
 fun_list = list()
@@ -174,37 +177,55 @@ class FunData:
     def print_data(self):
         """Prints the function's data in a detailed and color-coded format."""
         logger.info(f"{LIGHT_BLUE}Function Name: {self.name}{RESET}")
+
+        # Print begin and end addresses
         logger.debug(f"{CYAN}Begin Address: {(self.begin) if self.begin is not None else 'None'}{RESET}")
-        logger.debug(f"{CYAN}End Address: {(self.end) if self.end else 'None'}{RESET}")
-        
+        logger.debug(f"{CYAN}End Address: {(self.end) if self.end is not None else 'None'}{RESET}")
+
+        # Print frame base if available
         if self.fun_frame_base is not None:
             sign = '+' if self.fun_frame_base >= 0 else ''
             logger.debug(f"{CYAN}Frame base: {self.reg_to_use}{sign}{self.fun_frame_base}{RESET}")
 
+        # Print information if the function is inlined
         if self.is_inlined:
             logger.debug(f"{YELLOW}This function is inlined{RESET}")
             for idx, (begin, end) in enumerate(self.inlined_instances):
-                logger.debug(f"Inlined instance {idx + 1}: {hex(begin)} to {hex(end)}")
+                logger.debug(f"Inlined instance {idx + 1}:")
+                logger.debug(f"  Begin Address: {hex(begin)}")
+                logger.debug(f"  End Address: {hex(end)}")
 
+        # Print variable information
         if self.var_list:
             logger.debug(f"{YELLOW}Variables:{RESET}")
             for var in self.var_list:
-                output = f"{YELLOW}  - {var.name}: Offset {var.offset}, Var Type: {var.var_type}, Type Name: {var.type_name}{RESET}"
+                logger.debug(f"{YELLOW}  - Variable Name: {var.name}{RESET}")
+                logger.debug(f"{GREEN}    Offset: {var.offset}{RESET}")
+                logger.debug(f"{MAGENTA}    Var Type: {var.var_type}{RESET}")
+                logger.debug(f"    Type Name: {var.type_name}")
                 if var.ptr_type is not None:
-                    output += f", Pointer Type: {var.ptr_type}"
-                logger.debug(output)
+                    logger.debug(f"    Pointer Type: {var.ptr_type}")
 
+                # Print struct members if available
                 if var.member_list:
                     logger.debug(f"{GREEN}    Struct Members:{RESET}")
                     for member in var.member_list:
-                        logger.debug(f"{GREEN}      - {member.name}: Offset {member.offset}, Var Type: {member.var_type}, Type Name: {member.type_name}{RESET}")
+                        logger.debug(f"{YELLOW}      - Member Name: {member.name}{RESET}")
+                        logger.debug(f"{GREEN}        Offset: {member.offset}{RESET}")
+                        logger.debug(f"{MAGENTA}        Var Type: {member.var_type}{RESET}")
+                        logger.debug(f"        Type Name: {member.type_name}")
+                print()
 
+        # Print typedef information if applicable
         for var in self.var_list:
             if var.is_typedef:
                 for typedef in typedef_list:
                     if typedef.typedef_name == var.type_name:
                         logger.debug(f"{CYAN}    Typedef: {typedef.typedef_name}{RESET}")
                         print_typedef_data(typedef)
+
+        print()
+
 
     def __repr__(self):
         return f"FunData(name={self.name}, begin={self.begin}, end={self.end}, inlined={self.is_inlined})"
@@ -247,7 +268,7 @@ def parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun, cfa_dict):
                 if isinstance(loc_entity, LocationEntry):
                     pc_begin = loc_entity.begin_offset
                     pc_end = loc_entity.end_offset
-                    logger.info(f"Function '{curr_fun.name}' uses frame base for PC range {hex(pc_begin)} - {hex(pc_end)}")
+                    logger.info(f"Fun '{curr_fun.name}' uses frame base for PC range {hex(pc_begin)} - {hex(pc_end)}")
 
                     # Set frame base for each PC in the range based on cfa_dict
                     for pc in range(pc_begin, pc_end + 1):
@@ -257,8 +278,8 @@ def parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun, cfa_dict):
                                 curr_fun.frame_base_dict = {}
                             curr_fun.frame_base_dict[pc] = ("cfa", cfa_value)
                             logger.debug(f"Set CFA-based frame base for PC {hex(pc)}: ('cfa', {cfa_value})")
-                        else:
-                            logger.warning(f"No CFA value found in cfa_dict for PC {hex(pc)} in function '{curr_fun.name}'")
+                        # else:
+                        #     logger.warning(f"No CFA value found in cfa_dict for PC {hex(pc)} in function '{curr_fun.name}'")
 
             # Determine the general frame base to use for the function based on `cfa_dict` values
             if curr_fun.frame_base_dict:
@@ -273,10 +294,10 @@ def parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun, cfa_dict):
         else:
             # Handle non-location list attributes (directly decoded frame base)
             decoded_frame_base = describe_DWARF_expr(frame_base_attr.value, dwarf_info.structs, CU.cu_offset)
-            logger.debug(f"Decoded frame base: {decoded_frame_base}")
+            # logger.debug(f"Decoded frame base: {decoded_frame_base}")
 
             if "DW_OP_call_frame_cfa" in decoded_frame_base:
-                logger.info(f"Function '{curr_fun.name}' uses DW_OP_call_frame_cfa for frame base for entire function range")
+                logger.info(f"Function '{curr_fun.name}' uses DW_OP_call_frame_cfa")
 
                 # Use the CFA values from cfa_dict for each PC in the function range
                 for pc in range(curr_fun.begin, curr_fun.end + 1):
@@ -285,7 +306,7 @@ def parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun, cfa_dict):
                         if not hasattr(curr_fun, 'frame_base_dict'):
                             curr_fun.frame_base_dict = {}
                         curr_fun.frame_base_dict[pc] = ("cfa", cfa_value)
-                        logger.debug(f"Set CFA-based frame base for PC {hex(pc)}: ('cfa', {cfa_value})")
+                        # logger.debug(f"Set CFA-based frame base for PC {hex(pc)}: ('cfa', {cfa_value})")
 
                 # Check if we have consistent CFA values with rbp and offset +16
                 consistent_rbp_offset = False
@@ -327,7 +348,7 @@ def analyze_subprog(CU: CompileUnit, dwarf_info, DIE, loc_parser, cfa_dict):
     fun_name_attr = DIE.attributes.get("DW_AT_name", None)
     if fun_name_attr:
         fun_name = fun_name_attr.value.decode()
-        logger.debug(f"Analyzing function: {fun_name}")
+        logger.info(f"Analyzing function: {fun_name}")
     else:
         logger.warning("Subprogram has no name, likely inlined")
         return None
@@ -339,7 +360,7 @@ def analyze_subprog(CU: CompileUnit, dwarf_info, DIE, loc_parser, cfa_dict):
     is_declaration = DIE.attributes.get('DW_AT_declaration', None)
 
     if is_declaration and is_declaration.value:
-        logger.info(f"Skipping external function {fun_name} as it is only a declaration")
+        logger.error(f"Skipping external function {fun_name} as it is only a dec.\n")
         return None
 
     # Parse low_pc and high_pc
@@ -353,7 +374,7 @@ def analyze_subprog(CU: CompileUnit, dwarf_info, DIE, loc_parser, cfa_dict):
     parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun, cfa_dict)
 
     # Finalize analysis for subprogram
-    logger.info("Finished analyzing subprogram")
+    # logger.info("Finished analyzing subprogram")
     return curr_fun
 
 def analyze_inlined(CU: CompileUnit, dwarf_info, DIE, loc_parser, cfa_dict):
@@ -502,7 +523,7 @@ def set_var_type(dwarf_info, type_die, curr_var):
     """
     Helper function to set the base type or pointer/array type for the current variable.
     """
-    logger.debug("Setting the variable type")
+    # logger.debug("Setting the variable type")
     curr_var.var_type = type_die.tag
     type_name = get_type_name(dwarf_info, type_die)
     if type_name:
@@ -574,7 +595,7 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
 
     # Check if the variable belongs to a function (global vars are not supported here).
     if curr_fun is not None:
-        logger.warning(f"Analyze DW_TAG_variable for the Fun: {curr_fun.name}")
+        logger.info(f"{LIGHT_BLUE}Analyze DW_TAG_variable for the Fun: {curr_fun.name}{RESET}")
     else:
         global_var = True
         logger.warning("Global variable or function to be ignored")
@@ -607,7 +628,7 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
                         if isinstance(loc_entry, LocationEntry):
                             pc_begin = loc_entry.begin_offset
                             pc_end = loc_entry.end_offset
-                            logger.warning(f"Variable {curr_var.name} is valid from PC {(pc_begin)} to {(pc_end)}")
+                            # logger.warning(f"Variable {curr_var.name} is valid from PC {(pc_begin)} to {(pc_end)}")
                             
                             # Extract frame base offset from the location expression if available
                             offset = describe_DWARF_expr(loc_entry.loc_expr, dwarf_info.structs, CU.cu_offset)
@@ -637,14 +658,17 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
                         # Compute the variable's offset relative to the function's frame base.
                         offset_value = int(offset_match.group(1))
                         final_offset = curr_fun.fun_frame_base + offset_value
-                        logger.debug(f"Register Offset: {curr_fun.reg_to_use}{final_offset}")
+                        logger.debug(f"{GREEN}Register Offset: {curr_fun.reg_to_use}{final_offset}{RESET}")
                         curr_var.offset = final_offset
-
+                        pprint.pprint(struct_list)
                         # Handle struct type variables by resolving their members and offsets.
                         if curr_var.var_type == "DW_TAG_structure_type" and curr_var.member_list is None:
                             for struct in struct_list:
                                 if curr_var.type_name == struct.name:
                                     curr_var.member_list = struct.member_list.copy()
+                                    logger.debug("Copying the member list")
+                                    
+                            
 
                             for member in curr_var.member_list:
                                 member.offset += curr_var.offset
@@ -700,7 +724,6 @@ def analyze_typedef(CU, dwarf_info, DIE, attribute_values):
     return None
             
 def analyze_base(CU, dwarf_info, DIE, attribute_values):
-    print()
     logger.info("Analyze DW_TAG_base_type")
     for attr in attribute_values:
         if (attr.name == "DW_AT_name"):
@@ -708,9 +731,10 @@ def analyze_base(CU, dwarf_info, DIE, attribute_values):
         if (attr.name == "DW_AT_byte_size"):
             base_size = DIE.attributes["DW_AT_byte_size"].value
     type_dict[base_name] =  base_size
+    print()
     
 def analyze_struct(CU, dwarf_info, DIE, attribute_values):
-    print()
+    print() # Analyzing struct without name as its name may be defined later
     logger.info("Analyze DW_TAG_struct_type")
     struct_name = None
     struct_size = None
@@ -718,6 +742,8 @@ def analyze_struct(CU, dwarf_info, DIE, attribute_values):
     for attr in attribute_values:
         if (attr.name == "DW_AT_name"):
             struct_name = DIE.attributes["DW_AT_name"].value.decode()
+            # if struct_name != "http_request": # Debugging
+            #     return None
         if (attr.name == "DW_AT_byte_size"):
             struct_size = DIE.attributes["DW_AT_byte_size"].value
         if (attr.name == 'DW_AT_decl_line'):
@@ -758,15 +784,22 @@ def analyze_member(CU, dwarf_info, DIE, attribute_values, loc_parser):
         # If member_var is set, continue processing other attributes
         if member_var:
             # Check for the DW_AT_data_member_location attribute to get the member's offset
-            if loc_parser.attribute_has_location(attr, CU['version']):
-                loc = loc_parser.parse_from_attribute(attr, CU['version'])
-                if attr.name == "DW_AT_data_member_location" and isinstance(loc, LocationExpr):
-                    offset = describe_DWARF_expr(loc.loc_expr, dwarf_info.structs, CU.cu_offset)
-                    offset_match = re.search(mem_off_regex, offset)
-                    if offset_match:
-                        offset_value = int(offset_match.group(1))
-                        member_var.offset = offset_value
-                        logger.debug(f"Member name: {member_var.name} | Offset value: {offset_value}")
+            if attr.name == "DW_AT_data_member_location":
+                if loc_parser.attribute_has_location(attr, CU['version']):
+                    # If the attribute has a location expression, parse it
+                    loc = loc_parser.parse_from_attribute(attr, CU['version'])
+                    if isinstance(loc, LocationExpr):
+                        offset = describe_DWARF_expr(loc.loc_expr, dwarf_info.structs, CU.cu_offset)
+                        offset_match = re.search(mem_off_regex, offset)
+                        if offset_match:
+                            offset_value = int(offset_match.group(1))
+                            member_var.offset = offset_value
+                            logger.debug(f"Member name: {member_var.name} | Offset value: {offset_value}")
+                else:
+                    # If it's a simple constant value, directly assign it
+                    member_var.offset = attr.value
+                    logger.debug(f"Member name: {member_var.name} | Offset value: {member_var.offset}")
+
 
             # Check for DW_AT_type attribute to get the member's type and type name
             if attr.name == "DW_AT_type":
