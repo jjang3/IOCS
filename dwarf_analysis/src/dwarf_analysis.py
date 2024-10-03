@@ -96,8 +96,8 @@ class DwarfAnalyzer:
         """Finalize the processing of the current function."""
         if self.curr_fun:
             logger.critical(f"Finalizing function: {self.curr_fun.name}")
-            if self.curr_fun.name == "process":
-                exit()
+            # if self.curr_fun.name == "open_listenfd": # Function Debugging
+            #     exit()
             fun_list.append(self.curr_fun)
             self.curr_fun = None  # Reset the current function after finalizing
             print()
@@ -297,15 +297,20 @@ class DwarfAnalyzer:
             self.curr_members.append(member)
             return
         elif DIE.tag == "DW_TAG_typedef":
-            self.curr_typedef = self.analyze_typedef(CU, DIE, DIE.attributes.values())
-            if self.curr_typedef and self.curr_typedef.var_type == "DW_TAG_structure_type":
-                # Associate the typedef with the most recent struct
-                recent_struct = struct_list[-1]
-                # Modified from the pop method to keep the data inside the struct_list in case
-                logger.debug(f"{GREEN}Associate the typedef with the most recent struct{RESET}")
-                print_struct_data(recent_struct)
-                self.curr_typedef.struct = recent_struct
-                self.curr_typedef = None
+            if len(struct_list) > 0:
+                self.curr_typedef = self.analyze_typedef(CU, DIE, DIE.attributes.values())
+                if self.curr_typedef and self.curr_typedef.var_type == "DW_TAG_structure_type":
+                    # Associate the typedef with the most recent struct
+                    recent_struct: StructData
+                    recent_struct = struct_list[-1]
+                    recent_struct.name = self.curr_typedef.typedef_name
+                    # Modified from the pop method to keep the data inside the struct_list in case
+                    logger.debug(f"{BRIGHT_RED}Associate the typedef with the most recent struct {LIGHT_BLUE}{recent_struct.name}{RESET}")
+                    print_struct_data(recent_struct)
+                    self.curr_typedef.struct = recent_struct
+                    self.curr_typedef = None
+            else:
+                self.curr_typedef = self.analyze_typedef(CU, DIE, DIE.attributes.values())
             return
         elif DIE.tag == None:
             if self.stored_typedef is not None:
@@ -323,7 +328,7 @@ class DwarfAnalyzer:
                 self.curr_members.clear()
             return
         else:
-            # logger.info(f"Not yet handling the tag {DIE.tag}.\n")
+            logger.info(f"Not yet handling the tag {DIE.tag}.\n")
             return
             
 def dwarf_analysis(input_binary):
@@ -334,8 +339,7 @@ def dwarf_analysis(input_binary):
     # logger.debug(base_name)
     dwarf_outfile   = target_dir.parent.joinpath("%s.dwarf" % base_name)
     logger.debug(dwarf_outfile)
-    fp = open(dwarf_outfile, "w") 
-    # exit()
+    fp = open(dwarf_outfile, "w")
     # logger.debug("%s\n%s\n%s\n%s", target_dir, base_name, input_binary, dwarf_outfile)
     with open(input_binary, 'rb') as f:
         elffile = ELFFile(f)

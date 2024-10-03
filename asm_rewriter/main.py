@@ -261,12 +261,12 @@ def analyze_binary(args, base_name):
     # print(os.path.join(project_root, 'dwarf_analysis', 'src'))
 
     dwarf_fun_list = dwarf_analysis(binary_file)
-    exit()
+    # exit()
     print()
     for fun in dwarf_fun_list:
         fun: FunData
         fun.print_data()
-    # exit()
+    exit()
     # asm_tree_list = process_binary(binary_file, analysis_list)
     
     # fun_table_offsets = generate_table(dwarf_fun_list, result_dir)

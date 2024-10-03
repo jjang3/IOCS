@@ -660,19 +660,24 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
                         final_offset = curr_fun.fun_frame_base + offset_value
                         logger.debug(f"{GREEN}Register Offset: {curr_fun.reg_to_use}{final_offset}{RESET}")
                         curr_var.offset = final_offset
-                        pprint.pprint(struct_list)
                         # Handle struct type variables by resolving their members and offsets.
                         if curr_var.var_type == "DW_TAG_structure_type" and curr_var.member_list is None:
                             for struct in struct_list:
                                 if curr_var.type_name == struct.name:
-                                    curr_var.member_list = struct.member_list.copy()
-                                    logger.debug("Copying the member list")
-                                    
-                            
-
+                                    print(struct.member_list)
+                                    curr_var.member_list = copy.deepcopy(struct.member_list)
+                                    logger.debug(f"Copying the member list with {LIGHT_BLUE}{struct.name}{RESET}")
                             for member in curr_var.member_list:
                                 member.offset += curr_var.offset
-                    
+                            print("First")
+                            pprint.pprint(curr_var.member_list)
+                        elif curr_var.var_type == "DW_TAG_structure_type" and curr_var.member_list is not None:
+                           
+                            for member in curr_var.member_list:
+                                member.offset += curr_var.offset
+                            print("Second")
+                            pprint.pprint(curr_var.member_list)
+                            
 
                     # Handle global variables by extracting their address.
                     global_match = re.search(global_pattern, offset)
@@ -748,7 +753,7 @@ def analyze_struct(CU, dwarf_info, DIE, attribute_values):
             struct_size = DIE.attributes["DW_AT_byte_size"].value
         if (attr.name == 'DW_AT_decl_line'):
             line_num    = DIE.attributes['DW_AT_decl_line'].value
-    logger.debug(f"{struct_name} and {struct_size} and {line_num}")
+    logger.debug(f"{LIGHT_BLUE}{struct_name} {YELLOW}and {struct_size} and {line_num}")
     temp_struct = StructData(name=struct_name,size=struct_size,line=line_num)
     return temp_struct
 
