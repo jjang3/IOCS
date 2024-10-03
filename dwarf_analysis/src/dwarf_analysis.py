@@ -328,7 +328,7 @@ class DwarfAnalyzer:
                 self.curr_members.clear()
             return
         else:
-            logger.info(f"Not yet handling the tag {DIE.tag}.\n")
+            logger.error(f"Not yet handling the tag {DIE.tag}.\n")
             return
             
 def dwarf_analysis(input_binary):

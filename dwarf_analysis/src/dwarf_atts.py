@@ -200,7 +200,12 @@ class FunData:
             logger.debug(f"{YELLOW}Variables:{RESET}")
             for var in self.var_list:
                 logger.debug(f"{YELLOW}  - Variable Name: {var.name}{RESET}")
-                logger.debug(f"{GREEN}    Offset: {var.offset}{RESET}")
+
+                if var.offset is not None:
+                    logger.debug(f"{GREEN}    Offset: {var.offset}{RESET}")
+                else:
+                    logger.debug(f"{BRIGHT_RED}    Offset: None (Optimized or is a constant){RESET}")
+
                 logger.debug(f"{MAGENTA}    Var Type: {var.var_type}{RESET}")
                 logger.debug(f"    Type Name: {var.type_name}")
                 if var.ptr_type is not None:
@@ -211,7 +216,10 @@ class FunData:
                     logger.debug(f"{GREEN}    Struct Members:{RESET}")
                     for member in var.member_list:
                         logger.debug(f"{YELLOW}      - Member Name: {member.name}{RESET}")
-                        logger.debug(f"{GREEN}        Offset: {member.offset}{RESET}")
+                        if member.offset is not None:
+                            logger.debug(f"{GREEN}        Offset: {member.offset}{RESET}")
+                        else:
+                            logger.debug(f"{BRIGHT_RED}        Offset: None (Optimized or is a constant){RESET}")
                         logger.debug(f"{MAGENTA}        Var Type: {member.var_type}{RESET}")
                         logger.debug(f"        Type Name: {member.type_name}")
                 print()
@@ -392,7 +400,7 @@ def analyze_inlined(CU: CompileUnit, dwarf_info, DIE, loc_parser, cfa_dict):
             if low_pc is not None and high_pc is not None:
                 curr_fun.begin = low_pc
                 curr_fun.end = high_pc
-                logger.info(f"Updated inlined function {abstract_name} with begin: {hex(low_pc)}, end: {hex(high_pc)}")
+                logger.info(f"Updated inlined function {abstract_name}: {hex(low_pc)}/{hex(high_pc)}")
                 parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun, cfa_dict)
                 curr_fun.print_data()
             else:
@@ -473,7 +481,6 @@ def parse_dwarf_type(dwarf_info, DIE, curr_var: VarData):
     """
 
     logger.info(f"Parsing DWARF Type for the tag: {DIE.tag}")
-
     # Check if the DIE contains a DW_AT_type attribute.
     if 'DW_AT_type' in DIE.attributes:
         # Resolve the referenced type DIE.
@@ -500,6 +507,10 @@ def parse_dwarf_type(dwarf_info, DIE, curr_var: VarData):
         elif type_die.tag == "DW_TAG_structure_type":
             logger.debug("Processing DW_TAG_structure_type")
             process_structure_type(dwarf_info, type_die, curr_var)
+
+        elif type_die.tag == "DW_TAG_const_type":
+            logger.debug(f"Variable {curr_var.name} is a constant.")
+            curr_var.is_constant = True
 
         else:
             # If the type is unsupported, log an error and assign the tag as the variable type.
@@ -628,7 +639,7 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
                         if isinstance(loc_entry, LocationEntry):
                             pc_begin = loc_entry.begin_offset
                             pc_end = loc_entry.end_offset
-                            # logger.warning(f"Variable {curr_var.name} is valid from PC {(pc_begin)} to {(pc_end)}")
+                            logger.warning(f"Variable {curr_var.name} is valid from PC {(pc_begin)} to {(pc_end)}")
                             
                             # Extract frame base offset from the location expression if available
                             offset = describe_DWARF_expr(loc_entry.loc_expr, dwarf_info.structs, CU.cu_offset)
@@ -649,7 +660,6 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
                                 logger.debug(f"Address: {addr_value}")
                     # exit()
                 elif isinstance(loc, LocationExpr):
-
                     # Extract frame base offset from the location expression.
                     offset = describe_DWARF_expr(loc.loc_expr, dwarf_info.structs, CU.cu_offset)
                     offset_match = re.search(offset_pattern, offset)
@@ -663,27 +673,28 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
                         # Handle struct type variables by resolving their members and offsets.
                         if curr_var.var_type == "DW_TAG_structure_type" and curr_var.member_list is None:
                             for struct in struct_list:
-                                if curr_var.type_name == struct.name:
+                                print(struct.name)
+                                if curr_var.type_name == struct.name: # Shouldn't this be type_name? why curr_var.name
                                     print(struct.member_list)
                                     curr_var.member_list = copy.deepcopy(struct.member_list)
                                     logger.debug(f"Copying the member list with {LIGHT_BLUE}{struct.name}{RESET}")
+                                
                             for member in curr_var.member_list:
                                 member.offset += curr_var.offset
-                            print("First")
+
                             pprint.pprint(curr_var.member_list)
                         elif curr_var.var_type == "DW_TAG_structure_type" and curr_var.member_list is not None:
-                           
                             for member in curr_var.member_list:
                                 member.offset += curr_var.offset
-                            print("Second")
                             pprint.pprint(curr_var.member_list)
-                            
-
+                    
                     # Handle global variables by extracting their address.
                     global_match = re.search(global_pattern, offset)
                     if global_match:
                         addr_value = global_match.group(1)
                         logger.debug(f"Address: {addr_value}")
+                else:
+                    logger.error("")
 
             # If the attribute is DW_AT_type, parse the variable's type.
             elif attr.name == "DW_AT_type":
@@ -697,7 +708,7 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
                         if typedef.typedef_name == curr_var.type_name:
                             if curr_var.var_type == "DW_TAG_structure_type":
                                 # If the variable is a struct type, copy the member list from the typedef.
-                                curr_var.member_list = typedef.struct.member_list.copy()
+                                curr_var.member_list = typedef.struct.member_list.copy() # this should not be deepcopy as we want typedef member_list to be connected
     print()
 
 def analyze_typedef(CU, dwarf_info, DIE, attribute_values):
