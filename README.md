@@ -21,21 +21,52 @@
 └── ibcs.sh
 ```
 
-## Directions
-1) Insert a source file into the `input` directory (e.g., `tiny.c`)
-2) Execute the IBCS script with the input name (e.g., `bash ibcs.sh tiny`)
-3) Select the option prompted
 
-## Directions for the Dockerfile
-1) `docker build -t ibcs:latest . `
-2) `docker run -it ibcs`
-3) `source /root/venv/bin/activate` once inside the ibcs docker environment and then perform rewriting.
+# IBCS Script Directions
+1. Insert a source file into the `input` directory (e.g., `tiny.c`).
+2. Run the IBCS script with the input name:
+   ```bash
+   bash ibcs.sh tiny
+   ```
+3. Follow the prompts to select an option.
 
-## Directions for the Coreutils
-1) Update the variables of the `core.sh`file in the `utility_scripts` folder with the proper path towards the `coreutils` (e.g., `$HOME/coreutils`)
-2) Before rewriting, you need to migrate the file into the `IBCS/result/coreutils_bin` folder
-3) Then rewrite the code by using the `rewrite` option
-4) `compile` option will rewrite the assembly file in the `IBCS/result/coreutils_bin` folder, which will then copy necessary files back to the `coreutils` folder (which is the variable `$coreutils_src_path` in the `core.sh`)
+# Dockerfile Directions
+1. Build the Docker image:
+   ```bash
+   docker build -t ibcs:latest .
+   ```
+2. Run the Docker container:
+   ```bash
+   docker run -it --name ibcs_debug ibcs:latest /bin/zsh
+   ```
+3. If you exit the container, restart it by checking the container ID:
+   ```bash
+   docker ps -a
+   ```
+   Then restart and re-attach:
+   ```bash
+   docker start <container-id>
+   docker exec -it <container-id> /bin/zsh
+   ```
+4. Once inside the Docker environment, activate the virtual environment:
+   ```bash
+   source /root/venv/bin/activate
+   ```
+
+
+# Coreutils Directions
+1. In the `core.sh` file (located in `utility_scripts`), update the variables to reflect the correct path to `coreutils` (e.g., `$HOME/coreutils`).
+2. Run the `core.sh` script:
+   ```bash
+   bash core.sh <program>
+   ```
+   Example:
+   ```bash
+   bash core.sh yes
+   ```
+3. Before rewriting, move the file into the `IBCS/result/coreutils_bin` folder.
+4. Use the `rewrite` option to rewrite the code.
+5. Use the `compile` option to rewrite the assembly file in `IBCS/result/coreutils_bin`. This will copy necessary files back to the `coreutils` folder (defined by `$coreutils_src_path` in `core.sh`).
 
 ## Directions for the NGINX
 
