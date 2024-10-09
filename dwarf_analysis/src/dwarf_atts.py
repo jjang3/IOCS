@@ -4,7 +4,6 @@ import re
 import pprint
 import copy
 from tkinter import FALSE
-# from binaryninja.types import MemberName
 
 from elftools.dwarf.compileunit import CompileUnit
 from elftools.dwarf.die import DIE
@@ -581,6 +580,22 @@ def process_structure_type(dwarf_info, type_die, curr_var):
     else:
         logger.debug(f"Unnamed structure for variable: {curr_var}")
 
+
+def analyze_param(CU, dwarf_info, DIE, attribute_values, loc_parser):
+    curr_var = None  # Initialize the current variable being processed.
+    # Iterate through the attributes of the DW_TAG_variable DIE.
+    for attr in attribute_values:
+        print(attr)
+        # Handle DW_AT_name attribute (to extract the variable's name).
+        # if attr == "DW_AT_name":
+        #     param_name = DIE.attributes["DW_AT_name"].value.decode()
+        #     if param_name is not None:
+        #         logger.debug(f"Param name: {param_name}")
+        # try:
+        #     print(attr.name)
+        # except:
+        #     None
+    
 
 def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: FunData, cfa_dict):
     """

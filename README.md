@@ -37,7 +37,7 @@
    ```
 2. Run the Docker container:
    ```bash
-   docker run -it --name ibcs_debug ibcs:latest /bin/zsh
+   docker run -v $HOME/binaryninja:/root/binaryninja -it --name ibcs_debug ibcs:latest /bin/zsh
    ```
 3. If you exit the container, restart it by checking the container ID:
    ```bash

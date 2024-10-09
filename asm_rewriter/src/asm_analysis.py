@@ -32,12 +32,10 @@ class PatchingInst:
             # f"  - Pointer     : {getattr(self, 'ptr_op', 'N/A')}\n" # Need to be added later
         )
 
-
 from binaryninja import *
 from binaryninja.binaryview import BinaryViewType
 from binaryninja.architecture import Architecture, ArchitectureHook
 from binaryninja.enums import LowLevelILOperation
-
 
 arrow = 'U+21B3'
  # ANSI escape codes for colors

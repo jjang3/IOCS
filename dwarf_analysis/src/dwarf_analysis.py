@@ -5,7 +5,6 @@ import pprint
 import copy
 
 from tkinter import FALSE
-# from binaryninja.types import MemberName
 
 from elftools.dwarf.die import DIE
 from elftools.elf.elffile import DWARFInfo, ELFFile
@@ -74,6 +73,9 @@ class DwarfAnalyzer:
         self.curr_fun = analyze_subprog(CU, self.dwarf_info, DIE, self.loc_parser, self.cfa_dict)
         if self.curr_fun != None:
             self.curr_fun.print_data()
+        
+    def analyze_param(self,CU, DIE, attributes):
+        return analyze_param(CU, self.dwarf_info, DIE, attributes, self.loc_parser)
 
     def analyze_var(self, CU, DIE, attributes):
         return analyze_var(CU, self.dwarf_info, DIE, attributes, self.loc_parser, self.curr_fun, self.cfa_dict)
@@ -268,31 +270,24 @@ class DwarfAnalyzer:
         fp.write("\n")
         fp.close()
     
-    def process_inlined_parameter(self, CU, DIE):
-        """Helper method to process a formal parameter in an inlined function."""
-        logger.info(f"{MAGENTA}Processing inlined parameter: {RESET}")
-
-        # Handle attributes of DW_TAG_formal_parameter
-        abstract_origin = DIE.attributes.get('DW_AT_abstract_origin')
-        const_value = DIE.attributes.get('DW_AT_const_value')
-
-        if abstract_origin:
-            logger.debug(f"Abstract Origin: {abstract_origin.value:#x}")
-        if const_value is not None:
-            logger.debug(f"Const Value: {const_value.value}")
-
     def process_die(self, CU, DIE):
-
         """Helper method to process a DIE and its children recursively."""
         # Handle the DIE's tag
         if DIE.tag == "DW_TAG_subprogram":
             # Check if this is an inlined function by looking for DW_AT_abstract_origin
             if 'DW_AT_abstract_origin' in DIE.attributes:
                 self.analyze_inlined_fun(CU, DIE)
+                return
             else:
                 # Process the subprogram as a normal function
                 self.analyze_subprog(CU, DIE)
+                for child in DIE.iter_children():
+                    print(child)
+                    if child.tag == "DW_TAG_formal_parameter":
+                        self.analyze_param(CU, child, child.attributes)
                 return
+            
+    
         elif DIE.tag == "DW_TAG_inlined_subroutine":
             logger.info(f"{LIGHT_BLUE}Processing inlined subroutine:{RESET}")
             abstract_origin = DIE.attributes.get('DW_AT_abstract_origin')
@@ -310,10 +305,11 @@ class DwarfAnalyzer:
                     for param in origin_die.iter_children():
                         if param.tag == "DW_TAG_formal_parameter":
                             # Avoid reprocessing if the parameter has already been processed
-                            param_origin = param.attributes.get('DW_AT_abstract_origin')
-                            if not param_origin or param_origin.value not in self.processed_params:
-                                self.process_inlined_parameter(CU, param)
-                                self.processed_params.add(param_origin.value if param_origin else param.offset)
+                            self.analyze_param(CU, DIE, DIE.attributes)
+                            # param_origin = param.attributes.get('DW_AT_abstract_origin')
+                            # if not param_origin or param_origin.value not in self.processed_params:
+                            #     self.process_inlined_parameter(CU, param)
+                            #     self.processed_params.add(param_origin.value if param_origin else param.offset)
 
             if entry_pc:
                 logger.debug(f"Entry PC: {entry_pc.value:#x}")
@@ -323,23 +319,24 @@ class DwarfAnalyzer:
             # Process direct children parameters if not already processed
             for child in DIE.iter_children():
                 if child.tag == "DW_TAG_formal_parameter":
-                    abstract_origin_attr = child.attributes.get('DW_AT_abstract_origin')
-                    if not abstract_origin_attr or abstract_origin_attr.value not in self.processed_params:
-                        logger.debug("Processing formal parameter directly attached to inlined subroutine")
-                        self.process_inlined_parameter(CU, child)
-                        self.processed_params.add(abstract_origin_attr.value if abstract_origin_attr else child.offset)
+                    # abstract_origin_attr = child.attributes.get('DW_AT_abstract_origin')
+                    # if not abstract_origin_attr or abstract_origin_attr.value not in self.processed_params:
+                    #     logger.debug("Processing formal parameter directly attached to inlined subroutine")
+                    #     self.process_inlined_parameter(CU, child)
+                    #     self.processed_params.add(abstract_origin_attr.value if abstract_origin_attr else child.offset)
+                    self.analyze_param(CU, DIE, DIE.attributes)
             return
 
-        elif DIE.tag == "DW_TAG_formal_parameter":
-            abstract_origin_attr = DIE.attributes.get('DW_AT_abstract_origin')
-
-            # Check if this parameter has already been processed
-            if not abstract_origin_attr or abstract_origin_attr.value not in self.processed_params:
-                logger.debug("Processing formal parameter directly encountered in the DIE")
-                self.process_inlined_parameter(CU, DIE)
-                # Add to processed_params to avoid re-processing
-                self.processed_params.add(abstract_origin_attr.value if abstract_origin_attr else DIE.offset)
-            return
+        # elif DIE.tag == "DW_TAG_formal_parameter":
+        #     self.analyze_param(CU, DIE, DIE.attributes)
+        #     # abstract_origin_attr = DIE.attributes.get('DW_AT_abstract_origin')
+        #     # # Check if this parameter has already been processed
+        #     # if not abstract_origin_attr or abstract_origin_attr.value not in self.processed_params:
+        #     #     logger.debug("Processing formal parameter directly encountered in the DIE")
+        #     #     self.process_inlined_parameter(CU, DIE)
+        #     #     # Add to processed_params to avoid re-processing
+        #     #     self.processed_params.add(abstract_origin_attr.value if abstract_origin_attr else DIE.offset)
+        #     return
         elif DIE.tag == "DW_TAG_variable":
             self.analyze_var(CU, DIE, DIE.attributes.values())
             return
