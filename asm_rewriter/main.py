@@ -266,24 +266,24 @@ def analyze_binary(args, base_name):
     for fun in dwarf_fun_list:
         fun: FunData
         fun.print_data()
-    exit()
-    # asm_tree_list = process_binary(binary_file, analysis_list)
+
+    asm_tree_list = process_binary(binary_file, analysis_list)
     
-    # fun_table_offsets = generate_table(dwarf_fun_list, result_dir)
-    # for fun in fun_table_offsets:
-    #     if len(fun_table_offsets[fun]) > 0:
-    #         logger.info(f"Variables for the function: {fun}")
-    #         for var in fun_table_offsets[fun]:
-    #             var: VarData
-    #             # pprint.pprint(var[0])
-    #             print_var_data(var[0])
-    #         print()
-    #     else:
-    #         logger.warning(f"No variables for {fun}")
-    #         print()
+    fun_table_offsets = generate_table(dwarf_fun_list, result_dir)
+    for fun in fun_table_offsets:
+        if len(fun_table_offsets[fun]) > 0:
+            logger.info(f"Variables for the function: {fun}")
+            for var in fun_table_offsets[fun]:
+                var: VarData
+                # pprint.pprint(var[0])
+                print_var_data(var[0])
+            print()
+        else:
+            logger.warning(f"No variables for {fun}")
+            print()
     
-    # rewriter = AsmRewriter(analysis_list, result_dir, asm_item, fun_table_offsets, dwarf_fun_list)
-    # patch_count = rewriter.run()
+    rewriter = AsmRewriter(analysis_list, result_dir, asm_item, fun_table_offsets, dwarf_fun_list)
+    patch_count = rewriter.run()
 
 def main():
     # Get the size of the terminal

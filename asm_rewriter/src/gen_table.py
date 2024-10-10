@@ -49,7 +49,7 @@ def generate_table(dwarf_fun_list, target_dir):
                         table_offset += 8
                         var_count += 1
                 else:
-                    logger.error(f"Skipping: {var}")
+                    logger.error(f"Skipping: {var.var_type}")
         fun_table_offsets[fun.name] = redir_table_offset.copy()
         redir_table_offset.clear()
     

@@ -349,7 +349,6 @@ def parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun, cfa_dict):
         # If there's no DW_AT_frame_base attribute, log a warning
         logger.warning(f"No DW_AT_frame_base found for function '{curr_fun.name}', unable to determine frame base")
 
-
 def analyze_subprog(CU: CompileUnit, dwarf_info, DIE, loc_parser, cfa_dict):
     """Analyze subprogram DIE and extract function data."""
     fun_name_attr = DIE.attributes.get("DW_AT_name", None)
@@ -582,20 +581,13 @@ def process_structure_type(dwarf_info, type_die, curr_var):
 
 
 def analyze_param(CU, dwarf_info, DIE, attribute_values, loc_parser):
-    curr_var = None  # Initialize the current variable being processed.
     # Iterate through the attributes of the DW_TAG_variable DIE.
     for attr in attribute_values:
-        print(attr)
         # Handle DW_AT_name attribute (to extract the variable's name).
-        # if attr == "DW_AT_name":
-        #     param_name = DIE.attributes["DW_AT_name"].value.decode()
-        #     if param_name is not None:
-        #         logger.debug(f"Param name: {param_name}")
-        # try:
-        #     print(attr.name)
-        # except:
-        #     None
-    
+        if attr.name == "DW_AT_name":
+            param_name = DIE.attributes["DW_AT_name"].value.decode()
+            if param_name is not None:
+                logger.info(f"Param name: {param_name}")
 
 def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: FunData, cfa_dict):
     """
