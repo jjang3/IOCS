@@ -74,8 +74,12 @@ arith_bitwise_ops = {
 }
 
 ignore_ops = {
-    LowLevelILOperation.LLIL_PUSH, LowLevelILOperation.LLIL_CONST_PTR, LowLevelILOperation.LLIL_SET_FLAG_SSA, LowLevelILOperation.LLIL_INT_TO_FLOAT, LowLevelILOperation.LLIL_FMUL, LowLevelILOperation.LLIL_LOW_PART
+    LowLevelILOperation.LLIL_PUSH, LowLevelILOperation.LLIL_CONST_PTR, LowLevelILOperation.LLIL_SET_FLAG_SSA,
+    LowLevelILOperation.LLIL_INTRINSIC_SSA, LowLevelILOperation.LLIL_LOW_PART
 }
+""", LowLevelILOperation.LLIL_INT_TO_FLOAT, 
+    LowLevelILOperation.LLIL_FMUL, 
+    """
 
 class ASTNode:
     """
@@ -320,6 +324,9 @@ class BinAnalysis:
                 right = self.gen_ast(llil_fun, inst_ssa.src)
                 # Only create OperationNode if both left and right are valid
                 if left is not None and right is not None:
+                    if self.dis_inst == None:
+                        logger.error("No disassembly instruction available")
+                        exit()
                     return OperationNode(left, "=", right, True, dis_inst=self.dis_inst)
                 else:
                     logger.error("Either LR node is None, skipping operation.")
@@ -389,9 +396,9 @@ class BinAnalysis:
 
     def process_dis_inst(self, dis_inst):
         dis_line_regex = r"""
-        (?P<opcode>\w+)\s+
+        (?P<opcode>\w+(?:dqa|aps)?)\s+
         (?P<operand1>
-            (?P<memsize1>(qword|dword|word|byte)\s+ptr\s*)?  # Memory size specifier (optional)
+            (?P<memsize1>(xmmword|qword|dword|word|byte)\s+ptr\s*)?  # Memory size specifier (optional)
             (
                 \[(?P<register1>%\w+)?(?P<offset1>[+\-*\/]?\s*0x[\da-fA-F]+)?\]  # Memory reference (e.g., [%rbp-0x8])
                 |
@@ -401,7 +408,7 @@ class BinAnalysis:
             )
         )\s*,?\s*
         (?P<operand2>
-            (?P<memsize2>(qword|dword|word|byte)\s+ptr\s*)?  # Memory size specifier for second operand (optional)
+            (?P<memsize2>(xmmword|qword|dword|word|byte)\s+ptr\s*)?  # Memory size specifier for second operand (optional)
             (
                 \[(?P<register2>%\w+)?(?P<offset2>[+\-*\/]?\s*0x[\da-fA-F]+)?\]  # Memory reference (e.g., [%rbp-0x8])
                 |
@@ -491,8 +498,8 @@ class BinAnalysis:
             )
 
             # Use the PatchingInst's inst_print method to display the patching details
-            # patching_inst.inst_print()
-
+            patching_inst.inst_print()
+            
             # Log the results with the debug logger
             # logger.debug(f"{LIGHT_BLUE}Opcode: {opcode} with prefix: {prefix}{RESET}")
             # logger.debug(f"{LIGHT_BLUE}Operand 1: {operand1} (Memory size: {memsize1}, Register: {register1}, Offset: {offset1}, Immediate: {imm1}){RESET}")
@@ -520,17 +527,22 @@ class BinAnalysis:
             logger.info(f"Analyzing the instruction: {inst}")
             addr = inst.address
             dis_inst = self.bv.get_disassembly(addr)
+            print(dis_inst)
             pro_inst: PatchingInst
             pro_inst = self.process_dis_inst(dis_inst)
             if pro_inst != None:
                 self.dis_inst = pro_inst
                 # pro_inst.inst_print()
-            
+            else:
+                # If for a diassembly instruction which is not parsed (e.g., push %rbp)
+                self.dis_inst = dis_inst
+                logger.error(f"No disassembly instruction for {inst}")
+                
             asm_syntax_tree = self.gen_ast(fun, inst)
+
             # Print the AST in a binary tree-like structure
             if asm_syntax_tree:
-                # asm_syntax_tree.print_tree()
-                # asm_syntax_tree.dis_inst.inst_print()
+                asm_syntax_tree.print_tree()
                 self.asm_trees.add(asm_syntax_tree)
             print()
             
@@ -567,13 +579,17 @@ class BinAnalysis:
 
                 self.analyze_fun()
                 log_message = f"Function: {self.fun}\t| begin: {self.begin} | end: {self.end}"
+               
                 if len(log_message) > columns:
                     log_message = log_message[:columns-3] + "..."
                 logger.info(log_message)
                 for tree in self.asm_trees:
                     tree: ASTNode
                     tree.print_tree()
-                    tree.dis_inst.inst_print()
+                    if isinstance(tree.dis_inst, PatchingInst):
+                        tree.dis_inst.inst_print()
+                    else:
+                        logger.debug(tree.dis_inst)
                     print()
                 fun_asm_trees[func.name] = self.asm_trees.copy()  # Store set in dict
                 self.asm_trees.clear()  # Clear the set for the next function

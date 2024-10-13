@@ -3,9 +3,9 @@
 
 PS3="Select options: "
 input=$1
-CFLAGS="-O0 -gdwarf-2"
+CFLAGS="-O3 -gdwarf-2"
 
-options=("Build File" "Build Dir." "Rewrite File" "Rewrite Dir.")
+options=("Build File" "Build Dir." "Rewrite File" "Rewrite Dir." "Remove Result")
 
 # Folder paths
 grandp_path=$( cd ../../"$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
@@ -120,6 +120,14 @@ rewrite_dir()
     cd ${rewriter_path} && python3 main.py --dir ${ibcs_input_result}
 }
 
+remove_result()
+{
+    echo "Remove the result directory for the target"
+    if [ -d "$ibcs_input_result" ]; then
+        echo "Directory ${ibcs_input_result} found; Removing it"
+        rm -rf $ibcs_input_result
+    fi
+}
 
 while true; do
     select option in "${options[@]}" Quit
@@ -129,6 +137,7 @@ while true; do
             2) echo "Selected $option"; build_dir; break;;
             3) echo "Selected $option"; rewrite; break;;
             4) echo "Selected $option"; rewrite_dir; break;;
+            5) echo "Selected $option"; remove_result; break;;
             $((${#options[@]}+1))) echo "Finished!"; break 2;;
             *) echo "Wrong input"; break;
         esac;

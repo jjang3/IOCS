@@ -1,5 +1,5 @@
 # Use a base image (Ubuntu latest version)
-FROM ubuntu:latest
+FROM ubuntu:18.04
 
 # Add the universe repository for missing packages
 RUN apt-get -y update && \
@@ -45,7 +45,8 @@ RUN apt-get -y update && apt-get -y install \
 # Set environment variables for common paths
 ENV USER_HOME=/root \
     IBCS_HOME=/root/IBCS \
-    COREUTILS_HOME=/root/coreutils \
+    COREUTILS_HOME=/root/coreutils \ 
+    NGINX_HOME=/root/nginx \
     BINARYNINJA_PATH=/root/binaryninja/python
 
 # Update PYTHONPATH to include Binary Ninja (initialize if undefined)
@@ -59,8 +60,26 @@ RUN if [ ! -d $COREUTILS_HOME/build ]; then \
         mkdir -p $COREUTILS_HOME/build && \
         cd $COREUTILS_HOME && \
         ./bootstrap && \
-        FORCE_UNSAFE_CONFIGURE=1 CC=gcc CFLAGS="-O0 -gdwarf-2 -save-temps=obj -Wno-error -fno-asynchronous-unwind-tables -fno-exceptions" \
+        FORCE_UNSAFE_CONFIGURE=1 CC=gcc CFLAGS="-O3 -gdwarf-2 -save-temps=obj -Wno-error -fno-omit-frame-pointer -fno-asynchronous-unwind-tables -fno-exceptions" \
         ./configure --prefix=$COREUTILS_HOME/build && \
+        make -j$(nproc) && \
+        make install; \
+    else \
+        echo "Build directory already exists, skipping build."; \
+    fi
+
+# Set the working directory to root
+WORKDIR /root/
+
+# Download and unpack NGINX version 1.3.9
+RUN wget http://nginx.org/download/nginx-1.3.9.tar.gz \
+    && tar -xvf nginx-1.3.9.tar.gz
+
+# Check if the NGINX build directory exists; if not, create it and run the build process
+RUN cd nginx-1.3.9 && \
+    if [ ! -d "${NGINX_HOME}/build" ]; then \
+        ./configure --prefix="${NGINX_HOME}/build" \
+        --with-cc-opt="-O3 -g -gdwarf-2 -save-temps=obj -fno-omit-frame-pointer -gno-variable-location-views" && \
         make -j$(nproc) && \
         make install; \
     else \
