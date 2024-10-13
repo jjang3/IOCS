@@ -110,7 +110,9 @@ asm_macros = """# var_c14n macros
 \t.if \\value == 8
 \t\tmovzbl (%r11), \dest  # 8-bit 
 \t.elseif \\value == 16
-\t\tmovzx (%r11), \dest  # 16-bit
+\t\tmovzx (%r11), \dest  # 16-bit 
+\t.elseif \\value == 32
+\t\tmovzwl (%r11), \dest  # 32-bit
 \t.endif
 .endm
 
@@ -343,6 +345,12 @@ class AsmRewriter:
                 value = 32
             elif temp_inst.prefix == "q":
                 value = 64
+            elif temp_inst.prefix == "bl":  # For movzbl
+                value = 8
+            elif temp_inst.prefix == "x":   # For movzx
+                value = 16
+            elif temp_inst.prefix == "wl":  # For movzwl
+                value = 32
 
             # re.sub(pattern, replacement, string, count=0, flags=0)
             if temp_inst.opcode == "mov":
@@ -360,6 +368,17 @@ class AsmRewriter:
                     patched_line = re.sub(
                         r"^\s*(\S+)\s+(\S+),\s*(\S+)", 
                         r"\t%s\t%s, %d, %d\t # %s" % (new_opcode, temp_inst.src, redir_offset, value, dis_inst.strip()), 
+                        dis_inst
+                    )
+                    logger.warning(patched_line)
+
+            if temp_inst.opcode == "movz":
+                logger.info("Patching with movzx_gs")
+                if temp_inst.patch == "src":
+                    new_opcode = "movzx_load_gs"
+                    patched_line = re.sub(
+                        r"^\s*(\S+)\s+(\S+),\s*(\S+)", 
+                        r"\t%s\t%s, %d, %d\t # %s" % (new_opcode, temp_inst.dest, redir_offset, value, dis_inst.strip()), 
                         dis_inst
                     )
                     logger.warning(patched_line)

@@ -74,7 +74,7 @@ arith_bitwise_ops = {
 }
 
 ignore_ops = {
-    LowLevelILOperation.LLIL_PUSH, LowLevelILOperation.LLIL_CONST_PTR, LowLevelILOperation.LLIL_SET_FLAG_SSA
+    LowLevelILOperation.LLIL_PUSH, LowLevelILOperation.LLIL_CONST_PTR, LowLevelILOperation.LLIL_SET_FLAG_SSA, LowLevelILOperation.LLIL_INT_TO_FLOAT, LowLevelILOperation.LLIL_FMUL, LowLevelILOperation.LLIL_LOW_PART
 }
 
 class ASTNode:

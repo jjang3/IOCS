@@ -48,8 +48,8 @@ ENV USER_HOME=/root \
     COREUTILS_HOME=/root/coreutils \
     BINARYNINJA_PATH=/root/binaryninja/python
 
-# Update PYTHONPATH to include Binary Ninja
-ENV PYTHONPATH=$PYTHONPATH:$BINARYNINJA_PATH
+# Update PYTHONPATH to include Binary Ninja (initialize if undefined)
+ENV PYTHONPATH="/root/binaryninja/python:${PYTHONPATH}"
 
 # Clone the coreutils repository into the working directory
 RUN git clone git://git.sv.gnu.org/coreutils $COREUTILS_HOME
@@ -67,21 +67,14 @@ RUN if [ ! -d $COREUTILS_HOME/build ]; then \
         echo "Build directory already exists, skipping build."; \
     fi
 
-# Copy the local IBCS repository from the host to the container
-COPY ./ $IBCS_HOME/
-
-# Set the working directory to IBCS
-WORKDIR $IBCS_HOME
-
-# Cache requirements.txt for pip installs
+# Copy the requirements.txt file first to utilize cache for pip install if requirements.txt doesn't change
 COPY ./requirements.txt /root/IBCS/requirements.txt
 
-# Create a virtual environment in the user's home directory and install dependencies
+# Install dependencies in a virtual environment
 RUN python3 -m venv /root/venv && \
     . /root/venv/bin/activate && \
     pip install --upgrade pip && \
     pip install --no-cache-dir -r /root/IBCS/requirements.txt
-
 
 # Install oh-my-zsh and set zsh as the default shell
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended && \
@@ -91,8 +84,15 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting zsh-autosuggestions)/' ~/.zshrc && \
 echo "ZSH_THEME=\"agnoster\"" >> ~/.zshrc
 
-# Set the default shell to bash for simplicity and speed (you can switch back to zsh if needed)
-SHELL ["/bin/zsh", "-c"]
+# Copy the rest of the application files. This step is placed after the pip install to avoid caching issues
+# when source code changes. If only code changes, this will invalidate the cache for this layer alone.
+# At the beginning of your Dockerfile
+ARG CACHEBUST=1
+COPY ./ /root/IBCS/
+
+# Set the working directory to IBCS
+WORKDIR /root/IBCS
+
 
 # Set the entrypoint or command
 CMD ["zsh"]
