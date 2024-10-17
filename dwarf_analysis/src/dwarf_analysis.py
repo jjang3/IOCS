@@ -99,11 +99,11 @@ class DwarfAnalyzer:
         """Finalize the processing of the current function."""
         if self.curr_fun:
             logger.critical(f"Finalizing function: {self.curr_fun.name}")
-            # if self.curr_fun.name == "open_listenfd": # Function Debugging
+            # if self.curr_fun.name == "main": # Function Debugging
             #     exit()
             fun_list.append(self.curr_fun)
             self.curr_fun = None  # Reset the current function after finalizing
-            print()
+            # print()
             # Debugging all the typedef information stored
             # for typedef in typedef_list:
             #     print_typedef_data(typedef)
@@ -133,11 +133,14 @@ class DwarfAnalyzer:
 
         # Iterate through the CIE and FDE entries
         for entry in cfi_entries:
+            # if isinstance(entry, FDE) and entry['initial_location'] > 46666:
+            #     exit()
             if isinstance(entry, CIE):
                 self.log_cie_details(entry)
             elif isinstance(entry, FDE):
-                logger.info(f"FDE: Start PC: {entry['initial_location']}, Range: {entry['address_range']}")
+                logger.info(f"FDE: Start PC: {hex(entry['initial_location'])}, Range: {entry['address_range']}")
                 self.process_fde_instructions(entry)
+        # exit()
 
     def get_cfi_entries(self, dwarf_info):
         """ Get CFI entries from .debug_frame or fallback to .eh_frame """
@@ -175,7 +178,7 @@ class DwarfAnalyzer:
 
             # Parse the CFA rule to extract register and offset details
             cfa_description = describe_CFI_CFA_rule(cfa_rule)
-            # logger.info(f"PC: {pc}, CFA: {cfa_description}")
+            logger.info(f"PC: {hex(pc)}, CFA: {cfa_description}")
 
             if isinstance(cfa_rule, CFARule):
                 if cfa_rule.reg is not None:
@@ -189,7 +192,7 @@ class DwarfAnalyzer:
                     logger.warning(f"CFA for PC {pc} has no direct register base")
             else:
                 logger.error(f"Unexpected CFA rule type for PC {pc}")
-
+        
             # Process any instructions in the row
             # if 'instructions' in row:
             #     self.process_instructions(row['instructions'])
@@ -241,7 +244,13 @@ class DwarfAnalyzer:
 
         # After processing all DIEs, write the function data to the file
         self.write_function_data_to_file(fun_list)
-
+        # for struct in struct_list:
+        #     print(struct.name, struct.size, struct.line)
+        # if search_struct(struct_list, "dev_ino"):
+        #     logger.critical("Found the struct")
+        #     print_struct_data(search_struct(struct_list, "dev_ino"))
+        # else:
+            # logger.error("Struct not found")
         logger.critical("Finished DWARF analysis")
         return_fun_list = fun_list.copy()
         fun_list.clear()
@@ -276,34 +285,34 @@ class DwarfAnalyzer:
         if DIE.tag == "DW_TAG_subprogram":
             # Check if this is an inlined function by looking for DW_AT_abstract_origin
             if 'DW_AT_abstract_origin' in DIE.attributes:
-                self.analyze_inlined_fun(CU, DIE)
+                # self.analyze_inlined_fun(CU, DIE)
                 return
             else:
                 # Process the subprogram as a normal function
                 self.analyze_subprog(CU, DIE)
                 return
-    
-        elif DIE.tag == "DW_TAG_inlined_subroutine":
-            logger.info(f"{LIGHT_BLUE}Processing inlined subroutine:{RESET}")
-            abstract_origin = DIE.attributes.get('DW_AT_abstract_origin')
-            entry_pc = DIE.attributes.get('DW_AT_entry_pc')
-            low_pc = DIE.attributes.get('DW_AT_low_pc')
-            high_pc = DIE.attributes.get('DW_AT_high_pc')
+        # Commented for now, we don't need to worry about inlined functions
+        # elif DIE.tag == "DW_TAG_inlined_subroutine":
+        #     logger.info(f"{LIGHT_BLUE}Processing inlined subroutine:{RESET}")
+        #     abstract_origin = DIE.attributes.get('DW_AT_abstract_origin')
+        #     entry_pc = DIE.attributes.get('DW_AT_entry_pc')
+        #     low_pc = DIE.attributes.get('DW_AT_low_pc')
+        #     high_pc = DIE.attributes.get('DW_AT_high_pc')
 
-            # Process parameters from abstract origin first
-            if abstract_origin:
-                origin_offset = abstract_origin.value
-                origin_die = CU.get_DIE_from_refaddr(origin_offset)
-                if origin_die:
-                    logger.debug(f"Abstract Origin DIE: {origin_die.tag}")
+        #     # Process parameters from abstract origin first
+        #     if abstract_origin:
+        #         origin_offset = abstract_origin.value
+        #         origin_die = CU.get_DIE_from_refaddr(origin_offset)
+        #         if origin_die:
+        #             logger.debug(f"Abstract Origin DIE: {origin_die.tag}")
                             
-            if entry_pc:
-                logger.debug(f"Entry PC: {entry_pc.value:#x}")
-            if low_pc and high_pc:
-                logger.debug(f"Range: [{low_pc.value:#x}, {low_pc.value + high_pc.value:#x}]")
+        #     if entry_pc:
+        #         logger.debug(f"Entry PC: {entry_pc.value:#x}")
+        #     if low_pc and high_pc:
+        #         logger.debug(f"Range: [{low_pc.value:#x}, {low_pc.value + high_pc.value:#x}]")
                 
-            return 
-        elif DIE.tag == "DW_TAG_formal_parameter":
+        #     return 
+        if DIE.tag == "DW_TAG_formal_parameter":
             # Process the formal parameter
             self.analyze_param(CU, DIE, DIE.attributes.values())
             return
@@ -313,51 +322,62 @@ class DwarfAnalyzer:
         elif DIE.tag == "DW_TAG_base_type":
             self.analyze_base(CU, DIE, DIE.attributes.values())
             return
-        if DIE.tag == "DW_TAG_structure_type":
+        elif DIE.tag == "DW_TAG_structure_type":
             # Process and create StructData
             self.curr_struct = self.analyze_struct(CU, DIE, DIE.attributes.values())
+            # if self.curr_struct.name == "hash_table":
+            #     logger.warning("Current struct name is hash_table")
+            #     exit()
             self.curr_members = list()  # Initialize members list
             return
         elif DIE.tag == "DW_TAG_member":
             # Process members and append to the current struct
-            if self.curr_struct == None: # Debugging
-                return
+            # if self.curr_struct.name == "dev_ino": # Debugging
+            #     exit()
+            #     return
             member = self.analyze_member(CU, DIE, DIE.attributes.values())
             self.curr_members.append(member)
             return
         elif DIE.tag == "DW_TAG_typedef":
+            self.curr_typedef = self.analyze_typedef(CU, DIE, DIE.attributes.values())
             if len(struct_list) > 0:
-                self.curr_typedef = self.analyze_typedef(CU, DIE, DIE.attributes.values())
                 if self.curr_typedef and self.curr_typedef.var_type == "DW_TAG_structure_type":
                     # Associate the typedef with the most recent struct
                     recent_struct: StructData
                     recent_struct = struct_list[-1]
-                    recent_struct.name = self.curr_typedef.typedef_name
-                    # Modified from the pop method to keep the data inside the struct_list in case
-                    logger.debug(f"{BRIGHT_RED}Associate the typedef with the most recent struct {LIGHT_BLUE}{recent_struct.name}{RESET}")
-                    print_struct_data(recent_struct)
+
+                    # Check if the structure doesn't have a name and prevent overwriting
+                    if not recent_struct.name:
+                        logger.debug(f"Assigning typedef {LIGHT_BLUE}{self.curr_typedef.typedef_name} to unnamed struct.{RESET}")
+                        recent_struct.name = self.curr_typedef.typedef_name
+                    else:
+                        logger.warning(f"Struct {BRIGHT_RED}{recent_struct.name} already has a valid name. Skipping typedef association.{RESET}")
+                    print()
+                    # Keep the structure in the list and associate it with the typedef
                     self.curr_typedef.struct = recent_struct
                     self.curr_typedef = None
-            else:
-                self.curr_typedef = self.analyze_typedef(CU, DIE, DIE.attributes.values())
             return
         elif DIE.tag == None:
             if self.stored_typedef is not None:
                 self.stored_typedef.struct.member_list = self.curr_members.copy()
                 logger.debug(f"Adding members to struct typedef: {self.stored_typedef.typedef_name}")
                 logger.warning("Clearing the struct")
-                self.stored_typedef = None # Clear the stored typedef as well
+                self.stored_typedef = None  # Clear the stored typedef as well
                 self.curr_members.clear()
             elif self.curr_struct is not None:
-                self.curr_struct.member_list = self.curr_members.copy()
-                logger.warning("Clearing the struct")
-                # print_struct_data(self.curr_struct)
-                struct_list.append(self.curr_struct)
+                if struct_check(struct_list, self.curr_struct):
+                    logger.critical(f"Struct exists {self.curr_struct.name}")
+                else:
+                    self.curr_struct.member_list = self.curr_members.copy()
+                    # logger.warning("Clearing the struct")
+                    logger.error(f"Inserting the struct {self.curr_struct.name}")
+                    struct_list.append(self.curr_struct)
+                # Clear struct and members in both cases
                 self.curr_struct = None
                 self.curr_members.clear()
             return
         else:
-            logger.error(f"Skipping tag {DIE.tag}.\n")
+            # logger.error(f"Skipping tag {DIE.tag}.\n")
             return
             
 def dwarf_analysis(input_binary):

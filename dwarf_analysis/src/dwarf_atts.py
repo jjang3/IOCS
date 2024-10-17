@@ -100,6 +100,34 @@ def print_struct_data(struct_data: StructData):
     else:
         logger.debug("Member List: None")
 
+def struct_check(struct_list: list, struct_data: StructData) -> bool:
+    """Check if the StructData exists in the struct_list based on name, size, and line."""
+    for existing_struct in struct_list:
+        # Debugging: Log the name, size, and line comparison
+        logger.debug(f"Checking struct {existing_struct.name} (size: {existing_struct.size}, line: {existing_struct.line}) "
+                     f"against {struct_data.name} (size: {struct_data.size}, line: {struct_data.line})")
+        
+        if struct_data.name is not None:
+            if existing_struct.name == struct_data.name:
+                logger.debug(f"{LIGHT_BLUE}Match found by name: {struct_data.name}{RESET}")
+                return True
+        elif struct_data.size is not None and struct_data.line is not None:
+            # logger.debug(f"Checking by size and line: {struct_data.size}, {struct_data.line}")
+            if existing_struct.size == struct_data.size and existing_struct.line == struct_data.line:
+                logger.debug(f"{LIGHT_BLUE}Match found by size and line: {struct_data.size}, {struct_data.line}{RESET}")
+                return True
+    logger.debug(f"{BRIGHT_RED}No match found{RESET}")
+    return False
+
+
+def search_struct(struct_list: list, struct_name: str) -> Optional[StructData]:
+    """Search for a StructData by its name in the struct_list."""
+    for existing_struct in struct_list:
+        # Check if the name matches the provided struct_name
+        if existing_struct.name == struct_name:
+            return existing_struct  # Return the struct if found
+    return None  # Return None if no match is found
+
 # This list will contain the typedef variable information of this program
 typedef_list = list()
 @dataclass(unsafe_hash=True)
@@ -269,28 +297,10 @@ def parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun, cfa_dict):
         # Parse the frame base attribute using loc_parser
         loc = loc_parser.parse_from_attribute(frame_base_attr, CU['version'])
         
-        if isinstance(loc, list):
-            # Iterate over location entries to extract relevant frame base information
-            for loc_entity in loc:
-                if isinstance(loc_entity, LocationEntry):
-                    pc_begin = loc_entity.begin_offset
-                    pc_end = loc_entity.end_offset
-                    logger.info(f"Fun '{curr_fun.name}' uses frame base for PC range {hex(pc_begin)} - {hex(pc_end)}")
-
-                    # Set frame base for each PC in the range based on cfa_dict
-                    for pc in range(pc_begin, pc_end + 1):
-                        if pc in cfa_dict:
-                            cfa_value = cfa_dict[pc]
-                            if not hasattr(curr_fun, 'frame_base_dict'):
-                                curr_fun.frame_base_dict = {}
-                            curr_fun.frame_base_dict[pc] = ("cfa", cfa_value)
-                            logger.debug(f"Set CFA-based frame base for PC {hex(pc)}: ('cfa', {cfa_value})")
-                        # else:
-                        #     logger.warning(f"No CFA value found in cfa_dict for PC {hex(pc)} in function '{curr_fun.name}'")
-
+        try:
             # Determine the general frame base to use for the function based on `cfa_dict` values
             if curr_fun.frame_base_dict:
-                # For simplicity, pick the frame base from the midpoint of the function range as representative
+                # Pick the frame base from the midpoint of the function range as representative
                 midpoint_pc = (curr_fun.begin + curr_fun.end) // 2
                 if midpoint_pc in curr_fun.frame_base_dict:
                     cfa_type, cfa_value = curr_fun.frame_base_dict[midpoint_pc]
@@ -298,6 +308,29 @@ def parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun, cfa_dict):
                     curr_fun.fun_frame_base = int(cfa_value.split('+')[1])  # e.g., offset value
                 else:
                     logger.warning(f"Midpoint PC {hex(midpoint_pc)} not found in frame_base_dict for function '{curr_fun.name}'")
+
+            # Check for consistent CFA values with rbp and offset +16 across the function's range
+            consistent_rbp_offset = False
+            for cfa_type, cfa_value in curr_fun.frame_base_dict.values():
+                if cfa_type == "cfa" and "rbp" in cfa_value:
+                    reg, offset = cfa_value.split('+')
+                    offset = int(offset)
+                    if reg.strip() == "rbp" and offset == 16:
+                        consistent_rbp_offset = True
+                        break
+
+            if consistent_rbp_offset:
+                logger.info(f"Using rbp + 16 as the frame base for function '{curr_fun.name}'")
+                curr_fun.reg_to_use = "rbp"
+                curr_fun.fun_frame_base = 16
+            else:
+                logger.warning(f"No consistent 'rbp + 16' found in CFA values for function '{curr_fun.name}'")
+
+        except AttributeError:
+            # If frame_base_dict doesn't exist, assume rbp + 16
+            logger.warning(f"Frame base dict missing, assuming default rbp + 16 for function '{curr_fun.name}'")
+            curr_fun.reg_to_use = "rbp"
+            curr_fun.fun_frame_base = 16
         else:
             # Handle non-location list attributes (directly decoded frame base)
             decoded_frame_base = describe_DWARF_expr(frame_base_attr.value, dwarf_info.structs, CU.cu_offset)
@@ -374,7 +407,7 @@ def analyze_subprog(CU: CompileUnit, dwarf_info, DIE, loc_parser, cfa_dict):
     if low_pc is not None and high_pc is not None:
         curr_fun.begin = low_pc
         curr_fun.end = high_pc
-        # logger.debug(f"Set begin: {hex(curr_fun.begin)}, end: {hex(curr_fun.end)}")
+        logger.debug(f"Set begin: {hex(curr_fun.begin)}, end: {hex(curr_fun.end)}")
 
     # Handle frame base
     parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun, cfa_dict)
@@ -400,7 +433,7 @@ def analyze_inlined(CU: CompileUnit, dwarf_info, DIE, loc_parser, cfa_dict):
                 curr_fun.end = high_pc
                 logger.info(f"Updated inlined function {abstract_name}: {hex(low_pc)}/{hex(high_pc)}")
                 parse_frame_base(DIE, dwarf_info, loc_parser, CU, curr_fun, cfa_dict)
-                curr_fun.print_data()
+                # curr_fun.print_data()
             else:
                 logger.warning(f"Inlined function {abstract_name} missing PC range")
         else:
@@ -504,7 +537,7 @@ def parse_dwarf_type(dwarf_info, DIE, curr_var: VarData):
         # Handle structure types.
         elif type_die.tag == "DW_TAG_structure_type":
             logger.debug("Processing DW_TAG_structure_type")
-            process_structure_type(dwarf_info, type_die, curr_var)
+            process_struct_type(dwarf_info, type_die, curr_var)
 
         elif type_die.tag == "DW_TAG_const_type":
             logger.debug(f"Variable {curr_var.name} is a constant.")
@@ -513,7 +546,7 @@ def parse_dwarf_type(dwarf_info, DIE, curr_var: VarData):
         else:
             # If the type is unsupported, log an error and assign the tag as the variable type.
             curr_var.var_type = type_die.tag
-            logger.error(f"Not supported yet: {type_die.tag}")
+            # logger.error(f"Not supported yet: {type_die.tag}")
 
     # Handle cases where DIE has a DW_AT_name but no DW_AT_type (e.g., typedef uint16_t).
     elif 'DW_AT_name' in DIE.attributes:
@@ -567,7 +600,7 @@ def process_typedef(dwarf_info, type_die, curr_var):
             logger.debug(f"Retrieved structure name from typedef: {type_name}")
 
 
-def process_structure_type(dwarf_info, type_die, curr_var):
+def process_struct_type(dwarf_info, type_die, curr_var):
     """
     Helper function to process structure types and update curr_var with structure-related info.
     """
@@ -588,6 +621,7 @@ def analyze_param(CU, dwarf_info, DIE, attribute_values, loc_parser):
             param_name = DIE.attributes["DW_AT_name"].value.decode()
             if param_name is not None:
                 logger.info(f"Param name: {param_name}")
+                print()
 
 def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: FunData, cfa_dict):
     """
@@ -646,7 +680,7 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
                         if isinstance(loc_entry, LocationEntry):
                             pc_begin = loc_entry.begin_offset
                             pc_end = loc_entry.end_offset
-                            logger.warning(f"Variable {curr_var.name} is valid from PC {(pc_begin)} to {(pc_end)}")
+                            # logger.warning(f"Variable {curr_var.name} is valid from PC {(pc_begin)} to {(pc_end)}")
                             
                             # Extract frame base offset from the location expression if available
                             offset = describe_DWARF_expr(loc_entry.loc_expr, dwarf_info.structs, CU.cu_offset)
@@ -680,20 +714,23 @@ def analyze_var(CU, dwarf_info, DIE, attribute_values, loc_parser, curr_fun: Fun
                         # Handle struct type variables by resolving their members and offsets.
                         if curr_var.var_type == "DW_TAG_structure_type" and curr_var.member_list is None:
                             for struct in struct_list:
-                                print(struct.name)
-                                if curr_var.type_name == struct.name: # Shouldn't this be type_name? why curr_var.name
-                                    print(struct.member_list)
+                                # Only try to copy the member list if the type_name matches the struct name
+                                if curr_var.type_name == struct.name:  # Should use type_name for matching
                                     curr_var.member_list = copy.deepcopy(struct.member_list)
                                     logger.debug(f"Copying the member list with {LIGHT_BLUE}{struct.name}{RESET}")
-                                
+                                    break  # Once we find the match, no need to continue the loop
+
+                            # Only modify members if member_list was found and copied
+                            if curr_var.member_list is not None:
+                                for member in curr_var.member_list:
+                                    member.offset += curr_var.offset
+                                # pprint.pprint(curr_var.member_list)
+
+                        elif curr_var.var_type == "DW_TAG_structure_type" and curr_var.member_list is not None:
+                            # Modify members if the member_list is already populated
                             for member in curr_var.member_list:
                                 member.offset += curr_var.offset
 
-                            pprint.pprint(curr_var.member_list)
-                        elif curr_var.var_type == "DW_TAG_structure_type" and curr_var.member_list is not None:
-                            for member in curr_var.member_list:
-                                member.offset += curr_var.offset
-                            pprint.pprint(curr_var.member_list)
                     
                     # Handle global variables by extracting their address.
                     global_match = re.search(global_pattern, offset)
@@ -765,8 +802,10 @@ def analyze_struct(CU, dwarf_info, DIE, attribute_values):
     for attr in attribute_values:
         if (attr.name == "DW_AT_name"):
             struct_name = DIE.attributes["DW_AT_name"].value.decode()
-            # if struct_name != "http_request": # Debugging
-            #     return None
+            # if struct_name == "hash_table": # Debugging
+            #     print(struct_name)
+            #     exit()
+            #     return
         if (attr.name == "DW_AT_byte_size"):
             struct_size = DIE.attributes["DW_AT_byte_size"].value
         if (attr.name == 'DW_AT_decl_line'):

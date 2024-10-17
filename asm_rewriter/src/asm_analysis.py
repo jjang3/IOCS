@@ -326,7 +326,6 @@ class BinAnalysis:
                 if left is not None and right is not None:
                     if self.dis_inst == None:
                         logger.error("No disassembly instruction available")
-                        exit()
                     return OperationNode(left, "=", right, True, dis_inst=self.dis_inst)
                 else:
                     logger.error("Either LR node is None, skipping operation.")
@@ -593,7 +592,7 @@ class BinAnalysis:
                     print()
                 fun_asm_trees[func.name] = self.asm_trees.copy()  # Store set in dict
                 self.asm_trees.clear()  # Clear the set for the next function
-
+        return fun_asm_trees
       
     def __init__(self, bv):
         self.bv = bv

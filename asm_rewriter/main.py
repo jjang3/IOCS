@@ -151,7 +151,6 @@ def visit_dir(dir_list):
                 temp_file.obj_path = file_path  # Store the object file path
                 # logger.debug(f"Updated obj_path for {temp_file}")
 
-
 def find_funs(file_list):
     fun_regex = re.compile(r'\t\.type\s+.*,\s*@function\n\b(^.[a-zA-Z_.\d]+)\s*:', re.MULTILINE)
     for file_item in file_list:
@@ -218,10 +217,10 @@ def analyze_directory(target_dir, base_name):
                 var: VarData
                 # pprint.pprint(var[0])
                 print_var_data(var[0])
-            print()
+            # print()
         else:
             logger.warning(f"No variables for {fun}")
-            print()
+            # print()
 
     patch_count = 0
     for file_item in target_list:
@@ -261,33 +260,32 @@ def analyze_binary(args, base_name):
     # print(os.path.join(project_root, 'dwarf_analysis', 'src'))
 
     dwarf_fun_list = dwarf_analysis(binary_file)
-    # exit()
-    print()
+    # print()
     for fun in dwarf_fun_list:
         fun: FunData
         fun.print_data()
 
     asm_tree_list = process_binary(binary_file, analysis_list)
-    exit()
-    for tree in asm_tree_list:
-        tree: ASTNode
-        tree.print_tree()
+    # exit()
+    # for tree in asm_tree_list:
+    #     tree: ASTNode
+    #     tree.print_tree()
 
-    # fun_table_offsets = generate_table(dwarf_fun_list, result_dir)
-    # for fun in fun_table_offsets:
-    #     if len(fun_table_offsets[fun]) > 0:
-    #         logger.info(f"Variables for the function: {fun}")
-    #         for var in fun_table_offsets[fun]:
-    #             var: VarData
-    #             # pprint.pprint(var[0])
-    #             print_var_data(var[0])
-    #         print()
-    #     else:
-    #         logger.warning(f"No variables for {fun}")
-    #         print()
+    fun_table_offsets = generate_table(dwarf_fun_list, result_dir)
+    for fun in fun_table_offsets:
+        if len(fun_table_offsets[fun]) > 0:
+            logger.info(f"Variables for the function: {fun}")
+            for var in fun_table_offsets[fun]:
+                var: VarData
+                # pprint.pprint(var[0])
+                print_var_data(var[0])
+            print()
+        else:
+            logger.warning(f"No variables for {fun}")
+            print()
     
-    # rewriter = AsmRewriter(analysis_list, result_dir, asm_item, fun_table_offsets, dwarf_fun_list)
-    # patch_count = rewriter.run()
+    rewriter = AsmRewriter(analysis_list, result_dir, asm_item, fun_table_offsets, dwarf_fun_list)
+    patch_count = rewriter.run()
 
 def main():
     # Get the size of the terminal
