@@ -413,6 +413,27 @@ class AsmRewriter:
                     )
                     logger.warning(patched_line)
 
+            if temp_inst.opcode == "sub":
+                logger.info("Patching with sub_gs")
+                if temp_inst.patch == "src":
+                    new_opcode = "sub_load_gs"
+                    patched_line = re.sub(
+                        r"^\s*(\S+)\s+(\S+),\s*(\S+)", 
+                        r"\t%s\t%s, %d, %d\t # %s" % (new_opcode, temp_inst.dest, redir_offset, value, dis_inst.strip()), 
+                        dis_inst
+                    )
+                    logger.warning(patched_line)
+                    
+                elif temp_inst.patch == "dest":
+                    new_opcode = "sub_store_gs"
+                    patched_line = re.sub(
+                        r"^\s*(\S+)\s+(\S+),\s*(\S+)", 
+                        r"\t%s\t%s, %d, %d\t # %s" % (new_opcode, temp_inst.src, redir_offset, value, dis_inst.strip()), 
+                        dis_inst
+                    )
+                    logger.warning(patched_line)
+
+
         if patched_line != None:
             # patch_inst_list.append(patch_inst_line)
             return patched_line
