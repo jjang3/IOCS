@@ -317,6 +317,8 @@ asm_macros = """# var_c14n macros
 .endm
 """
 
+metadata_number = 0
+
 class AsmRewriter:
     def __init__(self, analysis_list, result_dir, asm_item, fun_table_offsets, dwarf_info):
         self.analysis_list = analysis_list
@@ -327,8 +329,13 @@ class AsmRewriter:
         self.patch_count = 0
 
     def patch_inst(self, dis_inst, temp_inst: PatchingInst, redir_offset):
+        global metadata_number
         patched_line = None
         patch_target = None
+
+        metadata_template = """movq\t$0, %r11\n\ttest\t%r11, %r11\n\tjz verifier_metadata_{0}\n\t# The replaced instruction (for metadata purposes only)\n{1}verifier_metadata_{0}:\n"""
+        verifier_metadata = metadata_template.format(metadata_number, dis_inst)
+        
         if temp_inst.patch == "src":
             patch_target = temp_inst.src
         else:
@@ -364,10 +371,12 @@ class AsmRewriter:
                     )
                     logger.warning(patched_line)
                 elif temp_inst.patch == "dest":
+                    # As the metadata is only applied for "store", increment it
+                    metadata_number += 1
                     new_opcode = "mov_store_gs"
                     patched_line = re.sub(
                         r"^\s*(\S+)\s+(\S+),\s*(\S+)", 
-                        r"\t%s\t%s, %d, %d\t # %s" % (new_opcode, temp_inst.src, redir_offset, value, dis_inst.strip()), 
+                        r"\t%s\t%s\t%s, %d, %d\t" % (verifier_metadata, new_opcode, temp_inst.src, redir_offset, value), 
                         dis_inst
                     )
                     logger.warning(patched_line)

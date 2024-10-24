@@ -47,7 +47,13 @@ build()
         echo "Generate the original file"
         cd ${ibcs_input_path} && make ${input}.out
     fi
+    # Create or overwrite the .analysis file
+    analysis_file="${ibcs_input_result}/${input}.analysis"
+    
+    cd $rewriter_path/src && python3 gen_analysis.py --binary $ibcs_bin_file --output $analysis_file
+
 }
+
 
 build_dir()
 {
@@ -75,7 +81,7 @@ build_dir()
     # Create or overwrite the .analysis file
     analysis_file="${ibcs_input_result}/${input}.analysis"
     echo "main" > "$analysis_file"
-
+    
     # Generate assembly files for each .c file
     for file in *.c; do
         if [ -f "$file" ]; then

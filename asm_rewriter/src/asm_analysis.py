@@ -64,22 +64,53 @@ xfer_insts = {
     'sysenter', 'sysexit'
 }
 
+float_conv_ops = {
+    LowLevelILOperation.LLIL_FLOAT_TO_INT,   # Convert floating-point to integer
+    LowLevelILOperation.LLIL_INT_TO_FLOAT,   # Convert integer to floating-point
+    LowLevelILOperation.LLIL_FLOAT_CONV     # Convert between floating-point types
+}
+
+float_arith_ops = {
+    LowLevelILOperation.LLIL_FADD,        # Floating-point addition
+    LowLevelILOperation.LLIL_FSUB,        # Floating-point subtraction
+    LowLevelILOperation.LLIL_FMUL,        # Floating-point multiplication
+    LowLevelILOperation.LLIL_FDIV,        # Floating-point division
+    LowLevelILOperation.LLIL_FNEG,        # Floating-point negation
+    LowLevelILOperation.LLIL_FSQRT,       # Floating-point square root
+    LowLevelILOperation.LLIL_FABS,        # Floating-point absolute value
+    LowLevelILOperation.LLIL_ROUND_TO_INT,   # Round floating-point to integer
+    LowLevelILOperation.LLIL_FLOOR,       # Round floating-point down (floor)
+    LowLevelILOperation.LLIL_CEIL,        # Round floating-point up (ceil)
+    LowLevelILOperation.LLIL_FTRUNC       # Truncate floating-point to integer
+}
+
 arith_bitwise_ops = {
-    LowLevelILOperation.LLIL_ADD, LowLevelILOperation.LLIL_SUB, LowLevelILOperation.LLIL_MUL,
-    LowLevelILOperation.LLIL_DIVU, LowLevelILOperation.LLIL_DIVS, LowLevelILOperation.LLIL_MODU,
-    LowLevelILOperation.LLIL_MODS, LowLevelILOperation.LLIL_AND, LowLevelILOperation.LLIL_OR,
-    LowLevelILOperation.LLIL_XOR, LowLevelILOperation.LLIL_LSL, LowLevelILOperation.LLIL_LSR,
-    LowLevelILOperation.LLIL_ASR, LowLevelILOperation.LLIL_ROR, LowLevelILOperation.LLIL_ROL,
-    LowLevelILOperation.LLIL_NEG, LowLevelILOperation.LLIL_NOT
+    LowLevelILOperation.LLIL_ADD,         # Addition
+    LowLevelILOperation.LLIL_SUB,         # Subtraction
+    LowLevelILOperation.LLIL_MUL,         # Multiplication
+    LowLevelILOperation.LLIL_DIVU,        # Unsigned division
+    LowLevelILOperation.LLIL_DIVS,        # Signed division
+    LowLevelILOperation.LLIL_MODU,        # Unsigned modulus (remainder)
+    LowLevelILOperation.LLIL_MODS,        # Signed modulus (remainder)
+    LowLevelILOperation.LLIL_AND,         # Bitwise AND
+    LowLevelILOperation.LLIL_OR,          # Bitwise OR
+    LowLevelILOperation.LLIL_XOR,         # Bitwise XOR
+    LowLevelILOperation.LLIL_LSL,         # Logical shift left
+    LowLevelILOperation.LLIL_LSR,         # Logical shift right
+    LowLevelILOperation.LLIL_ASR,         # Arithmetic shift right (preserves sign bit)
+    LowLevelILOperation.LLIL_ROR,         # Rotate right
+    LowLevelILOperation.LLIL_ROL,         # Rotate left
+    LowLevelILOperation.LLIL_NEG,         # Negation (arithmetic negation)
+    LowLevelILOperation.LLIL_NOT          # Bitwise NOT (complement)
 }
 
 ignore_ops = {
-    LowLevelILOperation.LLIL_PUSH, LowLevelILOperation.LLIL_CONST_PTR, LowLevelILOperation.LLIL_SET_FLAG_SSA,
-    LowLevelILOperation.LLIL_INTRINSIC_SSA, LowLevelILOperation.LLIL_LOW_PART
+    LowLevelILOperation.LLIL_PUSH,            # Pushes a value onto the stack
+    LowLevelILOperation.LLIL_CONST_PTR,       # Loads a constant pointer value
+    LowLevelILOperation.LLIL_SET_FLAG_SSA,    # Sets a flag in SSA (Static Single Assignment) form
+    LowLevelILOperation.LLIL_INTRINSIC_SSA,   # Represents an intrinsic operation in SSA form (e.g., system-specific operations)
+    LowLevelILOperation.LLIL_LOW_PART         # Extracts the lower part of a value (e.g., from a larger register or data type)
 }
-""", LowLevelILOperation.LLIL_INT_TO_FLOAT, 
-    LowLevelILOperation.LLIL_FMUL, 
-    """
 
 class ASTNode:
     """
@@ -348,6 +379,23 @@ class BinAnalysis:
                 right = self.gen_ast(llil_fun, inst_ssa.right)
                 return OperationNode(left, op_name, right, is_root)
 
+            elif inst_ssa.operation in float_arith_ops:
+                logger.debug(f"{CYAN}Handling {op_name}: {inst_ssa.left}, {inst_ssa.right}{RESET}")
+                left = self.gen_ast(llil_fun, inst_ssa.left)
+                right = self.gen_ast(llil_fun, inst_ssa.right)
+                return OperationNode(left, op_name, right, is_root)
+            
+            elif inst_ssa.operation in float_conv_ops:
+                logger.debug(f"{CYAN}Handling {op_name}: {inst_ssa}{RESET}")
+                logger.debug(f"{DARK_GREEN}Handling {op_name}: {inst_ssa.src}{RESET}")
+                right = self.gen_ast(llil_fun, llil_inst.src)
+                # Only create OperationNode if the right operand is valid
+                if right is not None:
+                    return OperationNode(None, op_name, right, is_root)
+                else:
+                    logger.debug(f"Right node is None for {op_name}, skipping operation.")
+                    return None
+            
              # Handle Ignored operations
             elif inst_ssa.operation in ignore_ops:
                 logger.error(f"Ignoring instruction type: {llil_inst}, {llil_inst.operation}")
