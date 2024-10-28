@@ -265,8 +265,13 @@ def analyze_binary(args, base_name):
         fun: FunData
         fun.print_data()
 
-    asm_tree_list = process_binary(binary_file, analysis_list)
-    # exit()
+    bn_fun_var_info = process_binary(binary_file, analysis_list)
+    # Checking the BN variables
+    for fun in bn_fun_var_info:
+        for var in bn_fun_var_info[fun]:
+            var: BnVarData
+            var.print_info()
+    exit()
     # for tree in asm_tree_list:
     #     tree: ASTNode
     #     tree.print_tree()

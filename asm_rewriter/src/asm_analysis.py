@@ -7,6 +7,7 @@ import shutil
 import pprint 
 import os
 import re
+from typing import List, Optional
 
 # Get the same logger instance. Use __name__ to get a logger with a hierarchical name or a specific string to get the exact same logger.
 logger = logging.getLogger('custom_logger')
@@ -32,6 +33,7 @@ class PatchingInst:
             # f"  - Pointer     : {getattr(self, 'ptr_op', 'N/A')}\n" # Need to be added later
         )
 
+
 from binaryninja import *
 from binaryninja.binaryview import BinaryViewType
 from binaryninja.architecture import Architecture, ArchitectureHook
@@ -48,7 +50,13 @@ DARK_GREEN = "\033[32m"  # Darker shade of green
 CYAN = "\033[36m"        # Cyan color as a different shade of blue
 DARK_RED = "\033[31m"    # Darker red color
 
-
+gen_regs = {"%rax", "%rbx", "%rcx", "%rdx", "%rdi", "%rsi",
+            "%eax", "%ebx", "%ecx", "%edx", "%edi", "%esi",
+            "%ax",  "%bx",  "%cx",  "%dx",
+            "%xmm0", "%xmm1", "%xmm2", "%xmm3",
+            "%xmm4", "%xmm5", "%xmm6", "%xmm7",
+            "%xmm8", "%xmm9", "%xmm10", "%xmm11",
+            "%xmm12", "%xmm13", "%xmm14", "%xmm15"}
 
 suffix_map = {
         "qword": "q",  # Quadword -> q
@@ -270,8 +278,49 @@ class OperationNode(ASTNode):
         if self.right:
             self.right.print_tree(new_prefix, is_last=True, direction="right")
 
+
+class BnVarData:
+    def __init__(self, name: Optional[str] = None, dis_inst: Optional[str] = None, patch_inst: Optional['PatchingInst'] = None, offset: Optional[int] = None, llil_inst: Optional['LowLevelILInstruction'] = None, asmst: Optional [ASTNode] = None, arg: Optional[bool] = None):
+        self.name = name
+        self.dis_inst = dis_inst
+        self.patch_inst = patch_inst
+        self.offset = offset
+        self.llil_inst = llil_inst
+        self.asmst = asmst
+        self.arg = arg
+
+    def print_info(self):
+        """Prints the BnVarData information in an organized format."""
+        print("\nBnVarData Information:")
+        print(f"  Name          : {self.name}")
+        print(f"  Disassembled  : {self.dis_inst}")
+
+        # Print details of the PatchingInst if it exists
+        if self.patch_inst:
+            self.patch_inst.inst_print()
+
+        print(f"  Offset        : {self.offset}")
+        print(f"  LLIL Inst     : {self.llil_inst}")
+        print(f"  Is Argument   : {self.arg}")
+
+        # Print the ASM syntax tree if available
+        if self.asmst:
+            print("  ASM Syntax Tree:")
+            self.asmst.print_tree(prefix="    ")  # Indented for better readability
+        else:
+            print("  ASM Syntax Tree: None")
+
+class BnFunData:
+    def __init__(self, name: Optional[str] = None, vars: Optional[List[BnVarData]] = None):
+        self.name = name
+        self.vars = vars if vars is not None else []
+
+
 class BinAnalysis:
-    asm_trees = set()
+    bn_fun_var_info     = dict() # Dict for functions which will have variable list
+    bn_var_list         = list() # List for BN variables (for argument)
+    addr_to_llil        = dict() # Addr to LLIL instruction (for call inst analysis)
+    asm_trees           = set()
     dis_inst = None # Current disassembly instruction
     def gen_ast(self, llil_fun, llil_inst, is_root=False):
         """
@@ -410,6 +459,41 @@ class BinAnalysis:
         else:
             logger.error(f"Instruction does not have SSA form: {llil_inst}")
             raise NotImplementedError(f"Unhandled instruction without SSA form: {llil_inst}")
+
+    def get_ssa_reg(self, inst_ssa):
+        """Recursively retrieves the SSA register from an instruction, handling various IL instruction types."""
+        arrow = 'U+21B3'  # Unicode arrow for debugging output
+        logger.info("Getting the SSA register of %s %s", inst_ssa, type(inst_ssa)) 
+
+        # Check if inst_ssa is already an SSARegister
+        if isinstance(inst_ssa, binaryninja.lowlevelil.SSARegister):
+            return inst_ssa
+
+        # Recursive handling for SSA forms
+        elif isinstance(inst_ssa, binaryninja.lowlevelil.LowLevelILRegSsa):
+            return self.get_ssa_reg(inst_ssa.src)
+
+        # Recursive handling for partially defined SSA registers
+        elif isinstance(inst_ssa, binaryninja.lowlevelil.LowLevelILRegSsaPartial):
+            return self.get_ssa_reg(inst_ssa.full_reg)
+
+        # Handle SSA load operations (e.g., loading from memory)
+        elif isinstance(inst_ssa, binaryninja.lowlevelil.LowLevelILLoadSsa):
+            logger.debug("%s LoadReg", chr(int(arrow[2:], 16)))  # Logs with an arrow for visual clarity
+            return inst_ssa
+
+        # Handle zero-extension (LowLevelILZx) cases by continuing to the full register
+        elif isinstance(inst_ssa, binaryninja.lowlevelil.LowLevelILZx):
+            return self.get_ssa_reg(inst_ssa.src.full_reg)
+
+        # Handle arithmetic expressions involving SSA registers
+        elif binaryninja.commonil.Arithmetic in inst_ssa.__class__.__bases__:
+            # This specifically handles cases like "%rax#3 + 4"
+            return self.get_ssa_reg(inst_ssa.left.src)
+
+        # Fallback for unhandled cases, print parent classes for debugging
+        else:
+            logger.warning("Unhandled instruction type: %s", inst_ssa.__class__.__bases__)
 
     def determine_prefix_from_registers(self, reg1, reg2):
         if reg1 and reg2:
@@ -559,6 +643,153 @@ class BinAnalysis:
         else:
             return None
 
+    def analyze_call_inst(self, inst, fun):
+        """Analyzes call instruction operands and marks relevant variables as arguments."""
+        
+        # Get the operands of the call instruction from medium-level IL
+        call_ops = inst.medium_level_il.operands[2]
+        logger.info("Handling call instruction %s", inst.medium_level_il)
+        logger.debug("Call operands: %s", call_ops)
+
+        # Process each operand in the call instruction
+        for op in call_ops:
+            logger.debug("Operand address: %s, Type: %s, SSA form: %s", hex(op.address), type(op), op.ssa_form)
+
+            # Skip constant and constant pointer operands, as they don't represent variables
+            if isinstance(op, (binaryninja.mediumlevelil.MediumLevelILConst, binaryninja.mediumlevelil.MediumLevelILConstPtr)):
+                continue  # e.g., operand might be an immediate like %rsi = -1
+
+            # Process non-variable operands (e.g., registers or temporary values)
+            elif not isinstance(op, binaryninja.mediumlevelil.MediumLevelILVar):
+                arg_llil_inst = self.addr_to_llil[op.address]  # Look up the corresponding LLIL instruction
+                logger.debug("LLIL instruction for operand: %s", arg_llil_inst)
+
+                # Retrieve SSA register from the source of the LLIL instruction
+                ssa_reg = self.get_ssa_reg(arg_llil_inst.src.ssa_form)
+                logger.debug("SSA register: %s", ssa_reg)
+
+                # Determine if the SSA register is a load operation
+                if not isinstance(ssa_reg, binaryninja.lowlevelil.LowLevelILLoadSsa):
+                    # If not a load operation, get SSA definition instruction from the function context
+                    def_llil_inst = fun.get_ssa_reg_definition(ssa_reg).ssa_form
+                    # Check if the definition matches any variable in bn_var_list
+                    for var in self.bn_var_list:
+                        if def_llil_inst == var.llil_inst.ssa_form:
+                            var.arg = True  # Mark the variable as an argument
+                else:
+                    # If it is a load operation, directly use the LLIL instruction SSA form for comparison
+                    def_llil_inst = arg_llil_inst.ssa_form
+                    # Mark the variable as an argument if the SSA form matches any variable's LLIL instruction
+                    for var in self.bn_var_list:
+                        if def_llil_inst == var.llil_inst.ssa_form:
+                            var.arg = True
+
+            # Handle MediumLevelILVar operands with no associated LLIL instructions
+            elif isinstance(op, binaryninja.mediumlevelil.MediumLevelILVar) and len(op.llils) < 1:
+                # Log SSA var uses if LLIL is absent (e.g., might be an argument variable)
+                inst_var = fun.mlil.get_ssa_var_uses(op.ssa_form.src)
+                logger.debug("No LLIL for operand. SSA var uses: %s", inst_var)
+
+            # Process remaining cases for MediumLevelILVar operands with associated LLIL instructions
+            else:
+                # Get the last LLIL instruction SSA form associated with the variable
+                arg_llil_inst = op.llils[-1].ssa_form
+                try:
+                    logger.debug("Last LLIL instruction for var operand: %s", arg_llil_inst)
+
+                    # Retrieve the SSA register from the LLIL source
+                    ssa_reg = self.get_ssa_reg(arg_llil_inst.src.ssa_form)
+                    logger.debug("SSA register: %s", ssa_reg)
+
+                    # Retrieve SSA definition or load SSA form
+                    def_llil_inst = fun.get_ssa_reg_definition(ssa_reg).ssa_form
+                    # Mark matching variables as arguments based on the SSA form
+                    for var in self.bn_var_list:
+                        if arg_llil_inst == var.llil_inst.ssa_form:
+                            logger.critical("Matching argument: %s", var.llil_inst.ssa_form)
+                            var.arg = True
+                        if def_llil_inst == var.llil_inst.ssa_form:
+                            logger.critical("Matching argument: %s", var.llil_inst.ssa_form)                            
+                            var.arg = True
+
+                # Fallback handling for any issues encountered while accessing arg_llil_inst
+                except Exception as e:
+                    logger.error("Error processing operand: %s, Exception: %s", op, e)
+                    def_llil_inst = arg_llil_inst.ssa_form
+                    for var in self.bn_var_list:
+                        if def_llil_inst == var.llil_inst.ssa_form:
+                            logger.critical("Matching argument on exception: %s", var.llil_inst.ssa_form)
+                            var.arg = True
+
+    def gen_bn_var(self, inst):
+        """Generates a BnVarData instance based on the instruction's variable usage, filtering for stack variables."""
+        
+        bn_var = None
+        var_name = None
+        mapped_il = inst.mapped_medium_level_il  # Get the mapped medium-level IL for the instruction
+
+        # Check if the instruction is setting a register
+        if inst.operation == LowLevelILOperation.LLIL_SET_REG:
+            # Verify if there are any variables being read in the instruction
+            if len(mapped_il.vars_read) > 0:
+                var_idx = None
+
+                # Check if any variable names contain "var" in vars_read
+                result = any("var" in var.name for var in mapped_il.vars_read)
+                if result:
+                    # Locate the first variable in vars_read with "var" in the name
+                    for idx, var in enumerate(mapped_il.vars_read):
+                        if "var" in var.name:
+                            var_idx = idx
+                            break  # Exit loop after finding the first matching variable
+                
+                # If a variable with "var" in the name was found, extract its details
+                if var_idx is not None:
+                    temp_var = mapped_il.vars_read[var_idx]
+                    var_name = temp_var.name
+                    dest_reg = inst.ssa_form.dest  # Get the destination register from SSA form
+
+                    # Avoid processing stack pointer registers
+                    try:
+                        # Determine the register name based on type
+                        if isinstance(dest_reg, binaryninja.lowlevelil.ILRegister):
+                            reg_name = dest_reg.name
+                        elif isinstance(dest_reg, binaryninja.lowlevelil.SSARegister):
+                            reg_name = dest_reg.reg.name
+                        
+                        # Check if the variable is a stack variable and has a matching register name
+                        if (temp_var.core_variable.source_type == VariableSourceType.StackVariableSourceType and 
+                            "var" in var_name and reg_name in gen_regs):
+                            # Create a new BnVarData instance for a matching stack variable
+                            bn_var = BnVarData(name=var_name)
+                    
+                    except Exception as err:
+                        # Log any exceptions that occur during processing
+                        logger.error("Error in processing destination register: %s", err)
+                        logger.warning("Not the target")
+                    
+                    logger.debug("Processed variable name: %s", var_name)
+
+        # Check if the instruction is a store operation, handling written variables
+        elif inst.operation == LowLevelILOperation.LLIL_STORE:
+            
+            # Verify if there are any variables being written in the instruction
+            if len(mapped_il.vars_written) > 0:
+                # Check if any written variable name contains "var"
+                result = any("var" in var.name for var in mapped_il.vars_written)
+                temp_var = mapped_il.vars_written[0]
+                var_name = temp_var.name
+
+                # Confirm the variable is a stack variable and contains "var" in its name
+                if (temp_var.core_variable.source_type == VariableSourceType.StackVariableSourceType and 
+                    "var" in var_name):
+                    # Create a new BnVarData instance for the stack variable
+                    bn_var = BnVarData(name=var_name)
+
+        # Return the created BnVarData instance if applicable
+        if bn_var is not None:
+            return bn_var
+
     def analyze_inst(self, inst, fun):
         transfer_ILs = (
             binaryninja.commonil.ControlFlow,
@@ -572,26 +803,34 @@ class BinAnalysis:
             
         if isinstance(inst, LowLevelILInstruction):
             logger.info(f"Analyzing the instruction: {inst}")
-            addr = inst.address
-            dis_inst = self.bv.get_disassembly(addr)
-            print(dis_inst)
-            pro_inst: PatchingInst
-            pro_inst = self.process_dis_inst(dis_inst)
-            if pro_inst != None:
-                self.dis_inst = pro_inst
-                # pro_inst.inst_print()
-            else:
-                # If for a diassembly instruction which is not parsed (e.g., push %rbp)
-                self.dis_inst = dis_inst
-                logger.error(f"No disassembly instruction for {inst}")
-                
-            asm_syntax_tree = self.gen_ast(fun, inst)
+            bn_var = BnVarData()
+            bn_var = self.gen_bn_var(inst)
+            if bn_var != None:
+                bn_var.llil_inst = inst
+                addr = inst.address
+                dis_inst = self.bv.get_disassembly(addr)
+                logger.debug(dis_inst)
+                pro_inst: PatchingInst
+                pro_inst = self.process_dis_inst(dis_inst)
+                if pro_inst != None:
+                    self.dis_inst = pro_inst
+                    # pro_inst.inst_print()
+                    bn_var.patch_inst = pro_inst
+                else:
+                    # If for a diassembly instruction which is not parsed (e.g., push %rbp)
+                    self.dis_inst = dis_inst
+                    logger.error(f"No disassembly instruction for {inst}")
+                    bn_var.dis_inst = dis_inst
 
-            # Print the AST in a binary tree-like structure
-            if asm_syntax_tree:
-                asm_syntax_tree.print_tree()
-                self.asm_trees.add(asm_syntax_tree)
-            print()
+                asm_syntax_tree = self.gen_ast(fun, inst)
+                # Print the AST in a binary tree-like structure
+                if asm_syntax_tree:
+                    bn_var.asmst = asm_syntax_tree
+                    asm_syntax_tree.print_tree()
+                    self.asm_trees.add(asm_syntax_tree)
+                    
+                self.bn_var_list.append(bn_var)
+                print()
             
         elif isinstance(inst, MediumLevelILInstruction):
             logger.debug(inst)
@@ -602,13 +841,22 @@ class BinAnalysis:
 
     def analyze_bb(self, bb, fun):
         for inst in bb:
-            # Ensure the correct type before proceeding
-            self.analyze_inst(inst, fun)
+            if isinstance(inst, LowLevelILInstruction):
+                self.addr_to_llil[inst.address] = inst
+                if inst.operation != LowLevelILOperation.LLIL_CALL:
+                # Ensure the correct type before proceeding
+                    self.analyze_inst(inst, fun)
+                else:
+                    self.analyze_call_inst(inst, fun)
 
     def analyze_fun(self):
         llil_fun = self.fun.low_level_il
+        self.addr_to_llil.clear()
         for llil_bb in llil_fun:
             self.analyze_bb(llil_bb, llil_fun)
+        
+        self.bn_fun_var_info[self.fun.name] = self.bn_var_list.copy()  
+        self.bn_var_list.clear()
 
     def asm_lex_analysis(self, analysis_list):
         print("")
@@ -630,17 +878,8 @@ class BinAnalysis:
                 if len(log_message) > columns:
                     log_message = log_message[:columns-3] + "..."
                 logger.info(log_message)
-                for tree in self.asm_trees:
-                    tree: ASTNode
-                    tree.print_tree()
-                    if isinstance(tree.dis_inst, PatchingInst):
-                        tree.dis_inst.inst_print()
-                    else:
-                        logger.debug(tree.dis_inst)
-                    print()
-                fun_asm_trees[func.name] = self.asm_trees.copy()  # Store set in dict
-                self.asm_trees.clear()  # Clear the set for the next function
-        return fun_asm_trees
+
+        return self.bn_fun_var_info # fun_asm_trees
       
     def __init__(self, bv):
         self.bv = bv
