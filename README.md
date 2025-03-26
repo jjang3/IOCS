@@ -4,7 +4,6 @@
 
 ```
 ./
-├── taint_analysis (to-do)
 ├── input (for single source file like tiny.c)
 ├── utility-scripts
 |       ├── core.sh
