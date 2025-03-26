@@ -1,4 +1,4 @@
-# Input-Based Compartmentalization System (IBCS)
+# Input-Oriented Compartmentalization System (IOCS)
 
 ## What's included
 
@@ -18,26 +18,26 @@
 |        ├── src 
 |        └── main.py (python3 main.py --binary)
 |
-└── ibcs.sh
+└── iocs.sh
 ```
 
 
-# IBCS Script Directions
+# IOCS Script Directions
 1. Insert a source file into the `input` directory (e.g., `tiny.c`).
-2. Run the IBCS script with the input name:
+2. Run the IOCS script with the input name:
    ```bash
-   bash ibcs.sh tiny
+   bash iocs.sh tiny
    ```
 3. Follow the prompts to select an option.
 
 # Dockerfile Directions
 1. Build the Docker image:
    ```bash
-   docker build -t ibcs:latest .
+   docker build -t iocs:latest .
    ```
 2. Run the Docker container:
    ```bash
-   docker run -v $HOME/binaryninja:/root/binaryninja -it --name ibcs_debug ibcs:latest /bin/zsh
+   docker run -v $HOME/binaryninja:/root/binaryninja -it --name iocs_debug iocs:latest /bin/zsh
    ```
 3. If you exit the container, restart it by checking the container ID:
    ```bash
@@ -64,9 +64,9 @@
    ```bash
    bash core.sh yes
    ```
-3. Before rewriting, move the file into the `IBCS/result/coreutils_bin` folder.
+3. Before rewriting, move the file into the `IOCS/result/coreutils_bin` folder.
 4. Use the `rewrite` option to rewrite the code.
-5. Use the `compile` option to rewrite the assembly file in `IBCS/result/coreutils_bin`. This will copy necessary files back to the `coreutils` folder (defined by `$coreutils_src_path` in `core.sh`).
+5. Use the `compile` option to rewrite the assembly file in `IOCS/result/coreutils_bin`. This will copy necessary files back to the `coreutils` folder (defined by `$coreutils_src_path` in `core.sh`).
 
 ## Directions for the NGINX
 
