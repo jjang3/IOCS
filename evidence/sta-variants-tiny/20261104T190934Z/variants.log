@@ -1,0 +1,6 @@
+$ in_image iocs:dev bash src/sta/suture_variants.sh /iocs/result/tiny tiny /iocs/evidence/sta-variants-tiny/20261104T190934Z
+iocs: warnings in: log_access(2) parse_request(6) rio_readinitb(3) url_decode(3) writen(2) 
+o1: warnings in: log_access(2) parse_request(3) rio_readinitb(3) url_decode(3) writen(2) 
+o0mem2reg: warnings in: log_access(2) parse_request(6) rio_readinitb(3) url_decode(3) writen(2) 
+
+[exit 0]

@@ -1,0 +1,12 @@
+# Submodules: third-party tools the pipeline builds, and the Bropper exploit tool.
+[submodule "third_party/libdft64"]
+	path = third_party/libdft64
+	url = https://github.com/AngoraFuzzer/libdft64.git
+	ignore = dirty
+[submodule "benchmarks/exploits/bropper_ex_2/Bropper"]
+	path = benchmarks/exploits/bropper_ex_2/Bropper
+	url = https://github.com/Hakumarachi/Bropper
+[submodule "third_party/SUTURE"]
+	path = third_party/SUTURE
+	url = https://github.com/seclab-ucr/SUTURE.git
+	ignore = dirty

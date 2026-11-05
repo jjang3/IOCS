@@ -1,0 +1,4 @@
+$ C factor migrate
+factor: 1 objects, 2661 lines in src/factor.c
+
+[exit 0]

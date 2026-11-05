@@ -1,0 +1,1 @@
+_init,set_program_name,atexit,perform_basename,base_name,last_component,base_len,xstrndup,strip_trailing_slashes,last_component,base_len,remove_suffix,close_stream,rpl_fclose,rpl_fflush,close_stream,rpl_fclose,rpl_fflush,deregister_tm_clones,

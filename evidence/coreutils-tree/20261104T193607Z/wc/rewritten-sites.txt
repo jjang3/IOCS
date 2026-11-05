@@ -1,0 +1,37 @@
+wc.s:1239: mov_store_gs %rdx, 40, 64    <-verifier_metadata_0:
+wc.s:1244: mov_store_gs %rcx, 32, 64    <-verifier_metadata_1:
+wc.s:1384: mov_load_gs %rax, 40, 64    <- # movq -16632(%rbp), %rax
+wc.s:1391: mov_load_gs %rax, 40, 64    <- # movq -16632(%rbp), %rax
+wc.s:1399: mov_load_gs %rdx, 40, 64    <- # movq -16632(%rbp), %rdx
+wc.s:1404: mov_load_gs %rax, 40, 64    <- # movq -16632(%rbp), %rax
+wc.s:1411: mov_load_gs %rax, 40, 64    <- # movq -16632(%rbp), %rax
+wc.s:1421: mov_load_gs %rax, 40, 64    <- # movq -16632(%rbp), %rax
+wc.s:1429: mov_load_gs %rax, 40, 64    <- # movq -16632(%rbp), %rax
+wc.s:1435: cmp_store_gs $0, 32, 64    <- # cmpq $0, -16640(%rbp)
+wc.s:1447: mov_store_gs %rax, 32, 64    <-verifier_metadata_10:
+wc.s:1460: mov_load_gs %rax, 32, 64    <- # movq -16640(%rbp), %rax
+wc.s:1466: mov_load_gs %rax, 32, 64    <- # movq -16640(%rbp), %rax
+wc.s:1485: mov_load_gs %rax, 40, 64    <- # movq -16632(%rbp), %rax
+wc.s:1492: mov_load_gs %rax, 40, 64    <- # movq -16632(%rbp), %rax
+wc.s:1501: mov_load_gs %rax, 40, 64    <- # movq -16632(%rbp), %rax
+wc.s:1522: cmp_store_gs $0, 32, 64    <- # cmpq $0, -16640(%rbp)
+wc.s:1526: mov_load_gs %rax, 32, 64    <- # movq -16640(%rbp), %rax
+wc.s:1542: sub_load_gs %rax, 32, 64    <- # subq -16640(%rbp), %rax
+wc.s:2607: mov_store_gs %rdi, 24, 64    <-verifier_metadata_19:
+wc.s:2612: mov_store_gs %rsi, 16, 64    <-verifier_metadata_20:
+wc.s:2615: cmp_store_gs $0, 24, 64    <- # cmpq $0, -24(%rbp)
+wc.s:2619: mov_load_gs %rax, 24, 64    <- # movq -24(%rbp), %rax
+wc.s:2632: cmp_store_gs $0, 24, 64    <- # cmpq $0, -24(%rbp)
+wc.s:2636: cmp_store_gs $1, 24, 64    <- # cmpq $1, -24(%rbp)
+wc.s:2675: mov_load_gs %rax, 16, 64    <- # movq -32(%rbp), %rax
+wc.s:2685: mov_load_gs %rax, 16, 64    <- # movq -32(%rbp), %rax
+wc.s:2733: mov_load_gs %rax, 16, 64    <- # movq -32(%rbp), %rax
+wc.s:2761: cmp_load_gs %rax, 24, 64    <- # cmpq -24(%rbp), %rax
+wc.s:2792: mov_store_gs %rdi, 0, 64    <-verifier_metadata_29:
+wc.s:2797: mov_store_gs %rsi, 8, 64    <-verifier_metadata_30:
+wc.s:2802: cmp_store_gs $0, 0, 64    <- # cmpq $0, -40(%rbp)
+wc.s:2806: mov_load_gs %rax, 8, 64    <- # movq -48(%rbp), %rax
+wc.s:2832: mov_load_gs %rax, 8, 64    <- # movq -48(%rbp), %rax
+wc.s:2849: mov_load_gs %rax, 8, 64    <- # movq -48(%rbp), %rax
+wc.s:2868: mov_load_gs %rax, 8, 64    <- # movq -48(%rbp), %rax
+wc.s:2885: cmp_load_gs %rax, 0, 64    <- # cmpq -40(%rbp), %rax

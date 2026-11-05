@@ -1,0 +1,1840 @@
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# nginx, 86 function(s) on the taint path.
+
+Root Function: ngx_time_update, Register Offset: -80 (gmt)
+      └─ Function: ngx_gmtime, Register Offset: -112 (arg 1, tp)
+
+Root Function: ngx_time_update, Register Offset: -144 (tm)
+      └─ Function: ngx_localtime, Register Offset: -16 (arg 1, tm)
+
+Root Function: ngx_conf_open_file, Register Offset: -32 (full)
+      └─ Function: ngx_conf_full_name, Register Offset: -64 (arg 1, name)
+         └─ Function: ngx_conf_test_full_name, Register Offset: -8 (arg 0, name)
+
+Root Function: ngx_snprintf, Register Offset: -208 (args)
+      └─ Function: ngx_vslprintf, Register Offset: -176 (arg 3, args)
+
+Root Function: ngx_sprintf, Register Offset: -208 (args)
+      └─ Function: ngx_vslprintf, Register Offset: -176 (arg 3, args)
+
+Root Function: ngx_http_merge_types, Register Offset: -64 (hash)
+      └─ Function: ngx_hash_init, Register Offset: -104 (arg 0, hinit)
+
+Root Function: ngx_http_log_compile_format, Register Offset: -32 (var)
+      └─ Function: ngx_http_log_variable_compile, Register Offset: -40 (arg 2, value)
+         └─ Function: ngx_http_get_variable_index, Register Offset: -48 (arg 1, name)
+
+Root Function: ngx_http_script_compile, Register Offset: -32 (name)
+      └─ Function: ngx_http_script_add_var_code, Register Offset: -48 (arg 1, name)
+         └─ Function: ngx_http_get_variable_index, Register Offset: -48 (arg 1, name)
+      └─ Function: ngx_http_script_add_copy_code, Register Offset: -64 (arg 1, value)
+
+Root Function: ngx_http_variables_init_vars, Register Offset: -64 (hash)
+      └─ Function: ngx_hash_init, Register Offset: -104 (arg 0, hinit)
+
+Root Function: ngx_init_cycle, Register Offset: -288 (hostname)
+      └─ Function: ngx_strlow, Register Offset: -16 (arg 1, src)
+
+Root Function: ngx_init_cycle, Register Offset: -384 (conf)
+      └─ Function: ngx_conf_param, Register Offset: -328 (arg 0, cf)
+         └─ Function: ngx_conf_parse, Register Offset: -360 (arg 0, cf)
+            └─ Function: ngx_conf_log_error, Register Offset: -1280 (arg 1, cf)
+            └─ Function: ngx_conf_read_token, Register Offset: -168 (arg 0, cf)
+               └─ Function: ngx_conf_log_error, Register Offset: -1280 (arg 1, cf)
+            └─ Function: ngx_conf_handler, Register Offset: -72 (arg 0, cf)
+               └─ Function: ngx_conf_log_error, Register Offset: -1280 (arg 1, cf)
+      └─ Function: ngx_destroy_cycle_pools, Register Offset: -8 (arg 0, conf)
+      └─ Function: ngx_conf_parse, Register Offset: -360 (arg 0, cf)
+         └─ Function: ngx_conf_log_error, Register Offset: -1280 (arg 1, cf)
+         └─ Function: ngx_conf_read_token, Register Offset: -168 (arg 0, cf)
+            └─ Function: ngx_conf_log_error, Register Offset: -1280 (arg 1, cf)
+         └─ Function: ngx_conf_handler, Register Offset: -72 (arg 0, cf)
+            └─ Function: ngx_conf_log_error, Register Offset: -1280 (arg 1, cf)
+
+Root Function: ngx_http_upstream_hide_headers_hash, Register Offset: -48 (hide_headers)
+      └─ Function: ngx_array_push, Register Offset: -40 (arg 0, a)
+
+Root Function: ngx_create_listening, Register Offset: -128 (text)
+      └─ Function: ngx_sock_ntop, Register Offset: -48 (arg 1, text)
+         └─ Function: ngx_snprintf, Register Offset: -232 (arg 0, buf)
+            └─ Function: ngx_vslprintf, Register Offset: -152 (arg 0, buf)
+
+Root Function: ngx_os_specific_init, Register Offset: -400 (u)
+      └─ Function: ngx_cpystrn, Register Offset: -16 (arg 1, src)
+
+Root Function: ngx_http_compile_complex_value, Register Offset: -96 (sc)
+      └─ Function: ngx_http_script_compile, Register Offset: -72 (arg 0, sc)
+         └─ Function: ngx_http_script_init_arrays, Register Offset: -40 (arg 0, sc)
+         └─ Function: ngx_http_script_add_capture_code, Register Offset: -24 (arg 0, sc)
+         └─ Function: ngx_http_script_add_var_code, Register Offset: -40 (arg 0, sc)
+         └─ Function: ngx_http_script_add_args_code, Register Offset: -24 (arg 0, sc)
+         └─ Function: ngx_http_script_add_copy_code, Register Offset: -56 (arg 0, sc)
+         └─ Function: ngx_http_script_done, Register Offset: -56 (arg 0, sc)
+            └─ Function: ngx_http_script_add_copy_code, Register Offset: -56 (arg 0, sc)
+            └─ Function: ngx_http_script_add_full_name_code, Register Offset: -24 (arg 0, sc)
+
+Root Function: ngx_resolver_create, Register Offset: -240 (s)
+      └─ Function: ngx_parse_time, Register Offset: -72 (arg 0, line)
+
+Root Function: ngx_resolver_create, Register Offset: -224 (u)
+      └─ Function: ngx_parse_url, Register Offset: -32 (arg 1, u)
+         └─ Function: ngx_parse_unix_domain_url, Register Offset: -64 (arg 1, u)
+         └─ Function: ngx_parse_inet6_url, Register Offset: -16 (arg 1, u)
+         └─ Function: ngx_parse_inet_url, Register Offset: -96 (arg 1, u)
+            └─ Function: ngx_inet_resolve_host, Register Offset: -80 (arg 1, u)
+
+Root Function: ngx_cpuinfo, Register Offset: -32 (vbuf)
+      └─ Function: ngx_cpuid, Register Offset: -40 (arg 1, buf)
+
+Root Function: ngx_cpuinfo, Register Offset: -48 (cpu)
+      └─ Function: ngx_cpuid, Register Offset: -40 (arg 1, buf)
+
+
+# Function summaries (function trees' nodes)
+main: params argc@-500, argv@-512*
+    0xe3f3 call ngx_strerror_init()
+    0xe419 call ngx_get_options(0:-500, 1:-512)
+    0xe440 call ngx_write_stderr()
+    0xe458 call ngx_write_stderr()
+    0xe470 call ngx_write_stderr()
+    0xe496 call ngx_time_init()
+    0xe49b call ngx_regex_init()
+    0xe4b5 call ngx_log_init()
+    0xe519 call ngx_create_pool(1:-488)
+    0xe554 call ngx_save_argv(0:&-464, 1:-500, 2:-512)
+    0xe572 call ngx_process_options(0:&-464)
+    0xe590 call ngx_os_init(0:-488)
+    0xe5a4 call ngx_crc32_table_init()
+    0xe5c2 call ngx_add_inherited_sockets(0:&-464)
+    0xe64f call ngx_init_cycle(0:&-464)
+    0xe689 call ngx_log_stderr()
+    0xe6d2 call ngx_log_stderr()
+    0xe701 call ngx_signal_process(0:-480)
+    0xe719 call ngx_os_status()
+    0xe783 call ngx_init_signals()
+    0xe7c0 call ngx_daemon()
+    0xe815 call ngx_create_pidfile()
+    0xe89a call ngx_log_error_core()
+    0xe90e call ngx_log_error_core()
+    0xe934 call ngx_single_process_cycle(0:-480)
+    0xe945 call ngx_master_process_cycle(0:-480)
+ngx_accept_log_error: params log@-8*, buf@-16*, len@-24
+    0x36aec call ngx_snprintf(0:-16, 1:-24)
+ngx_add_inherited_sockets: params cycle@-56*
+    0xe9cf call ngx_log_error_core()
+    0xe9f1 call ngx_array_init()
+    0xea4b call ngx_atoi(0:-32)
+    0xea97 call ngx_log_error_core()
+    0xeab5 call ngx_array_push()
+    0xeb19 call ngx_set_inherited_sockets(0:-56)
+ngx_add_path: params cf@-40*, slot@-48*
+    0x1bd1e call ngx_log_error_core()
+    0x1bdbc call ngx_log_error_core()
+    0x1be46 call ngx_conf_log_error(1:-40)
+    0x1bee9 call ngx_array_push()
+ngx_alloc: params size@-24, log@-32*
+    0x391db call ngx_log_error_core(1:-32)
+ngx_array_create: params p@-24*, n@-32, size@-40
+    0x11f85 call ngx_palloc(0:-24)
+    0x11fb2 call ngx_palloc(0:-24)
+ngx_array_push: params a@-40*
+    0x1215a call ngx_palloc(0:-24)
+ngx_array_push_n: params a@-56*, n@-64
+    0x122e2 call ngx_palloc(0:-32)
+ngx_atoi: params line@-24*, n@-32
+ngx_atoof: params line@-24*, n@-32
+ngx_atosz: params line@-24*, n@-32
+ngx_atotm: params line@-24*, n@-32
+ngx_calloc: params size@-24, log@-32*
+    0x39208 call ngx_alloc(0:-24, 1:-32)
+ngx_close_channel: params fd@-8*, log@-16*
+    0x3b5bd call ngx_log_error_core(1:-16)
+    0x3b604 call ngx_log_error_core(1:-16)
+ngx_close_connection: params c@-40*
+    0x2397d call ngx_log_error_core()
+    0x239a5 call ngx_event_del_timer()
+    0x239c8 call ngx_event_del_timer()
+    0x23b7d call ngx_reusable_connection(0:-40)
+    0x23b9e call ngx_free_connection(0:-40)
+    0x23c52 call ngx_log_error_core(0:-16, 2:-20)
+ngx_close_glob: params gl@-8*
+ngx_close_listening_sockets: params cycle@-56*
+    0x2345c call ngx_free_connection(0:-32)
+    0x23502 call ngx_log_error_core()
+    0x235dc call ngx_log_error_core()
+ngx_cmp_sockaddr: params sa1@-40*, sa2@-48*
+ngx_conf_full_name: params cycle@-56*, name@-64*, conf_prefix@-72
+    0x29bc6 call ngx_conf_test_full_name(0:-64)
+    0x29c44 call ngx_pnalloc()
+    0x29c9c call ngx_cpystrn(0:-8)
+ngx_conf_handler: params cf@-72*, last@-80
+    0x28bfc call ngx_conf_log_error(1:-72)
+    0x28c4e call ngx_conf_log_error(1:-72)
+    0x28ea5 call ngx_conf_log_error(1:-72)
+    0x28f2c call ngx_conf_log_error(1:-72)
+    0x28f62 call ngx_conf_log_error(1:-72)
+    0x28f9c call ngx_conf_log_error(1:-72)
+ngx_conf_include: params cf@-200*, cmd@-208*, conf@-216*
+    0x299ff call ngx_conf_full_name(1:&-160)
+    0x29a44 call ngx_conf_parse(0:-200, 1:&-160)
+    0x29a8d call ngx_open_glob(0:&-128)
+    0x29ac3 call ngx_conf_log_error(1:-200)
+    0x29af0 call ngx_read_glob(0:&-128, 1:&-144)
+    0x29b37 call ngx_pstrdup(1:&-144)
+    0x29b57 call ngx_conf_parse(0:-200, 1:&-160)
+    0x29b7d call ngx_close_glob(0:&-128)
+ngx_conf_log_error: params level@-1272, cf@-1280*, err@-1284, fmt@-1296*
+    0x2a1e9 call ngx_vslprintf(0:&-1216, 1:-1248, 2:-1296, 3:&-1240)
+    0x2a218 call ngx_log_errno(0:-1256, 1:-1248, 2:-1284)
+    0x2a296 call ngx_log_error_core(0:-1272)
+    0x2a314 call ngx_log_error_core(0:-1272)
+    0x2a39c call ngx_log_error_core(0:-1272)
+ngx_conf_merge_path_value: params cf@-8*, path@-16*, prev@-24*, init@-32*
+    0x1b86b call ngx_palloc()
+    0x1b8c5 call ngx_conf_full_name()
+    0x1b9cc call ngx_add_path(0:-8, 1:-16)
+ngx_conf_open_file: params cycle@-72*, name@-80*
+    0x29d5d call ngx_conf_full_name(0:-72, 1:&-32)
+    0x29e63 call ngx_list_push()
+ngx_conf_param: params cf@-328*
+    0x28528 call ngx_conf_parse(0:-328)
+ngx_conf_parse: params cf@-360*, filename@-368*
+    0x28611 call ngx_conf_log_error(1:-360)
+    0x28660 call fstat64()
+    0x286b1 call ngx_log_error_core()
+    0x286e2 call ngx_alloc()
+    0x2880b call ngx_conf_read_token(0:-360)
+    0x2885c call ngx_conf_log_error(1:-360)
+    0x2889d call ngx_conf_log_error(1:-360)
+    0x288da call ngx_conf_log_error(1:-360)
+    0x28959 call ngx_conf_log_error(1:-360, 3:-328)
+    0x28974 call ngx_conf_handler(0:-360, 1:-344)
+    0x28a51 call ngx_log_error_core()
+ngx_conf_read_token: params cf@-168*
+    0x290e1 call ngx_conf_log_error(1:-168)
+    0x29112 call ngx_conf_log_error(1:-168)
+    0x291b3 call ngx_conf_log_error(1:-168)
+    0x291ee call ngx_conf_log_error(1:-168)
+    0x292c1 call ngx_read_file(2:-112)
+    0x29315 call ngx_conf_log_error(1:-168)
+    0x2947f call ngx_conf_log_error(1:-168)
+    0x295a5 call ngx_conf_log_error(1:-168)
+    0x29607 call ngx_conf_log_error(1:-168)
+    0x2978a call ngx_array_push()
+    0x297cc call ngx_pnalloc()
+ngx_conf_test_full_name: params name@-8*
+ngx_configure_listening_sockets: params cycle@-56*
+    0x22981 call ngx_log_error_core()
+    0x22ac0 call ngx_log_error_core()
+    0x22bee call ngx_log_error_core()
+    0x22d2c call ngx_log_error_core()
+    0x22e6a call ngx_log_error_core()
+    0x22fa8 call ngx_log_error_core()
+    0x230de call ngx_log_error_core()
+    0x23290 call ngx_log_error_core()
+ngx_connection_error: params c@-24*, err@-28, text@-40*
+    0x24040 call ngx_log_error_core(0:-8, 2:-28, 3:-40)
+ngx_connection_local_sockaddr: params c@-168*, s@-176*, port@-184
+    0x23e83 call ngx_connection_error(0:-168)
+    0x23ead call ngx_palloc()
+    0x23f3f call ngx_sock_ntop(3:-184)
+ngx_cpuid: params i@-28, buf@-40*
+ngx_cpuinfo: params -
+    0x282c4 call ngx_cpuid(1:&-32)
+    0x282ec call ngx_cpuid(1:&-48)
+ngx_cpystrn: params dst@-8*, src@-16*, n@-24
+ngx_crc32_table_init: params -
+    0x1d54d call ngx_alloc()
+ngx_create_listening: params cf@-168*, sockaddr@-176*, socklen@-180
+    0x2144e call ngx_array_push()
+    0x2149e call ngx_palloc()
+    0x21517 call ngx_sock_ntop(0:-136, 1:&-128)
+    0x215a4 call ngx_pnalloc(1:-152)
+ngx_create_paths: params cycle@-216*, user@-220
+    0x1c00c call ngx_log_error_core(2:-196)
+    0x1c057 call stat64()
+    0x1c0bd call ngx_log_error_core()
+    0x1c17f call ngx_log_error_core()
+    0x1c248 call ngx_log_error_core()
+ngx_create_pidfile: params name@-280*, log@-288*
+    0x26e5d call ngx_log_error_core(1:-288)
+    0x26e9a call ngx_snprintf(0:&-48)
+    0x26ec7 call ngx_write_file(0:&-256, 1:&-48, 2:-264)
+    0x26f29 call ngx_log_error_core(1:-288)
+ngx_create_pool: params size@-24, log@-32*
+    0x1160e call ngx_memalign(1:-24, 2:-32)
+ngx_create_temp_buf: params pool@-24*, size@-32
+    0x14619 call ngx_pcalloc(0:-24)
+    0x1463e call ngx_palloc(0:-24, 1:-32)
+ngx_daemon: params log@-24*
+    0x3cd23 call ngx_log_error_core(1:-24)
+    0x3cd7f call ngx_log_error_core(1:-24)
+    0x3cde4 call ngx_log_error_core(1:-24)
+    0x3ce34 call ngx_log_error_core(1:-24)
+    0x3ce84 call ngx_log_error_core(1:-24)
+    0x3ced2 call ngx_log_error_core(1:-24)
+ngx_delete_pidfile: params cycle@-24*
+    0x26fef call ngx_log_error_core()
+ngx_destroy_cycle_pools: params conf@-8*
+    0x26b33 call ngx_destroy_pool()
+    0x26b43 call ngx_destroy_pool()
+ngx_destroy_pool: params pool@-40*
+ngx_disable_accept_events: params cycle@-40*
+ngx_drain_connections: params -
+ngx_enable_accept_events: params cycle@-40*
+ngx_escape_html: params dst@-24*, src@-32*, size@-40
+ngx_escape_uri: params dst@-24*, src@-32*, size@-40, type@-48
+ngx_event_expire_timers: params -
+    0x3539a call ngx_rbtree_min()
+    0x353da call ngx_rbtree_delete()
+ngx_event_find_timer: params -
+    0x3532a call ngx_rbtree_min()
+ngx_event_module_init: params cycle@-136*
+    0x3385e call ngx_log_error_core()
+    0x338e5 call ngx_log_error_core()
+    0x3398e call ngx_log_error_core()
+    0x33a0a call ngx_shm_alloc(0:&-64)
+    0x33a5a call ngx_shmtx_create(1:-80) [pointer parameter(s) 2: no argument found where they are passed]
+ngx_event_process_posted: params cycle@-24*, posted@-32*
+ngx_events_block: params cf@-152*, cmd@-160*, conf@-168*
+    0x34856 call ngx_pcalloc()
+    0x34898 call ngx_pcalloc()
+    0x34a9d call ngx_conf_parse(0:-152)
+ngx_exec_new_binary: params cycle@-152*, argv@-160*
+    0xefe3 call ngx_set_environment(0:-152, 1:&-136)
+    0xf02a call ngx_alloc()
+    0xf0a8 call ngx_sprintf(0:-128)
+    0xf1f3 call ngx_log_error_core()
+    0xf22f call ngx_execute(0:-152, 1:&-80)
+    0xf2d1 call ngx_log_error_core()
+ngx_execute: params cycle@-8*, ctx@-16*
+    0x3c223 call ngx_spawn_process(0:-8, 2:-16)
+ngx_free_connection: params c@-8*
+ngx_get_connection: params s@-36, log@-48*
+    0x236b8 call ngx_log_error_core(1:-48)
+    0x236dd call ngx_drain_connections()
+    0x23733 call ngx_log_error_core(1:-48)
+ngx_get_options: params argc@-20, argv@-32*
+    0xf392 call ngx_log_stderr()
+    0xf4b8 call ngx_log_stderr()
+    0xf537 call ngx_log_stderr()
+    0xf5b6 call ngx_log_stderr()
+    0xf62f call ngx_log_stderr()
+    0xf6d0 call ngx_log_stderr()
+    0xf6ff call ngx_log_stderr()
+ngx_gmtime: params t@-104, tp@-112*
+ngx_handle_read_event: params rev@-8*, flags@-16
+ngx_handle_write_event: params wev@-24*, lowat@-32
+    0x33536 call ngx_send_lowat(0:-8, 1:-32)
+ngx_hash_add_key: params ha@-104*, key@-112*, value@-120*, flags@-128
+    0x13f76 call ngx_array_init()
+    0x13fac call ngx_array_push()
+    0x13fe9 call ngx_array_push()
+    0x1402d call ngx_hash_key(1:-40)
+    0x1407d call ngx_hash_strlow()
+    0x141ae call ngx_array_init()
+    0x141e4 call ngx_array_push()
+    0x14224 call ngx_pnalloc()
+    0x1428d call ngx_pnalloc(1:-40)
+    0x143cf call ngx_pnalloc(1:-40)
+    0x14401 call ngx_cpystrn(0:-80, 2:-40)
+    0x144f0 call ngx_array_init()
+    0x1450d call ngx_array_push(0:-32)
+    0x14550 call ngx_pnalloc()
+    0x145a6 call ngx_array_push(0:-24)
+ngx_hash_find: params hash@-24*, key@-32, name@-40*, len@-48
+ngx_hash_find_combined: params hash@-24*, key@-32, name@-40*, len@-48
+    0x12998 call ngx_hash_find(0:-24, 1:-32, 2:-40, 3:-48)
+    0x129f5 call ngx_hash_find_wc_head(1:-40, 2:-48)
+    0x12a3e call ngx_hash_find_wc_tail(1:-40, 2:-48)
+ngx_hash_find_wc_head: params hwc@-40*, name@-48*, len@-56
+    0x12779 call ngx_hash_find(0:-40, 1:-16)
+    0x127ee call ngx_hash_find_wc_head() [pointer parameter(s) 0,1: no argument found where they are passed]
+ngx_hash_find_wc_tail: params hwc@-40*, name@-48*, len@-56
+    0x128e0 call ngx_hash_find(0:-40, 1:-16, 2:-48, 3:-24)
+    0x1292d call ngx_hash_find_wc_tail() [pointer parameter(s) 0,1: no argument found where they are passed]
+ngx_hash_init: params hinit@-104*, names@-112*, nelts@-120
+    0x12b0a call ngx_log_error_core()
+    0x12b4f call ngx_alloc()
+    0x12d65 call ngx_log_error_core()
+    0x12f18 call ngx_pcalloc()
+    0x12f73 call ngx_pcalloc()
+    0x12fb7 call ngx_palloc()
+    0x1318c call ngx_strlow()
+ngx_hash_key: params data@-24*, len@-32
+ngx_hash_key_lc: params data@-24*, len@-32
+ngx_hash_keys_array_init: params ha@-24*, type@-32
+    0x13aba call ngx_array_init()
+    0x13aec call ngx_array_init()
+    0x13b1e call ngx_array_init()
+    0x13b5a call ngx_pcalloc()
+    0x13ba6 call ngx_pcalloc()
+    0x13bef call ngx_pcalloc()
+ngx_hash_strlow: params dst@-24*, src@-32*, n@-40
+ngx_hash_wildcard_init: params hinit@-248*, names@-256*, nelts@-264
+    0x132e4 call ngx_array_init()
+    0x13318 call ngx_array_init()
+    0x133c6 call ngx_array_push(0:&-176)
+    0x134d5 call ngx_array_push(0:&-128)
+    0x1365c call ngx_array_push(0:&-128)
+    0x1379b call ngx_hash_wildcard_init() [pointer parameter(s) 0,1: no argument found where they are passed]
+    0x1389b call ngx_hash_init(0:-248, 1:-176, 2:-168)
+ngx_http_add_address: params cf@-24*, cscf@-32*, port@-40*, lsopt@-48*
+    0x45460 call ngx_array_init()
+    0x45481 call ngx_array_push()
+    0x45540 call ngx_http_add_server(0:-24, 1:-32, 2:-8)
+ngx_http_add_addresses: params cf@-72*, cscf@-80*, port@-88*, lsopt@-96*
+    0x4525e call ngx_http_add_server(0:-72, 1:-80)
+    0x452ff call ngx_conf_log_error(1:-72)
+    0x45386 call ngx_conf_log_error(1:-72)
+    0x45413 call ngx_http_add_address(0:-72, 1:-80, 2:-88, 3:-96)
+ngx_http_add_addrs: params cf@-40*, hport@-48*, addr@-56*
+    0x4632d call ngx_pcalloc()
+    0x464ae call ngx_palloc()
+ngx_http_add_listen: params cf@-56*, cscf@-64*, lsopt@-72*
+    0x44fe9 call ngx_array_create()
+    0x450f5 call ngx_http_add_addresses(0:-56, 1:-64, 3:-72)
+    0x45126 call ngx_array_push()
+    0x4517b call ngx_http_add_address(0:-56, 1:-64, 2:-8, 3:-72)
+ngx_http_add_listening: params cf@-40*, addr@-48*
+    0x46164 call ngx_create_listening(0:-40, 1:-48)
+ngx_http_add_location: params cf@-24*, locations@-32*, clcf@-40*
+    0x44535 call ngx_palloc()
+    0x4458c call ngx_palloc()
+ngx_http_add_server: params cf@-24*, cscf@-32*, addr@-40*
+    0x4558f call ngx_array_init()
+    0x45609 call ngx_conf_log_error(1:-24)
+    0x4563a call ngx_array_push()
+ngx_http_add_variable: params cf@-56*, name@-64*, flags@-72
+    0x616f5 call ngx_strncasecmp()
+    0x61754 call ngx_conf_log_error(1:-56)
+    0x61795 call ngx_palloc()
+    0x617d2 call ngx_pnalloc()
+    0x61813 call ngx_strlow()
+    0x6186f call ngx_hash_add_key(1:-16, 2:-16)
+    0x618b1 call ngx_conf_log_error(1:-56)
+ngx_http_alloc_large_header_buffer: params r@-56*, request_line@-64
+    0x53f48 call ngx_palloc()
+    0x53f88 call ngx_create_temp_buf()
+ngx_http_autoindex_error: params r@-8*, dir@-16*, name@-24*
+    0x8de40 call ngx_log_error_core()
+ngx_http_autoindex_handler: params r@-488*
+    0x8c613 call ngx_http_map_uri_to_path(0:-488, 1:&-320, 2:&-464)
+    0x8c6a3 call ngx_open_dir(0:&-320, 1:&-176)
+    0x8c779 call ngx_log_error_core(0:-392, 2:-468)
+    0x8c7d0 call ngx_array_init()
+    0x8c7f5 call ngx_http_autoindex_error(0:-488, 1:&-176) [pointer parameter(s) 2: no argument found where they are passed]
+    0x8c854 call ngx_http_send_header(0:-488)
+    0x8c8e9 call ngx_log_error_core()
+    0x8c94d call ngx_strncasecmp()
+    0x8c984 call ngx_read_dir(0:&-176)
+    0x8c9f8 call ngx_log_error_core(2:-468)
+    0x8ca18 call ngx_http_autoindex_error(0:-488, 1:&-176) [pointer parameter(s) 2: no argument found where they are passed]
+    0x8cab3 call ngx_pnalloc(0:-368, 1:-424)
+    0x8cae4 call ngx_http_autoindex_error(0:-488, 1:&-176) [pointer parameter(s) 2: no argument found where they are passed]
+    0x8cb0d call ngx_cpystrn(0:-448, 1:-312)
+    0x8cb51 call ngx_cpystrn(0:-456)
+    0x8cb6a call ngx_de_info()
+    0x8cbde call ngx_log_error_core(2:-468)
+    0x8cc0b call ngx_http_autoindex_error(0:-488, 1:&-176) [pointer parameter(s) 2: no argument found where they are passed]
+    0x8cc2d call lstat64()
+    0x8cc83 call ngx_log_error_core()
+    0x8cca3 call ngx_http_autoindex_error(0:-488, 1:&-176) [pointer parameter(s) 2: no argument found where they are passed]
+    0x8ccb7 call ngx_array_push(0:&-288)
+    0x8cce8 call ngx_http_autoindex_error(0:-488, 1:&-176) [pointer parameter(s) 2: no argument found where they are passed]
+    0x8cd1b call ngx_pnalloc(0:-368)
+    0x8cd56 call ngx_http_autoindex_error(0:-488, 1:&-176) [pointer parameter(s) 2: no argument found where they are passed]
+    0x8cd87 call ngx_cpystrn()
+    0x8cdab call ngx_escape_uri(2:-440)
+    0x8cddc call ngx_escape_html()
+    0x8ce11 call ngx_utf8_length()
+    0x8cf0d call ngx_log_error_core()
+    0x8cf36 call ngx_escape_html()
+    0x8d07f call ngx_create_temp_buf(1:-440)
+    0x8d137 call ngx_escape_html()
+    0x8d1a5 call ngx_escape_html()
+    0x8d39e call ngx_escape_uri()
+    0x8d5b7 call ngx_utf8_cpystrn(2:-432)
+    0x8d629 call ngx_escape_html(0:-456)
+    0x8d6d1 call ngx_escape_html(2:-432)
+    0x8d72a call ngx_cpystrn()
+    0x8d8ca call ngx_gmtime(1:&-240)
+    0x8d92b call ngx_sprintf()
+    0x8d9df call ngx_sprintf()
+    0x8dbd0 call ngx_sprintf()
+    0x8dc03 call ngx_sprintf()
+    0x8dd2b call ngx_http_output_filter(0:-488, 1:&-304)
+ngx_http_block: params cf@-200*, cmd@-208*, conf@-216*
+    0x42c36 call ngx_pcalloc()
+    0x42d20 call ngx_pcalloc()
+    0x42d6a call ngx_pcalloc()
+    0x42db6 call ngx_pcalloc()
+    0x4312f call ngx_conf_parse(0:-200)
+    0x4326f call ngx_http_merge_servers(0:-200, 1:-152, 2:-136, 3:-120)
+    0x4332d call ngx_http_init_locations(0:-200, 2:-128)
+    0x43354 call ngx_http_init_static_location_trees(0:-200, 1:-128)
+    0x4339e call ngx_http_init_phases(0:-200, 1:-152)
+    0x433c8 call ngx_http_init_headers_in_hash(0:-200, 1:-152)
+    0x434a7 call ngx_http_variables_init_vars(0:-200)
+    0x43537 call ngx_http_init_phase_handlers(0:-200, 1:-152)
+    0x4356f call ngx_http_optimize_servers(0:-200, 1:-152)
+ngx_http_close_connection: params c@-24*
+    0x57673 call ngx_close_connection(0:-24)
+    0x5767f call ngx_destroy_pool(0:-8)
+ngx_http_close_request: params r@-24*, rc@-32
+    0x5731d call ngx_log_error_core()
+    0x57366 call ngx_http_free_request(0:-24, 1:-32)
+    0x57372 call ngx_http_close_connection(0:-8)
+ngx_http_compile_complex_value: params ccv@-312*
+    0x6629d call ngx_conf_log_error()
+    0x663c6 call ngx_conf_full_name(1:-256)
+    0x664ab call ngx_array_init()
+    0x66504 call ngx_array_init()
+    0x66571 call ngx_array_init()
+    0x66689 call ngx_http_script_compile(0:&-96)
+ngx_http_complex_value: params r@-136*, val@-144*, value@-152*
+    0x660ec call ngx_http_script_flush_complex_value(0:-136, 1:-144)
+    0x66180 call ngx_pnalloc(1:-120)
+ngx_http_cookie_time: params buf@-72*, t@-80
+    0x20992 call ngx_gmtime(0:-80, 1:&-64)
+    0x20a44 call ngx_sprintf(0:-72)
+ngx_http_core_listen: params cf@-600*, cmd@-608*, conf@-616*
+    0x4e118 call ngx_parse_url(1:&-512)
+    0x4e162 call ngx_conf_log_error(1:-600)
+    0x4e226 call ngx_sock_ntop(0:&-288, 1:&-136)
+    0x4e37f call ngx_atoi()
+    0x4e3fe call ngx_conf_log_error(1:-600)
+    0x4e49e call ngx_parse_size(0:&-544)
+    0x4e513 call ngx_conf_log_error(1:-600)
+    0x4e5b3 call ngx_parse_size(0:&-544)
+    0x4e628 call ngx_conf_log_error(1:-600)
+    0x4e6a8 call ngx_conf_log_error(1:-600)
+    0x4e765 call ngx_conf_log_error(1:-600)
+    0x4e7c5 call ngx_conf_log_error(1:-600)
+    0x4e925 call ngx_strlchr()
+    0x4e983 call ngx_parse_time(0:&-528)
+    0x4e9e1 call ngx_strlchr()
+    0x4ea3f call ngx_parse_time(0:&-528)
+    0x4eac3 call ngx_atoi(0:-520, 1:-528)
+    0x4eb7c call ngx_conf_log_error(1:-600)
+    0x4ebc8 call ngx_conf_log_error(1:-600)
+    0x4ec1c call ngx_http_add_listen(0:-600, 1:-568, 2:&-288)
+ngx_http_core_location: params cf@-216*, cmd@-224*, dummy@-232*
+    0x4b524 call ngx_pcalloc()
+    0x4b5a2 call ngx_pcalloc()
+    0x4b870 call ngx_http_core_regex_location(0:-216, 1:-176, 2:-160)
+    0x4b8d1 call ngx_http_core_regex_location(0:-216, 1:-176, 2:-160)
+    0x4b919 call ngx_conf_log_error(1:-216)
+    0x4baaf call ngx_http_core_regex_location(0:-216, 1:-176, 2:-160)
+    0x4bae2 call ngx_http_core_regex_location(0:-216, 1:-176, 2:-160)
+    0x4bbb3 call ngx_conf_log_error(1:-216)
+    0x4bc0a call ngx_conf_log_error(1:-216)
+    0x4bc57 call ngx_conf_log_error(1:-216)
+    0x4bce9 call ngx_conf_log_error(1:-216)
+    0x4bd1c call ngx_http_add_location(0:-216, 2:-176)
+    0x4bdc8 call ngx_conf_parse(0:-216)
+ngx_http_core_merge_loc_conf: params cf@-104*, parent@-112*, child@-120*
+    0x4cde1 call ngx_conf_full_name()
+    0x4cf72 call ngx_hash_init(0:&-64)
+    0x4cffb call ngx_array_create()
+    0x4d042 call ngx_array_push()
+    0x4d0b8 call ngx_hash_key_lc()
+    0x4d198 call ngx_hash_init(0:&-64)
+    0x4d9fe call ngx_resolver_create(0:-104)
+    0x4da64 call ngx_conf_merge_path_value(0:-104)
+ngx_http_core_regex_location: params cf@-1128*, clcf@-1136*, regex@-1144*, caseless@-1152
+    0x4beef call ngx_http_regex_compile(0:-1128, 1:&-1120)
+ngx_http_core_root: params cf@-136*, cmd@-144*, conf@-152*
+    0x4f25a call ngx_conf_log_error(1:-136)
+    0x4f2a8 call ngx_conf_log_error(1:-136)
+    0x4f2ef call ngx_conf_log_error(1:-136)
+    0x4f37c call ngx_conf_log_error(1:-136)
+    0x4f3f7 call ngx_conf_log_error(1:-136)
+    0x4f4a3 call ngx_conf_full_name()
+    0x4f4c4 call ngx_http_script_variables_count()
+    0x4f558 call ngx_http_script_compile(0:&-96)
+ngx_http_core_run_phases: params r@-40*
+ngx_http_core_server: params cf@-488*, cmd@-496*, dummy@-504*
+    0x4af60 call ngx_pcalloc()
+    0x4afc8 call ngx_pcalloc()
+    0x4b014 call ngx_pcalloc()
+    0x4b228 call ngx_array_push(0:-448)
+    0x4b315 call ngx_conf_parse(0:-488)
+    0x4b494 call ngx_sock_ntop(0:&-304, 1:&-152)
+    0x4b4b4 call ngx_http_add_listen(0:-488, 1:-456, 2:&-304)
+ngx_http_core_server_name: params cf@-1176*, cmd@-1184*, conf@-1192*
+    0x4ed8b call ngx_conf_log_error(1:-1176)
+    0x4ee05 call ngx_conf_log_error(1:-1176)
+    0x4ee14 call ngx_array_push(0:-1144)
+    0x4ee7c call ngx_strcasecmp()
+    0x4ef28 call ngx_strlow()
+    0x4ef8e call ngx_conf_log_error(1:-1176)
+    0x4f0f1 call ngx_http_regex_compile(0:-1176, 1:&-1120)
+ngx_http_core_type: params cf@-72*, dummy@-80*, conf@-88*
+    0x4c162 call ngx_conf_log_error(1:-72)
+    0x4c185 call ngx_conf_include(0:-72) [pointer parameter(s) 1,2: no argument found where they are passed]
+    0x4c19f call ngx_palloc()
+    0x4c225 call ngx_hash_strlow()
+    0x4c301 call ngx_conf_log_error(1:-72)
+    0x4c33b call ngx_array_push()
+ngx_http_create_locations_list: params locations@-88*, q@-96*
+    0x44a9c call ngx_http_create_locations_list() [pointer parameter(s) 0,1: no argument found where they are passed]
+    0x44b49 call ngx_http_create_locations_list() [pointer parameter(s) 0,1: no argument found where they are passed]
+    0x44bf9 call ngx_http_create_locations_list() [pointer parameter(s) 0,1: no argument found where they are passed]
+    0x44c9e call ngx_http_create_locations_list() [pointer parameter(s) 0,1: no argument found where they are passed]
+    0x44cb1 call ngx_http_create_locations_list() [pointer parameter(s) 0,1: no argument found where they are passed]
+ngx_http_create_locations_tree: params cf@-72*, locations@-80*, prefix@-88
+    0x44cfd call ngx_queue_middle(0:-80)
+    0x44d37 call ngx_palloc()
+    0x44e8b call ngx_http_create_locations_tree() [pointer parameter(s) 0,1: no argument found where they are passed]
+    0x44ef1 call ngx_http_create_locations_tree() [pointer parameter(s) 0,1: no argument found where they are passed]
+    0x44f51 call ngx_http_create_locations_tree() [pointer parameter(s) 0,1: no argument found where they are passed]
+ngx_http_discard_request_body: params r@-40*
+    0x604f2 call ngx_http_test_expect(0:-40)
+    0x6052c call ngx_event_del_timer()
+    0x605a9 call ngx_http_discard_request_body_filter(0:-40)
+    0x605e3 call ngx_http_read_discarded_request_body(0:-40)
+    0x60639 call ngx_handle_read_event(0:-24)
+ngx_http_discard_request_body_filter: params r@-40*, b@-48*
+    0x60ac2 call ngx_pcalloc()
+    0x60aec call ngx_pcalloc()
+    0x60b35 call ngx_http_parse_chunked(0:-40, 1:-48)
+    0x60c54 call ngx_log_error_core()
+ngx_http_fastcgi_eval: params r@-248*, flcf@-256*
+    0xa2925 call ngx_http_script_run(0:-248, 1:&-224)
+    0xa2963 call ngx_parse_url(1:&-224)
+    0xa29c7 call ngx_log_error_core()
+    0xa29fd call ngx_pcalloc()
+ngx_http_fastcgi_merge_loc_conf: params cf@-136*, parent@-144*, child@-152*
+    0xa6606 call ngx_conf_log_error(1:-136)
+    0xa66b9 call ngx_conf_log_error(1:-136)
+    0xa6712 call ngx_conf_log_error(1:-136)
+    0xa679f call ngx_conf_log_error(1:-136)
+    0xa6835 call ngx_conf_log_error(1:-136)
+    0xa6900 call ngx_conf_merge_path_value(0:-136)
+    0xa69b2 call ngx_conf_log_error(1:-136)
+    0xa6baf call ngx_log_error_core()
+    0xa6ec8 call ngx_http_upstream_hide_headers_hash(0:-136, 1:-104, 2:-112, 4:&-80)
+    0xa6ffe call ngx_http_fastcgi_merge_params(0:-136, 1:-104, 2:-112)
+ngx_http_fastcgi_merge_params: params cf@-360*, conf@-368*, prev@-376*
+    0xa71e2 call ngx_array_create()
+    0xa722c call ngx_array_create()
+    0xa727d call ngx_array_init()
+    0xa7325 call ngx_array_init()
+    0xa7355 call ngx_array_push(0:&-224)
+    0xa7455 call ngx_strcasecmp()
+    0xa7485 call ngx_array_push(0:&-224)
+    0xa75b5 call ngx_array_push(0:&-272)
+    0xa765a call ngx_hash_key_lc()
+    0xa76be call ngx_array_push_n()
+    0xa7737 call ngx_array_push_n()
+    0xa77ea call ngx_array_push_n(1:-288)
+    0xa7944 call ngx_http_script_compile(0:&-112)
+    0xa7970 call ngx_array_push_n()
+    0xa79b6 call ngx_array_push_n()
+    0xa7a1b call ngx_array_push_n()
+    0xa7adb call ngx_hash_init(0:&-176, 1:-272, 2:-264)
+ngx_http_fastcgi_pass: params cf@-376*, cmd@-384*, conf@-392*
+    0xa80e3 call ngx_http_script_variables_count(0:-336)
+    0xa8192 call ngx_http_script_compile(0:&-320)
+    0xa8211 call ngx_http_upstream_add(0:-376, 1:&-224)
+ngx_http_finalize_connection: params r@-24*
+    0x55bb6 call ngx_event_add_timer()
+    0x55c13 call ngx_http_close_request(0:-24)
+    0x55c5c call ngx_http_set_keepalive(0:-24)
+    0x55cd4 call ngx_http_set_lingering_close(0:-24)
+    0x55ce7 call ngx_http_close_request(0:-24)
+ngx_http_finalize_request: params r@-40*, rc@-48
+    0x5539b call ngx_http_finalize_connection(0:-40)
+    0x553fe call ngx_http_core_run_phases(0:-40)
+    0x5548f call ngx_http_post_action(0:-40)
+    0x554d0 call ngx_http_terminate_request(0:-40, 1:-48)
+    0x55514 call ngx_http_terminate_request(0:-40, 1:-48)
+    0x5554d call ngx_event_del_timer()
+    0x55570 call ngx_event_del_timer()
+    0x555a9 call ngx_http_special_response_handler(0:-40, 1:-48)
+    0x555bb call ngx_http_finalize_request() [pointer parameter(s) 0: no argument found where they are passed]
+    0x55603 call ngx_http_set_write_handler(0:-40)
+    0x5561d call ngx_http_terminate_request(0:-40)
+    0x556c3 call ngx_http_log_request(0:-40)
+    0x5572c call ngx_log_error_core()
+    0x557d1 call ngx_http_post_request(0:-16)
+    0x55806 call ngx_http_terminate_request(0:-40)
+    0x55857 call ngx_http_set_write_handler(0:-40)
+    0x55871 call ngx_http_terminate_request(0:-40)
+    0x558da call ngx_log_error_core()
+    0x55934 call ngx_http_post_action(0:-40)
+    0x55960 call ngx_event_del_timer()
+    0x55995 call ngx_event_del_timer()
+    0x559b9 call ngx_http_close_request(0:-40)
+    0x559c7 call ngx_http_finalize_connection(0:-40)
+ngx_http_find_virtual_server: params r@-88*, host@-96*, len@-104
+    0x54fdb call ngx_hash_key(0:-96, 1:-104)
+    0x54fff call ngx_hash_find_combined(2:-96, 3:-104)
+    0x55086 call ngx_http_regex_exec(0:-88, 2:&-32)
+ngx_http_free_request: params r@-56*, rc@-64
+    0x573ea call ngx_log_error_core(1:-40)
+    0x57485 call ngx_http_log_request(0:-56)
+    0x57548 call ngx_log_error_core(1:-40)
+    0x57597 call ngx_destroy_pool()
+ngx_http_geo_add_range: params cf@-88*, ctx@-96*, start@-100, end@-104
+    0x93746 call ngx_array_create()
+    0x937eb call ngx_array_push(0:-40)
+    0x9394f call ngx_conf_log_error(1:-88)
+    0x939c6 call ngx_array_push(0:-40)
+    0x939e9 call ngx_array_push(0:-40)
+    0x93bac call ngx_array_push(0:-40)
+    0x93ce2 call ngx_array_push(0:-40)
+    0x93e92 call ngx_conf_log_error(1:-88)
+    0x93eb6 call ngx_array_push(0:-40)
+ngx_http_geo_delete_range: params cf@-72*, ctx@-80*, start@-84, end@-88
+ngx_http_geo_range: params cf@-56*, ctx@-64*, value@-72*
+    0x9339e call ngx_conf_log_error(1:-56)
+    0x933b9 call ngx_http_geo_value(0:-56, 1:-64)
+    0x93426 call ngx_conf_log_error(1:-56)
+    0x93454 call ngx_pcalloc()
+    0x93516 call ngx_strlchr()
+    0x9354d call ngx_inet_addr()
+    0x93586 call ngx_inet_addr(0:-8)
+    0x935c9 call ngx_http_geo_delete_range(0:-56, 1:-64, 2:-40, 3:-36)
+    0x935f7 call ngx_conf_log_error(1:-56)
+    0x9361c call ngx_http_geo_value(0:-56, 1:-64)
+    0x9365a call ngx_http_geo_add_range(0:-56, 1:-64, 2:-40, 3:-36)
+    0x9368f call ngx_conf_log_error(1:-56)
+ngx_http_geo_value: params cf@-40*, ctx@-48*, value@-56*
+    0x9442c call ngx_crc32_long()
+    0x94449 call ngx_str_rbtree_lookup(1:-56, 2:-20)
+    0x94476 call ngx_palloc()
+    0x944c4 call ngx_pstrdup(1:-56)
+    0x94522 call ngx_palloc()
+    0x94595 call ngx_rbtree_insert(1:-16)
+ngx_http_get_variable_index: params cf@-40*, name@-48*
+    0x61927 call ngx_array_init()
+    0x619ae call ngx_strncasecmp()
+    0x619e5 call ngx_array_push()
+    0x61a24 call ngx_pnalloc()
+    0x61a64 call ngx_strlow()
+ngx_http_gzip_merge_conf: params cf@-24*, parent@-32*, child@-40*
+    0x811ad call ngx_http_merge_types(0:-24)
+ngx_http_handler: params r@-24*
+    0x46ec1 call ngx_http_core_run_phases(0:-24)
+ngx_http_init_headers_in_hash: params cf@-136*, cmcf@-144*
+    0x437db call ngx_array_init()
+    0x43805 call ngx_array_push(0:&-112)
+    0x4384c call ngx_hash_key_lc()
+    0x438e8 call ngx_hash_init(0:&-64, 1:-112, 2:-104)
+ngx_http_init_listening: params cf@-56*, port@-64*
+    0x4606f call ngx_http_add_listening(0:-56)
+    0x4609b call ngx_pcalloc()
+    0x46105 call ngx_http_add_addrs(0:-56, 1:-8, 2:-24)
+ngx_http_init_locations: params cf@-120*, cscf@-128*, pclcf@-136*
+    0x44097 call ngx_queue_sort(0:-56)
+    0x44108 call ngx_http_init_locations(0:-120, 2:-40)
+    0x44212 call ngx_palloc()
+    0x442f7 call ngx_palloc()
+ngx_http_init_phase_handlers: params cf@-88*, cmcf@-96*
+    0x439fa call ngx_pcalloc()
+ngx_http_init_phases: params cf@-8*, cmcf@-16*
+    0x4363b call ngx_array_init()
+    0x43671 call ngx_array_init()
+    0x436a7 call ngx_array_init()
+    0x436dd call ngx_array_init()
+    0x43713 call ngx_array_init()
+    0x43746 call ngx_array_init()
+    0x43779 call ngx_array_init()
+ngx_http_init_request: params rev@-120*
+    0x52694 call ngx_log_error_core()
+    0x526a0 call ngx_http_close_connection(0:-72)
+    0x526e6 call ngx_pcalloc()
+    0x526fd call ngx_http_close_connection(0:-72)
+    0x5278a call ngx_pcalloc()
+    0x527a1 call ngx_http_close_connection(0:-72)
+    0x52825 call ngx_connection_local_sockaddr(0:-72)
+    0x52836 call ngx_http_close_connection(0:-72)
+    0x529e6 call ngx_create_temp_buf()
+    0x52a0d call ngx_http_close_connection(0:-72)
+    0x52a4d call ngx_create_pool()
+    0x52a6e call ngx_http_close_connection(0:-72)
+    0x52a98 call ngx_list_init()
+    0x52aad call ngx_destroy_pool()
+    0x52ab9 call ngx_http_close_connection(0:-72)
+    0x52ae0 call ngx_pcalloc()
+    0x52b05 call ngx_destroy_pool()
+    0x52b11 call ngx_http_close_connection(0:-72)
+    0x52b55 call ngx_pcalloc()
+    0x52b80 call ngx_destroy_pool()
+    0x52b8c call ngx_http_close_connection(0:-72)
+ngx_http_init_static_location_trees: params cf@-40*, pclcf@-48*
+    0x44460 call ngx_http_init_static_location_trees() [pointer parameter(s) 0,1: no argument found where they are passed]
+    0x4449a call ngx_http_join_exact_locations(0:-40, 1:-24)
+    0x444bf call ngx_http_create_locations_list(0:-24)
+    0x444d7 call ngx_http_create_locations_tree(0:-40, 1:-24)
+ngx_http_internal_redirect: params r@-24*, uri@-32*, args@-40*
+    0x4a67d call ngx_log_error_core()
+    0x4a6a9 call ngx_http_finalize_request(0:-24)
+    0x4a722 call ngx_http_set_exten(0:-24)
+    0x4a783 call ngx_http_update_location_config(0:-24)
+    0x4a7f2 call ngx_http_handler(0:-24)
+ngx_http_join_exact_locations: params cf@-40*, locations@-48*
+    0x449d4 call ngx_log_error_core()
+ngx_http_keepalive_handler: params rev@-56*
+    0x56a75 call ngx_http_close_connection(0:-48)
+    0x56ac6 call ngx_palloc(1:-32)
+    0x56ae5 call ngx_http_close_connection(0:-48)
+    0x56b94 call ngx_handle_read_event(0:-56)
+    0x56ba5 call ngx_http_close_connection(0:-48)
+    0x56bc0 call ngx_pfree()
+    0x56bec call ngx_http_close_connection(0:-48)
+    0x56c4c call ngx_log_error_core()
+    0x56c58 call ngx_http_close_connection(0:-48)
+    0x56cbc call ngx_reusable_connection(0:-48)
+    0x56cc8 call ngx_http_init_request(0:-56)
+ngx_http_lingering_close_handler: params rev@-4168*
+    0x56eed call ngx_http_close_request(0:-4136)
+    0x56f35 call ngx_http_close_request(0:-4136)
+    0x56f90 call ngx_http_close_request(0:-4136)
+    0x56fbb call ngx_handle_read_event(0:-4168)
+    0x56fd4 call ngx_http_close_request(0:-4136)
+    0x57053 call ngx_event_add_timer()
+ngx_http_log_compile_format: params cf@-120*, flushes@-128*, ops@-136*, args@-144*, s@-152
+    0x5ed26 call ngx_array_push(0:-136)
+    0x5ef37 call ngx_conf_log_error(1:-120)
+    0x5efed call ngx_http_log_variable_compile(0:-120, 1:-64, 2:&-32)
+    0x5f011 call ngx_array_push(0:-128)
+    0x5f178 call ngx_pnalloc(1:-96)
+    0x5f22b call ngx_conf_log_error(1:-120)
+ngx_http_log_error: params log@-40*, buf@-48*, len@-56
+    0x576ce call ngx_snprintf(0:-48, 1:-56)
+    0x5771c call ngx_snprintf(0:-48, 1:-56)
+    0x57794 call ngx_snprintf(0:-24, 1:-56)
+ngx_http_log_error_handler: params r@-40*, sr@-48*, buf@-56*, len@-64
+    0x577fe call ngx_snprintf(0:-56, 1:-64)
+    0x578eb call ngx_snprintf(0:-56, 1:-64)
+    0x57937 call ngx_snprintf(0:-56, 1:-64)
+    0x579f7 call ngx_snprintf(0:-56, 1:-64)
+    0x57a51 call ngx_snprintf(0:-56, 1:-64)
+    0x57aa7 call ngx_snprintf(0:-56, 1:-64)
+ngx_http_log_request: params r@-40*
+ngx_http_log_set_log: params cf@-200*, cmd@-208*, conf@-216*
+    0x5e4b2 call ngx_conf_log_error(1:-200)
+    0x5e4ea call ngx_array_create()
+    0x5e547 call ngx_array_push()
+    0x5e590 call ngx_http_script_variables_count()
+    0x5e5c2 call ngx_conf_open_file()
+    0x5e611 call ngx_conf_full_name()
+    0x5e63a call ngx_pcalloc()
+    0x5e6de call ngx_http_script_compile(0:&-112)
+    0x5e7d5 call ngx_strcasecmp(1:-120)
+    0x5e869 call ngx_conf_log_error(1:-200)
+    0x5e8cf call ngx_conf_log_error(1:-200)
+    0x5e910 call ngx_conf_log_error(1:-200)
+    0x5e955 call ngx_parse_size(0:&-128)
+    0x5e992 call ngx_conf_log_error(1:-200)
+    0x5ea0f call ngx_conf_log_error(1:-200)
+    0x5ea42 call ngx_palloc(1:-136)
+ngx_http_log_variable_compile: params cf@-24*, op@-32*, value@-40*
+    0x5dd95 call ngx_http_get_variable_index(0:-24, 1:-40)
+ngx_http_map_block: params cf@-568*, cmd@-576*, conf@-584*
+    0x95818 call ngx_pcalloc()
+    0x958a4 call ngx_http_compile_complex_value(0:&-496)
+    0x95914 call ngx_http_add_variable(0:-568, 1:&-512)
+    0x9596d call ngx_create_pool()
+    0x959be call ngx_hash_keys_array_init(0:&-304)
+    0x959d2 call ngx_destroy_pool(0:-528)
+    0x95a08 call ngx_pcalloc(0:-528)
+    0x95a2a call ngx_destroy_pool(0:-528)
+    0x95a61 call ngx_array_init()
+    0x95a75 call ngx_destroy_pool(0:-528)
+    0x95aac call ngx_array_init()
+    0x95ac0 call ngx_destroy_pool(0:-528)
+    0x95bcd call ngx_conf_parse(0:-568)
+    0x95c77 call ngx_destroy_pool(0:-528)
+    0x95d49 call ngx_hash_init(0:&-464, 1:-280, 2:-272)
+    0x95d5d call ngx_destroy_pool(0:-528)
+    0x95dd4 call ngx_hash_wildcard_init(0:&-464, 1:-232, 2:-224)
+    0x95de8 call ngx_destroy_pool(0:-528)
+    0x95e71 call ngx_hash_wildcard_init(0:&-464, 1:-184, 2:-176)
+    0x95e85 call ngx_destroy_pool(0:-528)
+    0x95ed6 call ngx_destroy_pool(0:-528)
+ngx_http_map_uri_to_path: params r@-40*, path@-48*, root_length@-56*, reserved@-64
+    0x493e0 call ngx_log_error_core()
+    0x49450 call ngx_pnalloc()
+    0x49544 call ngx_http_script_run(0:-40, 1:-48, 3:-64)
+    0x4956e call ngx_conf_full_name(1:-48)
+    0x4960a call ngx_cpystrn(0:-32)
+ngx_http_memcached_pass: params cf@-264*, cmd@-272*, conf@-280*
+    0xb0f5c call ngx_http_upstream_add(0:-264, 1:&-224)
+    0xb1004 call ngx_http_get_variable_index(0:-264)
+ngx_http_merge_locations: params cf@-88*, locations@-96*, loc_conf@-104*, module@-112*, ctx_index@-120
+    0x43fe7 call ngx_http_merge_locations(0:-88, 3:-112, 4:-120)
+ngx_http_merge_servers: params cf@-88*, cmcf@-96*, module@-104*, ctx_index@-112
+    0x43e7b call ngx_http_merge_locations(0:-88, 3:-104, 4:-112)
+ngx_http_merge_types: params cf@-72*, keys@-80*, types_hash@-88*, prev_keys@-96*, prev_types_hash@-104*, default_types@-112*
+    0x46995 call ngx_hash_init(0:&-64)
+    0x469e3 call ngx_http_set_default_types(0:-72, 1:-96, 2:-112)
+    0x46a7c call ngx_hash_init(0:&-64)
+ngx_http_named_location: params r@-40*, name@-48*
+    0x4a8bf call ngx_log_error_core()
+    0x4a8d0 call ngx_http_finalize_request(0:-40)
+    0x4a9e4 call ngx_http_update_location_config(0:-40)
+    0x4aa32 call ngx_http_core_run_phases(0:-40)
+    0x4aa91 call ngx_log_error_core()
+    0x4aaa2 call ngx_http_finalize_request(0:-40)
+ngx_http_optimize_servers: params cf@-40*, cmcf@-48*, ports@-56*
+    0x456f5 call ngx_sort()
+    0x45791 call ngx_http_server_names(0:-40, 1:-48)
+    0x457fc call ngx_http_init_listening(0:-40)
+ngx_http_output_filter: params r@-24*, in@-32*
+ngx_http_parse_chunked: params r@-40*, b@-48*, ctx@-56*
+ngx_http_parse_complex_uri: params r@-40*, merge_slashes@-48
+ngx_http_parse_header_line: params r@-40*, b@-48*, allow_underscores@-56
+ngx_http_parse_request_line: params r@-40*, b@-48*
+ngx_http_post_action: params r@-24*
+    0x57288 call ngx_http_internal_redirect(0:-24)
+    0x572a1 call ngx_http_named_location(0:-24)
+ngx_http_post_request: params r@-24*, pr@-32*
+    0x552f9 call ngx_palloc()
+ngx_http_process_request: params r@-24*
+    0x54d53 call ngx_log_error_core()
+    0x54d64 call ngx_http_finalize_request(0:-24)
+    0x54d89 call ngx_event_del_timer()
+    0x54dca call ngx_http_handler(0:-24)
+    0x54dd6 call ngx_http_run_posted_requests(0:-8)
+ngx_http_process_request_header: params r@-8*
+    0x54999 call ngx_http_find_virtual_server(0:-8)
+    0x549b0 call ngx_http_finalize_request(0:-8)
+    0x54a1e call ngx_log_error_core()
+    0x54a2f call ngx_http_finalize_request(0:-8)
+    0x54a78 call ngx_atoof()
+    0x54ad3 call ngx_log_error_core()
+    0x54ae4 call ngx_http_finalize_request(0:-8)
+    0x54b44 call ngx_log_error_core()
+    0x54b55 call ngx_http_finalize_request(0:-8)
+    0x54bad call ngx_strncasecmp()
+    0x54c21 call ngx_strncasecmp()
+    0x54c77 call ngx_log_error_core()
+    0x54c88 call ngx_http_finalize_request(0:-8)
+    0x54cdc call ngx_atotm()
+ngx_http_process_request_headers: params rev@-104*
+    0x5359e call ngx_log_error_core()
+    0x535c3 call ngx_http_close_request(0:-64)
+    0x53646 call ngx_http_alloc_large_header_buffer(0:-64)
+    0x53662 call ngx_http_close_request(0:-64)
+    0x536d3 call ngx_log_error_core()
+    0x536e4 call ngx_http_finalize_request(0:-64)
+    0x5379d call ngx_log_error_core()
+    0x537ae call ngx_http_finalize_request(0:-64)
+    0x537bf call ngx_http_read_request_header(0:-64)
+    0x537fe call ngx_http_parse_header_line(0:-64)
+    0x538c6 call ngx_log_error_core()
+    0x538db call ngx_list_push()
+    0x538f7 call ngx_http_close_request(0:-64)
+    0x539c9 call ngx_pnalloc()
+    0x539ef call ngx_http_close_request(0:-64)
+    0x53a57 call ngx_strlow()
+    0x53a7e call ngx_hash_find()
+    0x53b1b call ngx_http_process_request_header(0:-64)
+    0x53b36 call ngx_http_process_request(0:-64)
+    0x53ba7 call ngx_log_error_core()
+    0x53bb8 call ngx_http_finalize_request(0:-64)
+ngx_http_process_request_line: params rev@-72*
+    0x52d54 call ngx_log_error_core()
+    0x52d79 call ngx_http_close_request(0:-40)
+    0x52d99 call ngx_http_read_request_header(0:-40)
+    0x52dca call ngx_http_parse_request_line() [pointer parameter(s) 0,1: no argument found where they are passed]
+    0x52ef1 call ngx_pnalloc()
+    0x52f1d call ngx_http_close_request(0:-40)
+    0x52f59 call ngx_http_parse_complex_uri(0:-40)
+    0x52f9b call ngx_log_error_core()
+    0x52fac call ngx_http_finalize_request(0:-40)
+    0x53220 call ngx_http_validate_host(0:-40, 1:&-64)
+    0x53262 call ngx_log_error_core()
+    0x53273 call ngx_http_finalize_request(0:-40)
+    0x53290 call ngx_http_close_request(0:-40)
+    0x532eb call ngx_http_find_virtual_server(0:-40)
+    0x53302 call ngx_http_close_request(0:-40)
+    0x53313 call ngx_http_process_request(0:-40)
+    0x5333a call ngx_list_init()
+    0x53350 call ngx_http_close_request(0:-40)
+    0x5337a call ngx_array_init()
+    0x53390 call ngx_http_close_request(0:-40)
+    0x533c3 call ngx_http_process_request_headers(0:-72)
+    0x5341d call ngx_log_error_core()
+    0x5342e call ngx_http_finalize_request(0:-40)
+    0x53464 call ngx_http_alloc_large_header_buffer(0:-40)
+    0x53480 call ngx_http_close_request(0:-40)
+    0x53508 call ngx_log_error_core()
+    0x53519 call ngx_http_finalize_request(0:-40)
+ngx_http_proxy_eval: params r@-280*, ctx@-288*, plcf@-296*
+    0x9ac99 call ngx_http_script_run(0:-280, 1:&-240)
+    0x9acd6 call ngx_strncasecmp(0:-232)
+    0x9adc0 call ngx_parse_url(1:&-224)
+    0x9ae19 call ngx_log_error_core()
+    0x9ae84 call ngx_log_error_core()
+    0x9aed3 call ngx_pnalloc()
+    0x9af8a call ngx_http_proxy_set_vars(0:&-224)
+    0x9afa2 call ngx_pcalloc()
+ngx_http_proxy_merge_headers: params cf@-344*, conf@-352*, prev@-360*
+    0xa034e call ngx_array_init()
+    0xa0383 call ngx_array_init()
+    0xa03c4 call ngx_array_create()
+    0xa040e call ngx_array_create()
+    0xa0458 call ngx_array_create()
+    0xa04e3 call ngx_array_push(0:&-208)
+    0xa05b7 call ngx_strcasecmp()
+    0xa05e3 call ngx_array_push(0:&-208)
+    0xa0677 call ngx_array_push(0:&-256)
+    0xa0703 call ngx_hash_key_lc()
+    0xa0766 call ngx_http_script_variables_count()
+    0xa078a call ngx_array_push_n()
+    0xa086a call ngx_array_push_n(1:-280)
+    0xa0a3a call ngx_array_push_n()
+    0xa0adc call ngx_array_push_n(1:-280)
+    0xa0c53 call ngx_http_script_compile(0:&-96)
+    0xa0c7f call ngx_array_push_n()
+    0xa0ce7 call ngx_array_push_n()
+    0xa0d70 call ngx_array_push_n()
+    0xa0db6 call ngx_array_push_n()
+    0xa0e1b call ngx_array_push_n()
+    0xa0ed4 call ngx_hash_init(0:&-160, 1:-256, 2:-248)
+ngx_http_proxy_merge_loc_conf: params cf@-248*, parent@-256*, child@-264*
+    0x9f078 call ngx_conf_log_error(1:-248)
+    0x9f15b call ngx_conf_log_error(1:-248)
+    0x9f1bd call ngx_conf_log_error(1:-248)
+    0x9f268 call ngx_conf_log_error(1:-248)
+    0x9f31c call ngx_conf_log_error(1:-248)
+    0x9f40b call ngx_conf_merge_path_value(0:-248)
+    0x9f4d8 call ngx_conf_log_error(1:-248)
+    0x9f729 call ngx_log_error_core()
+    0x9faaf call ngx_array_create()
+    0x9faf2 call ngx_array_push()
+    0x9fbf8 call ngx_pnalloc()
+    0x9feac call ngx_http_upstream_hide_headers_hash(0:-248, 1:-216, 2:-224, 4:&-176)
+    0xa019c call ngx_http_script_compile(0:&-112)
+    0xa01ca call ngx_http_proxy_merge_headers(0:-248, 1:-216, 2:-224)
+ngx_http_proxy_pass: params cf@-392*, cmd@-400*, conf@-408*
+    0xa0ffc call ngx_http_script_variables_count(0:-344)
+    0xa10ab call ngx_http_script_compile(0:&-320)
+    0xa10e5 call ngx_strncasecmp()
+    0xa119b call ngx_http_upstream_add(0:-392, 1:&-224)
+    0xa11dc call ngx_strncasecmp()
+    0xa1206 call ngx_conf_log_error(1:-392)
+    0xa1237 call ngx_conf_log_error(1:-392)
+    0xa12c7 call ngx_http_proxy_set_vars(0:&-224)
+    0xa1356 call ngx_conf_log_error(1:-392)
+ngx_http_proxy_set_vars: params u@-8*, v@-16*
+ngx_http_read_discarded_request_body: params r@-4232*
+    0x60a3b call ngx_http_discard_request_body_filter(0:-4232, 1:&-4192)
+ngx_http_read_request_header: params r@-40*
+    0x53cd8 call ngx_event_add_timer()
+    0x53ce9 call ngx_handle_read_event(0:-16)
+    0x53cff call ngx_http_close_request(0:-40)
+    0x53d55 call ngx_log_error_core()
+    0x53d9b call ngx_http_finalize_request(0:-40)
+ngx_http_referer_merge_conf: params cf@-88*, parent@-96*, child@-104*
+    0x977c3 call ngx_log_error_core()
+    0x978e2 call ngx_hash_init(0:&-64)
+    0x9796f call ngx_hash_wildcard_init(0:&-64)
+    0x97a11 call ngx_hash_wildcard_init(0:&-64)
+ngx_http_regex_compile: params cf@-120*, rc@-128*
+    0x650e1 call ngx_regex_compile(0:-128)
+    0x65113 call ngx_conf_log_error(1:-120)
+    0x65132 call ngx_pcalloc()
+    0x651e8 call ngx_palloc()
+    0x652c0 call ngx_http_add_variable(0:-120, 1:&-48)
+    0x652f8 call ngx_http_get_variable_index(0:-120, 1:&-48)
+ngx_http_regex_exec: params r@-72*, re@-80*, s@-88*
+    0x653e8 call ngx_palloc()
+    0x654e6 call ngx_log_error_core()
+ngx_http_run_posted_requests: params c@-40*
+ngx_http_scgi_eval: params r@-248*, scf@-256*
+    0xac6b3 call ngx_http_script_run(0:-248, 1:&-224)
+    0xac6f1 call ngx_parse_url(1:&-224)
+    0xac755 call ngx_log_error_core()
+    0xac78b call ngx_pcalloc()
+ngx_http_scgi_merge_loc_conf: params cf@-136*, parent@-144*, child@-152*
+    0xae379 call ngx_conf_log_error(1:-136)
+    0xae42c call ngx_conf_log_error(1:-136)
+    0xae485 call ngx_conf_log_error(1:-136)
+    0xae512 call ngx_conf_log_error(1:-136)
+    0xae5a8 call ngx_conf_log_error(1:-136)
+    0xae673 call ngx_conf_merge_path_value(0:-136)
+    0xae725 call ngx_conf_log_error(1:-136)
+    0xaeaf1 call ngx_http_upstream_hide_headers_hash(0:-136, 1:-104, 2:-112, 4:&-80)
+    0xaebdd call ngx_http_scgi_merge_params(0:-136, 1:-104, 2:-112)
+ngx_http_scgi_merge_params: params cf@-360*, conf@-368*, prev@-376*
+    0xaedc1 call ngx_array_create()
+    0xaee0b call ngx_array_create()
+    0xaee5c call ngx_array_init()
+    0xaef04 call ngx_array_init()
+    0xaef34 call ngx_array_push(0:&-224)
+    0xaf034 call ngx_strcasecmp()
+    0xaf064 call ngx_array_push(0:&-224)
+    0xaf194 call ngx_array_push(0:&-272)
+    0xaf239 call ngx_hash_key_lc()
+    0xaf29d call ngx_array_push_n()
+    0xaf31a call ngx_array_push_n()
+    0xaf3cd call ngx_array_push_n(1:-288)
+    0xaf4a5 call ngx_cpystrn(0:-280)
+    0xaf52f call ngx_http_script_compile(0:&-112)
+    0xaf55b call ngx_array_push_n()
+    0xaf5a1 call ngx_array_push_n()
+    0xaf606 call ngx_array_push_n()
+    0xaf64c call ngx_array_push_n()
+    0xaf70c call ngx_hash_init(0:&-176, 1:-272, 2:-264)
+ngx_http_scgi_pass: params cf@-376*, cmd@-384*, conf@-392*
+    0xaf808 call ngx_http_script_variables_count(0:-336)
+    0xaf8b7 call ngx_http_script_compile(0:&-320)
+    0xaf936 call ngx_http_upstream_add(0:-376, 1:&-224)
+ngx_http_script_add_args_code: params sc@-24*
+    0x67b17 call ngx_http_script_add_code()
+    0x67b59 call ngx_http_script_add_code()
+ngx_http_script_add_capture_code: params sc@-24*, n@-32
+    0x68937 call ngx_http_script_add_code()
+    0x6898c call ngx_http_script_add_code()
+ngx_http_script_add_code: params codes@-40*, size@-48, code@-56*
+    0x675c5 call ngx_array_push_n(0:-40, 1:-48)
+ngx_http_script_add_copy_code: params sc@-56*, value@-64*, last@-72
+    0x67684 call ngx_http_script_add_code()
+    0x676e7 call ngx_http_script_add_code(1:-16)
+ngx_http_script_add_full_name_code: params sc@-24*
+    0x68daa call ngx_http_script_add_code()
+    0x68e08 call ngx_http_script_add_code()
+ngx_http_script_add_var_code: params sc@-40*, name@-48*
+    0x67858 call ngx_http_get_variable_index(1:-48)
+    0x6788f call ngx_array_push()
+    0x678ce call ngx_http_script_add_code()
+    0x6791c call ngx_http_script_add_code()
+ngx_http_script_compile: params sc@-72*
+    0x66ad0 call ngx_http_script_init_arrays(0:-72)
+    0x66bf2 call ngx_http_script_add_capture_code(0:-72, 1:-40)
+    0x66d41 call ngx_conf_log_error()
+    0x66d81 call ngx_http_script_add_var_code(0:-72, 1:&-32)
+    0x66de7 call ngx_http_script_add_args_code(0:-72)
+    0x66ed3 call ngx_http_script_add_copy_code(0:-72, 1:&-32)
+    0x66f02 call ngx_http_script_done(0:-72)
+    0x66f30 call ngx_conf_log_error()
+ngx_http_script_done: params sc@-56*
+    0x67423 call ngx_http_script_add_copy_code(0:-56, 1:&-32)
+    0x6745e call ngx_http_script_add_full_name_code(0:-56)
+    0x6749b call ngx_http_script_add_code()
+    0x674e9 call ngx_http_script_add_code()
+ngx_http_script_flush_complex_value: params r@-24*, val@-32*
+ngx_http_script_init_arrays: params sc@-40*
+    0x6729b call ngx_array_create(1:-24)
+    0x6730e call ngx_array_create(1:-24)
+    0x67396 call ngx_array_create(1:-24)
+ngx_http_script_run: params r@-136*, value@-144*, code_lengths@-152*, len@-160, code_values@-168*
+    0x670c6 call ngx_pnalloc(1:-160)
+ngx_http_script_variables_count: params value@-24*
+ngx_http_send_error_page: params r@-88*, err_page@-96*
+    0x51866 call ngx_http_complex_value(0:-88, 2:&-48)
+    0x518aa call ngx_http_split_args(0:-88, 1:&-48, 2:&-32)
+    0x51917 call ngx_http_internal_redirect(0:-88, 1:&-48, 2:&-32)
+    0x5193a call ngx_http_named_location(0:-88, 1:&-48)
+    0x51951 call ngx_list_push()
+    0x51a64 call ngx_http_send_refresh(0:-88)
+    0x51a8b call ngx_http_send_special_response(0:-88, 1:-56)
+ngx_http_send_header: params r@-8*
+ngx_http_send_refresh: params r@-104*
+    0x51fb5 call ngx_escape_uri(1:-72, 2:-80)
+    0x52140 call ngx_http_send_header(0:-104)
+    0x5217d call ngx_create_temp_buf(1:-56)
+    0x521fb call ngx_escape_uri(0:-88, 1:-72, 2:-80)
+    0x52262 call ngx_http_output_filter(0:-104, 1:&-32)
+ngx_http_send_special: params r@-56*, flags@-64
+    0x570bf call ngx_pcalloc()
+    0x5716e call ngx_http_output_filter(0:-56, 1:&-32)
+ngx_http_send_special_response: params r@-120*, clcf@-128*, err@-136
+    0x51d19 call ngx_http_send_header(0:-120)
+    0x51d6e call ngx_http_send_special(0:-120)
+    0x51d88 call ngx_pcalloc()
+    0x51e33 call ngx_pcalloc()
+    0x51ea2 call ngx_pcalloc()
+    0x51f40 call ngx_http_output_filter(0:-120, 1:&-64)
+ngx_http_server_names: params cf@-312*, cmcf@-320*, addr@-328*
+    0x45897 call ngx_create_pool()
+    0x458dc call ngx_hash_keys_array_init(0:&-176)
+    0x459b9 call ngx_hash_add_key(0:&-176)
+    0x45a4c call ngx_log_error_core()
+    0x45acf call ngx_log_error_core()
+    0x45bca call ngx_hash_init(0:&-240, 1:-152, 2:-144)
+    0x45c2b call ngx_hash_wildcard_init(0:&-240, 1:-104, 2:-96)
+    0x45ca1 call ngx_hash_wildcard_init(0:&-240, 1:-56, 2:-48)
+    0x45cce call ngx_destroy_pool(0:-160)
+    0x45d1b call ngx_palloc()
+    0x45e8f call ngx_destroy_pool(0:-160)
+ngx_http_set_default_types: params cf@-24*, types@-32*, default_type@-40*
+    0x46aed call ngx_array_create()
+    0x46b18 call ngx_array_push()
+    0x46b5c call ngx_hash_key()
+ngx_http_set_exten: params r@-24*
+ngx_http_set_keepalive: params r@-104*
+    0x563a0 call ngx_event_add_timer()
+    0x5644d call ngx_palloc()
+    0x56473 call ngx_http_close_request(0:-104)
+    0x5653d call ngx_http_free_request(0:-104)
+    0x56562 call ngx_event_add_timer()
+    0x56573 call ngx_handle_read_event(0:-64)
+    0x56584 call ngx_http_close_connection(0:-72)
+    0x56671 call ngx_pfree(1:-104)
+    0x566ab call ngx_pfree()
+    0x56720 call ngx_pfree()
+    0x5679d call ngx_pfree()
+    0x5682e call ngx_http_close_connection(0:-72)
+    0x56869 call ngx_tcp_push()
+    0x5688a call ngx_connection_error(0:-72)
+    0x56896 call ngx_http_close_connection(0:-72)
+    0x56949 call ngx_connection_error(0:-72)
+    0x5696c call ngx_http_close_connection(0:-72)
+    0x569ad call ngx_reusable_connection(0:-72)
+ngx_http_set_lingering_close: params r@-40*
+    0x56d7c call ngx_event_add_timer()
+    0x56d8d call ngx_handle_read_event(0:-16)
+    0x56da3 call ngx_http_close_request(0:-40)
+    0x56e11 call ngx_http_close_request(0:-40)
+    0x56e47 call ngx_connection_error(0:-32)
+    0x56e58 call ngx_http_close_request(0:-40)
+    0x56e75 call ngx_http_lingering_close_handler(0:-16)
+ngx_http_set_write_handler: params r@-24*
+    0x55dca call ngx_event_add_timer()
+    0x55de4 call ngx_handle_write_event(0:-16)
+    0x55dfa call ngx_http_close_request(0:-24)
+ngx_http_special_response_handler: params r@-40*, error@-48
+    0x51506 call ngx_http_send_error_page(0:-40)
+    0x51545 call ngx_http_discard_request_body(0:-40)
+    0x515a0 call ngx_http_send_refresh(0:-40)
+    0x5167e call ngx_http_send_special_response(0:-40, 1:-16, 2:-24)
+ngx_http_split_args: params r@-24*, uri@-32*, args@-40*
+    0x5a2a1 call ngx_strlchr()
+ngx_http_ssi_config: params r@-24*, ctx@-32*, params@-40*
+    0x8692e call ngx_pnalloc()
+    0x86979 call ngx_cpystrn()
+ngx_http_ssi_create_main_conf: params cf@-24*
+    0x876b0 call ngx_pcalloc()
+    0x876f7 call ngx_hash_keys_array_init()
+ngx_http_ssi_init_main_conf: params cf@-88*, conf@-96*
+    0x87798 call ngx_hash_init(0:&-64)
+ngx_http_terminate_request: params r@-40*, rc@-48
+    0x55ae3 call ngx_http_post_request(0:-16, 1:-8)
+    0x55af8 call ngx_http_close_request(0:-16, 1:-48)
+ngx_http_test_expect: params r@-24*
+    0x60d8a call ngx_strncasecmp()
+ngx_http_time: params buf@-72*, t@-80
+    0x208db call ngx_gmtime(0:-80, 1:&-64)
+    0x20942 call ngx_sprintf(0:-72)
+ngx_http_update_location_config: params r@-24*
+ngx_http_upstream: params cf@-408*, cmd@-416*, dummy@-424*
+    0x71441 call ngx_http_upstream_add(0:-408, 1:&-240)
+    0x71476 call ngx_pcalloc()
+    0x714de call ngx_pcalloc()
+    0x71563 call ngx_pcalloc()
+    0x717d0 call ngx_conf_parse(0:-408)
+    0x718a9 call ngx_conf_log_error(1:-408)
+ngx_http_upstream_add: params cf@-56*, u@-64*, flags@-72
+    0x71ed1 call ngx_parse_url(1:-64)
+    0x71f1d call ngx_conf_log_error(1:-56)
+    0x71fc0 call ngx_strncasecmp()
+    0x72024 call ngx_conf_log_error(1:-56)
+    0x72098 call ngx_conf_log_error(1:-56)
+    0x72171 call ngx_log_error_core()
+    0x72275 call ngx_pcalloc()
+    0x72328 call ngx_array_create()
+    0x72357 call ngx_array_push()
+    0x723ad call ngx_array_push()
+ngx_http_upstream_hide_headers_hash: params cf@-88*, conf@-96*, prev@-104*, default_hide_headers@-112*, hash@-120*
+    0x7279e call ngx_array_init()
+    0x727c5 call ngx_array_push(0:&-48)
+    0x7280c call ngx_hash_key_lc()
+    0x728ae call ngx_strcasecmp()
+    0x728d2 call ngx_array_push(0:&-48)
+    0x72943 call ngx_hash_key_lc()
+    0x72a10 call ngx_strcasecmp()
+    0x72ab7 call ngx_hash_init(0:-120, 1:-48, 2:-40)
+ngx_http_upstream_init_main_conf: params cf@-168*, conf@-176*
+    0x72c65 call ngx_array_init()
+    0x72c92 call ngx_array_push(0:&-112)
+    0x72ce2 call ngx_hash_key_lc()
+    0x72d87 call ngx_hash_init(0:&-64, 1:-112, 2:-104)
+ngx_http_upstream_init_round_robin: params cf@-296*, us@-304*
+    0x72f87 call ngx_log_error_core()
+    0x72fcc call ngx_pcalloc()
+    0x7346f call ngx_sort(1:-264)
+    0x735b6 call ngx_pcalloc()
+    0x73a58 call ngx_sort(1:-264)
+    0x73aee call ngx_log_error_core()
+    0x73b80 call ngx_inet_resolve_host(1:&-224)
+    0x73bfb call ngx_log_error_core()
+    0x73c4b call ngx_pcalloc()
+ngx_http_upstream_server: params cf@-312*, cmd@-320*, conf@-328*
+    0x71945 call ngx_array_create()
+    0x7197f call ngx_array_push()
+    0x71a26 call ngx_parse_url(1:&-224)
+    0x71a6a call ngx_conf_log_error(1:-312)
+    0x71b40 call ngx_atoi()
+    0x71bfd call ngx_atoi()
+    0x71cc7 call ngx_parse_time(0:&-240)
+    0x71e79 call ngx_conf_log_error(1:-312)
+ngx_http_uwsgi_eval: params r@-248*, uwcf@-256*
+    0xa8b73 call ngx_http_script_run(0:-248, 1:&-224)
+    0xa8bb1 call ngx_parse_url(1:&-224)
+    0xa8c15 call ngx_log_error_core()
+    0xa8c4b call ngx_pcalloc()
+ngx_http_uwsgi_merge_loc_conf: params cf@-136*, parent@-144*, child@-152*
+    0xaa8bb call ngx_conf_log_error(1:-136)
+    0xaa96e call ngx_conf_log_error(1:-136)
+    0xaa9c7 call ngx_conf_log_error(1:-136)
+    0xaaa54 call ngx_conf_log_error(1:-136)
+    0xaaaea call ngx_conf_log_error(1:-136)
+    0xaabb5 call ngx_conf_merge_path_value(0:-136)
+    0xaac67 call ngx_conf_log_error(1:-136)
+    0xab0a2 call ngx_http_upstream_hide_headers_hash(0:-136, 1:-104, 2:-112, 4:&-80)
+    0xab20c call ngx_http_uwsgi_merge_params(0:-136, 1:-104, 2:-112)
+ngx_http_uwsgi_merge_params: params cf@-360*, conf@-368*, prev@-376*
+    0xab3f0 call ngx_array_create()
+    0xab43a call ngx_array_create()
+    0xab48b call ngx_array_init()
+    0xab533 call ngx_array_init()
+    0xab563 call ngx_array_push(0:&-224)
+    0xab663 call ngx_strcasecmp()
+    0xab693 call ngx_array_push(0:&-224)
+    0xab7c3 call ngx_array_push(0:&-272)
+    0xab868 call ngx_hash_key_lc()
+    0xab8cc call ngx_array_push_n()
+    0xab945 call ngx_array_push_n()
+    0xab9f8 call ngx_array_push_n(1:-288)
+    0xabb52 call ngx_http_script_compile(0:&-112)
+    0xabb7e call ngx_array_push_n()
+    0xabbc4 call ngx_array_push_n()
+    0xabc29 call ngx_array_push_n()
+    0xabce9 call ngx_hash_init(0:&-176, 1:-272, 2:-264)
+ngx_http_uwsgi_pass: params cf@-376*, cmd@-384*, conf@-392*
+    0xabde5 call ngx_http_script_variables_count(0:-336)
+    0xabe94 call ngx_http_script_compile(0:&-320)
+    0xabf13 call ngx_http_upstream_add(0:-376, 1:&-224)
+ngx_http_validate_host: params r@-56*, host@-64*, len@-72, alloc@-80
+    0x54f49 call ngx_pnalloc(1:-16)
+    0x54f7f call ngx_strlow(1:-8, 2:-16)
+ngx_http_variables_add_core_vars: params cf@-56*
+    0x6568c call ngx_pcalloc()
+    0x656f9 call ngx_hash_keys_array_init()
+    0x6572f call ngx_palloc()
+    0x657a4 call ngx_hash_add_key(1:-32, 2:-32)
+    0x657e6 call ngx_conf_log_error(1:-56)
+ngx_http_variables_init_vars: params cf@-120*
+    0x65dfc call ngx_log_error_core()
+    0x65f08 call ngx_hash_init(0:&-64)
+ngx_inet_addr: params text@-40*, len@-48
+ngx_inet_resolve_host: params pool@-72*, u@-80*
+    0x1aaf8 call ngx_inet_addr()
+    0x1ab24 call ngx_alloc()
+    0x1ab5e call ngx_cpystrn(0:-24)
+    0x1ac0c call ngx_pcalloc(0:-72)
+    0x1ac60 call ngx_pcalloc(0:-72)
+    0x1ad00 call ngx_pnalloc(0:-72)
+    0x1ad30 call ngx_sock_ntop(0:-40, 1:-32)
+    0x1ada0 call ngx_pcalloc(0:-72)
+    0x1add8 call ngx_pcalloc(0:-72)
+    0x1ae5c call ngx_pnalloc(0:-72)
+    0x1aea3 call ngx_sprintf(0:-32)
+ngx_init_cycle: params old_cycle@-568*
+    0x24212 call ngx_timezone_update()
+    0x24233 call ngx_time_update()
+    0x24259 call ngx_create_pool(1:-488)
+    0x2429a call ngx_pcalloc(0:-480)
+    0x242ba call ngx_destroy_pool(0:-480)
+    0x24348 call ngx_pstrdup(0:-480)
+    0x24378 call ngx_destroy_pool(0:-480)
+    0x243be call ngx_pstrdup(0:-480)
+    0x243ee call ngx_destroy_pool(0:-480)
+    0x24438 call ngx_pnalloc(0:-480)
+    0x24468 call ngx_destroy_pool(0:-480)
+    0x244ab call ngx_cpystrn()
+    0x244e7 call ngx_pstrdup(0:-480)
+    0x24517 call ngx_destroy_pool(0:-480)
+    0x24571 call ngx_pcalloc(0:-480)
+    0x245a1 call ngx_destroy_pool(0:-480)
+    0x2469c call ngx_list_init()
+    0x246b0 call ngx_destroy_pool(0:-480)
+    0x2475d call ngx_list_init()
+    0x24771 call ngx_destroy_pool(0:-480)
+    0x247d9 call ngx_pcalloc(0:-480)
+    0x24803 call ngx_destroy_pool(0:-480)
+    0x248a5 call ngx_pcalloc(0:-480)
+    0x248cd call ngx_destroy_pool(0:-480)
+    0x24926 call ngx_log_error_core(1:-488)
+    0x24935 call ngx_destroy_pool(0:-480)
+    0x24980 call ngx_pnalloc(0:-480)
+    0x249b0 call ngx_destroy_pool(0:-480)
+    0x249e8 call ngx_strlow(1:&-288)
+    0x24a8e call ngx_destroy_pool(0:-480)
+    0x24b3f call ngx_array_create(0:-480)
+    0x24b61 call ngx_destroy_pool(0:-480)
+    0x24b7f call ngx_create_pool(1:-488)
+    0x24ba1 call ngx_destroy_pool(0:-480)
+    0x24c0b call ngx_conf_param(0:&-384)
+    0x24c2d call ngx_destroy_cycle_pools(0:&-384)
+    0x24c57 call ngx_conf_parse(0:&-384)
+    0x24c79 call ngx_destroy_cycle_pools(0:&-384)
+    0x24cc2 call ngx_log_stderr()
+    0x24da0 call ngx_destroy_cycle_pools(0:&-384)
+    0x24e3d call ngx_create_pidfile(1:-488)
+    0x24eec call ngx_create_pidfile(1:-488)
+    0x24f04 call ngx_delete_pidfile(0:-568)
+    0x24f24 call ngx_test_lockfile() [pointer parameter(s) 0,1: no argument found where they are passed]
+    0x24f48 call ngx_create_paths(0:-472)
+    0x24f77 call ngx_conf_open_file(0:-472)
+    0x25134 call ngx_log_error_core(1:-488)
+    0x251d9 call ngx_log_error_core(1:-488)
+    0x2532b call ngx_log_error_core(1:-488)
+    0x2566d call ngx_shm_free()
+    0x256af call ngx_shm_alloc()
+    0x256ec call ngx_init_zone_pool(0:-472)
+    0x258cb call ngx_cmp_sockaddr()
+    0x25da3 call ngx_open_listening_sockets(0:-472)
+    0x25dc7 call ngx_configure_listening_sockets(0:-472)
+    0x25e4a call ngx_log_error_core()
+    0x26115 call ngx_shm_free()
+    0x26268 call ngx_log_error_core(1:-488)
+    0x26329 call ngx_log_error_core()
+    0x26385 call ngx_log_error_core()
+    0x26513 call ngx_log_error_core(1:-488)
+    0x26533 call ngx_destroy_pool(0:-352)
+    0x2657e call ngx_destroy_pool()
+    0x265d2 call ngx_create_pool()
+    0x26621 call ngx_log_error_core()
+    0x26657 call ngx_pcalloc()
+    0x26700 call ngx_array_push()
+    0x2674b call ngx_event_add_timer()
+    0x2694a call ngx_log_error_core(1:-488)
+    0x26976 call ngx_destroy_cycle_pools(0:&-384)
+    0x26abe call ngx_log_error_core(1:-488)
+    0x26af0 call ngx_destroy_cycle_pools(0:&-384)
+ngx_init_setproctitle: params log@-56*
+    0x3d0f6 call ngx_alloc(0:-32, 1:-56)
+    0x3d24a call ngx_cpystrn(0:-40, 2:-32)
+ngx_init_signals: params log@-200*
+    0x3c3a2 call ngx_log_error_core(1:-200)
+ngx_init_zone_pool: params cycle@-24*, zn@-32*
+    0x26cb7 call ngx_log_error_core()
+    0x26d21 call ngx_shmtx_create(1:-16) [pointer parameter(s) 2: no argument found where they are passed]
+    0x26d3b call ngx_slab_init(0:-16)
+ngx_list_create: params pool@-24*, n@-32, size@-40
+    0x1239d call ngx_palloc(0:-24)
+    0x123cd call ngx_palloc(0:-24)
+ngx_list_push: params l@-24*
+    0x12483 call ngx_palloc()
+    0x124bf call ngx_palloc()
+ngx_localtime: params s@-8, tm@-16*
+ngx_log_abort: params err@-1252, fmt@-1264*
+    0x10d30 call ngx_vslprintf(0:&-1216, 1:&-193, 2:-1264, 3:&-1240)
+    0x10d96 call ngx_log_error_core(2:-1252)
+ngx_log_errno: params buf@-8*, last@-16*, err@-20
+    0x10fe5 call ngx_slprintf(0:-8, 1:-16)
+    0x11005 call ngx_strerror(0:-20, 1:-8)
+ngx_log_error_core: params level@-2296, log@-2304*, err@-2308, fmt@-2320*
+    0x109b5 call ngx_slprintf(0:-2288, 1:-2280)
+    0x109ec call ngx_slprintf(0:-2288, 1:-2280)
+    0x10a33 call ngx_slprintf(0:-2288, 1:-2280)
+    0x10a99 call ngx_vslprintf(0:-2288, 1:-2280, 2:-2320, 3:&-2264)
+    0x10ac8 call ngx_log_errno(0:-2288, 1:-2280, 2:-2308)
+    0x10b93 call ngx_write_fd()
+    0x10c27 call ngx_sprintf(0:-2272)
+    0x10c4c call ngx_write_fd()
+ngx_log_init: params prefix@-40*
+    0x11166 call ngx_cpystrn(0:-32)
+    0x111b8 call ngx_log_stderr()
+ngx_log_stderr: params err@-2292, fmt@-2304*
+    0x10eb0 call ngx_vslprintf(0:-2280, 1:-2272, 2:-2304, 3:&-2264)
+    0x10edf call ngx_log_errno(0:-2280, 1:-2272, 2:-2292)
+    0x10f4c call ngx_write_fd()
+ngx_master_process_cycle: params cycle@-280*
+    0x3d8ea call ngx_log_error_core()
+    0x3d97c call ngx_pnalloc(1:-264)
+    0x3d9fc call ngx_cpystrn(0:-272, 2:-264)
+    0x3da2b call ngx_setproctitle(0:-208)
+    0x3da71 call ngx_start_worker_processes(0:-280)
+    0x3da85 call ngx_start_cache_manager_processes(0:-280)
+    0x3dbba call ngx_log_error_core()
+    0x3dbce call ngx_time_update()
+    0x3dbf1 call ngx_reap_children(0:-280)
+    0x3dc25 call ngx_master_process_exit(0:-280)
+    0x3dc96 call ngx_signal_worker_processes(0:-280)
+    0x3dcaf call ngx_signal_worker_processes(0:-280)
+    0x3dcd6 call ngx_signal_worker_processes(0:-280)
+    0x3dda5 call ngx_log_error_core()
+    0x3de1f call ngx_start_worker_processes(0:-280)
+    0x3de33 call ngx_start_cache_manager_processes(0:-280)
+    0x3de80 call ngx_log_error_core()
+    0x3de8f call ngx_init_cycle(0:-280)
+    0x3df07 call ngx_start_worker_processes(0:-280)
+    0x3df1b call ngx_start_cache_manager_processes(0:-280)
+    0x3df44 call ngx_signal_worker_processes(0:-280)
+    0x3df7f call ngx_start_worker_processes(0:-280)
+    0x3df93 call ngx_start_cache_manager_processes(0:-280)
+    0x3dfef call ngx_log_error_core()
+    0x3e00a call ngx_reopen_files(0:-280)
+    0x3e01e call ngx_signal_worker_processes(0:-280)
+    0x3e06f call ngx_log_error_core()
+    0x3e088 call ngx_exec_new_binary(0:-280)
+    0x3e0c5 call ngx_signal_worker_processes(0:-280)
+ngx_master_process_exit: params cycle@-40*
+    0x3f052 call ngx_delete_pidfile(0:-40)
+    0x3f089 call ngx_log_error_core()
+    0x3f10a call ngx_close_listening_sockets(0:-40)
+    0x3f1ce call ngx_destroy_pool()
+ngx_memalign: params alignment@-40, size@-48, log@-56*
+    0x392af call ngx_log_error_core(1:-56, 2:-20)
+ngx_nonblocking: params s@-20
+ngx_open_dir: params name@-8*, dir@-16*
+ngx_open_glob: params gl@-24*
+ngx_open_listening_sockets: params cycle@-104*
+    0x2205f call ngx_log_error_core(1:-48)
+    0x220f3 call ngx_log_error_core(1:-48)
+    0x22160 call ngx_log_error_core(1:-48)
+    0x2218b call ngx_nonblocking(0:-84)
+    0x221f2 call ngx_log_error_core(1:-48)
+    0x2225f call ngx_log_error_core(1:-48)
+    0x22352 call ngx_log_error_core(1:-48, 2:-76)
+    0x223bf call ngx_log_error_core(1:-48)
+    0x224a5 call ngx_log_error_core()
+    0x22501 call ngx_log_error_core()
+    0x225cb call ngx_log_error_core(1:-48)
+    0x22638 call ngx_log_error_core(1:-48)
+    0x22700 call ngx_log_error_core(1:-48)
+    0x22752 call ngx_log_error_core(1:-48)
+ngx_os_init: params log@-24*
+    0x3d375 call ngx_os_specific_init(0:-24)
+    0x3d392 call ngx_init_setproctitle(0:-24)
+    0x3d40e call ngx_cpuinfo()
+    0x3d455 call ngx_log_error_core(1:-24)
+ngx_os_signal_process: params cycle@-40*, name@-48*, pid@-56
+    0x3ccb4 call ngx_log_error_core()
+ngx_os_specific_init: params log@-408*
+    0x40679 call ngx_log_error_core(1:-408)
+    0x406a0 call ngx_cpystrn(1:&-400)
+    0x406c1 call ngx_cpystrn(1:&-270)
+ngx_os_specific_status: params log@-8*
+    0x4077d call ngx_log_error_core(1:-8)
+ngx_os_status: params log@-8*
+    0x3d4ce call ngx_log_error_core(1:-8)
+    0x3d4fd call ngx_log_error_core(1:-8)
+    0x3d509 call ngx_os_specific_status(0:-8)
+    0x3d54c call ngx_log_error_core(1:-8)
+ngx_palloc: params pool@-24*, size@-32
+    0x118ac call ngx_palloc_block(0:-24, 1:-32)
+    0x118c1 call ngx_palloc_large(0:-24, 1:-32)
+ngx_palloc_block: params pool@-56*, size@-64
+    0x119a0 call ngx_memalign(1:-24)
+ngx_palloc_large: params pool@-40*, size@-48
+    0x11aba call ngx_alloc(0:-48)
+    0x11b3f call ngx_palloc(0:-40)
+ngx_parse_inet6_url: params pool@-8*, u@-16*
+ngx_parse_inet_url: params pool@-88*, u@-96*
+    0x1a62a call ngx_strlchr()
+    0x1a646 call ngx_strlchr()
+    0x1a662 call ngx_strlchr()
+    0x1a731 call ngx_atoi(0:-80, 1:-56)
+    0x1a7e9 call ngx_atoi(0:-40)
+    0x1a92a call ngx_inet_addr(0:-40, 1:-56)
+    0x1a95d call ngx_alloc(0:-56)
+    0x1a98b call ngx_cpystrn(0:-16, 1:-40, 2:-56)
+    0x1aa86 call ngx_inet_resolve_host(0:-88, 1:-96)
+ngx_parse_size: params line@-40*
+    0x1989e call ngx_atosz(1:-24)
+ngx_parse_time: params line@-72*, is_sec@-80
+ngx_parse_unix_domain_url: params pool@-56*, u@-64*
+    0x1a3de call ngx_strlchr()
+    0x1a4be call ngx_cpystrn(1:-32, 2:-40)
+    0x1a4cf call ngx_pcalloc(0:-56)
+    0x1a507 call ngx_pcalloc(0:-56)
+    0x1a55c call ngx_cpystrn(1:-32, 2:-40)
+ngx_parse_url: params pool@-24*, u@-32*
+    0x1a324 call ngx_strncasecmp(0:-8)
+    0x1a33c call ngx_parse_unix_domain_url(0:-24, 1:-32)
+    0x1a35c call ngx_parse_inet6_url(0:-24, 1:-32)
+    0x1a371 call ngx_parse_inet_url(0:-24, 1:-32)
+ngx_pass_open_channel: params cycle@-24*, ch@-32*
+    0x3e6ff call ngx_write_channel(1:-32)
+ngx_pcalloc: params pool@-24*, size@-32
+    0x11cc0 call ngx_palloc(0:-24, 1:-32)
+ngx_pfree: params pool@-24*, p@-32*
+ngx_pnalloc: params pool@-24*, size@-32
+    0x1194c call ngx_palloc_block(0:-24, 1:-32)
+    0x11961 call ngx_palloc_large(0:-24, 1:-32)
+ngx_pool_cleanup_add: params p@-24*, size@-32
+    0x11d0b call ngx_palloc(0:-24)
+    0x11d37 call ngx_palloc(0:-24, 1:-32)
+ngx_process_events_and_timers: params cycle@-40*
+    0x331c9 call ngx_event_find_timer()
+    0x3320d call ngx_trylock_accept_mutex(0:-40)
+    0x3329e call ngx_event_process_posted(0:-40)
+    0x332b6 call ngx_shmtx_unlock()
+    0x332c2 call ngx_event_expire_timers()
+    0x332e6 call ngx_wakeup_worker_thread() [pointer parameter(s) 0: no argument found where they are passed]
+    0x332fb call ngx_event_process_posted(0:-40)
+ngx_process_options: params cycle@-24*
+    0xf918 call ngx_pnalloc()
+    0xfa59 call ngx_conf_full_name(0:-24)
+ngx_pstrdup: params pool@-24*, src@-32*
+    0x16350 call ngx_pnalloc(0:-24)
+ngx_queue_middle: params queue@-24*
+ngx_queue_sort: params queue@-40*, cmp@-48*
+ngx_rbtree_delete: params tree@-56*, node@-64*
+    0x1db80 call ngx_rbtree_min()
+    0x1ddf7 call ngx_rbtree_left_rotate(0:-24, 1:-16)
+    0x1de7b call ngx_rbtree_right_rotate(0:-24, 1:-16, 2:-32)
+    0x1ded1 call ngx_rbtree_left_rotate(0:-24, 1:-16)
+    0x1df2c call ngx_rbtree_right_rotate(0:-24, 1:-16)
+    0x1dfb0 call ngx_rbtree_left_rotate(0:-24, 1:-16, 2:-32)
+    0x1e006 call ngx_rbtree_right_rotate(0:-24, 1:-16)
+ngx_rbtree_insert: params tree@-40*, node@-48*
+    0x1d89b call ngx_rbtree_left_rotate(0:-24, 1:-16, 2:-48)
+    0x1d8d6 call ngx_rbtree_right_rotate(0:-24, 1:-16)
+    0x1d966 call ngx_rbtree_right_rotate(0:-24, 1:-16, 2:-48)
+    0x1d9a1 call ngx_rbtree_left_rotate(0:-24, 1:-16)
+ngx_rbtree_left_rotate: params root@-24*, sentinel@-32*, node@-40*
+ngx_rbtree_right_rotate: params root@-24*, sentinel@-32*, node@-40*
+ngx_read_dir: params dir@-8*
+ngx_read_file: params file@-40*, buf@-48*, size@-56, offset@-64
+    0x3935c call ngx_log_error_core()
+ngx_read_glob: params gl@-24*, name@-32*
+ngx_reap_children: params cycle@-120*
+    0x3eb4a call ngx_close_channel()
+    0x3ec6a call ngx_write_channel(1:&-80)
+    0x3ed6b call ngx_spawn_process(0:-120, 4:-112)
+    0x3edcd call ngx_log_error_core()
+    0x3ee40 call ngx_pass_open_channel(0:-120, 1:&-80)
+    0x3ef1e call ngx_log_error_core()
+ngx_regex_compile: params rc@-56*
+    0x42227 call ngx_regex_malloc_init()
+    0x42258 call ngx_regex_malloc_done()
+    0x422a7 call ngx_snprintf()
+    0x42305 call ngx_snprintf()
+    0x4233c call ngx_pcalloc()
+    0x42387 call ngx_list_push()
+    0x424fb call ngx_snprintf(2:-32)
+ngx_regex_create_conf: params cycle@-24*
+    0x42a32 call ngx_pcalloc()
+    0x42a69 call ngx_list_create()
+ngx_regex_init: params -
+ngx_regex_malloc_done: params -
+ngx_regex_malloc_init: params pool@-8*
+ngx_regex_module_init: params cycle@-104*
+    0x427d1 call ngx_pool_cleanup_add()
+    0x42815 call ngx_regex_malloc_init()
+    0x42917 call ngx_log_error_core()
+    0x429d2 call ngx_log_error_core()
+    0x429e2 call ngx_regex_malloc_done()
+ngx_reopen_files: params cycle@-232*, user@-236
+    0x274d4 call ngx_write_fd()
+    0x27550 call ngx_log_error_core()
+    0x275de call ngx_log_error_core()
+    0x276e2 call ngx_log_error_core()
+    0x2772b call stat64()
+    0x2779a call ngx_log_error_core()
+    0x27812 call ngx_log_error_core()
+    0x278d6 call ngx_log_error_core()
+    0x2794e call ngx_log_error_core()
+    0x27a19 call ngx_log_error_core()
+    0x27a91 call ngx_log_error_core()
+    0x27b1c call ngx_log_error_core()
+    0x27b9c call ngx_log_error_core()
+    0x27c36 call ngx_log_error_core()
+    0x27cec call ngx_log_error_core()
+ngx_resolver_alloc: params r@-24*, size@-32
+    0x2f84f call ngx_alloc(0:-32)
+ngx_resolver_copy: params r@-56*, name@-64*, buf@-72*, src@-80*, last@-88*
+    0x2f5c1 call ngx_log_error_core(3:-48)
+    0x2f61e call ngx_resolver_alloc(0:-56, 1:-24)
+ngx_resolver_create: params cf@-296*, names@-304*, n@-312
+    0x2b40d call ngx_pool_cleanup_add()
+    0x2b451 call ngx_calloc()
+    0x2b496 call ngx_calloc()
+    0x2b72b call ngx_array_init()
+    0x2b7e3 call ngx_parse_time(0:&-240)
+    0x2b849 call ngx_conf_log_error(1:-296)
+    0x2b8bf call ngx_parse_url(1:&-224)
+    0x2b903 call ngx_conf_log_error(1:-296)
+    0x2b927 call ngx_array_push_n(1:-24)
+ngx_resolver_dup: params r@-24*, src@-32*, size@-40
+    0x2f917 call ngx_resolver_alloc(0:-24, 1:-40)
+ngx_resolver_free: params r@-8*, p@-16*
+ngx_resolver_free_locked: params r@-8*, p@-16*
+ngx_resolver_free_node: params r@-8*, rn@-16*
+    0x2f7a1 call ngx_resolver_free_locked(0:-8)
+    0x2f7c5 call ngx_resolver_free_locked(0:-8)
+    0x2f7e9 call ngx_resolver_free_locked(0:-8)
+    0x2f80e call ngx_resolver_free_locked(0:-8)
+    0x2f821 call ngx_resolver_free_locked(0:-8, 1:-16)
+ngx_resolver_log_error: params log@-24*, buf@-32*, len@-40
+    0x2fad8 call ngx_snprintf(0:-32, 1:-40)
+    0x2fb22 call ngx_snprintf(0:-16, 1:-40)
+ngx_resolver_lookup_addr: params r@-24*, addr@-28
+ngx_resolver_process_ptr: params r@-136*, buf@-144*, n@-152, ident@-160, code@-168, nan@-176
+    0x2e71e call ngx_resolver_copy(0:-136, 2:-144)
+    0x2e77d call ngx_atoi(1:-56)
+    0x2e7f9 call ngx_resolver_lookup_addr(0:-136, 1:-120)
+    0x2e892 call ngx_log_error_core()
+    0x2e95e call ngx_log_error_core()
+    0x2e9f0 call ngx_rbtree_delete(1:-80)
+    0x2ea06 call ngx_resolver_free_node(0:-136, 1:-80)
+    0x2eb80 call ngx_resolver_copy(0:-136, 1:&-32, 2:-144)
+    0x2ebe3 call ngx_resolver_free(0:-136)
+    0x2ec1b call ngx_resolver_dup(0:-136, 2:-32)
+    0x2ed83 call ngx_resolver_free(0:-136, 1:-24)
+    0x2ede6 call ngx_log_error_core()
+    0x2ee4a call ngx_log_error_core(3:-112)
+ngx_resolver_send_query: params r@-40*, rn@-48*
+    0x2cfa8 call ngx_udp_connect(0:-32)
+    0x2d078 call ngx_log_error_core()
+ngx_reusable_connection: params c@-8*, reusable@-16
+ngx_save_argv: params cycle@-40*, argc@-44, argv@-56*
+    0xf77f call ngx_alloc()
+    0xf7fb call ngx_alloc(0:-24)
+    0xf85b call ngx_cpystrn(2:-24)
+ngx_send_lowat: params c@-24*, lowat@-32
+    0x3474a call ngx_connection_error(0:-24)
+ngx_set_environment: params cycle@-56*, last@-64*
+    0xec0e call ngx_array_push()
+    0xed79 call ngx_alloc()
+    0xedad call ngx_palloc()
+ngx_set_inherited_sockets: params cycle@-72*
+    0x216bf call ngx_palloc()
+    0x21827 call ngx_log_error_core()
+    0x2197d call ngx_log_error_core()
+    0x219f8 call ngx_pnalloc(1:-48)
+    0x21a9f call ngx_sock_ntop(2:-48)
+    0x21bf6 call ngx_log_error_core()
+    0x21d07 call ngx_log_error_core()
+    0x21dfb call ngx_log_error_core()
+ngx_setproctitle: params title@-24*
+    0x3d301 call ngx_cpystrn()
+    0x3d326 call ngx_cpystrn(0:-8, 1:-24)
+ngx_shm_alloc: params shm@-24*
+    0x3b69b call ngx_log_error_core()
+ngx_shm_free: params shm@-24*
+    0x3b730 call ngx_log_error_core()
+ngx_shmtx_create: params mtx@-8*, addr@-16*, name@-24*
+    0x21037 call ngx_log_error_core()
+ngx_shmtx_trylock: params mtx@-8*
+ngx_shmtx_unlock: params mtx@-8*
+    0x212ce call ngx_shmtx_wakeup(0:-8)
+ngx_shmtx_wakeup: params mtx@-24*
+    0x213c9 call ngx_log_error_core()
+ngx_signal_process: params cycle@-296*, sig@-304*
+    0x2705c call ngx_log_error_core()
+    0x27141 call ngx_log_error_core()
+    0x27168 call ngx_read_file(0:&-256, 1:&-48)
+    0x271ca call ngx_log_error_core()
+    0x2723e call ngx_atoi(0:&-48, 1:-280)
+    0x272a9 call ngx_log_error_core()
+    0x272d4 call ngx_os_signal_process(0:-296, 1:-304, 2:-264)
+ngx_signal_worker_processes: params cycle@-72*, signo@-76
+    0x3e8af call ngx_write_channel(1:&-48)
+    0x3e983 call ngx_log_error_core(2:-60)
+ngx_single_process_cycle: params cycle@-24*
+    0x3e0eb call ngx_set_environment(0:-24)
+    0x3e185 call ngx_process_events_and_timers(0:-24)
+    0x3e214 call ngx_master_process_exit(0:-24)
+    0x3e25f call ngx_log_error_core()
+    0x3e26b call ngx_init_cycle(0:-24)
+    0x3e2dd call ngx_log_error_core()
+    0x3e2ee call ngx_reopen_files(0:-24)
+ngx_slab_error: params pool@-8*, level@-16, text@-24*
+    0x2005a call ngx_log_error_core(0:-16)
+ngx_slab_init: params pool@-72*
+ngx_slprintf: params buf@-232*, last@-240*, fmt@-248*
+    0x1661f call ngx_vslprintf(0:-232, 1:-240, 2:-248, 3:&-208)
+ngx_snprintf: params buf@-232*, max@-240, fmt@-248*
+    0x16538 call ngx_vslprintf(0:-232, 2:-248, 3:&-208)
+ngx_sock_ntop: params sa@-40*, text@-48*, len@-56, port@-64
+    0x19f59 call ngx_snprintf(0:-48, 1:-56)
+    0x19fc1 call ngx_snprintf(0:-48, 1:-56)
+    0x1a002 call ngx_snprintf(0:-48, 1:-56)
+ngx_sort: params base@-40*, n@-48, size@-56, cmp@-64*
+    0x19717 call ngx_alloc(0:-56)
+ngx_spawn_process: params cycle@-40*, proc@-48*, data@-56*, name@-64*, respawn@-72
+    0x3b806 call ngx_log_error_core()
+    0x3b896 call ngx_log_error_core()
+    0x3b8c5 call ngx_nonblocking()
+    0x3b90a call ngx_log_error_core()
+    0x3b93c call ngx_close_channel()
+    0x3b96b call ngx_nonblocking()
+    0x3b9b0 call ngx_log_error_core()
+    0x3b9e2 call ngx_close_channel()
+    0x3ba6c call ngx_log_error_core()
+    0x3ba9e call ngx_close_channel()
+    0x3bb24 call ngx_log_error_core()
+    0x3bb56 call ngx_close_channel()
+    0x3bbd9 call ngx_log_error_core()
+    0x3bc0b call ngx_close_channel()
+    0x3bc8e call ngx_log_error_core()
+    0x3bcc0 call ngx_close_channel()
+    0x3bd9c call ngx_log_error_core()
+    0x3bdce call ngx_close_channel()
+    0x3be3c call ngx_log_error_core()
+ngx_sprintf: params buf@-232*, fmt@-240*
+    0x16446 call ngx_vslprintf(0:-232, 2:-240, 3:&-208)
+ngx_sprintf_num: params buf@-72*, last@-80*, ui64@-88, zero@-92, hexadecimal@-104, width@-112
+ngx_start_cache_manager_processes: params cycle@-88*, respawn@-96
+    0x3e517 call ngx_spawn_process(0:-88)
+    0x3e585 call ngx_pass_open_channel(0:-88, 1:&-48)
+    0x3e5cb call ngx_spawn_process(0:-88)
+    0x3e639 call ngx_pass_open_channel(0:-88, 1:&-48)
+ngx_start_worker_processes: params cycle@-72*, n@-80, type@-88
+    0x3e351 call ngx_log_error_core()
+    0x3e38b call ngx_spawn_process(0:-72, 2:-56, 4:-88)
+    0x3e3f1 call ngx_pass_open_channel(0:-72, 1:&-48)
+ngx_str_rbtree_lookup: params rbtree@-40*, val@-48*, hash@-52
+ngx_strcasecmp: params s1@-24*, s2@-32*
+ngx_strerror: params err@-20, errstr@-32*, size@-40
+ngx_strerror_init: params -
+    0x39170 call ngx_log_stderr()
+ngx_strlow: params dst@-8*, src@-16*, n@-24
+ngx_strncasecmp: params s1@-24*, s2@-32*, n@-40
+ngx_tcp_push: params s@-20
+ngx_test_lockfile: params file@-8*, log@-16*
+ngx_time_init: params -
+    0x200a4 call ngx_time_update()
+ngx_time_sigsafe_update: params -
+    0x2081e call ngx_gmtime(1:&-64)
+    0x2086f call ngx_sprintf(0:-88)
+ngx_time_update: params -
+    0x2024b call ngx_gmtime(0:-216, 1:&-80)
+    0x202da call ngx_sprintf(0:-192)
+    0x202f7 call ngx_localtime(0:-216, 1:&-144)
+    0x2039f call ngx_sprintf(0:-184)
+    0x2051c call ngx_sprintf(0:-176)
+    0x2067e call ngx_sprintf(0:-168)
+ngx_timezone_update: params -
+ngx_trylock_accept_mutex: params cycle@-8*
+    0x36789 call ngx_shmtx_trylock()
+    0x367ca call ngx_enable_accept_events(0:-8)
+    0x367dc call ngx_shmtx_unlock()
+    0x3681a call ngx_disable_accept_events(0:-8)
+ngx_udp_connect: params uc@-56*
+    0x2fb99 call ngx_log_error_core()
+    0x2fbba call ngx_get_connection(0:-40)
+    0x2fc09 call ngx_log_error_core()
+    0x2fc1f call ngx_nonblocking(0:-40)
+    0x2fc5d call ngx_log_error_core()
+    0x2fc69 call ngx_free_connection(0:-32)
+    0x2fcad call ngx_log_error_core()
+    0x2fd75 call ngx_log_error_core()
+ngx_utf8_cpystrn: params dst@-40*, src@-48*, n@-56, len@-64
+    0x18d4e call ngx_utf8_decode(0:&-16, 1:-64)
+ngx_utf8_decode: params p@-40*, n@-48
+ngx_utf8_length: params p@-40*, n@-48
+    0x18c99 call ngx_utf8_decode(0:&-40, 1:-48)
+ngx_vslprintf: params buf@-152*, last@-160*, fmt@-168*, args@-176*
+    0x17515 call ngx_sprintf_num(0:-152, 1:-160, 2:-104, 3:-141, 5:-88)
+    0x17574 call ngx_sprintf_num(0:-152, 1:-160, 2:-96, 5:-56)
+    0x177ff call ngx_sprintf_num(0:-152, 1:-160, 2:-104, 3:-141, 4:-72, 5:-88)
+ngx_wakeup_worker_thread: params cycle@-8*
+ngx_write_channel: params s@-132, ch@-144*, size@-152, log@-160*
+    0x3b16d call ngx_log_error_core(1:-160, 2:-124)
+ngx_write_file: params file@-40*, buf@-48*, size@-56, offset@-64
+    0x39428 call ngx_log_error_core()
+ngx_write_stderr: params text@-8*
+    0xe33a call ngx_write_fd()

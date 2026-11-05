@@ -1,0 +1,64 @@
+file: benchmarks/tiny.c - line_num: 274 - fun_name: parse_request
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i64 0, i64* %offset, align 8, !dbg !98
+
+file: benchmarks/tiny.c - line_num: 286 - fun_name: parse_request
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %12 = load i64, i64* %end29, align 8, !dbg !139
+
+file: benchmarks/tiny.c - line_num: 286 - fun_name: parse_request
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %14 = load i64, i64* %end33, align 8, !dbg !144
+
+file: benchmarks/tiny.c - line_num: 286 - fun_name: parse_request
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %inc = add i64 %14, 1, !dbg !144
+
+file: benchmarks/tiny.c - line_num: 286 - fun_name: parse_request
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i64 %inc, i64* %end33, align 8, !dbg !144
+
+file: benchmarks/tiny.c - line_num: 275 - fun_name: parse_request
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i64 0, i64* %end, align 8, !dbg !101
+
+file: benchmarks/tiny.c - line_num: 71 - fun_name: rio_readinitb
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8* %arraydecay, i8** %rio_bufptr, align 8, !dbg !83
+
+file: benchmarks/tiny.c - line_num: 70 - fun_name: rio_readinitb
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i32 0, i32* %rio_cnt, align 4, !dbg !78
+
+file: benchmarks/tiny.c - line_num: 69 - fun_name: rio_readinitb
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i32 %0, i32* %rio_fd, align 8, !dbg !75
+
+file: benchmarks/tiny.c - line_num: 309 - fun_name: log_access
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i32, i32* %coerce.dive, align 4, !dbg !99
+
+file: benchmarks/tiny.c - line_num: 310 - fun_name: log_access
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i16, i16* %sin_port, align 2, !dbg !101
+
+file: benchmarks/tiny.c - line_num: 86 - fun_name: writen
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub i64 %8, %7, !dbg !100
+
+file: benchmarks/tiny.c - line_num: 79 - fun_name: writen
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %cmp, label %while.body, label %while.end, !dbg !78
+
+file: benchmarks/tiny.c - line_num: 265 - fun_name: url_decode
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 %12, i8* %13, align 1, !dbg !97
+
+file: benchmarks/tiny.c - line_num: 262 - fun_name: url_decode
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 %conv5, i8* %9, align 1, !dbg !90
+
+file: benchmarks/tiny.c - line_num: 268 - fun_name: url_decode
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 0, i8* %14, align 1, !dbg !101
+

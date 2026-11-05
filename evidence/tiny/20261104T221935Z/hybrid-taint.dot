@@ -1,0 +1,35 @@
+digraph "tiny" {
+  rankdir=LR; node [shape=box, style=filled, fontname=Helvetica];
+  subgraph cluster_legend { label="found by"; fontname=Helvetica; "both" [fillcolor="#7fc97f"]; "DTA only" [fillcolor="#fdc086"]; "SUTURE only" [fillcolor="#beaed4"]; "neither" [fillcolor="#ffffff"]; }
+  "rio_readinitb" [fillcolor="#7fc97f"];
+  "writen" [fillcolor="#7fc97f"];
+  "rio_read" [fillcolor="#fdc086"];
+  "rio_readlineb" [fillcolor="#fdc086"];
+  "format_size" [fillcolor="#fdc086"];
+  "handle_directory_request" [fillcolor="#fdc086"];
+  "get_mime_type" [fillcolor="#ffffff"];
+  "open_listenfd" [fillcolor="#fdc086"];
+  "url_decode" [fillcolor="#7fc97f"];
+  "parse_request" [fillcolor="#7fc97f"];
+  "log_access" [fillcolor="#7fc97f"];
+  "client_error" [fillcolor="#ffffff"];
+  "serve_static" [fillcolor="#ffffff"];
+  "process" [fillcolor="#fdc086"];
+  "main" [fillcolor="#ffffff"];
+  "client_error" -> "writen";
+  "handle_directory_request" -> "format_size";
+  "handle_directory_request" -> "writen";
+  "main" -> "open_listenfd";
+  "main" -> "process";
+  "parse_request" -> "rio_readinitb";
+  "parse_request" -> "rio_readlineb";
+  "parse_request" -> "url_decode";
+  "process" -> "client_error";
+  "process" -> "handle_directory_request";
+  "process" -> "log_access";
+  "process" -> "parse_request";
+  "process" -> "serve_static";
+  "rio_readlineb" -> "rio_read";
+  "serve_static" -> "get_mime_type";
+  "serve_static" -> "writen";
+}

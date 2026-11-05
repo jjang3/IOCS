@@ -1,0 +1,2 @@
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1

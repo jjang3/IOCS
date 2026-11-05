@@ -1,0 +1,4 @@
+compartments: 2 (slots the rewritten code uses)
+table slots: 2 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 print_factors -24(%rbp) t1
+used      1 strto2uintmax -72(%rbp) s

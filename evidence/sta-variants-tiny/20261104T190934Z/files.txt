@@ -1,0 +1,6 @@
+env.txt
+summary.txt
+tiny_iocs.taint
+tiny_o0mem2reg.taint
+tiny_o1.taint
+variants.log

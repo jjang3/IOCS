@@ -1,0 +1,4 @@
+$ C ls check
+[ls] original: exit 0 verify n/a | iocs+table.so: exit 0 verify n/a stdout-identical yes | without table.so: exit 139
+
+[exit 0]

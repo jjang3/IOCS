@@ -1,0 +1,2 @@
+# Workload for factor: three integers (one prime, one composite, one large prime).
+DTA_ARGS=(123456789 97 1000000007)

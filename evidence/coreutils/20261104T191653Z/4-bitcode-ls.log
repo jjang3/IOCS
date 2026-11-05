@@ -1,0 +1,4 @@
+$ D bash benchmarks/coreutils/coreutils.sh ls bitcode
+ls: 301004 bytes of bitcode
+
+[exit 0]

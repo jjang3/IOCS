@@ -1,0 +1,21 @@
+coreutils 8.31, workloads benchmarks/coreutils/<u>.dta.args, rewrite mode: every local variable of
+the functions executed under DTA, in every object of the program (--directory mode).
+
+utility       LoC   fns(DTA)    fns(rw)  compartments redirected  syncs   SUTURE   check: orig/iocs exit, stdout same, no-table exit
+basename      190         14          2             4         11      0        3   0 n/a 0 n/a yes 139
+pwd           394          9          1            32         12     38        0   0 n/a 0 n/a yes 139
+wc            895         25          8            46        238     59       70   0 n/a 0 n/a yes 139
+cp           1226         42         16           204        412   4431       49   0 ok 0 ok yes 139
+factor       2661         28         17           124        523    167       19   0 n/a 0 n/a yes 139
+ls           5310         96         43           192        537    436       27   0 n/a 0 n/a yes 139
+
+LoC: lines of src/<u>.c. fns(DTA): distinct functions in the PIN trace (includes libcoreutils).
+fns(rw): of those, functions defined in the program's own objects (the rewriter's scope).
+compartments: slots the rewritten code uses (tree mode: compartments.txt, which lists the table's unused,
+placeholder and padding slots apart; directory mode: slots in table.c). redirected: accesses through a
+compartment page. syncs: stack -> page copies after calls and writes the rewriter cannot name
+(scripts/count_sites.sh).
+SUTURE: warnings in <u>.vuln.
+Paper Table 1 (LoC / variables / functions): basename 191/5/1, pwd 395/12/8, wc 875/39/7,
+cp 1227/28/7, factor 2662/216/42, ls 5309/154/91.
+result:            PASS

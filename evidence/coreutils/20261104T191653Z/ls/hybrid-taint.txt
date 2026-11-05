@@ -1,0 +1,409 @@
+Hybrid taint report for ls
+  DTA: 96 functions executed on the input path (697 calls)
+  SUTURE: 32 entry functions configured; warnings in 6 functions (27 warnings); taint propagated into 28 functions
+
+'found by' counts SUTURE as finding a function when SUTURE reports a warning in it (the
+functions named in its report, .taint/.vuln). 'taint flows' counts the flows SUTURE's log
+shows propagating into the function, whether or not a detector warned there.
+
+function                     DTA calls  SUTURE entry     warnings  taint flows  found by
+attach                               7  MY_IOCTL 0_2           16           73  both
+file_has_acl_cache                   8  MY_IOCTL 0_1            2           63  both
+gobble_file                          8  MY_IOCTL 0_4            2          690  both
+make_link_name                       1  MY_IOCTL 0_1            3           81  both
+abformat_init                        1                          0            1  DTA only
+abmon_init                           1                          0           16  DTA only
+align_nstrftime                      7                          0            0  DTA only
+areadlink_with_size                  1  MY_IOCTL 0_1            0            0  DTA only
+argmatch                             1                          0            0  DTA only
+atexit                               1                          0            0  DTA only
+bad_cast                             1                          0            0  DTA only
+clear_files                          2                          0            0  DTA only
+clone_quoting_options                2                          0            0  DTA only
+close_stream                         2                          0            0  DTA only
+cmp_name                            10                          0            0  DTA only
+decode_switches                      1  MY_IOCTL 0_1            0          201  DTA only
+default_block_size                   1                          0            0  DTA only
+dir_len                              1  MY_IOCTL 0_0            0            0  DTA only
+errno_unsupported                    9                          0           36  DTA only
+extend_abbrs                         1                          0            0  DTA only
+extract_dirs_from_files              1                          0            0  DTA only
+file_has_acl                         8                          0            0  DTA only
+file_ignored                         7                          0            0  DTA only
+filemodestring                       7                          0            0  DTA only
+first_percent_b                      2                          0            0  DTA only
+format_group                         7                          0            0  DTA only
+format_group_width                   8                          0           18  DTA only
+format_user                          7                          0            0  DTA only
+format_user_or_group                14                          0            0  DTA only
+format_user_or_group_width          16                          0           24  DTA only
+format_user_width                    8                          0           36  DTA only
+free_ent                             1                          0            0  DTA only
+free_pending_ent                     1                          0            0  DTA only
+ftypelet                             7                          0            0  DTA only
+get_link_name                        1  MY_IOCTL 0_2            0           40  DTA only
+get_quoting_style                    9                          0            0  DTA only
+get_stat_mtime                       7                          0            0  DTA only
+getenv_TZ                            7                          0            0  DTA only
+getenv_quoting_style                 1                          0            0  DTA only
+getfilecon_cache                     8  MY_IOCTL 0_2            0           59  DTA only
+getgroup                            15                          0            0  DTA only
+gettime                              1                          0            0  DTA only
+getuser                             15                          0            0  DTA only
+gnu_mbswidth                        38                          0            0  DTA only
+hard_locale                          1                          0            0  DTA only
+human_options                        1                          0            0  DTA only
+human_readable                      24                          0            0  DTA only
+humblock                             1                          0            0  DTA only
+initialize_exit_failure              1                          0            0  DTA only
+initialize_ordering_vector           2                          0            0  DTA only
+is_ENOTSUP                          17                          0           21  DTA only
+is_directory                         1                          0            0  DTA only
+last_component                       1  MY_IOCTL 0_0            0            0  DTA only
+lgetfilecon                          1                          0            0  DTA only
+localtime_rz                         7                          0            0  DTA only
+mbs_align_pad                       48                          0            0  DTA only
+mbsalign                            24                          0            0  DTA only
+mbsnwidth                           38                          0            0  DTA only
+mpsort                               2                          0            0  DTA only
+mpsort_into_tmp                      2                          0            0  DTA only
+mpsort_with_tmp                      8                          0            0  DTA only
+nstrftime                            7                          0            0  DTA only
+patterns_match                       7                          0            0  DTA only
+print_current_files                  1                          0            0  DTA only
+print_dir                            1                          0            0  DTA only
+print_long_format                    7                          0            0  DTA only
+print_name_with_quoting              8                          0            0  DTA only
+process_signals                     15                          0            0  DTA only
+queue_directory                      1                          0            0  DTA only
+quote_name                           8                          0            0  DTA only
+quote_name_buf                       8                          0            0  DTA only
+quotearg_buffer                      8  MY_IOCTL 0_4            0            0  DTA only
+quotearg_buffer_restyled             8  MY_IOCTL 0_8            0            0  DTA only
+revert_tz                            7                          0            0  DTA only
+rpl_fclose                           2                          0            0  DTA only
+rpl_fflush                           2                          0            0  DTA only
+save_abbr                            7                          0            0  DTA only
+set_char_quoting                     1                          0            0  DTA only
+set_normal_color                     7                          0            0  DTA only
+set_program_name                     1  MY_IOCTL 0_0            0            0  DTA only
+set_tz                               7                          0            0  DTA only
+sort_files                           2                          0            0  DTA only
+strmode                              7                          0            0  DTA only
+timespec_cmp                        21                          0            0  DTA only
+to_uchar                            24                          0            2  DTA only
+tzalloc                              1                          0            0  DTA only
+umaxtostr                           15                          0            0  DTA only
+unsigned_file_size                  15                          0           32  DTA only
+xmalloc                             18  MY_IOCTL 0_0            0            0  DTA only
+xmemdup                             11  MY_IOCTL 0_1            0            0  DTA only
+xnmalloc                             3                          0            0  DTA only
+xstrdup                              9  MY_IOCTL 0_0            0            0  DTA only
+has_capability_cache                 0  MY_IOCTL 0_1            2           55  SUTURE only
+needs_quoting                        0  MY_IOCTL 0_0            2           49  SUTURE only
+add_ignore_pattern                   0                          0           11  neither
+adjust_value                         0                          0            0  neither
+allocate_entry                       0                          0            0  neither
+ambsalign                            0                          0            0  neither
+argmatch_invalid                     0                          0            0  neither
+argmatch_to_argument                 0                          0            0  neither
+argmatch_valid                       0                          0            0  neither
+base_len                             0                          0            0  neither
+basename_is_dot_or_dotdot            0                          0            0  neither
+bkm_scale                            0                          0            0  neither
+bkm_scale_by_power                   0                          0            0  neither
+c_isalnum                            0                          0            0  neither
+c_isalpha                            0                          0            0  neither
+c_isascii                            0                          0            0  neither
+c_isblank                            0                          0            0  neither
+c_iscntrl                            0                          0            0  neither
+c_isdigit                            0                          0            0  neither
+c_isgraph                            0                          0            0  neither
+c_islower                            0                          0            0  neither
+c_isprint                            0                          0            0  neither
+c_ispunct                            0                          0            0  neither
+c_isspace                            0                          0            0  neither
+c_isupper                            0                          0            0  neither
+c_isxdigit                           0                          0            0  neither
+c_strcasecmp                         0                          0            0  neither
+c_strncasecmp                        0                          0            0  neither
+c_tolower                            0                          0            0  neither
+c_toupper                            0                          0            0  neither
+calculate_columns                    0                          0            0  neither
+call_chunkfun                        0                          0            0  neither
+call_freefun                         0                          0            0  neither
+canonicalize_filename_mode           0  MY_IOCTL 0_1            0            0  neither
+change_env                           0                          0            0  neither
+check_tuning                         0                          0            0  neither
+clear_ungetc_buffer_preserving_position         0                          0            0  neither
+close_stdout                         0                          0            0  neither
+close_stdout_set_file_name           0                          0            0  neither
+close_stdout_set_ignore_EPIPE         0                          0            0  neither
+cmp_atime                            0                          0            0  neither
+cmp_ctime                            0                          0            0  neither
+cmp_extension                        0                          0            0  neither
+cmp_mtime                            0                          0            0  neither
+cmp_size                             0                          0            0  neither
+cmp_version                          0                          0            0  neither
+compute_bucket_size                  0                          0            0  neither
+current_timespec                     0                          0            0  neither
+dev_ino_compare                      0                          0            0  neither
+dev_ino_free                         0                          0            0  neither
+dev_ino_hash                         0                          0            0  neither
+dev_ino_pop                          0                          0            0  neither
+dev_ino_push                         0                          0            0  neither
+dir_name                             0                          0            0  neither
+dired_dump_obstack                   0                          0            0  neither
+dot_or_dotdot                        0                          0            0  neither
+emit_ancillary_info                  0                          0            3  neither
+emit_bug_reporting_address           0                          0            0  neither
+emit_mandatory_arg_note              0                          0            3  neither
+emit_size_note                       0                          0            3  neither
+equal_tm                             0                          0            0  neither
+fgetfilecon                          0                          0            0  neither
+file_escape                          0                          0            0  neither
+file_escape_init                     0                          0            0  neither
+file_failure                         0  MY_IOCTL 0_2            0           25  neither
+file_name_concat                     0                          0            0  neither
+filevercmp                           0                          0            0  neither
+format_inode                         0                          0            0  neither
+free_entry                           0                          0            0  neither
+freecon                              0                          0            0  neither
+fsetfilecon                          0                          0            0  neither
+fstatat                              0                          0            0  neither
+get_color_indicator                  0                          0            0  neither
+get_funky_string                     0                          0            0  neither
+get_stat_atime                       0                          0            0  neither
+get_stat_atime_ns                    0                          0            0  neither
+get_stat_birthtime                   0                          0            0  neither
+get_stat_birthtime_ns                0                          0            0  neither
+get_stat_ctime                       0                          0            0  neither
+get_stat_ctime_ns                    0                          0            0  neither
+get_stat_mtime_ns                    0                          0            0  neither
+get_type_indicator                   0                          0            0  neither
+getcon                               0                          0            0  neither
+getfilecon                           0                          0            0  neither
+getfscreatecon                       0                          0            0  neither
+getgidbyname                         0                          0            0  neither
+gettext_quote                        0                          0            0  neither
+getuidbyname                         0                          0            0  neither
+group_number                         0                          0            0  neither
+has_capability                       0                          0            4  neither
+hash_clear                           0                          0            0  neither
+hash_delete                          0                          0            0  neither
+hash_do_for_each                     0                          0            0  neither
+hash_find_entry                      0                          0            0  neither
+hash_free                            0                          0            0  neither
+hash_get_entries                     0                          0            0  neither
+hash_get_first                       0                          0            0  neither
+hash_get_max_bucket_length           0                          0            0  neither
+hash_get_n_buckets                   0                          0            0  neither
+hash_get_n_buckets_used              0                          0            0  neither
+hash_get_n_entries                   0                          0            0  neither
+hash_get_next                        0                          0            0  neither
+hash_initialize                      0                          0            0  neither
+hash_insert                          0                          0            0  neither
+hash_insert_if_absent                0                          0            0  neither
+hash_lookup                          0                          0            0  neither
+hash_pjw                             0                          0            0  neither
+hash_print_statistics                0                          0            0  neither
+hash_rehash                          0                          0            0  neither
+hash_reset_tuning                    0                          0            0  neither
+hash_string                          0                          0            0  neither
+hash_table_ok                        0                          0            0  neither
+imaxtostr                            0                          0            0  neither
+indent                               0                          0            0  neither
+init_column_info                     0                          0            0  neither
+is_colored                           0                          0           96  neither
+is_linked_directory                  0                          0            0  neither
+is_prime                             0                          0            0  neither
+is_smack_enabled                     0                          0            0  neither
+isdst_differ                         0                          0            0  neither
+iso_week_days                        0                          0            0  neither
+known_term_type                      0                          0            0  neither
+length_of_file_name_and_frills         0                          0            0  neither
+locale_charset                       0                          0            0  neither
+long_time_expected_width             0                          0            0  neither
+lsetfilecon                          0                          0            0  neither
+main                                 0                          0            0  neither
+make_timespec                        0                          0            0  neither
+match_suffix                         0                          0            0  neither
+matchpathcon                         0                          0            0  neither
+matchpathcon_init_prefix             0                          0            0  neither
+mdir_name                            0                          0            0  neither
+memcpy_lowcase                       0                          0            0  neither
+memcpy_uppcase                       0                          0            0  neither
+mfile_name_concat                    0                          0            0  neither
+mktime_z                             0                          0            0  neither
+next_prime                           0                          0            0  neither
+order                                0                          0            0  neither
+parse_ls_color                       0                          0            0  neither
+prep_non_filename_text               0                          0            0  neither
+print_and_abort                      0                          0            0  neither
+print_color_indicator                0                          0            0  neither
+print_file_name_and_frills           0                          0            0  neither
+print_horizontal                     0                          0            0  neither
+print_many_per_line                  0                          0            0  neither
+print_type_indicator                 0                          0            0  neither
+print_with_separator                 0                          0            0  neither
+put_indicator                        0                          0            0  neither
+quote                                0                          0            0  neither
+quote_mem                            0                          0            0  neither
+quote_n                              0                          0            0  neither
+quote_n_mem                          0                          0            0  neither
+quote_name_width                     0                          0            0  neither
+quotearg                             0                          0            0  neither
+quotearg_alloc                       0                          0            0  neither
+quotearg_alloc_mem                   0                          0            0  neither
+quotearg_char                        0                          0            0  neither
+quotearg_char_mem                    0                          0            0  neither
+quotearg_colon                       0                          0            0  neither
+quotearg_colon_mem                   0                          0            0  neither
+quotearg_custom                      0                          0            0  neither
+quotearg_custom_mem                  0                          0            0  neither
+quotearg_free                        0                          0            0  neither
+quotearg_mem                         0                          0            0  neither
+quotearg_n                           0                          0            0  neither
+quotearg_n_custom                    0                          0            0  neither
+quotearg_n_custom_mem                0                          0            0  neither
+quotearg_n_mem                       0                          0            0  neither
+quotearg_n_options                   0  MY_IOCTL 0_3            0            0  neither
+quotearg_n_style                     0  MY_IOCTL 0_2            0            0  neither
+quotearg_n_style_colon               0  MY_IOCTL 0_2            0            0  neither
+quotearg_n_style_mem                 0                          0            0  neither
+quotearg_style                       0  MY_IOCTL 0_1            0            0  neither
+quotearg_style_mem                   0                          0            0  neither
+quoting_options_from_style           0                          0            0  neither
+raw_comparator                       0                          0            0  neither
+raw_hasher                           0                          0            0  neither
+record_file                          0  MY_IOCTL 0_2            0            0  neither
+restore_default_color                0                          0            0  neither
+rev_strcmp_atime                     0                          0            0  neither
+rev_strcmp_ctime                     0                          0            0  neither
+rev_strcmp_df_atime                  0                          0            0  neither
+rev_strcmp_df_ctime                  0                          0            0  neither
+rev_strcmp_df_extension              0                          0            0  neither
+rev_strcmp_df_mtime                  0                          0            0  neither
+rev_strcmp_df_name                   0                          0            0  neither
+rev_strcmp_df_size                   0                          0            0  neither
+rev_strcmp_extension                 0                          0            0  neither
+rev_strcmp_mtime                     0                          0            0  neither
+rev_strcmp_name                      0                          0            0  neither
+rev_strcmp_size                      0                          0            0  neither
+rev_xstrcoll_atime                   0                          0            0  neither
+rev_xstrcoll_ctime                   0                          0            0  neither
+rev_xstrcoll_df_atime                0                          0            0  neither
+rev_xstrcoll_df_ctime                0                          0            0  neither
+rev_xstrcoll_df_extension            0                          0            0  neither
+rev_xstrcoll_df_mtime                0                          0            0  neither
+rev_xstrcoll_df_name                 0                          0            0  neither
+rev_xstrcoll_df_size                 0                          0            0  neither
+rev_xstrcoll_df_version              0                          0            0  neither
+rev_xstrcoll_extension               0                          0            0  neither
+rev_xstrcoll_mtime                   0                          0            0  neither
+rev_xstrcoll_name                    0                          0            0  neither
+rev_xstrcoll_size                    0                          0            0  neither
+rev_xstrcoll_version                 0                          0            0  neither
+rotl16                               0                          0            0  neither
+rotl32                               0                          0            0  neither
+rotl64                               0                          0            0  neither
+rotl8                                0                          0            0  neither
+rotl_sz                              0                          0            0  neither
+rotr16                               0                          0            0  neither
+rotr32                               0                          0            0  neither
+rotr64                               0                          0            0  neither
+rotr8                                0                          0            0  neither
+rotr_sz                              0                          0            0  neither
+rpl_fseeko                           0                          0            0  neither
+rpl_mbrtowc                          0  MY_IOCTL 0_3            0            0  neither
+safe_hasher                          0                          0            0  neither
+same_name                            0                          0            0  neither
+same_nameat                          0                          0            0  neither
+security_check_context               0                          0            0  neither
+security_check_context_raw           0                          0            0  neither
+security_compute_create              0                          0            0  neither
+seen_file                            0  MY_IOCTL 0_2            0            0  neither
+seen_triple                          0  MY_IOCTL 0_2            0            0  neither
+set_custom_quoting                   0                          0            0  neither
+set_exit_status                      0                          0           28  neither
+set_line_length                      0                          0            6  neither
+set_quoting_flags                    0                          0            0  neither
+set_quoting_style                    0                          0            0  neither
+setenv_TZ                            0                          0            0  neither
+setexeccon                           0                          0            0  neither
+setfilecon                           0                          0            0  neither
+setfscreatecon                       0                          0            0  neither
+sighandler                           0                          0            0  neither
+signal_init                          0                          0            0  neither
+signal_restore                       0                          0            0  neither
+signal_setup                         0                          0            0  neither
+stat_time_normalize                  0                          0            0  neither
+stophandler                          0                          0            0  neither
+strcmp_atime                         0                          0            0  neither
+strcmp_ctime                         0                          0            0  neither
+strcmp_df_atime                      0                          0            0  neither
+strcmp_df_ctime                      0                          0            0  neither
+strcmp_df_extension                  0                          0            0  neither
+strcmp_df_mtime                      0                          0            0  neither
+strcmp_df_name                       0                          0            0  neither
+strcmp_df_size                       0                          0            0  neither
+strcmp_extension                     0                          0            0  neither
+strcmp_mtime                         0                          0            0  neither
+strcmp_name                          0                          0            0  neither
+strcmp_size                          0                          0            0  neither
+string_to_security_class             0                          0            0  neither
+timespec_sign                        0                          0            0  neither
+timespectod                          0                          0            0  neither
+timetostr                            0                          0            0  neither
+transfer_entries                     0                          0            0  neither
+triple_compare                       0                          0            0  neither
+triple_compare_ino_str               0                          0            0  neither
+triple_free                          0                          0            0  neither
+triple_hash                          0                          0            0  neither
+triple_hash_no_name                  0                          0            0  neither
+tzfree                               0                          0            0  neither
+usage                                0                          0          108  neither
+verrevcmp                            0                          0            0  neither
+version_etc                          0                          0            0  neither
+version_etc_ar                       0                          0            0  neither
+version_etc_arn                      0                          0            0  neither
+version_etc_va                       0                          0            0  neither
+visit_dir                            0                          0            0  neither
+wc_ensure_printable                  0                          0            0  neither
+wc_truncate                          0                          0            0  neither
+x2nrealloc                           0                          0            0  neither
+x2realloc                            0                          0            0  neither
+xalloc_die                           0                          0            0  neither
+xcalloc                              0                          0            0  neither
+xcharalloc                           0  MY_IOCTL 0_0            0            0  neither
+xdectoumax                           0                          0            0  neither
+xgetcwd                              0                          0            0  neither
+xgethostname                         0                          0            0  neither
+xnrealloc                            0                          0            0  neither
+xnumtoumax                           0                          0            0  neither
+xrealloc                             0  MY_IOCTL 0_1            0            0  neither
+xstrcoll                             0                          0            0  neither
+xstrcoll_atime                       0                          0            0  neither
+xstrcoll_ctime                       0                          0            0  neither
+xstrcoll_df_atime                    0                          0            0  neither
+xstrcoll_df_ctime                    0                          0            0  neither
+xstrcoll_df_extension                0                          0            0  neither
+xstrcoll_df_mtime                    0                          0            0  neither
+xstrcoll_df_name                     0                          0            0  neither
+xstrcoll_df_size                     0                          0            0  neither
+xstrcoll_df_version                  0                          0            0  neither
+xstrcoll_extension                   0                          0            0  neither
+xstrcoll_mtime                       0                          0            0  neither
+xstrcoll_name                        0                          0            0  neither
+xstrcoll_size                        0                          0            0  neither
+xstrcoll_version                     0                          0            0  neither
+xstrtol_error                        0                          0            0  neither
+xstrtol_fatal                        0                          0            0  neither
+xstrtoul                             0                          0            0  neither
+xstrtoumax                           0                          0            0  neither
+xzalloc                              0                          0            0  neither
+
+both: attach, file_has_acl_cache, gobble_file, make_link_name
+DTA only: abformat_init, abmon_init, align_nstrftime, areadlink_with_size, argmatch, atexit, bad_cast, clear_files, clone_quoting_options, close_stream, cmp_name, decode_switches, default_block_size, dir_len, errno_unsupported, extend_abbrs, extract_dirs_from_files, file_has_acl, file_ignored, filemodestring, first_percent_b, format_group, format_group_width, format_user, format_user_or_group, format_user_or_group_width, format_user_width, free_ent, free_pending_ent, ftypelet, get_link_name, get_quoting_style, get_stat_mtime, getenv_TZ, getenv_quoting_style, getfilecon_cache, getgroup, gettime, getuser, gnu_mbswidth, hard_locale, human_options, human_readable, humblock, initialize_exit_failure, initialize_ordering_vector, is_ENOTSUP, is_directory, last_component, lgetfilecon, localtime_rz, mbs_align_pad, mbsalign, mbsnwidth, mpsort, mpsort_into_tmp, mpsort_with_tmp, nstrftime, patterns_match, print_current_files, print_dir, print_long_format, print_name_with_quoting, process_signals, queue_directory, quote_name, quote_name_buf, quotearg_buffer, quotearg_buffer_restyled, revert_tz, rpl_fclose, rpl_fflush, save_abbr, set_char_quoting, set_normal_color, set_program_name, set_tz, sort_files, strmode, timespec_cmp, to_uchar, tzalloc, umaxtostr, unsigned_file_size, xmalloc, xmemdup, xnmalloc, xstrdup
+SUTURE only: has_capability_cache, needs_quoting
+SUTURE taint reached but no warning: abformat_init, abmon_init, add_ignore_pattern, decode_switches, emit_ancillary_info, emit_mandatory_arg_note, emit_size_note, errno_unsupported, file_failure, format_group_width, format_user_or_group_width, format_user_width, get_link_name, getfilecon_cache, has_capability, is_ENOTSUP, is_colored, set_exit_status, set_line_length, to_uchar, unsigned_file_size, usage

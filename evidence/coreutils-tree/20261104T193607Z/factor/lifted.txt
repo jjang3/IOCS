@@ -1,0 +1,4 @@
+# Tainted pointer parameters: lifted to the caller objects they point to, or kept in their
+# own slot (why). Variables without a compartment: kept-on-stack lines.
+lifted: strto2uintmax hip@-56 -> print_factors:-24(t1)
+own slot: strto2uintmax s@-72 (call of print_factors at 0x695d: do_stdin passes the value at -24 (no DWARF variable))

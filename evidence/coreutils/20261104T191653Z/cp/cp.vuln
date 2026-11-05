@@ -1,0 +1,196 @@
+file: src/cp.c - line_num: 600 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %unlink_dest_before_opening, align 1, !dbg !221
+
+file: src/cp.c - line_num: 690 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %60 = load i8, i8* %verbose, align 2, !dbg !359
+
+file: src/cp.c - line_num: 601 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %unlink_dest_after_failed_open, align 2, !dbg !224
+
+file: src/cp.c - line_num: 755 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %104 = load i8, i8* %unlink_dest_after_failed_open115, align 2, !dbg !456
+
+file: src/cp.c - line_num: 756 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %106 = load i32, i32* %backup_type, align 8, !dbg !459
+
+file: src/cp.c - line_num: 762 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %113 = load i32, i32* %backup_type132, align 8, !dbg !471
+
+file: src/cp.c - line_num: 635 - fun_name: do_copy
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub37 = sub nsw i32 %31, 1, !dbg !282
+
+file: src/cp.c - line_num: 635 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %32 = load i8*, i8** %arrayidx39, align 8, !dbg !282
+
+file: src/cp.c - line_num: 633 - fun_name: do_copy
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %dec = add nsw i32 %27, -1, !dbg !275
+
+file: src/cp.c - line_num: 625 - fun_name: do_copy
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub nsw i32 %16, 1, !dbg !258
+
+file: src/cp.c - line_num: 625 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %17 = load i8*, i8** %arrayidx17, align 8, !dbg !258
+
+file: src/cp.c - line_num: 631 - fun_name: do_copy
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub26 = sub nsw i32 %23, 1, !dbg !270
+
+file: src/cp.c - line_num: 631 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %24 = load i8*, i8** %arrayidx28, align 8, !dbg !268
+
+file: src/cp.c - line_num: 654 - fun_name: do_copy
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %cmp50, label %for.body, label %for.end, !dbg !306
+
+file: src/cp.c - line_num: 461 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %69 = load i8, i8* %preserve_mode56, align 2, !dbg !384
+
+file: src/cp.c - line_num: 461 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %69 = load i8, i8* %preserve_mode56, align 2, !dbg !384
+
+file: src/cp.c - line_num: 409 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %29 = load i8, i8* %preserve_ownership, align 1, !dbg !303
+
+file: src/cp.c - line_num: 409 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %31 = load i8, i8* %preserve_mode, align 2, !dbg !306
+
+file: src/cp.c - line_num: 409 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %29 = load i8, i8* %preserve_ownership, align 1, !dbg !303
+
+file: src/cp.c - line_num: 409 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %31 = load i8, i8* %preserve_mode, align 2, !dbg !306
+
+file: src/cp.c - line_num: 534 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %115 = load i8, i8* %preserve_security_context149, align 1, !dbg !505
+
+file: src/cp.c - line_num: 534 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %tobool153, label %if.then155, label %if.end156, !dbg !511
+
+file: src/cp.c - line_num: 534 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %115 = load i8, i8* %preserve_security_context149, align 1, !dbg !505
+
+file: src/cp.c - line_num: 534 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %tobool153, label %if.then155, label %if.end156, !dbg !511
+
+file: src/cp.c - line_num: 536 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %118 = load i8, i8* %require_preserve_context, align 2, !dbg !510
+
+file: src/cp.c - line_num: 536 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %118 = load i8, i8* %require_preserve_context, align 2, !dbg !510
+
+file: src/cp.c - line_num: 459 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %67 = load i8, i8* %preserve_ownership51, align 1, !dbg !382
+
+file: src/cp.c - line_num: 459 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %67 = load i8, i8* %preserve_ownership51, align 1, !dbg !382
+
+file: src/cp.c - line_num: 532 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %110 = load i8, i8* %set_security_context, align 1, !dbg !496
+
+file: src/cp.c - line_num: 532 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %112 = load i8, i8* %preserve_security_context, align 1, !dbg !499
+
+file: src/cp.c - line_num: 532 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %110 = load i8, i8* %set_security_context, align 1, !dbg !496
+
+file: src/cp.c - line_num: 532 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %112 = load i8, i8* %preserve_security_context, align 1, !dbg !499
+
+file: src/cp.c - line_num: 410 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %33 = load i8, i8* %preserve_timestamps, align 1, !dbg !309
+
+file: src/cp.c - line_num: 410 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %33 = load i8, i8* %preserve_timestamps, align 1, !dbg !309
+
+file: src/cp.c - line_num: 495 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %88 = load i8, i8* %preserve_mode89, align 2, !dbg !426
+
+file: src/cp.c - line_num: 495 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %88 = load i8, i8* %preserve_mode89, align 2, !dbg !426
+
+file: src/cp.c - line_num: 469 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %72 = load i8, i8* %explicit_no_preserve_mode, align 8, !dbg !388
+
+file: src/cp.c - line_num: 469 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %72 = load i8, i8* %explicit_no_preserve_mode, align 8, !dbg !388
+
+file: src/cp.c - line_num: 429 - fun_name: make_dir_parents_private
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast, !dbg !336
+
+file: src/cp.c - line_num: 399 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %22 = load i8, i8* %21, align 1, !dbg !280
+
+file: src/cp.c - line_num: 399 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %cmp4, label %while.body, label %while.end, !dbg !278
+
+file: src/cp.c - line_num: 328 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %51 = load i8, i8* %preserve_mode, align 2, !dbg !316
+
+file: src/cp.c - line_num: 328 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %51 = load i8, i8* %preserve_mode, align 2, !dbg !316
+
+file: src/cp.c - line_num: 297 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %16 = load i8, i8* %preserve_timestamps, align 1, !dbg !256
+
+file: src/cp.c - line_num: 297 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %16 = load i8, i8* %preserve_timestamps, align 1, !dbg !256
+
+file: src/cp.c - line_num: 312 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %37 = load i8, i8* %preserve_ownership, align 1, !dbg !285
+
+file: src/cp.c - line_num: 312 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %37 = load i8, i8* %preserve_ownership, align 1, !dbg !285
+
+file: src/cp.c - line_num: 343 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 47, i8* %arrayidx51, align 1, !dbg !352
+
+file: src/cp.c - line_num: 291 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 0, i8* %arrayidx, align 1, !dbg !253
+

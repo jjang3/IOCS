@@ -1,0 +1,4 @@
+compartments: 2 (slots the rewritten code uses)
+table slots: 2 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 remove_suffix -24(%rbp) name
+used      1 remove_suffix -32(%rbp) suffix

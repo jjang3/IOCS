@@ -1,0 +1,4 @@
+programs smoke-tested: 105, PASS 105
+tests: 616; orig PASS 404, iocs PASS 405
+same result: 613; orig PASS but iocs not: 1
+  tests/misc/env-null FAIL

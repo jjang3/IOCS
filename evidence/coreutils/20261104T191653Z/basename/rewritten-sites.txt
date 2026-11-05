@@ -1,0 +1,11 @@
+basename.s:722: mov_store_gs %rax, 8, 64    <- movq %rax, -16(%rbp)
+basename.s:731: mov_store_gs %rax, 16, 64    <- movq %rax, -8(%rbp)
+basename.s:737: sub_store_gs $1, 8, 64    <- subq $1, -16(%rbp)
+basename.s:740: mov_load_gs %rax, 8, 64    <- # movq -16(%rbp), %rax
+basename.s:744: sub_store_gs $1, 16, 64    <- subq $1, -8(%rbp)
+basename.s:747: mov_load_gs %rax, 16, 64    <- # movq -8(%rbp), %rax
+basename.s:755: mov_load_gs %rax, 8, 64    <- # movq -16(%rbp), %rax
+basename.s:760: mov_load_gs %rax, 16, 64    <- # movq -8(%rbp), %rax
+basename.s:766: mov_load_gs %rax, 8, 64    <- # movq -16(%rbp), %rax
+basename.s:771: mov_load_gs %rax, 8, 64    <- # movq -16(%rbp), %rax
+basename.s:809: mov_store_gs %rax, 0, 64    <- movq %rax, -8(%rbp)

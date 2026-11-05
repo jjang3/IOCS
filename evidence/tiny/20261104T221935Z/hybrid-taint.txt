@@ -1,0 +1,29 @@
+Hybrid taint report for tiny
+  DTA: 11 functions executed on the input path (209 calls)
+  SUTURE: 8 entry functions configured; warnings in 5 functions (16 warnings); taint propagated into 12 functions
+
+'found by' counts SUTURE as finding a function when SUTURE reports a warning in it (the
+functions named in its report, .taint/.vuln). 'taint flows' counts the flows SUTURE's log
+shows propagating into the function, whether or not a detector warned there.
+
+function                     DTA calls  SUTURE entry     warnings  taint flows  found by
+log_access                           2                          2            8  both
+parse_request                        2  MY_IOCTL 0_1            6           27  both
+rio_readinitb                        2  MY_IOCTL 0_1            3           22  both
+url_decode                           2                          3           10  both
+writen                              12  MY_IOCTL 0_2            2           64  both
+format_size                          8                          0            0  DTA only
+handle_directory_request             2  MY_IOCTL 0_2            0           11  DTA only
+open_listenfd                       11  MY_IOCTL 0_0            0            4  DTA only
+process                              2  MY_IOCTL 0_1            0           11  DTA only
+rio_read                           156                          0           12  DTA only
+rio_readlineb                       10                          0            0  DTA only
+client_error                         0  MY_IOCTL 0_3            0           11  neither
+get_mime_type                        0                          0            8  neither
+main                                 0                          0            0  neither
+serve_static                         0  MY_IOCTL 0_3            0           14  neither
+
+both: log_access, parse_request, rio_readinitb, url_decode, writen
+DTA only: format_size, handle_directory_request, open_listenfd, process, rio_read, rio_readlineb
+SUTURE only: 
+SUTURE taint reached but no warning: client_error, get_mime_type, handle_directory_request, open_listenfd, process, rio_read, serve_static

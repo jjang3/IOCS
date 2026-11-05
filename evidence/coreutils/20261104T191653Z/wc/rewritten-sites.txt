@@ -1,0 +1,297 @@
+wc.s:928: mov_store_gs %rax, 344, 64    <- movq %rax, -40(%rbp)
+wc.s:940: lea_store_gs -32(%rbp), 352    <- call umaxtostr@PLT
+wc.s:945: mov_load_gs %rax, 344, 64    <- # movq -40(%rbp), %rax
+wc.s:953: mov_store_gs %rax, 344, 64    <- movq %rax, -40(%rbp)
+wc.s:966: lea_store_gs -32(%rbp), 352    <- call umaxtostr@PLT
+wc.s:971: mov_load_gs %rax, 344, 64    <- # movq -40(%rbp), %rax
+wc.s:979: mov_store_gs %rax, 344, 64    <- movq %rax, -40(%rbp)
+wc.s:992: lea_store_gs -32(%rbp), 352    <- call umaxtostr@PLT
+wc.s:997: mov_load_gs %rax, 344, 64    <- # movq -40(%rbp), %rax
+wc.s:1005: mov_store_gs %rax, 344, 64    <- movq %rax, -40(%rbp)
+wc.s:1018: lea_store_gs -32(%rbp), 352    <- call umaxtostr@PLT
+wc.s:1023: mov_load_gs %rax, 344, 64    <- # movq -40(%rbp), %rax
+wc.s:1031: mov_store_gs %rax, 344, 64    <- movq %rax, -40(%rbp)
+wc.s:1044: lea_store_gs -32(%rbp), 352    <- call umaxtostr@PLT
+wc.s:1049: mov_load_gs %rax, 344, 64    <- # movq -40(%rbp), %rax
+wc.s:1138: mov_store_gs $1, 64, 8    <- movb $1, -16594(%rbp)
+wc.s:1151: mov_store_gs %rax, 152, 64    <- movq %rax, -16472(%rbp)
+wc.s:1154: mov_store_gs $0, 120, 64    <- movq $0, -16536(%rbp)
+wc.s:1157: mov_load_gs %rax, 120, 64    <- # movq -16536(%rbp), %rax
+wc.s:1159: mov_store_gs %rax, 112, 64    <- movq %rax, -16544(%rbp)
+wc.s:1162: mov_load_gs %rax, 112, 64    <- # movq -16544(%rbp), %rax
+wc.s:1164: mov_store_gs %rax, 104, 64    <- movq %rax, -16552(%rbp)
+wc.s:1167: mov_load_gs %rax, 104, 64    <- # movq -16552(%rbp), %rax
+wc.s:1169: mov_store_gs %rax, 96, 64    <- movq %rax, -16560(%rbp)
+wc.s:1172: mov_load_gs %rax, 96, 64    <- # movq -16560(%rbp), %rax
+wc.s:1174: mov_store_gs %rax, 88, 64    <- movq %rax, -16568(%rbp)
+wc.s:1177: lea_store_gs -16584(%rbp), 288    <- call __ctype_get_mb_cur_max@PLT
+wc.s:1184: mov_store_gs %al, 128, 8    <- movb %al, -16593(%rbp)
+wc.s:1188: mov_store_gs %al, 136, 8    <- movb %al, -16592(%rbp)
+wc.s:1210: mov_store_gs %al, 128, 8    <- movb %al, -16593(%rbp)
+wc.s:1212: and_store_gs $1, 128, 8    <- andb $1, -16593(%rbp)
+wc.s:1215: mov_store_gs $0, 136, 8    <- movb $0, -16592(%rbp)
+wc.s:1236: mov_store_gs %al, 144, 8    <- movb %al, -16585(%rbp)
+wc.s:1238: and_store_gs $1, 144, 8    <- andb $1, -16585(%rbp)
+wc.s:1241: movzx_load_gs %eax, 128, 8    <- # movzbl -16593(%rbp), %eax
+wc.s:1248: cmp_store_gs $0, 136, 8    <- cmpb $0, -16592(%rbp)
+wc.s:1256: cmp_store_gs $0, 144, 8    <- cmpb $0, -16585(%rbp)
+wc.s:1266: lea_store_gs -16584(%rbp), 288    <- call fdadvise@PLT
+wc.s:1270: cmp_store_gs $0, 128, 8    <- cmpb $0, -16593(%rbp)
+wc.s:1274: movzx_load_gs %eax, 136, 8    <- # movzbl -16592(%rbp), %eax
+wc.s:1287: movzx_load_gs %eax, 144, 8    <- # movzbl -16585(%rbp), %eax
+wc.s:1295: mov_store_gs $0, 160, 8    <- movb $0, -16591(%rbp)
+wc.s:1309: lea_store_gs -16584(%rbp), 288    <- call fstat@PLT
+wc.s:1313: lea_store_gs -16584(%rbp), 288    <- movl %eax, (%rdx)
+wc.s:1327: lea_store_gs -16584(%rbp), 288    <- call usable_st_size
+wc.s:1343: mov_store_gs %rax, 168, 64    <- movq %rax, -16464(%rbp)
+wc.s:1353: lea_store_gs -16584(%rbp), 288    <- call lseek@PLT
+wc.s:1359: mov_load_gs %rax, 168, 64    <- # movq -16464(%rbp), %rax
+wc.s:1370: cmp_store_gs %rax, 168, 64    <- cmpq %rax, -16464(%rbp)
+wc.s:1376: mov_load_gs %rdx, 168, 64    <- # movq -16464(%rbp), %rdx
+wc.s:1386: mov_store_gs %rax, 112, 64    <- movq %rax, -16544(%rbp)
+wc.s:1389: mov_store_gs $1, 160, 8    <- movb $1, -16591(%rbp)
+wc.s:1420: mov_load_gs %rax, 168, 64    <- # movq -16464(%rbp), %rax
+wc.s:1425: mov_load_gs %rax, 168, 64    <- # movq -16464(%rbp), %rax
+wc.s:1429: mov_store_gs %rax, 176, 64    <- movq %rax, -16456(%rbp)
+wc.s:1445: lea_store_gs -16584(%rbp), 288    <- call lseek@PLT
+wc.s:1451: mov_load_gs %rax, 176, 64    <- # movq -16456(%rbp), %rax
+wc.s:1455: mov_store_gs %rax, 112, 64    <- movq %rax, -16544(%rbp)
+wc.s:1461: movzx_load_gs %eax, 160, 8    <- # movzbl -16591(%rbp), %eax
+wc.s:1473: lea_store_gs -16584(%rbp), 288    <- call fdadvise@PLT
+wc.s:1479: cmp_store_gs $-1, 80, 64    <- cmpq $-1, -16576(%rbp)
+wc.s:1487: lea_store_gs -16584(%rbp), 288    <- call quotearg_n_style_colon@PLT
+wc.s:1491: lea_store_gs -16584(%rbp), 288    <- call __errno_location@PLT
+wc.s:1500: lea_store_gs -16584(%rbp), 288    <- call error@PLT
+wc.s:1503: mov_store_gs $0, 64, 8    <- movb $0, -16594(%rbp)
+wc.s:1513: mov_load_gs %rax, 80, 64    <- # movq -16576(%rbp), %rax
+wc.s:1515: add_store_gs %rax, 112, 64    <- addq %rax, -16544(%rbp)
+wc.s:1524: lea_store_gs -16416(%rbp), 72    <- call safe_read@PLT
+wc.s:1526: lea_store_gs -16584(%rbp), 288    <-
+wc.s:1528: mov_store_gs %rax, 80, 64    <- movq %rax, -16576(%rbp)
+wc.s:1531: cmp_store_gs $0, 80, 64    <- cmpq $0, -16576(%rbp)
+wc.s:1539: movzx_load_gs %eax, 136, 8    <- # movzbl -16592(%rbp), %eax
+wc.s:1546: movzx_load_gs %eax, 144, 8    <- # movzbl -16585(%rbp), %eax
+wc.s:1554: mov_store_gs $0, 184, 8    <- movb $0, -16590(%rbp)
+wc.s:1561: cmp_store_gs $-1, 80, 64    <- cmpq $-1, -16576(%rbp)
+wc.s:1569: lea_store_gs -16584(%rbp), 288    <- call quotearg_n_style_colon@PLT
+wc.s:1573: lea_store_gs -16584(%rbp), 288    <- call __errno_location@PLT
+wc.s:1582: lea_store_gs -16584(%rbp), 288    <- call error@PLT
+wc.s:1585: mov_store_gs $0, 64, 8    <- movb $0, -16594(%rbp)
+wc.s:1597: mov_load_gs %rax, 80, 64    <- # movq -16576(%rbp), %rax
+wc.s:1599: add_store_gs %rax, 112, 64    <- addq %rax, -16544(%rbp)
+wc.s:1604: mov_store_gs %rax, 192, 64    <- movq %rax, -16528(%rbp)
+wc.s:1607: mov_load_gs %rdx, 192, 64    <- # movq -16528(%rbp), %rdx
+wc.s:1609: mov_load_gs %rax, 80, 64    <- # movq -16576(%rbp), %rax
+wc.s:1612: mov_store_gs %rax, 200, 64    <- movq %rax, -16448(%rbp)
+wc.s:1615: mov_load_gs %rax, 88, 64    <- # movq -16568(%rbp), %rax
+wc.s:1617: mov_store_gs %rax, 208, 64    <- movq %rax, -16440(%rbp)
+wc.s:1620: movzx_load_gs %eax, 184, 8    <- # movzbl -16590(%rbp), %eax
+wc.s:1632: mov_store_gs %rdx, 192, 64    <- movq %rdx, -16528(%rbp)
+wc.s:1642: add_store_gs %rax, 88, 64    <- addq %rax, -16568(%rbp)
+wc.s:1653: add_store_gs $1, 192, 64    <- addq $1, -16528(%rbp)
+wc.s:1656: add_store_gs $1, 88, 64    <- addq $1, -16568(%rbp)
+wc.s:1660: mov_load_gs %rax, 200, 64    <- # movq -16448(%rbp), %rax
+wc.s:1668: lea_store_gs -16584(%rbp), 288    <- call memchr@PLT
+wc.s:1670: mov_store_gs %rax, 192, 64    <- movq %rax, -16528(%rbp)
+wc.s:1673: cmp_store_gs $0, 192, 64    <- cmpq $0, -16528(%rbp)
+wc.s:1678: mov_load_gs %rax, 88, 64    <- # movq -16568(%rbp), %rax
+wc.s:1680: sub_load_gs %rax, 208, 64    <- # subq -16440(%rbp), %rax
+wc.s:1684: mov_load_gs %rax, 80, 64    <- # movq -16576(%rbp), %rax
+wc.s:1694: mov_store_gs $1, 184, 8    <- movb $1, -16590(%rbp)
+wc.s:1699: mov_store_gs $0, 184, 8    <- movb $0, -16590(%rbp)
+wc.s:1709: lea_store_gs -16416(%rbp), 72    <- call safe_read@PLT
+wc.s:1711: lea_store_gs -16584(%rbp), 288    <-
+wc.s:1713: mov_store_gs %rax, 80, 64    <- movq %rax, -16576(%rbp)
+wc.s:1716: cmp_store_gs $0, 80, 64    <- cmpq $0, -16576(%rbp)
+wc.s:1724: lea_store_gs -16584(%rbp), 288    <- call __ctype_get_mb_cur_max@PLT
+wc.s:1731: mov_store_gs $0, 216, 8    <- movb $0, -16589(%rbp)
+wc.s:1734: mov_store_gs $0, 224, 64    <- movq $0, -16520(%rbp)
+wc.s:1739: mov_store_gs $0, 248, 8    <- movb $0, -16588(%rbp)
+wc.s:1742: mov_store_gs $0, 256, 64    <- movq $0, -16512(%rbp)
+wc.s:1749: cmp_store_gs $-1, 80, 64    <- cmpq $-1, -16576(%rbp)
+wc.s:1757: lea_store_gs -16584(%rbp), 288    <- call quotearg_n_style_colon@PLT
+wc.s:1761: lea_store_gs -16584(%rbp), 288    <- call __errno_location@PLT
+wc.s:1770: lea_store_gs -16584(%rbp), 288    <- call error@PLT
+wc.s:1773: mov_store_gs $0, 64, 8    <- movb $0, -16594(%rbp)
+wc.s:1778: mov_load_gs %rax, 80, 64    <- # movq -16576(%rbp), %rax
+wc.s:1780: add_store_gs %rax, 112, 64    <- addq %rax, -16544(%rbp)
+wc.s:1785: mov_store_gs %rax, 264, 64    <- movq %rax, -16504(%rbp)
+wc.s:1788: mov_load_gs %rax, 256, 64    <- # movq -16512(%rbp), %rax
+wc.s:1790: add_store_gs %rax, 80, 64    <- addq %rax, -16576(%rbp)
+wc.s:1795: mov_store_gs $1, 304, 8    <- movb $1, -16587(%rbp)
+wc.s:1798: movzx_load_gs %eax, 248, 8    <- # movzbl -16588(%rbp), %eax
+wc.s:1805: mov_load_gs %rax, 264, 64    <- # movq -16504(%rbp), %rax
+wc.s:1811: lea_store_gs -16584(%rbp), 288    <- call is_basic@PLT
+wc.s:1817: mov_store_gs $1, 296, 64    <- movq $1, -16496(%rbp)
+wc.s:1820: mov_load_gs %rax, 264, 64    <- # movq -16504(%rbp), %rax
+wc.s:1825: mov_store_gs %eax, 288, 32    <- movl %eax, -16584(%rbp)
+wc.s:1828: mov_store_gs $0, 304, 8    <- movb $0, -16587(%rbp)
+wc.s:1833: mov_store_gs $1, 248, 8    <- movb $1, -16588(%rbp)
+wc.s:1844: lea_store_gs -16432(%rbp), 232    <- call rpl_mbrtowc@PLT
+wc.s:1845: lea_store_gs -16428(%rbp), 240    <- lea_store_gs -16432(%rbp), 232
+wc.s:1846: lea_store_gs -16584(%rbp), 288    <- lea_store_gs -16428(%rbp), 240
+wc.s:1849: mov_store_gs %rax, 296, 64    <- movq %rax, -16496(%rbp)
+wc.s:1860: cmp_store_gs $-1, 296, 64    <- cmpq $-1, -16496(%rbp)
+wc.s:1864: add_store_gs $1, 264, 64    <- addq $1, -16504(%rbp)
+wc.s:1867: sub_store_gs $1, 80, 64    <- subq $1, -16576(%rbp)
+wc.s:1874: lea_store_gs -16432(%rbp), 232    <- call mbsinit@PLT
+wc.s:1875: lea_store_gs -16428(%rbp), 240    <- lea_store_gs -16432(%rbp), 232
+wc.s:1877: lea_store_gs -16584(%rbp), 288    <-
+wc.s:1883: mov_store_gs $0, 248, 8    <- movb $0, -16588(%rbp)
+wc.s:1887: cmp_store_gs $0, 296, 64    <- cmpq $0, -16496(%rbp)
+wc.s:1891: mov_store_gs $0, 288, 32    <- movl $0, -16584(%rbp)
+wc.s:1894: mov_store_gs $1, 296, 64    <- movq $1, -16496(%rbp)
+wc.s:1898: mov_load_gs %eax, 288, 32    <- # movl -16584(%rbp), %eax
+wc.s:1942: add_store_gs $1, 88, 64    <- addq $1, -16568(%rbp)
+wc.s:1946: mov_load_gs %rax, 224, 64    <- # movq -16520(%rbp), %rax
+wc.s:1952: mov_load_gs %rax, 224, 64    <- # movq -16520(%rbp), %rax
+wc.s:1954: mov_store_gs %rax, 120, 64    <- movq %rax, -16536(%rbp)
+wc.s:1958: mov_store_gs $0, 224, 64    <- movq $0, -16520(%rbp)
+wc.s:1964: mov_load_gs %rax, 224, 64    <- # movq -16520(%rbp), %rax
+wc.s:1968: mov_store_gs %rax, 224, 64    <- movq %rax, -16520(%rbp)
+wc.s:1974: add_store_gs $1, 224, 64    <- addq $1, -16520(%rbp)
+wc.s:1986: movzx_load_gs %eax, 216, 8    <- # movzbl -16589(%rbp), %eax
+wc.s:1988: add_store_gs %rax, 96, 64    <- addq %rax, -16560(%rbp)
+wc.s:1991: mov_store_gs $0, 216, 8    <- movb $0, -16589(%rbp)
+wc.s:1997: cmp_store_gs $0, 304, 8    <- cmpb $0, -16587(%rbp)
+wc.s:2001: mov_load_gs %eax, 288, 32    <- # movl -16584(%rbp), %eax
+wc.s:2004: lea_store_gs -16584(%rbp), 288    <- call iswprint@PLT
+wc.s:2016: mov_load_gs %eax, 288, 32    <- # movl -16584(%rbp), %eax
+wc.s:2019: lea_store_gs -16584(%rbp), 288    <- call wcwidth@PLT
+wc.s:2021: mov_store_gs %eax, 312, 32    <- movl %eax, -16580(%rbp)
+wc.s:2024: cmp_store_gs $0, 312, 32    <- cmpl $0, -16580(%rbp)
+wc.s:2028: mov_load_gs %eax, 312, 32    <- # movl -16580(%rbp), %eax
+wc.s:2031: add_store_gs %rax, 224, 64    <- addq %rax, -16520(%rbp)
+wc.s:2036: mov_load_gs %eax, 288, 32    <- # movl -16584(%rbp), %eax
+wc.s:2039: lea_store_gs -16584(%rbp), 288    <- call iswspace@PLT
+wc.s:2045: mov_load_gs %eax, 288, 32    <- # movl -16584(%rbp), %eax
+wc.s:2048: lea_store_gs -16584(%rbp), 288    <- call iswnbspace
+wc.s:2054: mov_store_gs $1, 216, 8    <- movb $1, -16589(%rbp)
+wc.s:2060: movzx_load_gs %eax, 304, 8    <- # movzbl -16587(%rbp), %eax
+wc.s:2067: lea_store_gs -16584(%rbp), 288    <- call __ctype_b_loc@PLT
+wc.s:2072: mov_load_gs %rax, 264, 64    <- # movq -16504(%rbp), %rax
+wc.s:2078: lea_store_gs -16584(%rbp), 288    <- call to_uchar
+wc.s:2093: add_store_gs $1, 224, 64    <- addq $1, -16520(%rbp)
+wc.s:2096: lea_store_gs -16584(%rbp), 288    <- call __ctype_b_loc@PLT
+wc.s:2101: mov_load_gs %rax, 264, 64    <- # movq -16504(%rbp), %rax
+wc.s:2107: lea_store_gs -16584(%rbp), 288    <- call to_uchar
+wc.s:2122: mov_store_gs $1, 216, 8    <- movb $1, -16589(%rbp)
+wc.s:2129: mov_load_gs %rax, 296, 64    <- # movq -16496(%rbp), %rax
+wc.s:2131: add_store_gs %rax, 264, 64    <- addq %rax, -16504(%rbp)
+wc.s:2134: mov_load_gs %rax, 296, 64    <- # movq -16496(%rbp), %rax
+wc.s:2136: sub_store_gs %rax, 80, 64    <- subq %rax, -16576(%rbp)
+wc.s:2139: add_store_gs $1, 104, 64    <- addq $1, -16552(%rbp)
+wc.s:2144: cmp_store_gs $0, 80, 64    <- cmpq $0, -16576(%rbp)
+wc.s:2149: cmp_store_gs $0, 80, 64    <- cmpq $0, -16576(%rbp)
+wc.s:2153: cmp_store_gs $16384, 80, 64    <- cmpq $16384, -16576(%rbp)
+wc.s:2157: add_store_gs $1, 264, 64    <- addq $1, -16504(%rbp)
+wc.s:2160: sub_store_gs $1, 80, 64    <- subq $1, -16576(%rbp)
+wc.s:2170: lea_store_gs -16584(%rbp), 288    <- call memmove@PLT
+wc.s:2174: mov_load_gs %rax, 80, 64    <- # movq -16576(%rbp), %rax
+wc.s:2176: mov_store_gs %rax, 256, 64    <- movq %rax, -16512(%rbp)
+wc.s:2185: mov_load_gs %rax, 256, 64    <- # movq -16512(%rbp), %rax
+wc.s:2191: lea_store_gs -16416(%rbp), 72    <- call safe_read@PLT
+wc.s:2193: lea_store_gs -16584(%rbp), 288    <-
+wc.s:2195: mov_store_gs %rax, 80, 64    <- movq %rax, -16576(%rbp)
+wc.s:2198: cmp_store_gs $0, 80, 64    <- cmpq $0, -16576(%rbp)
+wc.s:2203: mov_load_gs %rax, 224, 64    <- # movq -16520(%rbp), %rax
+wc.s:2209: mov_load_gs %rax, 224, 64    <- # movq -16520(%rbp), %rax
+wc.s:2211: mov_store_gs %rax, 120, 64    <- movq %rax, -16536(%rbp)
+wc.s:2215: movzx_load_gs %eax, 216, 8    <- # movzbl -16589(%rbp), %eax
+wc.s:2217: add_store_gs %rax, 96, 64    <- addq %rax, -16560(%rbp)
+wc.s:2224: mov_store_gs $0, 320, 8    <- movb $0, -16586(%rbp)
+wc.s:2227: mov_store_gs $0, 328, 64    <- movq $0, -16488(%rbp)
+wc.s:2236: mov_store_gs %rax, 336, 64    <- movq %rax, -16480(%rbp)
+wc.s:2239: cmp_store_gs $-1, 80, 64    <- cmpq $-1, -16576(%rbp)
+wc.s:2247: lea_store_gs -16584(%rbp), 288    <- call quotearg_n_style_colon@PLT
+wc.s:2251: lea_store_gs -16584(%rbp), 288    <- call __errno_location@PLT
+wc.s:2260: lea_store_gs -16584(%rbp), 288    <- call error@PLT
+wc.s:2263: mov_store_gs $0, 64, 8    <- movb $0, -16594(%rbp)
+wc.s:2269: mov_load_gs %rax, 80, 64    <- # movq -16576(%rbp), %rax
+wc.s:2271: add_store_gs %rax, 112, 64    <- addq %rax, -16544(%rbp)
+wc.s:2275: mov_load_gs %rax, 336, 64    <- # movq -16480(%rbp), %rax
+wc.s:2278: mov_store_gs %rdx, 336, 64    <- movq %rdx, -16480(%rbp)
+wc.s:2325: add_store_gs $1, 88, 64    <- addq $1, -16568(%rbp)
+wc.s:2329: mov_load_gs %rax, 328, 64    <- # movq -16488(%rbp), %rax
+wc.s:2335: mov_load_gs %rax, 328, 64    <- # movq -16488(%rbp), %rax
+wc.s:2337: mov_store_gs %rax, 120, 64    <- movq %rax, -16536(%rbp)
+wc.s:2341: mov_store_gs $0, 328, 64    <- movq $0, -16488(%rbp)
+wc.s:2347: mov_load_gs %rax, 328, 64    <- # movq -16488(%rbp), %rax
+wc.s:2351: mov_store_gs %rax, 328, 64    <- movq %rax, -16488(%rbp)
+wc.s:2357: add_store_gs $1, 328, 64    <- addq $1, -16488(%rbp)
+wc.s:2365: movzx_load_gs %eax, 320, 8    <- # movzbl -16586(%rbp), %eax
+wc.s:2367: add_store_gs %rax, 96, 64    <- addq %rax, -16560(%rbp)
+wc.s:2370: mov_store_gs $0, 320, 8    <- movb $0, -16586(%rbp)
+wc.s:2376: lea_store_gs -16584(%rbp), 288    <- call __ctype_b_loc@PLT
+wc.s:2381: mov_load_gs %rax, 336, 64    <- # movq -16480(%rbp), %rax
+wc.s:2388: lea_store_gs -16584(%rbp), 288    <- call to_uchar
+wc.s:2403: add_store_gs $1, 328, 64    <- addq $1, -16488(%rbp)
+wc.s:2406: lea_store_gs -16584(%rbp), 288    <- call __ctype_b_loc@PLT
+wc.s:2411: mov_load_gs %rax, 336, 64    <- # movq -16480(%rbp), %rax
+wc.s:2418: lea_store_gs -16584(%rbp), 288    <- call to_uchar
+wc.s:2433: mov_load_gs %rax, 336, 64    <- # movq -16480(%rbp), %rax
+wc.s:2440: lea_store_gs -16584(%rbp), 288    <- call to_uchar
+wc.s:2445: lea_store_gs -16584(%rbp), 288    <- call isnbspace
+wc.s:2451: mov_store_gs $1, 320, 8    <- movb $1, -16586(%rbp)
+wc.s:2458: sub_store_gs $1, 80, 64    <- subq $1, -16576(%rbp)
+wc.s:2460: cmp_store_gs $0, 80, 64    <- cmpq $0, -16576(%rbp)
+wc.s:2471: lea_store_gs -16416(%rbp), 72    <- call safe_read@PLT
+wc.s:2473: lea_store_gs -16584(%rbp), 288    <-
+wc.s:2475: mov_store_gs %rax, 80, 64    <- movq %rax, -16576(%rbp)
+wc.s:2478: cmp_store_gs $0, 80, 64    <- cmpq $0, -16576(%rbp)
+wc.s:2483: mov_load_gs %rax, 328, 64    <- # movq -16488(%rbp), %rax
+wc.s:2489: mov_load_gs %rax, 328, 64    <- # movq -16488(%rbp), %rax
+wc.s:2491: mov_store_gs %rax, 120, 64    <- movq %rax, -16536(%rbp)
+wc.s:2495: movzx_load_gs %eax, 320, 8    <- # movzbl -16586(%rbp), %eax
+wc.s:2497: add_store_gs %rax, 96, 64    <- addq %rax, -16560(%rbp)
+wc.s:2508: cmp_store_gs %al, 136, 8    <- cmpb %al, -16592(%rbp)
+wc.s:2512: mov_load_gs %rax, 112, 64    <- # movq -16544(%rbp), %rax
+wc.s:2514: mov_store_gs %rax, 104, 64    <- movq %rax, -16552(%rbp)
+wc.s:2523: mov_load_gs %rax, 88, 64    <- # movq -16568(%rbp), %rax
+wc.s:2528: lea_store_gs -16584(%rbp), 288    <- call write_counts
+wc.s:2532: mov_load_gs %rax, 88, 64    <- # movq -16568(%rbp), %rax
+wc.s:2538: mov_load_gs %rax, 96, 64    <- # movq -16560(%rbp), %rax
+wc.s:2544: mov_load_gs %rax, 104, 64    <- # movq -16552(%rbp), %rax
+wc.s:2550: mov_load_gs %rax, 112, 64    <- # movq -16544(%rbp), %rax
+wc.s:2557: cmp_store_gs %rax, 120, 64    <- cmpq %rax, -16536(%rbp)
+wc.s:2561: mov_load_gs %rax, 120, 64    <- # movq -16536(%rbp), %rax
+wc.s:2566: movzx_load_gs %eax, 64, 8    <- # movzbl -16594(%rbp), %eax
+wc.s:2572: lea_store_gs -16584(%rbp), 288    <- call __stack_chk_fail@PLT
+wc.s:2640: mov_store_gs %eax, 48, 32    <- movl %eax, -20(%rbp)
+wc.s:2643: cmp_store_gs $-1, 48, 32    <- cmpl $-1, -20(%rbp)
+wc.s:2675: mov_store_gs %al, 56, 8    <- movb %al, -21(%rbp)
+wc.s:2706: movzx_load_gs %eax, 56, 8    <- # movzbl -21(%rbp), %eax
+wc.s:2751: mov_store_gs %rax, 32, 64    <- movq %rax, -8(%rbp)
+wc.s:2782: mov_load_gs %rax, 32, 64    <- # movq -8(%rbp), %rax
+wc.s:2789: mov_store_gs $0, 40, 64    <- movq $0, -16(%rbp)
+wc.s:2795: mov_load_gs %rax, 40, 64    <- # movq -16(%rbp), %rax
+wc.s:2805: mov_load_gs %rax, 40, 64    <- # movq -16(%rbp), %rax
+wc.s:2820: mov_load_gs %rdx, 40, 64    <- # movq -16(%rbp), %rdx
+wc.s:2829: mov_load_gs %rax, 32, 64    <- # movq -8(%rbp), %rax
+wc.s:2842: mov_load_gs %rdx, 40, 64    <- # movq -16(%rbp), %rdx
+wc.s:2851: mov_load_gs %rax, 32, 64    <- # movq -8(%rbp), %rax
+wc.s:2857: mov_load_gs %rax, 40, 64    <- # movq -16(%rbp), %rax
+wc.s:2870: mov_load_gs %rdx, 40, 64    <- # movq -16(%rbp), %rdx
+wc.s:2879: mov_load_gs %rax, 32, 64    <- # movq -8(%rbp), %rax
+wc.s:2885: add_store_gs $1, 40, 64    <- addq $1, -16(%rbp)
+wc.s:2889: mov_load_gs %rax, 40, 64    <- # movq -16(%rbp), %rax
+wc.s:2896: mov_load_gs %rax, 32, 64    <- # movq -8(%rbp), %rax
+wc.s:2922: mov_store_gs $1, 0, 32    <- movl $1, -24(%rbp)
+wc.s:2935: mov_store_gs $1, 8, 32    <- movl $1, -20(%rbp)
+wc.s:2938: mov_store_gs $0, 16, 64    <- movq $0, -16(%rbp)
+wc.s:2942: mov_store_gs $0, 24, 64    <- movq $0, -8(%rbp)
+wc.s:2948: mov_load_gs %rdx, 24, 64    <- # movq -8(%rbp), %rdx
+wc.s:2965: mov_load_gs %rdx, 24, 64    <- # movq -8(%rbp), %rdx
+wc.s:2984: mov_load_gs %rdx, 24, 64    <- # movq -8(%rbp), %rdx
+wc.s:2998: add_store_gs %rax, 16, 64    <- addq %rax, -16(%rbp)
+wc.s:3003: mov_store_gs $7, 8, 32    <- movl $7, -20(%rbp)
+wc.s:3007: add_store_gs $1, 24, 64    <- addq $1, -8(%rbp)
+wc.s:3011: mov_load_gs %rax, 24, 64    <- # movq -8(%rbp), %rax
+wc.s:3020: add_store_gs $1, 0, 32    <- addl $1, -24(%rbp)
+wc.s:3023: mov_load_gs %rax, 16, 64    <- # movq -16(%rbp), %rax
+wc.s:3029: mov_store_gs %rax, 16, 64    <- movq %rax, -16(%rbp)
+wc.s:3033: cmp_store_gs $9, 16, 64    <- cmpq $9, -16(%rbp)
+wc.s:3037: mov_load_gs %eax, 0, 32    <- # movl -24(%rbp), %eax
+wc.s:3043: mov_load_gs %eax, 8, 32    <- # movl -20(%rbp), %eax
+wc.s:3045: mov_store_gs %eax, 0, 32    <- movl %eax, -24(%rbp)
+wc.s:3050: mov_load_gs %eax, 0, 32    <- # movl -24(%rbp), %eax

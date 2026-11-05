@@ -1,0 +1,15 @@
+$ in_image iocs-nginx-build:20.04 bash benchmarks/nginx/serve_test.sh iocs /iocs/build/nginx/nginx-1.3.9/objs/nginx /iocs/build/nginx/nginx-1.3.9/objs/src/lib/table.so
+[iocs] up=1
+[iocs] index: ok
+[iocs] f128k.bin identical
+[iocs] f1024k.bin identical
+[iocs] f4096k.bin identical
+[iocs] 404: 404
+[iocs] ab: Complete requests:      2000
+[iocs] ab: Failed requests:        0
+[iocs] ab: Requests per second:    1372.22 [#/sec] (mean)
+[iocs] master alive after load
+[iocs] exit=0
+[iocs] serve_test: PASS
+
+[exit 0]

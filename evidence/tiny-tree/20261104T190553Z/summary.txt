@@ -1,0 +1,13 @@
+target:            tiny
+rewrite mode:      tree
+dta functions:     209 calls, 11 distinct
+sta entry config:  8 lines; vuln warnings: 16
+found by DTA and SUTURE: log_access, parse_request, rio_readinitb, url_decode, writen
+found by DTA only:       format_size, handle_directory_request, open_listenfd, process, rio_read, rio_readlineb
+found by SUTURE only:    
+compartments:      4 (slots the rewritten code uses)
+table:             table slots: 4 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+redirected sites:  19 (accesses through a compartment page)
+sync copies:       0 (lea_store_gs, stack -> page; scripts/count_sites.sh)
+unmodelled insts:  1 (skipped, see 4-rewrite.log)
+runtime check:     serve_tiny: PASS

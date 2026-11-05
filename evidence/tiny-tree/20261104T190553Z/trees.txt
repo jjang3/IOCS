@@ -1,0 +1,69 @@
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# tiny, 11 function(s) on the taint path.
+
+Root Function: process, Register Offset: -544 (req)
+      └─ Function: parse_request, Register Offset: -4160 (arg 1, req)
+         └─ Function: url_decode, Register Offset: -48 (arg 1, dest)
+      └─ Function: serve_static, Register Offset: -320 (arg 2, req)
+         └─ Function: get_mime_type, Register Offset: -24 (arg 0, filename)
+      └─ Function: handle_directory_request, Register Offset: -1280 (arg 2, filename)
+      └─ Function: log_access, Register Offset: -40 (arg 2, req)
+
+Root Function: parse_request, Register Offset: -4128 (rio)
+      └─ Function: rio_readinitb, Register Offset: -8 (arg 0, rp)
+      └─ Function: rio_readlineb, Register Offset: -40 (arg 0, rp)
+         └─ Function: rio_read, Register Offset: -24 (arg 0, rp)
+
+Root Function: parse_request, Register Offset: -3088 (buf)
+      └─ Function: rio_readlineb, Register Offset: -48 (arg 1, usrbuf)
+
+Root Function: rio_readlineb, Register Offset: -25 (c)
+      └─ Function: rio_read, Register Offset: -32 (arg 1, usrbuf)
+
+Root Function: handle_directory_request, Register Offset: -1040 (buf)
+      └─ Function: writen, Register Offset: -48 (arg 1, usrbuf)
+
+Root Function: handle_directory_request, Register Offset: -1088 (size)
+      └─ Function: format_size, Register Offset: -24 (arg 0, buf)
+
+Root Function: handle_directory_request, Register Offset: -1232 (statbuf)
+      └─ Function: format_size, Register Offset: -32 (arg 1, stat)
+
+
+# Function summaries (function trees' nodes)
+client_error: params fd@-1060, status@-1064, msg@-1072*, longmsg@-1080*
+    0x335d call writen(0:-1060, 1:&-1056)
+format_size: params buf@-24*, stat@-32*
+get_mime_type: params filename@-24*
+handle_directory_request: params out_fd@-1268, dir_fd@-1272, filename@-1280*
+    0x2a89 call writen(0:-1268, 1:&-1040)
+    0x2b97 call format_size(0:&-1088, 1:&-1232)
+    0x2c6d call writen(0:-1268, 1:&-1040)
+    0x2ce2 call writen(0:-1268, 1:&-1040)
+log_access: params status@-20, c_addr@-32*, req@-40*
+main: params argc@-324, argv@-336*
+    0x39a2 call open_listenfd()
+    0x3a56 call process(0:-304, 1:&-288)
+    0x3ae4 call process(0:-304, 1:&-288)
+open_listenfd: params port@-68
+parse_request: params fd@-4148, req@-4160*
+    0x2ff8 call rio_readinitb(0:&-4128, 1:-4148)
+    0x3016 call rio_readlineb(0:&-4128, 1:&-3088)
+    0x3062 call rio_readlineb(0:&-4128, 1:&-3088)
+    0x31d9 call url_decode(0:-4136, 1:-4160)
+process: params fd@-724, clientaddr@-736*
+    0x3664 call parse_request(0:-724, 1:&-544)
+    0x36ef call client_error(0:-724)
+    0x3768 call serve_static(0:-724, 1:-708, 2:&-544, 3:-640)
+    0x37a2 call handle_directory_request(0:-724, 1:-708, 2:&-544)
+    0x37e0 call client_error(0:-724)
+    0x380b call log_access(0:-712, 1:-736, 2:&-544)
+rio_read: params rp@-24*, usrbuf@-32*, n@-40
+rio_readinitb: params rp@-8*, fd@-12
+rio_readlineb: params rp@-40*, usrbuf@-48*, maxlen@-56
+    0x2831 call rio_read(0:-40, 1:&-25)
+serve_static: params out_fd@-308, in_fd@-312, req@-320*, total_size@-328
+    0x34e9 call get_mime_type(0:-320)
+    0x3545 call writen(0:-308, 1:&-288)
+url_decode: params src@-40*, dest@-48*, max@-52
+writen: params fd@-36, usrbuf@-48*, n@-56

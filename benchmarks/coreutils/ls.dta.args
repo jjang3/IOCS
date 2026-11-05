@@ -1,0 +1,5 @@
+# Workload for ls: long listing of a small directory tree with a hidden file and a symlink.
+rm -rf "$work/dir"; mkdir -p "$work/dir/sub"
+printf 'a\n' > "$work/dir/a.txt"; head -c 4096 /dev/zero > "$work/dir/b.bin"; : > "$work/dir/.hidden"
+ln -s a.txt "$work/dir/link"
+DTA_ARGS=(-la "$work/dir")

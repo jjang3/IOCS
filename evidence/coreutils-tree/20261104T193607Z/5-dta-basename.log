@@ -1,0 +1,4 @@
+$ D ./iocs.sh basename dta
+Dynamic taint analysis
+
+[exit 0]

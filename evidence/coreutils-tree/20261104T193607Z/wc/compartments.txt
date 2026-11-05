@@ -1,0 +1,8 @@
+compartments: 6 (slots the rewritten code uses)
+table slots: 6 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 compute_number_width -40(%rbp) nfiles
+used      1 compute_number_width -48(%rbp) fstatus
+used      2 get_input_fstatus -32(%rbp) file
+used      3 get_input_fstatus -24(%rbp) nfiles
+used      4 wc -16640(%rbp) current_pos
+used      5 wc -16632(%rbp) fstatus

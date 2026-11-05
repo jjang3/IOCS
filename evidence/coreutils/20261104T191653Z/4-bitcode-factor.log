@@ -1,0 +1,4 @@
+$ D bash benchmarks/coreutils/coreutils.sh factor bitcode
+factor: 130872 bytes of bitcode
+
+[exit 0]

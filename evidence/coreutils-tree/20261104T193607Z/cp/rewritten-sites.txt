@@ -1,0 +1,181 @@
+copy.s:2504: mov_store_gs %rdi, 152, 64    <-verifier_metadata_55:
+copy.s:2513: mov_store_gs %r9, 144, 64    <-verifier_metadata_56:
+copy.s:2531: mov_load_gs %rax, 152, 64    <- # movq -72(%rbp), %rax
+copy.s:2538: mov_load_gs %rax, 152, 64    <- # movq -72(%rbp), %rax
+copy.s:2545: mov_load_gs %rax, 152, 64    <- # movq -72(%rbp), %rax
+copy.s:2554: mov_load_gs %rax, 144, 64    <- # movq -104(%rbp), %rax
+copy.s:2559: mov_load_gs %rax, 152, 64    <- # movq -72(%rbp), %rax
+copy.s:2566: mov_load_gs %rax, 152, 64    <- # movq -72(%rbp), %rax
+copy.s:2579: mov_load_gs %rax, 152, 64    <- # movq -72(%rbp), %rax
+copy.s:2613: mov_load_gs %rax, 152, 64    <- # movq -72(%rbp), %rax
+copy.s:2640: mov_load_gs %rax, 152, 64    <- # movq -72(%rbp), %rax
+copy.s:2756: mov_load_gs %rax, 152, 64    <- # movq -72(%rbp), %rax
+copy.s:2782: mov_load_gs %rax, 152, 64    <- # movq -72(%rbp), %rax
+copy.s:2865: mov_store_gs %r8, 160, 64    <-verifier_metadata_68:
+copy.s:2873: mov_load_gs %rax, 160, 64    <- # movq -80(%rbp), %rax
+copy.s:2881: mov_load_gs %rax, 160, 64    <- # movq -80(%rbp), %rax
+copy.s:2890: mov_load_gs %rax, 160, 64    <- # movq -80(%rbp), %rax
+copy.s:2914: mov_load_gs %rax, 160, 64    <- # movq -80(%rbp), %rax
+copy.s:2983: mov_load_gs %rax, 160, 64    <- # movq -80(%rbp), %rax
+copy.s:3039: mov_load_gs %rax, 160, 64    <- # movq -80(%rbp), %rax
+copy.s:3051: mov_load_gs %rax, 160, 64    <- # movq -80(%rbp), %rax
+copy.s:3142: mov_store_gs %rcx, 136, 64    <-verifier_metadata_76:
+copy.s:3148: mov_load_gs %rax, 136, 64    <- # movq -56(%rbp), %rax
+copy.s:3157: mov_load_gs %rax, 136, 64    <- # movq -56(%rbp), %rax
+copy.s:3181: mov_load_gs %rax, 136, 64    <- # movq -56(%rbp), %rax
+copy.s:3409: mov_store_gs %rdx, 24, 64    <-verifier_metadata_80:
+copy.s:3431: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:3436: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:3552: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:3581: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:3588: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:3599: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:3604: mov_load_gs %rdx, 24, 64    <- # movq -488(%rbp), %rdx
+copy.s:3617: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:3632: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:3667: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:3687: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:3698: mov_load_gs %rdi, 24, 64    <- # movq -488(%rbp), %rdi
+copy.s:3756: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:3782: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:3871: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:3937: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:3958: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4079: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4089: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4207: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4246: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4328: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4374: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4386: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4418: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4445: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4479: mov_load_gs %rdi, 24, 64    <- # movq -488(%rbp), %rdi
+copy.s:4494: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4527: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4534: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4554: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4566: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4573: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4589: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4660: mov_load_gs %rax, 24, 64    <- # movq -488(%rbp), %rax
+copy.s:4784: mov_store_gs %r8, 112, 64    <-verifier_metadata_116:
+copy.s:4789: mov_store_gs %r9, 120, 64    <-verifier_metadata_117:
+copy.s:4824: mov_load_gs %rax, 120, 64    <- # movq -400(%rbp), %rax
+copy.s:4831: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:4838: mov_load_gs %rax, 120, 64    <- # movq -400(%rbp), %rax
+copy.s:4846: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:4886: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:4900: mov_load_gs %rax, 120, 64    <- # movq -400(%rbp), %rax
+copy.s:4904: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:5020: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:5031: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:5044: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:5053: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:5100: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:5107: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:5147: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:5200: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:5207: mov_load_gs %rax, 120, 64    <- # movq -400(%rbp), %rax
+copy.s:5215: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:5270: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:5289: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:5437: mov_load_gs %rax, 112, 64    <- # movq -392(%rbp), %rax
+copy.s:5452: mov_load_gs %rax, 120, 64    <- # movq -400(%rbp), %rax
+copy.s:5560: mov_store_gs %rdi, 80, 64    <-verifier_metadata_139:
+copy.s:5566: mov_store_gs %rdx, 72, 64    <-verifier_metadata_140:
+copy.s:5573: mov_load_gs %rax, 72, 64    <- # movq -72(%rbp), %rax
+copy.s:5587: mov_load_gs %rax, 72, 64    <- # movq -72(%rbp), %rax
+copy.s:5597: mov_load_gs %rax, 72, 64    <- # movq -72(%rbp), %rax
+copy.s:5612: mov_load_gs %rax, 80, 64    <- # movq -56(%rbp), %rax
+copy.s:5619: mov_load_gs %rax, 80, 64    <- # movq -56(%rbp), %rax
+copy.s:5626: mov_load_gs %rax, 80, 64    <- # movq -56(%rbp), %rax
+copy.s:5700: mov_store_gs %rdi, 32, 64    <-verifier_metadata_147:
+copy.s:5713: mov_load_gs %rdx, 32, 64    <- # movq -8(%rbp), %rdx
+copy.s:5743: mov_store_gs %rdi, 176, 64    <-verifier_metadata_149:
+copy.s:5756: mov_load_gs %rdx, 176, 64    <- # movq -8(%rbp), %rdx
+copy.s:5791: mov_store_gs %rdi, 8, 64    <-verifier_metadata_151:
+copy.s:5797: mov_store_gs %rdx, 0, 64    <-verifier_metadata_152:
+copy.s:5800: mov_load_gs %rax, 8, 64    <- # movq -8(%rbp), %rax
+copy.s:5814: mov_load_gs %rax, 8, 64    <- # movq -8(%rbp), %rax
+copy.s:5821: mov_load_gs %rax, 8, 64    <- # movq -8(%rbp), %rax
+copy.s:5828: mov_load_gs %rax, 8, 64    <- # movq -8(%rbp), %rax
+copy.s:5835: mov_load_gs %rax, 8, 64    <- # movq -8(%rbp), %rax
+copy.s:5842: mov_load_gs %rax, 0, 64    <- # movq -24(%rbp), %rax
+copy.s:5856: mov_load_gs %rdx, 0, 64    <- # movq -24(%rbp), %rdx
+copy.s:5859: mov_load_gs %rax, 8, 64    <- # movq -8(%rbp), %rax
+copy.s:6126: mov_store_gs %rdi, 168, 64    <-verifier_metadata_161:
+copy.s:6131: mov_load_gs %rax, 168, 64    <- # movq -8(%rbp), %rax
+copy.s:6138: mov_load_gs %rax, 168, 64    <- # movq -8(%rbp), %rax
+copy.s:9815: mov_store_gs %rdi, 184, 64    <-verifier_metadata_164:
+copy.s:9818: cmp_store_gs $0, 184, 64    <- # cmpq $0, -8(%rbp)
+copy.s:9829: mov_load_gs %rax, 184, 64    <- # movq -8(%rbp), %rax
+copy.s:9843: mov_load_gs %rax, 184, 64    <- # movq -8(%rbp), %rax
+copy.s:9850: mov_load_gs %rax, 184, 64    <- # movq -8(%rbp), %rax
+copy.s:9857: mov_load_gs %rax, 184, 64    <- # movq -8(%rbp), %rax
+copy.s:9871: mov_load_gs %rax, 184, 64    <- # movq -8(%rbp), %rax
+copy.s:9878: mov_load_gs %rax, 184, 64    <- # movq -8(%rbp), %rax
+copy.s:9885: mov_load_gs %rax, 184, 64    <- # movq -8(%rbp), %rax
+copy.s:9899: mov_load_gs %rax, 184, 64    <- # movq -8(%rbp), %rax
+copy.s:9908: mov_load_gs %rax, 184, 64    <- # movq -8(%rbp), %rax
+copy.s:9924: mov_load_gs %rax, 184, 64    <- # movq -8(%rbp), %rax
+copy.s:9931: mov_load_gs %rax, 184, 64    <- # movq -8(%rbp), %rax
+copy.s:10101: mov_store_gs %rdi, 16, 64    <-verifier_metadata_177:
+copy.s:10119: mov_load_gs %rax, 16, 64    <- # movq -8(%rbp), %rax
+copy.s:10161: mov_store_gs %rdi, 88, 64    <-verifier_metadata_179:
+copy.s:10179: mov_load_gs %rax, 88, 64    <- # movq -8(%rbp), %rax
+cp.s:1295: mov_store_gs %rdi, 104, 64    <-verifier_metadata_0:
+cp.s:1302: mov_store_gs %rcx, 96, 64    <-verifier_metadata_1:
+cp.s:1310: mov_load_gs %rax, 104, 64    <- # movq -136(%rbp), %rax
+cp.s:1389: mov_load_gs %rax, 96, 64    <- # movq -160(%rbp), %rax
+cp.s:1441: mov_load_gs %rax, 96, 64    <- # movq -160(%rbp), %rax
+cp.s:1460: mov_load_gs %rax, 96, 64    <- # movq -160(%rbp), %rax
+cp.s:1501: mov_load_gs %rax, 96, 64    <- # movq -160(%rbp), %rax
+cp.s:1624: mov_store_gs %rdi, 64, 64    <-verifier_metadata_7:
+cp.s:1633: mov_store_gs %r9, 56, 64    <-verifier_metadata_8:
+cp.s:1641: mov_load_gs %rax, 64, 64    <- # movq -424(%rbp), %rax
+cp.s:1812: mov_load_gs %rax, 56, 64    <- # movq -464(%rbp), %rax
+cp.s:1819: mov_load_gs %rax, 56, 64    <- # movq -464(%rbp), %rax
+cp.s:1826: mov_load_gs %rax, 56, 64    <- # movq -464(%rbp), %rax
+cp.s:1962: mov_load_gs %rcx, 56, 64    <- # movq -464(%rbp), %rcx
+cp.s:1991: mov_load_gs %rax, 56, 64    <- # movq -464(%rbp), %rax
+cp.s:2000: mov_load_gs %rax, 56, 64    <- # movq -464(%rbp), %rax
+cp.s:2021: mov_load_gs %rax, 56, 64    <- # movq -464(%rbp), %rax
+cp.s:2114: mov_load_gs %rax, 56, 64    <- # movq -464(%rbp), %rax
+cp.s:2242: mov_load_gs %rax, 56, 64    <- # movq -464(%rbp), %rax
+cp.s:2249: mov_load_gs %rax, 56, 64    <- # movq -464(%rbp), %rax
+cp.s:2257: mov_load_gs %rax, 56, 64    <- # movq -464(%rbp), %rax
+cp.s:2262: mov_load_gs %rdx, 56, 64    <- # movq -464(%rbp), %rdx
+cp.s:2275: mov_load_gs %rax, 56, 64    <- # movq -464(%rbp), %rax
+cp.s:2510: mov_store_gs %edi, 48, 32    <-verifier_metadata_23:
+cp.s:2518: mov_store_gs %r8, 40, 64    <-verifier_metadata_24:
+cp.s:2530: mov_load_gs %rax, 40, 64    <- # movq -352(%rbp), %rax
+cp.s:2537: mov_load_gs %rax, 40, 64    <- # movq -352(%rbp), %rax
+cp.s:2559: cmp_store_gs %eax, 48, 32    <- # cmpl %eax, -324(%rbp)
+cp.s:2563: cmp_store_gs $0, 48, 32    <- # cmpl $0, -324(%rbp)
+cp.s:2607: cmp_store_gs $2, 48, 32    <- # cmpl $2, -324(%rbp)
+cp.s:2632: mov_load_gs %eax, 48, 32    <- # movl -324(%rbp), %eax
+cp.s:2653: cmp_store_gs $1, 48, 32    <- # cmpl $1, -324(%rbp)
+cp.s:2659: mov_load_gs %eax, 48, 32    <- # movl -324(%rbp), %eax
+cp.s:2676: sub_store_gs $1, 48, 32    <- # subl $1, -324(%rbp)
+cp.s:2679: mov_load_gs %eax, 48, 32    <- # movl -324(%rbp), %eax
+cp.s:2692: cmp_store_gs $2, 48, 32    <- # cmpl $2, -324(%rbp)
+cp.s:2697: mov_load_gs %eax, 48, 32    <- # movl -324(%rbp), %eax
+cp.s:2721: cmp_store_gs $1, 48, 32    <- # cmpl $1, -324(%rbp)
+cp.s:2725: mov_load_gs %rax, 40, 64    <- # movq -352(%rbp), %rax
+cp.s:2730: mov_load_gs %rax, 40, 64    <- # movq -352(%rbp), %rax
+cp.s:2844: mov_load_gs %rax, 40, 64    <- # movq -352(%rbp), %rax
+cp.s:2862: mov_load_gs %rdi, 40, 64    <- # movq -352(%rbp), %rdi
+cp.s:2984: mov_load_gs %rcx, 40, 64    <- # movq -352(%rbp), %rcx
+cp.s:3013: mov_load_gs %rcx, 40, 64    <- # movq -352(%rbp), %rcx
+cp.s:3068: cmp_load_gs %eax, 48, 32    <- # cmpl -324(%rbp), %eax
+cp.s:3099: mov_load_gs %rax, 40, 64    <- # movq -352(%rbp), %rax
+cp.s:3106: mov_load_gs %rax, 40, 64    <- # movq -352(%rbp), %rax
+cp.s:3136: mov_load_gs %rax, 40, 64    <- # movq -352(%rbp), %rax
+cp.s:3145: mov_load_gs %rax, 40, 64    <- # movq -352(%rbp), %rax
+cp.s:3174: mov_store_gs %rax, 40, 64    <-verifier_metadata_49:
+cp.s:3186: mov_load_gs %rdx, 40, 64    <- # movq -352(%rbp), %rdx
+force-link.s:454: mov_store_gs %rdi, 128, 64    <-verifier_metadata_51:
+force-link.s:458: mov_load_gs %rax, 128, 64    <- # movq -40(%rbp), %rax
+force-link.s:463: sub_load_gs %rax, 128, 64    <- # subq -40(%rbp), %rax
+force-link.s:493: mov_load_gs %rcx, 128, 64    <- # movq -40(%rbp), %rcx

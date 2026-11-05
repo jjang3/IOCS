@@ -1,0 +1,2 @@
+# Workload for basename: strip a directory and a suffix.
+DTA_ARGS=(/usr/share/doc/coreutils/README.md .md)

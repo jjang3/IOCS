@@ -1,0 +1,3 @@
+# Workload for wc: count lines, words and bytes of a small file.
+printf 'the quick brown fox\njumps over\nthe lazy dog\n\nend\n' > "$work/in.txt"
+DTA_ARGS=(-lwc "$work/in.txt")

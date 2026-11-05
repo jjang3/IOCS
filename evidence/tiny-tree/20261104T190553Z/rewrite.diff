@@ -1,0 +1,533 @@
+0a1,424
+> # var_c14n macros
+> # Load effective address macro
+> .macro lea_gs dest, offset
+> 	rdgsbase %r11
+> 	mov   \offset(%r11), %r11
+> 	lea   (%r11), \dest
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> .macro lea_store_gs src, offset
+> 	leaq  \src, %r11
+> 	movq  (%r11), %r10
+> 	rdgsbase %r11
+> 	movq  \offset(%r11), %r11
+> 	movq  %r10, (%r11)
+> 	movq  $0, %r10
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> # Data movement macros
+> .macro mov_store_gs src, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 		movb \src, (%r11)  # 8-bit 
+> 	.elseif \value == 16
+> 		movw \src, (%r11)  # 16-bit
+> 	.elseif \value == 32
+> 		movl \src, (%r11)  # 32-bit
+> 	.elseif \value == 64
+> 		movq \src, (%r11)  # 64-bit
+> 	.endif
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> .macro mov_load_gs dest, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 		movb (%r11), \dest  # 8-bit 
+> 	.elseif \value == 16
+> 		movw (%r11), \dest  # 16-bit
+> 	.elseif \value == 32
+> 		movl (%r11), \dest  # 32-bit
+> 	.elseif \value == 64
+> 		movq (%r11), \dest  # 64-bit
+> 	.endif
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> .macro mov_arr_store_gs src, offset, disp, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	add \disp, %r11
+> 	.if \value == 8
+> 		movb \src, (%r11)  # 8-bit 
+> 	.elseif \value == 16
+> 		movw \src, (%r11)  # 16-bit 
+> 	.elseif \value == 32
+> 		movl \src, (%r11)  # 32-bit 
+> 	.elseif \value == 64
+> 		movq \src, (%r11)  # 64-bit 
+> 	.endif
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> .macro mov_arr_load_gs dest, offset, disp, value   # (parameter was misnamed src while the body uses \dest)
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	add \disp, %r11
+> 	.if \value == 8
+> 		movb (%r11), \dest  # 8-bit
+> 	.elseif \value == 16
+> 		movw (%r11), \dest  # 16-bit
+> 	.elseif \value == 32
+> 		movl (%r11), \dest  # 32-bit
+> 	.elseif \value == 64
+> 		movq (%r11), \dest  # 64-bit
+> 	.endif
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> .macro movss_store_gs src, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 		movss \src, (%r11)  # 64-bit
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> .macro movsd_store_gs src, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	movsd \src, (%r11)
+> 	movq  $0, %r11
+> .endm
+> 
+> .macro movsd_load_gs dest, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	movsd (%r11), \dest
+> 	movq  $0, %r11
+> .endm
+> 
+> .macro movss_load_gs dest, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	movss (%r11), \dest  # 64-bit
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> .macro movzx_load_gs dest, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 		movzbl (%r11), \dest  # 8-bit 
+> 	.elseif \value == 16
+> 		movzw (%r11), \dest  # 16-bit (a bare movzx is assembled as movzbl: one byte)
+> 	.endif
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> # An access at a displacement inside a slot (a struct member, an array element at a constant
+> # index); lea adds it without touching the flags (add would clobber them)
+> .macro mov_mem_store_gs src, offset, disp, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	lea \disp(%r11), %r11
+> 	.if \value == 8
+> 		movb \src, (%r11)
+> 	.elseif \value == 16
+> 		movw \src, (%r11)
+> 	.elseif \value == 32
+> 		movl \src, (%r11)
+> 	.elseif \value == 64
+> 		movq \src, (%r11)
+> 	.endif
+> 	movq  $0, %r11
+> .endm
+> 
+> .macro mov_mem_load_gs dest, offset, disp, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	lea \disp(%r11), %r11
+> 	.if \value == 8
+> 		movb (%r11), \dest
+> 	.elseif \value == 16
+> 		movw (%r11), \dest
+> 	.elseif \value == 32
+> 		movl (%r11), \dest
+> 	.elseif \value == 64
+> 		movq (%r11), \dest
+> 	.endif
+> 	movq  $0, %r11
+> .endm
+> 
+> .macro movzx_mem_load_gs dest, offset, disp, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	lea \disp(%r11), %r11
+> 	.if \value == 8
+> 		movzbl (%r11), \dest
+> 	.elseif \value == 16
+> 		movzw (%r11), \dest
+> 	.endif
+> 	movq  $0, %r11
+> .endm
+> 
+> .macro cmp_mem_store_gs operand, offset, disp, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	lea \disp(%r11), %r11
+> 	.if \value == 8
+> 		cmpb \operand, (%r11)
+> 	.elseif \value == 16
+> 		cmpw \operand, (%r11)
+> 	.elseif \value == 32
+> 		cmpl \operand, (%r11)
+> 	.elseif \value == 64
+> 		cmpq \operand, (%r11)
+> 	.endif
+> 	movq  $0, %r11
+> .endm
+> 
+> .macro cmp_mem_load_gs operand, offset, disp, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	lea \disp(%r11), %r11
+> 	.if \value == 8
+> 		cmpb (%r11), \operand
+> 	.elseif \value == 16
+> 		cmpw (%r11), \operand
+> 	.elseif \value == 32
+> 		cmpl (%r11), \operand
+> 	.elseif \value == 64
+> 		cmpq (%r11), \operand
+> 	.endif
+> 	movq  $0, %r11
+> .endm
+> 
+> .macro lea_mem_gs dest, offset, disp
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	lea \disp(%r11), \dest
+> 	movq  $0, %r11
+> .endm
+> 
+> # Comparison / Shift macros
+> # ---- Comparison ---- #
+> .macro cmp_store_gs operand, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 		cmpb \operand, (%r11)  # 8-bit 
+> 	.elseif \value == 16
+> 		cmpw \operand, (%r11)  # 16-bit
+> 	.elseif \value == 32
+> 		cmpl \operand, (%r11)  # 32-bit
+> 	.elseif \value == 64
+> 		cmpq \operand, (%r11)  # 64-bit
+> 	.endif
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> .macro cmp_load_gs operand, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 		cmpb (%r11), \operand  # 8-bit 
+> 	.elseif \value == 16
+> 		cmpw (%r11), \operand  # 16-bit
+> 	.elseif \value == 32
+> 		cmpl (%r11), \operand  # 32-bit
+> 	.elseif \value == 64
+> 		cmpq (%r11), \operand  # 64-bit
+> 	.endif
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> .macro and_store_gs operand, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 		andb \operand, (%r11)  # 8-bit 
+> 	.elseif \value == 16
+> 		andw \operand, (%r11)  # 16-bit
+> 	.elseif \value == 32
+> 		andl \operand, (%r11)  # 32-bit
+> 	.elseif \value == 64
+> 		andq \operand, (%r11)  # 64-bit
+> 	.endif
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> .macro and_load_gs operand, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 		andb (%r11), \operand  # 8-bit 
+> 	.elseif \value == 16
+> 		andw (%r11), \operand  # 16-bit
+> 	.elseif \value == 32
+> 		andl (%r11), \operand  # 32-bit
+> 	.elseif \value == 64
+> 		andq (%r11), \operand  # 64-bit
+> 	.endif
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> # Arithmetic macros
+> # ---- Addition ---- #
+> .macro add_store_gs operand, offset, value
+> 	rdgsbase %r10
+> 	mov	\offset(%r10), %r10 
+> 	rdgsbase %r11
+> 	mov	\offset(%r11), %r11
+> 	mov (%r11), %r11
+> 	.if \value == 8
+> 	add \operand, %r11b  # 8-bit 
+> 	mov %r11b, (%r10)
+> 	.elseif \value == 16
+> 	add \operand, %r11w  # 16-bit 
+> 	mov %r11w, (%r10)
+> 	.elseif \value == 32
+> 	add \operand, %r11d  # 32-bit 
+> 	mov %r11d, (%r10)
+> 	.elseif \value == 64
+> 	add \operand, %r11   # 64-bit 
+> 	mov %r11, (%r10)
+> 	.endif
+> 	movq  $0, %r10
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> .macro add_load_gs dest, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 	mov (%r11), %r11b
+> 	add %r11b, \dest  # 8-bit 
+> 	.elseif \value == 16
+> 	mov (%r11), %r11w
+> 	add %r11w, \dest  # 16-bit 
+> 	.elseif \value == 32
+> 	mov (%r11), %r11d
+> 	add %r11d, \dest  # 32-bit 
+> 	.elseif \value == 64
+> 	mov (%r11), %r11
+> 	add %r11, \dest   # 64-bit 
+> 	.endif
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> # ---- Subtraction ---- #
+> .macro sub_store_gs operand, offset, value
+> 	rdgsbase %r10
+> 	mov	\offset(%r10), %r10 
+> 	rdgsbase %r11
+> 	mov	\offset(%r11), %r11
+> 	mov (%r11), %r11
+> 	.if \value == 8
+> 	sub \operand, %r11b  # 8-bit 
+> 	mov %r11b, (%r10)
+> 	.elseif \value == 16
+> 	sub \operand, %r11w  # 16-bit 
+> 	mov %r11w, (%r10)
+> 	.elseif \value == 32
+> 	sub \operand, %r11d  # 32-bit 
+> 	mov %r11d, (%r10)
+> 	.elseif \value == 64
+> 	sub \operand, %r11   # 64-bit 
+> 	mov %r11, (%r10)
+> 	.endif
+> 	movq  $0, %r10
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> .macro sub_load_gs dest, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 	mov (%r11), %r11b
+> 	sub %r11b, \dest  # 8-bit 
+> 	.elseif \value == 16
+> 	mov (%r11), %r11w
+> 	sub %r11w, \dest  # 16-bit 
+> 	.elseif \value == 32
+> 	mov (%r11), %r11d
+> 	sub %r11d, \dest  # 32-bit 
+> 	.elseif \value == 64
+> 	mov (%r11), %r11
+> 	sub %r11, \dest   # 64-bit 
+> 	.endif
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> # ---- Multiplication ---- #
+> .macro imul_store_gs operand, offset, value
+> 	rdgsbase %r10
+> 	mov	\offset(%r10), %r10 
+> 	rdgsbase %r11
+> 	mov	\offset(%r11), %r11
+> 	.if \value == 8
+> 	mov (%r11), %r11b   # (multiply the page's value, in %r11, not the 6th-argument register %r9)
+> 	imul \operand, %r11b  # 8-bit 
+> 	mov %r11b, (%r10)
+> 	.elseif \value == 16
+> 	mov (%r11), %r11w
+> 	imul \operand, %r11w  # 16-bit 
+> 	mov %r11w, (%r10)
+> 	.elseif \value == 32
+> 	mov (%r11), %r11d
+> 	imul \operand, %r11d  # 32-bit 
+> 	mov %r11d, (%r10)
+> 	.elseif \value == 64
+> 	mov (%r11), %r11
+> 	imul \operand, %r11   # 64-bit 
+> 	mov %r11, (%r10)
+> 	.endif
+> 	movq  $0, %r10
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> .macro imul_load_gs dest, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 	mov (%r11), %r10b
+> 	imul %r10b, \dest  # 8-bit 
+> 	.elseif \value == 16
+> 	mov (%r11), %r10w
+> 	imul %r10w, \dest  # 16-bit 
+> 	.elseif \value == 32
+> 	mov (%r11), %r10d
+> 	imul %r10d, \dest  # 32-bit 
+> 	.elseif \value == 64
+> 	mov (%r11), %r10
+> 	imul %r10, \dest   # 64-bit 
+> 	.endif
+> 	movq  $0, %r10
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+> 
+> .macro shl_store_gs operand, offset, value
+> 	rdgsbase %r10
+> 	mov	\offset(%r10), %r10 
+> 	rdgsbase %r11
+> 	mov	\offset(%r11), %r11
+> 	mov (%r11), %r11
+> 	.if \value == 8
+> 	shl \operand, %r11b  # 8-bit 
+> 	mov %r11b, (%r10)
+> 	.elseif \value == 16
+> 	shl \operand, %r11w  # 16-bit 
+> 	mov %r11w, (%r10)
+> 	.elseif \value == 32
+> 	shl \operand, %r11d  # 32-bit 
+> 	mov %r11d, (%r10)
+> 	.elseif \value == 64
+> 	shl \operand, %r11   # 64-bit 
+> 	mov %r11, (%r10)
+> 	.endif
+> 	movq  $0, %r10
+> 	movq  $0, %r11   # flag-neutral (xor would clobber the flags of cmp/and/add)
+> .endm
+153a578,579
+> 	jmp	verifier_metadata_0
+>     # The replaced instruction (for metadata purposes only)
+154a581,582
+> verifier_metadata_0:
+> 	mov_store_gs	%rdx, 24, 64
+156c584,585
+< 	movq	-56(%rbp), %rax
+---
+> 	#	movq	-56(%rbp), %rax
+> 	mov_load_gs	%rax, 24, 64
+201c630,631
+< 	movq	-56(%rbp), %rax
+---
+> 	#	movq	-56(%rbp), %rax
+> 	mov_load_gs	%rax, 24, 64
+1184a1615,1616
+> 	jmp	verifier_metadata_3
+>     # The replaced instruction (for metadata purposes only)
+1185a1618,1619
+> verifier_metadata_3:
+> 	lea_gs	%rax, 8
+1190a1625,1626
+> 	jmp	verifier_metadata_4
+>     # The replaced instruction (for metadata purposes only)
+1191a1628,1629
+> verifier_metadata_4:
+> 	lea_gs	%rax, 8
+1208a1647,1648
+> 	jmp	verifier_metadata_5
+>     # The replaced instruction (for metadata purposes only)
+1209a1650,1651
+> verifier_metadata_5:
+> 	lea_gs	%rax, 8
+1760a2203,2204
+> 	jmp	verifier_metadata_6
+>     # The replaced instruction (for metadata purposes only)
+1761a2206,2207
+> verifier_metadata_6:
+> 	lea_gs	%rdx, 16
+1767c2213,2214
+< 	movq	-32(%rbp), %rax
+---
+> 	# 	movq	-32(%rbp), %rax
+> 	mov_mem_load_gs	%rax, 16, 512, 64
+1774a2222,2223
+> 	jmp	verifier_metadata_7
+>     # The replaced instruction (for metadata purposes only)
+1775a2225,2226
+> verifier_metadata_7:
+> 	lea_gs	%rax, 16
+1816c2267,2268
+< 	movq	-24(%rbp), %rax
+---
+> 	# 	movq	-24(%rbp), %rax
+> 	mov_mem_load_gs	%rax, 16, 520, 64
+1823c2275,2276
+< 	movq	%rax, -24(%rbp)
+---
+> 	# 	movq	%rax, -24(%rbp)
+> 	mov_mem_store_gs	%rax, 16, 520, 64
+1826c2279,2280
+< 	movq	-32(%rbp), %rax
+---
+> 	# 	movq	-32(%rbp), %rax
+> 	mov_mem_load_gs	%rax, 16, 512, 64
+1836a2291,2292
+> 	jmp	verifier_metadata_8
+>     # The replaced instruction (for metadata purposes only)
+1837a2294,2295
+> verifier_metadata_8:
+> 	lea_gs	%rdx, 16
+1853a2312,2313
+> 	jmp	verifier_metadata_9
+>     # The replaced instruction (for metadata purposes only)
+1854a2315,2316
+> verifier_metadata_9:
+> 	lea_gs	%rdx, 16
+1883a2346,2347
+> 	jmp	verifier_metadata_10
+>     # The replaced instruction (for metadata purposes only)
+1884a2349,2350
+> verifier_metadata_10:
+> 	lea_gs	%rdx, 16
+2082a2549,2550
+> 	jmp	verifier_metadata_11
+>     # The replaced instruction (for metadata purposes only)
+2083a2552,2553
+> verifier_metadata_11:
+> 	lea_gs	%rcx, 0
+2089a2560,2561
+> 	jmp	verifier_metadata_12
+>     # The replaced instruction (for metadata purposes only)
+2090a2563,2564
+> verifier_metadata_12:
+> 	lea_gs	%rdx, 0
+2127a2602,2603
+> 	jmp	verifier_metadata_13
+>     # The replaced instruction (for metadata purposes only)
+2128a2605,2606
+> verifier_metadata_13:
+> 	lea_gs	%rcx, 0
+2134a2613,2614
+> 	jmp	verifier_metadata_14
+>     # The replaced instruction (for metadata purposes only)
+2135a2616,2617
+> verifier_metadata_14:
+> 	lea_gs	%rdx, 0

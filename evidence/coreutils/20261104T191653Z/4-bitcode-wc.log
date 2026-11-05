@@ -1,0 +1,4 @@
+$ D bash benchmarks/coreutils/coreutils.sh wc bitcode
+wc: 60544 bytes of bitcode
+
+[exit 0]

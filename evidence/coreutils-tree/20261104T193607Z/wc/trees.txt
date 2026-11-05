@@ -1,0 +1,212 @@
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# wc, 25 function(s) on the taint path.
+
+Root Function: wc, Register Offset: -16416 (buf)
+      └─ Function: safe_read, Register Offset: -32 (arg 1, buf)
+
+Root Function: wc, Register Offset: -16584 (wide_char)
+      └─ Function: rpl_mbrtowc, Register Offset: -40 (arg 0, pwc)
+
+Root Function: wc, Register Offset: -16432 (state)
+      └─ Function: rpl_mbrtowc, Register Offset: -64 (arg 3, ps)
+
+Root Function: write_counts, Register Offset: -32 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+
+# Function summaries (function trees' nodes)
+__gl_setmode: params fd@-4, mode@-8
+__gl_setmode_check: params fd@-4
+_obstack_begin: params h@-8*, size@-16, alignment@-24, chunkfun@-32*, freefun@-40*
+    0x8a37 call _obstack_begin_worker(0:-8, 1:-16, 2:-24)
+_obstack_begin_worker: params h@-24*, size@-32, alignment@-40
+    0x8928 call call_chunkfun(0:-24)
+_obstack_free: params h@-24*, obj@-32*
+    0x8d3d call call_freefun(0:-24, 1:-16)
+_obstack_newchunk: params h@-72*, length@-80
+    0x8b77 call call_chunkfun(0:-72, 1:-48)
+    0x8c6b call call_freefun(0:-72, 1:-40)
+argv_iter: params ai@-24*, err@-32*
+argv_iter_free: params ai@-8*
+argv_iter_init_argv: params argv@-24*
+argv_iter_init_stream: params fp@-24*
+argv_iter_n_args: params ai@-8*
+c_strcasecmp: params s1@-40*, s2@-48*
+    0x8edd call c_tolower()
+    0x8eed call c_tolower()
+c_tolower: params c@-4
+call_chunkfun: params h@-8*, size@-16
+call_freefun: params h@-8*, old_chunk@-16*
+clear_ungetc_buffer_preserving_position: params fp@-8*
+    0x8651 call rpl_fseeko(0:-8)
+close_stream: params stream@-24*
+    0x8f64 call rpl_fclose(0:-24)
+compute_number_width: params nfiles@-40, fstatus@-48*
+emit_ancillary_info: params program@-168*
+emit_stdin_note: params -
+fdadvise: params fd@-20, offset@-32, len@-40, advice@-24
+get_input_fstatus: params nfiles@-24, file@-32*
+    0x3e6f call xnmalloc()
+    0x3f53 call __fstat()
+    0x3f9e call __stat()
+gettext_quote: params msgid@-24*, s@-28
+    0x567a call locale_charset()
+    0x5691 call c_strcasecmp(0:-8)
+    0x56c5 call c_strcasecmp(0:-8)
+hard_locale: params category@-20
+is_basic: params c@-4
+isnbspace: params c@-4
+    0x2cfb call iswnbspace()
+iswnbspace: params wc@-4
+locale_charset: params -
+main: params argc@-548, argv@-560*
+    0x414d call set_program_name()
+    0x416d call atexit()
+    0x430b call usage()
+    0x434b call version_etc()
+    0x4363 call usage()
+    0x4452 call quotearg_style()
+    0x449c call usage()
+    0x4501 call quotearg_style(1:-512)
+    0x4548 call __fstat()
+    0x457c call physmem_available()
+    0x45a1 call physmem_available()
+    0x45d1 call readtokens0_init(0:&-464)
+    0x45ea call readtokens0(0:-496, 1:&-464)
+    0x4600 call rpl_fclose(0:-496)
+    0x4618 call quotearg_style(1:-512)
+    0x4661 call argv_iter_init_argv(0:-520)
+    0x4692 call argv_iter_init_stream(0:-496)
+    0x4710 call argv_iter_init_argv(0:-520)
+    0x4726 call xalloc_die()
+    0x473f call get_input_fstatus(0:-528, 1:-520)
+    0x475f call compute_number_width(0:-528, 1:-488)
+    0x4796 call argv_iter(0:-504, 1:&-540)
+    0x47e4 call quotearg_n_style_colon(2:-512)
+    0x481a call xalloc_die()
+    0x488b call quotearg_style(1:-480)
+    0x48ff call argv_iter_n_args(0:-504)
+    0x491f call quotearg_n_style_colon(2:-512)
+    0x49b4 call wc_file(0:-480)
+    0x4a11 call argv_iter_n_args(0:-504)
+    0x4a2a call wc_file(1:-488)
+    0x4a59 call readtokens0_free(0:&-464)
+    0x4a68 call argv_iter_n_args(0:-504)
+    0x4aa3 call write_counts()
+    0x4ab2 call argv_iter_free(0:-504)
+physmem_available: params -
+    0x52ab call physmem_total()
+physmem_total: params -
+quotearg_buffer_restyled: params buffer@-136*, buffersize@-144, arg@-152*, argsize@-160, quoting_style@-164, flags@-168, quote_these_too@-176*, left_quote@-184*, right_quote@-192*
+    0x586e call gettext_quote(1:-164)
+    0x5889 call gettext_quote(1:-164)
+    0x5fb4 call rpl_mbrtowc(0:&-108, 3:&-32)
+    0x65ad call quotearg_buffer_restyled(0:-136, 1:-88, 2:-152, 3:-160, 6:-224, 7:-216, 8:-208)
+    0x66d0 call quotearg_buffer_restyled(0:-136, 1:-144, 2:-152, 3:-160, 7:-216, 8:-208)
+quotearg_n_options: params n@-52, arg@-64*, argsize@-72, options@-80*
+    0x6a26 call xalloc_die()
+    0x6a51 call xrealloc()
+    0x6b53 call quotearg_buffer_restyled(0:-24, 1:-16, 2:-64, 3:-72, 5:-36, 6:-112, 7:-104, 8:-96)
+    0x6bb4 call xcharalloc(0:-16)
+    0x6c1d call quotearg_buffer_restyled(0:-24, 1:-16, 2:-64, 3:-72, 5:-36, 6:-112, 7:-104, 8:-96)
+quotearg_n_style: params n@-68, s@-72, arg@-80*
+    0x6d18 call quoting_options_from_style(0:-72)
+    0x6d34 call quotearg_n_options(0:-68, 1:-80, 3:&-64)
+quotearg_n_style_colon: params n@-68, s@-72, arg@-80*
+    0x6f7e call quoting_options_from_style(0:-72)
+    0x6fd2 call set_char_quoting(0:&-64)
+    0x6fee call quotearg_n_options(0:-68, 1:-80, 3:&-64)
+quotearg_style: params s@-4, arg@-16*
+    0x6dd6 call quotearg_n_style(1:-4, 2:-16)
+quoting_options_from_style: params style@-92
+readtokens0: params in@-136*, t@-144*
+    0x76e1 call _obstack_newchunk(0:-80)
+    0x7707 call save_token(0:-144)
+    0x774c call _obstack_newchunk(0:-112)
+    0x777e call save_token(0:-144)
+    0x77c8 call _obstack_newchunk(0:-64)
+readtokens0_free: params t@-56*
+    0x7345 call _obstack_free(0:-48)
+    0x73a6 call _obstack_free(0:-32)
+    0x7409 call _obstack_free(0:-16)
+readtokens0_init: params t@-8*
+    0x7278 call _obstack_begin()
+    0x72a3 call _obstack_begin()
+    0x72d1 call _obstack_begin()
+rpl_fclose: params fp@-24*
+    0x85e3 call rpl_fflush(0:-24)
+rpl_fflush: params stream@-8*
+    0x8695 call clear_ungetc_buffer_preserving_position(0:-8)
+rpl_fseeko: params fp@-24*, offset@-32, whence@-36
+rpl_mbrtowc: params pwc@-40*, s@-48*, n@-56, ps@-64*
+    0x87cf call hard_locale()
+safe_read: params fd@-20, buf@-32*, count@-40
+save_token: params t@-120*
+    0x7556 call _obstack_newchunk(0:-64)
+    0x75d6 call _obstack_newchunk(0:-32)
+set_binary_mode: params fd@-20, mode@-24
+    0x8e84 call __gl_setmode_check()
+    0x8e9c call __gl_setmode()
+set_char_quoting: params o@-40*, c@-44, i@-48
+set_program_name: params argv0@-24*
+to_uchar: params ch@-4
+umaxtostr: params i@-24, buf@-32*
+usable_st_size: params sb@-8*
+usage: params status@-4
+    0x2bfa call emit_stdin_note()
+    0x2c86 call emit_ancillary_info()
+version_etc: params stream@-216*, command_name@-224*, package@-232*, version@-240*
+    0x80fc call version_etc_va(0:-216, 1:-224, 2:-232, 3:-240, 4:&-208)
+version_etc_arn: params stream@-24*, command_name@-32*, package@-40*, version@-48*, authors@-56*, n_authors@-64
+version_etc_va: params stream@-120*, command_name@-128*, package@-136*, version@-144*, authors@-152*
+    0x801b call version_etc_arn(0:-120, 1:-128, 2:-136, 3:-144, 4:&-96, 5:-104)
+wc: params fd@-16612, file_x@-16624*, fstatus@-16632*, current_pos@-16640
+    0x3088 call fdadvise(0:-16612)
+    0x30fa call __fstat()
+    0x3127 call usable_st_size()
+    0x32bd call fdadvise(0:-16612)
+    0x32e2 call quotearg_n_style_colon(2:-16472)
+    0x333e call safe_read(0:-16612, 1:&-16416)
+    0x33ab call quotearg_n_style_colon(2:-16472)
+    0x350a call safe_read(0:-16612, 1:&-16416)
+    0x358a call quotearg_n_style_colon(2:-16472)
+    0x360e call is_basic()
+    0x3675 call rpl_mbrtowc(0:&-16584, 1:-16504, 2:-16576, 3:&-16432)
+    0x3807 call iswnbspace(0:-16584)
+    0x3845 call to_uchar()
+    0x3881 call to_uchar()
+    0x395c call safe_read(0:-16612)
+    0x39ea call quotearg_n_style_colon(2:-16472)
+    0x3b00 call to_uchar()
+    0x3b40 call to_uchar()
+    0x3b74 call to_uchar()
+    0x3b7e call isnbspace()
+    0x3bc0 call safe_read(0:-16612, 1:&-16416)
+    0x3c59 call write_counts(0:-16568, 1:-16560, 2:-16552, 3:-16544, 4:-16536, 5:-16624)
+wc_file: params file@-40*, fstatus@-48*
+    0x3d45 call xset_binary_mode()
+    0x3d61 call wc(1:-40, 2:-48)
+    0x3d9b call quotearg_n_style_colon(2:-40)
+    0x3dde call wc(0:-20, 1:-40, 2:-48)
+    0x3e05 call quotearg_n_style_colon(2:-40)
+write_counts: params lines@-56, words@-64, chars@-72, bytes@-80, linelength@-88, file@-96*
+    0x2d59 call umaxtostr(0:-56, 1:&-32)
+    0x2d9e call umaxtostr(0:-64, 1:&-32)
+    0x2de3 call umaxtostr(0:-72, 1:&-32)
+    0x2e28 call umaxtostr(0:-80, 1:&-32)
+    0x2e6d call umaxtostr(0:-88, 1:&-32)
+    0x2ebc call quotearg_n_style_colon(2:-96)
+xalloc_die: params -
+xcharalloc: params n@-8
+    0x8328 call xmalloc(0:-8)
+xmalloc: params n@-24
+    0x835d call xalloc_die()
+xnmalloc: params n@-8, s@-16
+    0x81b9 call xalloc_die()
+    0x81ca call xmalloc()
+xrealloc: params p@-8*, n@-16
+    0x83c2 call xalloc_die()
+xset_binary_mode: params fd@-4, mode@-8
+    0x8557 call set_binary_mode(0:-4, 1:-8)
+    0x8560 call xset_binary_mode_error()
+xset_binary_mode_error: params -

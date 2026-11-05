@@ -1,0 +1,4 @@
+$ in_image iocs-suture:llvm9 env COREUTILS_HOME=/iocs/build/coreutils/coreutils-8.31 IOCS_RESULT_DIR=/iocs/build/tree/result BITCODE_OBJECTS=1 bash benchmarks/coreutils/coreutils.sh pwd bitcode
+pwd: 33300 bytes of bitcode
+
+[exit 0]

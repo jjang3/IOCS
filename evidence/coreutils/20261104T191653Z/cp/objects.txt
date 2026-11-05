@@ -1,0 +1,6 @@
+src/cp.o
+src/copy.o
+src/cp-hash.o
+src/extent-scan.o
+src/force-link.o
+src/selinux.o

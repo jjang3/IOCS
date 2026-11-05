@@ -1,0 +1,14 @@
+Nginx 1.3.9 predates libxcrypt (Ubuntu >= 20.04), whose struct crypt_data has no
+current_salt member. The line only pre-initialised a glibc-internal field; crypt_r()
+does not need it. Same fix as later Nginx releases.
+--- a/src/os/unix/ngx_user.c
++++ b/src/os/unix/ngx_user.c
+@@ -35,7 +35,6 @@ ngx_libc_crypt(ngx_pool_t *pool, u_char *key, u_char *salt, u_char **encrypted)
+     struct crypt_data   cd;
+ 
+     cd.initialized = 0;
+-    /* work around the glibc bug */
+-    cd.current_salt[0] = ~salt[0];
++    /* glibc workaround removed: libxcrypt's crypt_data has no current_salt */
+ 
+     value = crypt_r((char *) key, (char *) salt, &cd);

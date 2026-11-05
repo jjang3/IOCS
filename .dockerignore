@@ -1,0 +1,9 @@
+# Build context is the repository root (scripts/build_images.sh). Send only what images use.
+*
+!docker/
+!third_party/versions.env
+!third_party/get_pin.sh
+!third_party/build_suture.sh
+!third_party/SUTURE/
+third_party/SUTURE/benchmark/warns-*
+third_party/SUTURE/llvm_analysis/**/build_dir/

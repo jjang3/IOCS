@@ -1,0 +1,4 @@
+$ C cp link
+cp: relinked (0 C files recompiled), lib/table.so built
+
+[exit 0]

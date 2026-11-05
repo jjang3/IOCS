@@ -1,0 +1,4 @@
+$ D bash benchmarks/coreutils/coreutils.sh cp bitcode
+cp: 70948 bytes of bitcode
+
+[exit 0]

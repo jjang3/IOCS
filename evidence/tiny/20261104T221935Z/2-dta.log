@@ -1,0 +1,4 @@
+$ in_image iocs:dev ./iocs.sh tiny dta
+Dynamic taint analysis
+
+[exit 0]

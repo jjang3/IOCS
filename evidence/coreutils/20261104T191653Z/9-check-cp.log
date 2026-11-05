@@ -1,0 +1,4 @@
+$ C cp check
+[cp] original: exit 0 verify ok | iocs+table.so: exit 0 verify ok stdout-identical yes | without table.so: exit 139
+
+[exit 0]

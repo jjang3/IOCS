@@ -1,0 +1,2 @@
+src/ls.o
+src/ls-ls.o

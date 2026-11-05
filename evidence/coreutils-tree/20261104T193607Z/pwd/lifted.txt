@@ -1,0 +1,2 @@
+# Tainted pointer parameters: lifted to the caller objects they point to, or kept in their
+# own slot (why). Variables without a compartment: kept-on-stack lines.

@@ -1,0 +1,159 @@
+Hybrid taint report for factor
+  DTA: 28 functions executed on the input path (515 calls)
+  SUTURE: 11 entry functions configured; warnings in 1 functions (19 warnings); taint propagated into 7 functions
+
+'found by' counts SUTURE as finding a function when SUTURE reports a warning in it (the
+functions named in its report, .taint/.vuln). 'taint flows' counts the flows SUTURE's log
+shows propagating into the function, whether or not a detector warned there.
+
+function                     DTA calls  SUTURE entry     warnings  taint flows  found by
+strto2uintmax                        3  MY_IOCTL 0_2           19          104  both
+atexit                               2                          0            0  DTA only
+close_stream                         2                          0            0  DTA only
+factor                               5                          0            0  DTA only
+factor_insert_large                  5                          0            0  DTA only
+factor_insert_multiplicity          12                          0            0  DTA only
+factor_insert_refind                 5                          0            0  DTA only
+factor_using_division                5                          0            0  DTA only
+full_write                           1                          0            0  DTA only
+lbuf_alloc                           1                          0            0  DTA only
+lbuf_putc                           12                          0          156  DTA only
+lbuf_putint                          9                          0          204  DTA only
+millerrabin                          4                          0            0  DTA only
+mulredc                            395                          0            0  DTA only
+powm                                11                          0            0  DTA only
+prime2_p                             5                          0          188  DTA only
+prime_p                              5                          0          492  DTA only
+print_factors                        3  MY_IOCTL 0_0            0            8  DTA only
+print_factors_single                 3                          0            0  DTA only
+print_uintmaxes                      9                          0            0  DTA only
+rpl_fclose                           2                          0            0  DTA only
+rpl_fflush                           2                          0            0  DTA only
+safe_write                           1                          0            0  DTA only
+set_program_name                     1  MY_IOCTL 0_0            0            0  DTA only
+umaxtostr                            9                          0            0  DTA only
+xmalloc                              1  MY_IOCTL 0_0            0            0  DTA only
+c_isalnum                            0                          0            0  neither
+c_isalpha                            0                          0            0  neither
+c_isascii                            0                          0            0  neither
+c_isblank                            0                          0            0  neither
+c_iscntrl                            0                          0            0  neither
+c_isdigit                            0                          0            0  neither
+c_isgraph                            0                          0            0  neither
+c_islower                            0                          0            0  neither
+c_isprint                            0                          0            0  neither
+c_ispunct                            0                          0            0  neither
+c_isspace                            0                          0            0  neither
+c_isupper                            0                          0            0  neither
+c_isxdigit                           0                          0            0  neither
+c_strcasecmp                         0                          0            0  neither
+c_tolower                            0                          0            0  neither
+c_toupper                            0                          0            0  neither
+clear_ungetc_buffer_preserving_position         0                          0            0  neither
+clone_quoting_options                0                          0            0  neither
+close_stdout                         0                          0            0  neither
+close_stdout_set_file_name           0                          0            0  neither
+close_stdout_set_ignore_EPIPE         0                          0            0  neither
+do_stdin                             0                          0            0  neither
+emit_ancillary_info                  0                          0            0  neither
+emit_bug_reporting_address           0                          0            0  neither
+factor_using_pollard_rho             0                          0            0  neither
+factor_using_pollard_rho2            0                          0            0  neither
+freea                                0                          0            0  neither
+gcd2_odd                             0                          0            0  neither
+gcd_odd                              0                          0            0  neither
+get_nth_bit                          0                          0            0  neither
+get_quoting_style                    0                          0            0  neither
+gettext_quote                        0                          0            0  neither
+hard_locale                          0                          0            0  neither
+init_tokenbuffer                     0                          0            0  neither
+is_basic                             0                          0            0  neither
+knuth_morris_pratt                   0                          0            0  neither
+knuth_morris_pratt_multibyte         0                          0            0  neither
+lbuf_flush                           0                          0           92  neither
+locale_charset                       0                          0            0  neither
+main                                 0                          0            0  neither
+mb_copy                              0                          0            0  neither
+mb_width_aux                         0                          0            0  neither
+mbiter_multi_copy                    0                          0            0  neither
+mbiter_multi_next                    0                          0            0  neither
+mbiter_multi_reloc                   0                          0            0  neither
+mbslen                               0                          0            0  neither
+mbsstr                               0                          0            0  neither
+mbsstr_trimmed_wordbounded           0                          0            0  neither
+mbuiter_multi_copy                   0                          0            0  neither
+mbuiter_multi_next                   0                          0            0  neither
+mbuiter_multi_reloc                  0                          0            0  neither
+mem_cd_iconv                         0                          0            0  neither
+millerrabin2                         0                          0            0  neither
+mmalloca                             0                          0            0  neither
+mod2                                 0                          0            0  neither
+mulredc2                             0                          0            0  neither
+powm2                                0                          0            0  neither
+proper_name                          0                          0            0  neither
+proper_name_utf8                     0                          0            0  neither
+quote                                0  MY_IOCTL 0_0            0            0  neither
+quote_mem                            0                          0            0  neither
+quote_n                              0  MY_IOCTL 0_1            0            0  neither
+quote_n_mem                          0  MY_IOCTL 0_2            0            0  neither
+quotearg                             0                          0            0  neither
+quotearg_alloc                       0                          0            0  neither
+quotearg_alloc_mem                   0                          0            0  neither
+quotearg_buffer                      0                          0            0  neither
+quotearg_buffer_restyled             0  MY_IOCTL 0_8            0            0  neither
+quotearg_char                        0                          0            0  neither
+quotearg_char_mem                    0                          0            0  neither
+quotearg_colon                       0                          0            0  neither
+quotearg_colon_mem                   0                          0            0  neither
+quotearg_custom                      0                          0            0  neither
+quotearg_custom_mem                  0                          0            0  neither
+quotearg_free                        0                          0            0  neither
+quotearg_mem                         0                          0            0  neither
+quotearg_n                           0                          0            0  neither
+quotearg_n_custom                    0                          0            0  neither
+quotearg_n_custom_mem                0                          0            0  neither
+quotearg_n_mem                       0                          0            0  neither
+quotearg_n_options                   0  MY_IOCTL 0_3            0            0  neither
+quotearg_n_style                     0                          0            0  neither
+quotearg_n_style_colon               0                          0            0  neither
+quotearg_n_style_mem                 0                          0            0  neither
+quotearg_style                       0                          0            0  neither
+quotearg_style_mem                   0                          0            0  neither
+quoting_options_from_style           0                          0            0  neither
+readtoken                            0                          0            0  neither
+readtokens                           0                          0            0  neither
+rpl_fseeko                           0                          0            0  neither
+rpl_mbrtowc                          0  MY_IOCTL 0_3            0            0  neither
+set_char_quoting                     0                          0            0  neither
+set_custom_quoting                   0                          0            0  neither
+set_nth_bit                          0                          0            0  neither
+set_quoting_flags                    0                          0            0  neither
+set_quoting_style                    0                          0            0  neither
+str_cd_iconv                         0                          0            0  neither
+str_iconv                            0                          0            0  neither
+strnlen1                             0                          0            0  neither
+trim2                                0                          0            0  neither
+usage                                0                          0            0  neither
+version_etc                          0                          0            0  neither
+version_etc_ar                       0                          0            0  neither
+version_etc_arn                      0                          0            0  neither
+version_etc_va                       0                          0            0  neither
+x2nrealloc                           0                          0            0  neither
+x2realloc                            0                          0            0  neither
+xalloc_die                           0                          0            0  neither
+xcalloc                              0                          0            0  neither
+xcharalloc                           0  MY_IOCTL 0_0            0            0  neither
+xmem_cd_iconv                        0                          0            0  neither
+xmemdup                              0                          0            0  neither
+xnmalloc                             0                          0            0  neither
+xnrealloc                            0                          0            0  neither
+xrealloc                             0                          0            0  neither
+xstr_cd_iconv                        0                          0            0  neither
+xstr_iconv                           0                          0            0  neither
+xstrdup                              0                          0            0  neither
+xzalloc                              0                          0            0  neither
+
+both: strto2uintmax
+DTA only: atexit, close_stream, factor, factor_insert_large, factor_insert_multiplicity, factor_insert_refind, factor_using_division, full_write, lbuf_alloc, lbuf_putc, lbuf_putint, millerrabin, mulredc, powm, prime2_p, prime_p, print_factors, print_factors_single, print_uintmaxes, rpl_fclose, rpl_fflush, safe_write, set_program_name, umaxtostr, xmalloc
+SUTURE only: 
+SUTURE taint reached but no warning: lbuf_flush, lbuf_putc, lbuf_putint, prime2_p, prime_p, print_factors

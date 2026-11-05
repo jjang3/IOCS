@@ -1,0 +1,19 @@
+SHELL           = /bin/zsh
+CC              = gcc
+LIBFLAGS	    = -Wall -fPIC -shared
+LIBLDFLAGS      = -ldl -mfsgsbase
+LIBTARGET       = table.so
+
+
+%.new: %.s
+	$(eval name := $(basename $@))	;\
+	as $(PWD)/$< -o $(PWD)/${name}.o ;\
+	gcc $(PWD)/${name}.o -o $(PWD)/$@
+
+lib: $(LIBTARGET)
+	echo $(PWD)
+	if [ ! -d $(PWD)/lib ]; then mkdir -p $(PWD)/lib; fi
+	mv $(LIBTARGET) $(PWD)/lib
+
+$(LIBTARGET): 
+	$(CC) $(LIBFLAGS) table.c -o $@ $(LIBLDFLAGS)

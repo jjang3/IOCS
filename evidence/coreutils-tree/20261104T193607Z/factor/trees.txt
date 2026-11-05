@@ -1,0 +1,281 @@
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# factor, 28 function(s) on the taint path.
+
+Root Function: print_factors, Register Offset: -24 (t1)
+      └─ Function: strto2uintmax, Register Offset: -56 (arg 0, hip)
+
+Root Function: print_factors, Register Offset: -16 (t0)
+      └─ Function: strto2uintmax, Register Offset: -64 (arg 1, lop)
+
+Root Function: print_factors_single, Register Offset: -272 (factors)
+      └─ Function: factor, Register Offset: -24 (arg 2, factors)
+         └─ Function: factor_using_division, Register Offset: -96 (arg 3, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_insert_refind, Register Offset: -24 (arg 0, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_insert_large, Register Offset: -8 (arg 0, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_using_pollard_rho, Register Offset: -232 (arg 2, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_using_pollard_rho2, Register Offset: -288 (arg 3, factors)
+            └─ Function: factor_using_pollard_rho, Register Offset: -232 (arg 2, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_using_pollard_rho2, Register Offset: -288 (arg 3, factors)
+            └─ Function: factor_insert_large, Register Offset: -8 (arg 0, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+
+Root Function: lbuf_putint, Register Offset: -32 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: factor, Register Offset: -8 (t1)
+      └─ Function: factor_using_division, Register Offset: -72 (arg 0, t1p)
+
+Root Function: prime2_p, Register Offset: -320 (na)
+      └─ Function: millerrabin2, Register Offset: -72 (arg 0, np)
+         └─ Function: powm2, Register Offset: -96 (arg 3, np)
+      └─ Function: powm2, Register Offset: -96 (arg 3, np)
+
+Root Function: prime2_p, Register Offset: -352 (a_prim)
+      └─ Function: millerrabin2, Register Offset: -88 (arg 2, bp)
+         └─ Function: powm2, Register Offset: -80 (arg 1, bp)
+      └─ Function: powm2, Register Offset: -80 (arg 1, bp)
+
+Root Function: prime2_p, Register Offset: -384 (q)
+      └─ Function: millerrabin2, Register Offset: -96 (arg 3, qp)
+         └─ Function: powm2, Register Offset: -88 (arg 2, ep)
+
+Root Function: prime2_p, Register Offset: -336 (one)
+      └─ Function: millerrabin2, Register Offset: -112 (arg 5, one)
+         └─ Function: powm2, Register Offset: -112 (arg 5, one)
+      └─ Function: powm2, Register Offset: -112 (arg 5, one)
+
+Root Function: prime2_p, Register Offset: -272 (factors)
+      └─ Function: factor, Register Offset: -24 (arg 2, factors)
+         └─ Function: factor_using_division, Register Offset: -96 (arg 3, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_insert_refind, Register Offset: -24 (arg 0, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_insert_large, Register Offset: -8 (arg 0, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_using_pollard_rho, Register Offset: -232 (arg 2, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_using_pollard_rho2, Register Offset: -288 (arg 3, factors)
+            └─ Function: factor_using_pollard_rho, Register Offset: -232 (arg 2, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_using_pollard_rho2, Register Offset: -288 (arg 3, factors)
+            └─ Function: factor_insert_large, Register Offset: -8 (arg 0, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+
+Root Function: prime2_p, Register Offset: -288 (y)
+      └─ Function: powm2, Register Offset: -72 (arg 0, r1m)
+         └─ Function: mulredc2, Register Offset: -88 (arg 0, r1p)
+
+Root Function: prime2_p, Register Offset: -304 (e)
+      └─ Function: powm2, Register Offset: -88 (arg 2, ep)
+
+Root Function: prime_p, Register Offset: -272 (factors)
+      └─ Function: factor, Register Offset: -24 (arg 2, factors)
+         └─ Function: factor_using_division, Register Offset: -96 (arg 3, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_insert_refind, Register Offset: -24 (arg 0, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_insert_large, Register Offset: -8 (arg 0, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_using_pollard_rho, Register Offset: -232 (arg 2, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_using_pollard_rho2, Register Offset: -288 (arg 3, factors)
+            └─ Function: factor_using_pollard_rho, Register Offset: -232 (arg 2, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_using_pollard_rho2, Register Offset: -288 (arg 3, factors)
+            └─ Function: factor_insert_large, Register Offset: -8 (arg 0, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+
+
+# Function summaries (function trees' nodes)
+c_strcasecmp: params s1@-40*, s2@-48*
+    0xaa73 call c_tolower()
+    0xaa83 call c_tolower()
+c_tolower: params c@-4
+clear_ungetc_buffer_preserving_position: params fp@-8*
+    0xcd1b call rpl_fseeko(0:-8)
+close_stream: params stream@-24*
+    0xaafa call rpl_fclose(0:-24)
+do_stdin: params -
+    0x6924 call init_tokenbuffer(0:&-32)
+    0x6946 call readtoken(3:&-32)
+    0x695d call print_factors(0:-24)
+factor: params t1@-8, t0@-16, factors@-24*
+    0x5fa0 call factor_using_division(0:&-8, 1:-8, 2:-16, 3:-24)
+    0x5fc7 call prime2_p(0:-8, 1:-16)
+    0x5fe2 call factor_insert_large(0:-24, 1:-8, 2:-16)
+    0x6002 call factor_using_pollard_rho(0:-16, 2:-24)
+    0x6020 call factor_using_pollard_rho2(0:-8, 1:-16, 3:-24)
+factor_insert_large: params factors@-8*, p1@-16, p0@-24
+    0x2f93 call factor_insert_multiplicity(0:-8, 1:-24)
+factor_insert_multiplicity: params factors@-40*, prime@-48, m@-52
+factor_insert_refind: params factors@-24*, p@-32, i@-36, off@-40
+    0x2ff9 call factor_insert_multiplicity(0:-24, 1:-32)
+factor_using_division: params t1p@-72*, t1@-80, t0@-88, factors@-96*
+    0x30a3 call factor_insert_multiplicity(0:-96, 2:-64)
+    0x316b call factor_insert_multiplicity(0:-96, 1:-56)
+    0x3228 call factor_insert_refind(0:-96, 1:-56)
+    0x3281 call factor_insert_refind(0:-96, 1:-56)
+    0x32da call factor_insert_refind(0:-96, 1:-56)
+    0x3333 call factor_insert_refind(0:-96, 1:-56)
+    0x338c call factor_insert_refind(0:-96, 1:-56)
+    0x33e5 call factor_insert_refind(0:-96, 1:-56)
+    0x343e call factor_insert_refind(0:-96, 1:-56)
+    0x3495 call factor_insert_refind(0:-96, 1:-56)
+factor_using_pollard_rho: params n@-216, a@-224, factors@-232*
+    0x4f7a call mulredc(0:-192, 1:-192, 2:-216, 3:-64)
+    0x502f call mulredc(0:-168, 1:-40, 2:-216, 3:-64)
+    0x505f call gcd_odd(0:-168, 1:-216)
+    0x50dc call mulredc(0:-192, 1:-192, 2:-216, 3:-64)
+    0x5180 call mulredc(0:-176, 1:-176, 2:-216, 3:-64)
+    0x522d call gcd_odd(0:-40, 1:-216)
+    0x526d call factor_using_pollard_rho() [pointer parameter(s) 2: no argument found where they are passed]
+    0x5295 call prime_p(0:-16)
+    0x52bd call factor_using_pollard_rho() [pointer parameter(s) 2: no argument found where they are passed]
+    0x52da call factor_insert_multiplicity(0:-232, 1:-16)
+    0x52e9 call prime_p(0:-216)
+    0x530b call factor_insert_multiplicity(0:-232, 1:-216)
+factor_using_pollard_rho2: params n1@-264, n0@-272, a@-280, factors@-288*
+    0x564e call mulredc2(0:&-224, 1:-256, 2:-216, 3:-256, 4:-216, 5:-264, 6:-304, 7:-296)
+    0x578c call mulredc2(0:&-224, 1:-192, 2:-184, 3:-176, 4:-168, 5:-264, 6:-304, 7:-296)
+    0x57e3 call gcd2_odd(0:&-232, 1:-192, 2:-184, 3:-264, 4:-272)
+    0x58b4 call mulredc2(0:&-224, 1:-256, 2:-216, 3:-256, 4:-216, 5:-264, 6:-304, 7:-296)
+    0x59c7 call mulredc2(0:&-224, 1:-240, 2:-200, 3:-240, 4:-200, 5:-264, 6:-304, 7:-296)
+    0x5af2 call gcd2_odd(0:&-232, 1:-176, 2:-168, 3:-264, 4:-272)
+    0x5c1f call prime_p(0:-88)
+    0x5c47 call factor_using_pollard_rho(0:-88, 2:-288)
+    0x5c67 call factor_insert_multiplicity(0:-288, 1:-88)
+    0x5cb7 call factor_using_pollard_rho2() [pointer parameter(s) 3: no argument found where they are passed]
+    0x5d7c call prime2_p(0:-232, 1:-88)
+    0x5dae call factor_using_pollard_rho2(0:-232, 1:-88, 3:-288)
+    0x5dcd call factor_insert_large(0:-288, 1:-232, 2:-88)
+    0x5de6 call prime_p(0:-272)
+    0x5e08 call factor_insert_multiplicity(0:-288, 1:-272)
+    0x5e2d call factor_using_pollard_rho(0:-272, 1:-280, 2:-288)
+    0x5e4b call prime2_p(0:-264, 1:-272)
+    0x5e6f call factor_insert_large(0:-288, 1:-264, 2:-272)
+    0x5ea2 call mod2(0:&-256, 1:-256, 2:-216, 3:-264, 4:-272)
+    0x5ed7 call mod2(0:&-248, 1:-248, 2:-208, 3:-264, 4:-272)
+    0x5f0c call mod2(0:&-240, 1:-240, 2:-200, 3:-264, 4:-272)
+full_write: params fd@-36, buf@-48*, count@-56
+    0x6cac call safe_write(0:-36, 1:-16, 2:-56)
+gcd2_odd: params r1@-8*, a1@-16, a0@-24, b1@-32, b0@-40
+    0x2cc5 call gcd_odd(0:-40, 1:-24)
+gcd_odd: params a@-40, b@-48
+get_nth_bit: params n@-8, bitset@-16*
+gettext_quote: params msgid@-24*, s@-28
+    0x796e call locale_charset()
+    0x7985 call c_strcasecmp(0:-8)
+    0x79b9 call c_strcasecmp(0:-8)
+hard_locale: params category@-20
+init_tokenbuffer: params tokenbuffer@-8*
+lbuf_alloc: params -
+    0x61f6 call xmalloc()
+lbuf_flush: params -
+    0x624c call full_write(2:-8)
+lbuf_putc: params c@-36
+    0x62fe call lbuf_flush()
+    0x634e call lbuf_flush()
+lbuf_putint: params i@-72, min_width@-80
+    0x63c1 call umaxtostr(0:-72, 1:&-32)
+locale_charset: params -
+millerrabin: params n@-40, ni@-48, b@-56, q@-64, k@-68, one@-80
+    0x3a46 call powm(0:-56, 1:-64, 2:-40, 3:-48, 4:-80)
+    0x3a92 call mulredc(0:-16, 1:-16, 2:-40, 3:-48)
+millerrabin2: params np@-72*, ni@-80, bp@-88*, qp@-96*, k@-100, one@-112*
+    0x3b24 call powm2(0:&-48, 1:-88, 2:-96, 3:-72, 4:-80, 5:-112)
+    0x3be9 call mulredc2(0:&-48, 1:-40, 2:-32, 3:-40, 4:-32, 6:-128, 7:-120)
+mod2: params r1@-40*, a1@-48, a0@-56, d1@-64, d0@-72
+mulredc: params a@-56, b@-64, m@-72, mi@-80
+mulredc2: params r1p@-88*, a1@-96, a0@-104, b1@-112, b0@-120, m1@-128, m0@16, mi@24
+powm: params b@-24, e@-32, n@-40, ni@-48, one@-56
+    0x37ef call mulredc(0:-24, 1:-24, 2:-40, 3:-48)
+    0x381b call mulredc(0:-8, 1:-24, 2:-40, 3:-48)
+powm2: params r1m@-72*, bp@-80*, ep@-88*, np@-96*, ni@-104, one@-112*
+    0x38e4 call mulredc2(0:-72, 1:-56, 2:-48, 3:-40, 4:-32, 5:-8, 6:-128, 7:-120)
+    0x3923 call mulredc2(0:-72, 1:-40, 2:-32, 3:-40, 4:-32, 5:-8, 6:-128, 7:-120)
+    0x3991 call mulredc2(0:-72, 1:-56, 2:-48, 3:-40, 4:-32, 5:-8, 6:-128, 7:-120)
+    0x39d0 call mulredc2(0:-72, 1:-40, 2:-32, 3:-40, 4:-32, 5:-8, 6:-128, 7:-120)
+prime2_p: params n1@-568, n0@-576
+    0x4318 call prime_p(0:-576)
+    0x46bc call millerrabin2(0:&-320, 1:-464, 2:&-352, 3:&-384, 4:-544, 5:&-336)
+    0x46f8 call factor(0:-360, 1:-368, 2:&-272)
+    0x4846 call powm2(0:&-280, 1:&-352, 2:&-304, 3:&-320, 4:-464, 5:&-336)
+    0x4a95 call powm2(0:&-280, 1:&-352, 2:&-304, 3:&-320, 4:-464, 5:&-336)
+    0x4c8f call millerrabin2(0:&-320, 1:-464, 2:&-352, 3:&-384, 4:-544, 5:&-336)
+prime_p: params n@-488
+    0x3f7f call millerrabin(0:-488, 1:-328, 2:-448, 3:-440, 4:-468, 5:-320)
+    0x3fbd call factor(2:&-272)
+    0x4040 call powm(0:-448, 2:-488, 3:-328, 4:-320)
+    0x4278 call millerrabin(0:-488, 1:-328, 2:-448, 3:-440, 4:-468, 5:-320)
+print_factors: params input@-40*
+    0x6737 call strto2uintmax(0:&-24, 1:&-16, 2:-40)
+    0x67a4 call print_factors_single(0:-24, 1:-16)
+    0x67b7 call quote(0:-40)
+    0x67ec call quote(0:-40)
+print_factors_single: params t1@-296, t0@-304
+    0x6613 call print_uintmaxes(0:-296, 1:-304)
+    0x661d call lbuf_putc()
+    0x663d call factor(0:-296, 1:-304, 2:&-272)
+    0x665f call lbuf_putc()
+    0x667e call print_uintmaxes()
+    0x66c7 call lbuf_putc()
+    0x66e0 call print_uintmaxes(0:-264, 1:-272)
+    0x66ea call lbuf_putc()
+print_uintmaxes: params t1@-72, t0@-80
+    0x6482 call lbuf_putint(0:-80)
+    0x65ba call print_uintmaxes()
+    0x65cb call lbuf_putint(0:-8)
+quote: params arg@-8*
+    0x950c call quote_n(1:-8)
+quote_n: params n@-4, arg@-16*
+    0x94e9 call quote_n_mem(0:-4, 1:-16)
+quote_n_mem: params n@-4, arg@-16*, argsize@-24
+    0x9491 call quotearg_n_options(0:-4, 1:-16, 2:-24)
+quotearg_buffer_restyled: params buffer@-136*, buffersize@-144, arg@-152*, argsize@-160, quoting_style@-164, flags@-168, quote_these_too@-176*, left_quote@-184*, right_quote@-192*
+    0x7b62 call gettext_quote(1:-164)
+    0x7b7d call gettext_quote(1:-164)
+    0x82a8 call rpl_mbrtowc(0:&-108, 3:&-32)
+    0x88a1 call quotearg_buffer_restyled(0:-136, 1:-88, 2:-152, 3:-160, 6:-224, 7:-216, 8:-208)
+    0x89c4 call quotearg_buffer_restyled(0:-136, 1:-144, 2:-152, 3:-160, 7:-216, 8:-208)
+quotearg_n_options: params n@-52, arg@-64*, argsize@-72, options@-80*
+    0x8d1a call xalloc_die()
+    0x8d45 call xrealloc()
+    0x8e47 call quotearg_buffer_restyled(0:-24, 1:-16, 2:-64, 3:-72, 5:-36, 6:-112, 7:-104, 8:-96)
+    0x8ea8 call xcharalloc(0:-16)
+    0x8f11 call quotearg_buffer_restyled(0:-24, 1:-16, 2:-64, 3:-72, 5:-36, 6:-112, 7:-104, 8:-96)
+readtoken: params stream@-88*, delim@-96*, n_delim@-104, tokenbuffer@-112*
+    0x9642 call set_nth_bit(1:&-48)
+    0x968b call get_nth_bit(1:&-48)
+    0x96e9 call x2nrealloc(0:-64, 1:&-72)
+    0x9717 call get_nth_bit(1:&-48)
+rpl_fclose: params fp@-24*
+    0xccad call rpl_fflush(0:-24)
+rpl_fflush: params stream@-8*
+    0xcd5f call clear_ungetc_buffer_preserving_position(0:-8)
+rpl_fseeko: params fp@-24*, offset@-32, whence@-36
+rpl_mbrtowc: params pwc@-40*, s@-48*, n@-56, ps@-64*
+    0xa9fd call hard_locale()
+safe_write: params fd@-20, buf@-32*, count@-40
+set_nth_bit: params n@-24, bitset@-32*
+set_program_name: params argv0@-24*
+strto2uintmax: params hip@-56*, lop@-64*, s@-72*
+umaxtostr: params i@-24, buf@-32*
+x2nrealloc: params p@-24*, pn@-32*, s@-40
+    0xa619 call xalloc_die()
+    0xa637 call xalloc_die()
+    0xa676 call xrealloc(0:-24)
+xalloc_die: params -
+xcharalloc: params n@-8
+    0xa694 call xmalloc(0:-8)
+xmalloc: params n@-24
+    0xa6c9 call xalloc_die()
+xrealloc: params p@-8*, n@-16
+    0xa72e call xalloc_die()

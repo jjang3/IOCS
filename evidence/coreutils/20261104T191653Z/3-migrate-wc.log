@@ -1,0 +1,4 @@
+$ C wc migrate
+wc: 1 objects, 895 lines in src/wc.c
+
+[exit 0]

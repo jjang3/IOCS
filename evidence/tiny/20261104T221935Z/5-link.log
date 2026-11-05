@@ -1,0 +1,12 @@
+$ in_image iocs:dev ./iocs.sh tiny link
+Build the compartment table and the rewritten binary
+gcc -Wall -fPIC -shared table.c -o table.so -ldl -mfsgsbase
+echo /iocs/result/tiny
+/iocs/result/tiny
+if [ ! -d /iocs/result/tiny/lib ]; then mkdir -p /iocs/result/tiny/lib; fi
+mv table.so /iocs/result/tiny/lib
+;\
+as /iocs/result/tiny/tiny.s -o /iocs/result/tiny/tiny.o ;\
+gcc /iocs/result/tiny/tiny.o -o /iocs/result/tiny/tiny.new
+
+[exit 0]

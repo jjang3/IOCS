@@ -1,0 +1,11 @@
+nginx:             1.3.9 (sha256 30463a867614bed304f6c02f6a35ff697ec70c227d87af0772a417ee05f548df)
+compartments:      51 (slots the rewritten code uses)
+table:             table slots: 52 (unused: 0, placeholder/padding: 1), kept on stack: 79, rounds: 2
+lifts:             0 lifted, 96 kept in their own slot (lifted.txt)
+redirected sites:  484 in 16 files (patch-sites.txt)
+sync copies:       0 (lea_store_gs, stack -> page)
+relink:            0 C files recompiled (must be 0)
+control:           IOCS binary does not come up without table.so (expected)
+runtime original:  serve_test: PASS
+runtime iocs:      serve_test: PASS; Failed requests:        0
+result:            PASS

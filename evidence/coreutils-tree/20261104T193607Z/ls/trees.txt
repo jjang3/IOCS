@@ -1,0 +1,779 @@
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# ls, 96 function(s) on the taint path.
+
+Root Function: decode_switches, Register Offset: -16 (oi)
+      └─ Function: xstrtoul, Register Offset: -96 (arg 3, val)
+
+Root Function: humblock, Register Offset: -16 (ptr)
+      └─ Function: xstrtoumax, Register Offset: -80 (arg 1, ptr)
+
+Root Function: abformat_init, Register Offset: -1552 (abmon)
+      └─ Function: abmon_init, Register Offset: -88 (arg 0, abmon)
+
+Root Function: abmon_init, Register Offset: -64 (width)
+      └─ Function: mbsalign, Register Offset: -144 (arg 3, width)
+
+Root Function: gobble_file, Register Offset: -688 (buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: gobble_file, Register Offset: -720 (b)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: mbsnwidth, Register Offset: -52 (wc)
+      └─ Function: rpl_mbrtowc, Register Offset: -40 (arg 0, pwc)
+
+Root Function: mbsnwidth, Register Offset: -16 (mbstate)
+      └─ Function: rpl_mbrtowc, Register Offset: -64 (arg 3, ps)
+
+Root Function: print_dir, Register Offset: -672 (buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: print_long_format, Register Offset: -4380 (modebuf)
+      └─ Function: filemodestring, Register Offset: -16 (arg 1, str)
+         └─ Function: strmode, Register Offset: -16 (arg 1, str)
+
+Root Function: print_long_format, Register Offset: -4336 (hbuf)
+      └─ Function: format_inode, Register Offset: -8 (arg 0, buf)
+         └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+      └─ Function: timetostr, Register Offset: -16 (arg 1, buf)
+         └─ Function: imaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: print_long_format, Register Offset: -4368 (majorbuf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: print_long_format, Register Offset: -4480 (when_timespec)
+      └─ Function: localtime_rz, Register Offset: -32 (arg 1, t)
+
+Root Function: print_long_format, Register Offset: -4448 (when_local)
+      └─ Function: localtime_rz, Register Offset: -40 (arg 2, tm)
+         └─ Function: save_abbr, Register Offset: -48 (arg 1, tm)
+      └─ Function: align_nstrftime, Register Offset: -48 (arg 3, tm)
+         └─ Function: nstrftime, Register Offset: -48 (arg 3, tp)
+            └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+               └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+
+Root Function: __strftime_internal, Register Offset: -1056 (buf)
+      └─ Function: memcpy_lowcase, Register Offset: -16 (arg 1, src)
+      └─ Function: memcpy_uppcase, Register Offset: -16 (arg 1, src)
+
+Root Function: __strftime_internal, Register Offset: -1120 (ltm)
+      └─ Function: mktime_z, Register Offset: -112 (arg 1, tm)
+         └─ Function: equal_tm, Register Offset: -16 (arg 0, a)
+         └─ Function: save_abbr, Register Offset: -48 (arg 1, tm)
+
+Root Function: quote_name, Register Offset: -8288 (buf)
+      └─ Function: quote_name_buf, Register Offset: -152 (arg 0, inbuf)
+
+Root Function: quote_name_buf, Register Offset: -132 (wc)
+      └─ Function: rpl_mbrtowc, Register Offset: -40 (arg 0, pwc)
+
+Root Function: quote_name_buf, Register Offset: -32 (mbstate)
+      └─ Function: rpl_mbrtowc, Register Offset: -64 (arg 3, ps)
+
+Root Function: quotearg_buffer_restyled, Register Offset: -108 (w)
+      └─ Function: rpl_mbrtowc, Register Offset: -40 (arg 0, pwc)
+
+Root Function: quotearg_buffer_restyled, Register Offset: -32 (mbstate)
+      └─ Function: rpl_mbrtowc, Register Offset: -64 (arg 3, ps)
+
+
+# Function summaries (function trees' nodes)
+__strftime_internal: params s@-1736*, maxsize@-1744, format@-1752*, tp@-1760*, upcase@-1764, yr_spec@-1768, width@16, tzset_called@-1776*, tz@-1784*, ns@40
+    0x15460 call __strftime_internal(2:-1592, 3:-1760, 6:-1824, 7:-1816, 8:-1808, 9:-1800)
+    0x155c5 call __strftime_internal(0:-1608, 2:-1592, 3:-1760, 6:-1824, 7:-1816, 8:-1808, 9:-1800)
+    0x157fc call memcpy_lowcase(0:-1608, 1:&-1055, 2:-1248)
+    0x1582b call memcpy_uppcase(0:-1608, 1:&-1055, 2:-1248)
+    0x16303 call memcpy_lowcase(0:-1608, 1:-1584, 2:-1288)
+    0x1632e call memcpy_uppcase(0:-1608, 1:-1584, 2:-1288)
+    0x167e5 call mktime_z(0:-1784, 1:&-1120)
+    0x16b30 call iso_week_days()
+    0x16bf0 call iso_week_days()
+    0x16c97 call iso_week_days()
+    0x17108 call memcpy_lowcase(0:-1608, 1:-1624, 2:-1488)
+    0x17133 call memcpy_uppcase(0:-1608, 1:-1624, 2:-1488)
+    0x175c8 call memcpy_lowcase(0:-1608, 2:-1184)
+    0x17605 call memcpy_uppcase(0:-1608, 2:-1184)
+__xargmatch_internal: params context@-24*, arg@-32*, arglist@-40*, vallist@-48*, valsize@-56, exit_fn@-64*
+    0xf0f7 call argmatch(0:-32, 1:-40, 2:-48, 3:-56)
+    0xf11f call argmatch_invalid(0:-24, 1:-32, 2:-8)
+    0xf136 call argmatch_valid(0:-40, 1:-48, 2:-56)
+_obstack_newchunk: params h@-72*, length@-80
+    0x1ba5f call call_chunkfun(0:-72, 1:-48)
+    0x1bb53 call call_freefun(0:-72, 1:-40)
+abformat_init: params -
+    0x560e call first_percent_b()
+    0x565a call abmon_init(0:&-1552)
+abmon_init: params abmon@-88*
+    0x550b call to_uchar()
+    0x5562 call mbsalign(0:-40, 3:&-64, 4:-68)
+add_ignore_pattern: params pattern@-24*
+    0x880d call xmalloc()
+adjust_value: params inexact_style@-20, value@16
+align_nstrftime: params buf@-24*, size@-32, recent@-36, tm@-48*, tz@-56*, ns@-40
+    0xb7f6 call nstrftime(0:-24, 1:-32, 2:-8, 3:-48, 4:-56, 5:-40)
+allocate_entry: params table@-24*
+areadlink_with_size: params file@-72*, size@-80
+argmatch: params arg@-40*, arglist@-48*, vallist@-56*, valsize@-64
+argmatch_invalid: params context@-40*, value@-48*, problem@-56
+    0xef2b call quote_n(1:-40)
+    0xef44 call quotearg_n_style(2:-48)
+argmatch_valid: params arglist@-24*, vallist@-32*, valsize@-40
+    0xf00d call quote()
+    0xf062 call quote()
+attach: params dest@-24*, dirname@-32*, name@-40*
+bad_cast: params s@-8*
+base_len: params name@-24*
+basename_is_dot_or_dotdot: params name@-24*
+    0x9d10 call last_component(0:-24)
+    0x9d20 call dot_or_dotdot(0:-8)
+c_strcasecmp: params s1@-40*, s2@-48*
+    0x1c6a4 call c_tolower()
+    0x1c6b4 call c_tolower()
+c_strncasecmp: params s1@-40*, s2@-48*, n@-56
+    0xf4bb call c_tolower()
+    0xf4cb call c_tolower()
+c_tolower: params c@-4
+calculate_columns: params by_columns@-68
+    0xe5b8 call init_column_info()
+    0xe5ea call length_of_file_name_and_frills(0:-32)
+call_chunkfun: params h@-8*, size@-16
+call_freefun: params h@-8*, old_chunk@-16*
+canonicalize_filename_mode: params name@-312*, can_mode@-316
+    0xf6be call xgetcwd()
+    0xf739 call xrealloc(0:-280)
+    0xf7bc call xmalloc()
+    0xfa41 call xrealloc(0:-280, 1:-216)
+    0xfb0b call __stat()
+    0xfb2b call __lstat()
+    0xfbd4 call seen_triple(0:&-288, 1:-312, 2:&-160)
+    0xfc0d call areadlink_with_size(0:-280, 1:-112)
+    0xfcb9 call xmalloc(0:-232)
+    0xfd15 call xrealloc(0:-264, 1:-232)
+    0xff44 call xrealloc(0:-280)
+    0xff75 call hash_free(0:-288)
+    0xffbb call hash_free(0:-288)
+change_env: params tz@-8*
+    0x1c1aa call setenv_TZ()
+check_tuning: params table@-24*
+clear_files: params -
+    0x8a38 call free_ent(0:-8)
+clear_ungetc_buffer_preserving_position: params fp@-8*
+    0x1c93b call rpl_fseeko(0:-8)
+clone_quoting_options: params o@-24*
+    0x177e2 call xmemdup()
+close_stream: params stream@-24*
+    0x1c72b call rpl_fclose(0:-24)
+cmp_name: params a@-8*, b@-16*, cmp@-24*
+compute_bucket_size: params candidate@-24, tuning@-32*
+    0x11803 call next_prime(0:-24)
+decode_switches: params argc@-148, argv@-160*
+    0x66da call set_quoting_style()
+    0x66f5 call set_quoting_style()
+    0x671e call set_quoting_style()
+    0x67bd call getenv_quoting_style()
+    0x67f6 call set_line_length(0:-64)
+    0x6809 call quote(0:-64)
+    0x68a3 call xstrtoul(0:-56, 3:&-16)
+    0x68c0 call quote(0:-56)
+    0x6980 call set_quoting_style()
+    0x6b37 call set_line_length()
+    0x6b51 call quote()
+    0x6ba0 call add_ignore_pattern()
+    0x6bac call add_ignore_pattern()
+    0x6c14 call add_ignore_pattern()
+    0x6c37 call set_quoting_style()
+    0x6c4b call set_quoting_style()
+    0x6ca6 call xnumtoumax()
+    0x6d15 call xmalloc()
+    0x6d7a call __xargmatch_internal()
+    0x6dde call __xargmatch_internal()
+    0x6e2f call __xargmatch_internal()
+    0x6e62 call bad_cast()
+    0x6eab call __xargmatch_internal()
+    0x6f57 call __xargmatch_internal()
+    0x6fdd call __xargmatch_internal()
+    0x702e call __xargmatch_internal()
+    0x704c call set_quoting_style()
+    0x708a call human_options()
+    0x70b6 call xstrtol_fatal(0:-112, 1:-16)
+    0x711f call usage()
+    0x7187 call version_etc()
+    0x719f call usage()
+    0x71db call human_options(0:-40)
+    0x729c call get_quoting_style()
+    0x72fc call clone_quoting_options()
+    0x7322 call set_char_quoting()
+    0x7368 call set_char_quoting()
+    0x7382 call clone_quoting_options()
+    0x73a2 call set_char_quoting()
+    0x7441 call bad_cast()
+    0x7451 call hard_locale()
+    0x74eb call quote(0:-24)
+    0x7552 call argmatch(0:-88)
+    0x7578 call argmatch_invalid(1:-88, 2:-32)
+    0x7605 call usage()
+    0x76a7 call hard_locale()
+    0x76f4 call abformat_init()
+default_block_size: params -
+dev_ino_push: params dev@-56, ino@-64
+    0x515b call _obstack_newchunk()
+dir_len: params file@-24*
+    0x10155 call last_component(0:-24)
+dot_or_dotdot: params file_name@-24*
+emit_ancillary_info: params program@-168*
+emit_mandatory_arg_note: params -
+emit_size_note: params -
+equal_tm: params a@-16*, b@-24*
+    0x1be00 call isdst_differ()
+errno_unsupported: params err@-4
+    0x8aef call is_ENOTSUP(0:-4)
+extend_abbrs: params abbrs@-8*, abbr@-16*, abbr_size@-24
+extract_dirs_from_files: params dirname@-56*, command_line_arg@-60
+    0x9d6b call queue_directory(1:-56)
+    0x9da0 call is_directory(0:-16)
+    0x9dc2 call basename_is_dot_or_dotdot()
+    0x9e00 call queue_directory(2:-60)
+    0x9e1d call file_name_concat(0:-56)
+    0x9e3c call queue_directory(0:-8, 2:-60)
+    0x9e63 call free_ent(0:-16)
+file_escape: params str@-24*, path@-28
+    0xcd3b call xnmalloc()
+    0xcd84 call to_uchar()
+    0xcdd0 call to_uchar()
+file_failure: params serious@-20, message@-32*, file@-40*
+    0x80a2 call quotearg_style(1:-40)
+    0x80cf call set_exit_status()
+file_has_acl: params name@-8*, sb@-16*
+file_has_acl_cache: params file@-24*, f@-32*
+    0x8c11 call file_has_acl() [pointer parameter(s) 0,1: no argument found where they are passed]
+    0x8c28 call errno_unsupported()
+file_ignored: params name@-8*
+    0x8910 call patterns_match(1:-8)
+    0x892a call patterns_match(1:-8)
+file_name_concat: params dir@-24*, base@-32*, base_in_result@-40*
+    0x106f7 call mfile_name_concat(0:-24, 1:-32, 2:-40)
+    0x10707 call xalloc_die()
+filemodestring: params statp@-8*, str@-16*
+    0x106c5 call strmode(1:-16)
+first_percent_b: params fmt@-8*
+format_group: params g@-20, width@-24, stat_ok@-28
+    0xba61 call getgroup(0:-20)
+    0xba76 call format_user_or_group(2:-24)
+format_group_width: params g@-20
+    0xbb72 call getgroup(0:-20)
+    0xbb84 call format_user_or_group_width()
+format_inode: params buf@-8*, buflen@-16, f@-24*
+    0xbbfc call umaxtostr(1:-8)
+format_user: params u@-20, width@-24, stat_ok@-28
+    0xba00 call getuser(0:-20)
+    0xba15 call format_user_or_group(2:-24)
+format_user_or_group: params name@-24*, id@-32, width@-36
+    0xb91b call gnu_mbswidth(0:-24)
+format_user_or_group_width: params name@-56*, id@-64
+    0xbab9 call gnu_mbswidth(0:-56)
+format_user_width: params u@-20
+    0xbb31 call getuser(0:-20)
+    0xbb43 call format_user_or_group_width()
+free_ent: params f@-8*
+    0x89ce call is_smack_enabled()
+    0x89fa call freecon() [pointer parameter(s) 0: no argument found where they are passed]
+free_entry: params table@-8*, entry@-16*
+free_pending_ent: params p@-8*
+freecon: params con@-8*
+ftypelet: params bits@-4
+get_color_indicator: params f@-56*, symlink_target@-60
+    0xd89c call is_colored()
+    0xd914 call is_colored()
+    0xd93a call is_colored()
+    0xd954 call is_colored()
+    0xd987 call is_colored()
+    0xd9b3 call is_colored()
+    0xda01 call is_colored()
+    0xda25 call is_colored()
+    0xda4f call is_colored()
+    0xdb4d call c_strncasecmp()
+    0xdb88 call is_colored()
+get_link_name: params filename@-8*, f@-16*, command_line_arg@-20
+    0x9bf3 call areadlink_with_size(0:-8)
+    0x9c1e call file_failure(0:-20, 2:-8)
+get_quoting_style: params o@-8*
+get_stat_atime: params st@-8*
+get_stat_ctime: params st@-8*
+get_stat_mtime: params st@-8*
+get_type_indicator: params stat_ok@-20, mode@-24, type@-28
+getenv_TZ: params -
+getenv_quoting_style: params -
+    0x7fe6 call argmatch(0:-8)
+    0x8012 call set_quoting_style()
+    0x8020 call quote(0:-8)
+getfilecon: params file@-8*, con@-16*
+getfilecon_cache: params file@-24*, f@-32*, deref@-36
+    0x8b6a call getfilecon() [pointer parameter(s) 0,1: no argument found where they are passed]
+    0x8b86 call lgetfilecon() [pointer parameter(s) 0,1: no argument found where they are passed]
+    0x8b9d call errno_unsupported()
+getgroup: params gid@-36
+    0x13c08 call xmalloc()
+gettext_quote: params msgid@-24*, s@-28
+    0x17a68 call locale_charset()
+    0x17a7f call c_strcasecmp(0:-8)
+    0x17ab3 call c_strcasecmp(0:-8)
+gettime: params ts@-8*
+getuser: params uid@-36
+    0x139b6 call xmalloc()
+gnu_mbswidth: params string@-8*, flags@-12
+    0x14598 call mbsnwidth(0:-8, 2:-12)
+gobble_file: params name@-968*, type@-972, inode@-984, command_line_arg@-976, dirname@-992*
+    0x8dff call xnrealloc()
+    0x8ebf call needs_quoting(0:-968)
+    0x8f30 call is_colored()
+    0x8f42 call is_colored()
+    0x8f54 call is_colored()
+    0x901c call is_colored()
+    0x902a call is_colored()
+    0x9038 call is_colored()
+    0x9046 call is_colored()
+    0x9150 call attach(0:-896, 1:-992, 2:-968)
+    0x916f call canonicalize_filename_mode(0:-896)
+    0x91a6 call file_failure(0:-976, 2:-896)
+    0x91e1 call __stat()
+    0x9219 call __stat()
+    0x9291 call __lstat()
+    0x92c9 call file_failure(0:-976, 2:-896)
+    0x92eb call xstrdup(0:-968)
+    0x9356 call is_colored()
+    0x9373 call has_capability_cache(0:-896, 1:-888)
+    0x93c7 call getfilecon_cache(0:-896, 1:-888, 2:-956)
+    0x93ed call is_smack_enabled()
+    0x9468 call is_ENOTSUP()
+    0x94ae call file_has_acl_cache(0:-896, 1:-888)
+    0x956d call quotearg_n_style_colon(2:-896)
+    0x95e5 call get_link_name(0:-896, 1:-888, 2:-976)
+    0x9602 call make_link_name(0:-896)
+    0x9637 call needs_quoting()
+    0x9685 call __stat()
+    0x9798 call human_readable(0:-904, 1:&-688)
+    0x97a5 call gnu_mbswidth()
+    0x97ef call format_user_width()
+    0x982b call format_group_width()
+    0x9867 call format_user_width()
+    0x98f3 call umaxtostr(1:&-720)
+    0x9972 call umaxtostr(1:&-688)
+    0x99c1 call umaxtostr(1:&-688)
+    0x9a33 call unsigned_file_size()
+    0x9a65 call human_readable(0:-872, 1:&-688)
+    0x9a72 call gnu_mbswidth()
+    0x9abd call umaxtostr(1:&-688)
+    0x9af4 call xstrdup(0:-968)
+group_number: params number@-120*, numberlen@-128, grouping@-136*, thousands_sep@-144*
+hard_locale: params category@-20
+has_capability: params name@-8*
+has_capability_cache: params file@-24*, f@-32*
+    0x8c86 call has_capability() [pointer parameter(s) 0: no argument found where they are passed]
+    0x8ca2 call errno_unsupported()
+hash_find_entry: params table@-56*, entry@-64*, bucket_head@-72*, delete@-76
+    0x11cac call safe_hasher(0:-56, 1:-64)
+    0x11d50 call free_entry(0:-56, 1:-8)
+    0x11deb call free_entry(0:-56, 1:-24)
+hash_free: params table@-40*
+hash_initialize: params candidate@-24, tuning@-32*, hasher@-40*, comparator@-48*, data_freer@-56*
+    0x118d1 call check_tuning(0:-8)
+    0x118ef call compute_bucket_size(0:-24, 1:-32)
+hash_insert: params table@-40*, entry@-48*
+    0x1258f call hash_insert_if_absent(0:-40, 1:-48, 2:&-16)
+hash_insert_if_absent: params table@-56*, entry@-64*, matched_ent@-72*
+    0x12260 call hash_find_entry(0:-56, 1:-64, 2:&-40)
+    0x122ff call check_tuning(0:-56)
+    0x12467 call hash_rehash(0:-56)
+    0x12491 call hash_find_entry(0:-56, 1:-64, 2:&-40)
+    0x124b3 call allocate_entry(0:-56)
+hash_lookup: params table@-24*, entry@-32*
+    0x111be call safe_hasher(0:-24, 1:-32)
+hash_rehash: params table@-120*, candidate@-128
+    0x12023 call compute_bucket_size(0:-128)
+    0x1212f call transfer_entries(0:-104, 1:-120)
+    0x121bf call transfer_entries(0:-120, 1:-104)
+    0x121de call transfer_entries(0:-120, 1:-104)
+human_options: params spec@-24*, opts@-32*, block_size@-40*
+    0x138f3 call humblock(0:-24, 1:-40, 2:-32)
+    0x13907 call default_block_size()
+human_readable: params n@-232, buf@-240*, opts@-244, from_block_size@-256, to_block_size@-264
+    0x12f88 call adjust_value(0:-208)
+    0x13051 call adjust_value(0:-208)
+    0x1310a call adjust_value(0:-208)
+    0x135a7 call group_number(0:-176, 2:-104, 3:-136)
+humblock: params spec@-40*, block_size@-48*, options@-56*
+    0x1378a call default_block_size()
+    0x137c9 call argmatch(0:-40)
+    0x1381f call xstrtoumax(0:-40, 1:&-16, 3:-48)
+imaxtostr: params i@-24, buf@-32*
+indent: params from@-8, to@-16
+init_column_info: params -
+    0xe3bb call xnrealloc(1:-32)
+    0xe3ed call xnrealloc()
+    0xe459 call xalloc_die()
+    0xe46d call xnmalloc()
+initialize_exit_failure: params status@-4
+initialize_ordering_vector: params -
+is_ENOTSUP: params err@-4
+is_colored: params type@-20
+is_directory: params f@-8*
+is_prime: params candidate@-24
+is_smack_enabled: params -
+isdst_differ: params a@-4, b@-8
+iso_week_days: params yday@-20, wday@-24
+last_component: params name@-40*
+length_of_file_name_and_frills: params f@-696*
+    0xdc9f call umaxtostr(1:&-672)
+    0xdd26 call human_readable(1:&-672)
+    0xddb5 call quote_name_width()
+    0xddf7 call get_type_indicator()
+lgetfilecon: params file@-8*, con@-16*
+locale_charset: params -
+localtime_rz: params tz@-24*, t@-32*, tm@-40*
+    0x1c33a call set_tz(0:-24)
+    0x1c370 call save_abbr(0:-24, 1:-40)
+    0x1c393 call revert_tz(0:-8)
+long_time_expected_width: params -
+    0xb84f call localtime_rz(1:&-1104, 2:&-1088)
+    0xb887 call align_nstrftime(0:&-1024, 3:&-1088)
+    0xb8b6 call mbsnwidth(0:&-1024, 1:-1096)
+make_link_name: params name@-24*, linkname@-32*
+    0x9c5d call xstrdup(0:-32)
+    0x9c6e call dir_len(0:-24)
+    0x9c85 call xstrdup(0:-32)
+    0x9ca6 call xmalloc()
+mbs_align_pad: params dest@-8*, dest_end@-16*, n_spaces@-24
+mbsalign: params src@-120*, dest@-128*, dest_size@-136, width@-144*, align@-148, flags@-152
+    0x14203 call wc_ensure_printable(0:-80)
+    0x142b2 call wc_truncate(0:-80)
+    0x143e7 call mbs_align_pad(0:-128, 1:-16, 2:-40)
+    0x14435 call mbs_align_pad(0:-128, 1:-16, 2:-32)
+mbsnwidth: params string@-72*, nbytes@-80, flags@-84
+    0x1466d call rpl_mbrtowc(0:&-52, 1:-40, 3:&-16)
+memcpy_lowcase: params dest@-8*, src@-16*, len@-24
+memcpy_uppcase: params dest@-8*, src@-16*, len@-24
+mfile_name_concat: params dir@-72*, base@-80*, base_in_result@-88*
+    0x10731 call last_component(0:-72)
+    0x10741 call base_len(0:-48)
+mktime_z: params tz@-104*, tm@-112*
+    0x1c3f1 call set_tz(0:-104)
+    0x1c44d call equal_tm(0:-112, 1:&-64)
+    0x1c464 call save_abbr(0:-104, 1:-112)
+    0x1c47f call revert_tz(0:-80)
+mpsort: params base@-8*, n@-16, cmp@-24*
+    0x14c58 call mpsort_with_tmp(0:-8, 1:-16, 3:-24)
+mpsort_into_tmp: params base@-72*, n@-80, tmp@-88*, cmp@-96*
+    0x1489d call mpsort_with_tmp(1:-16, 2:-88, 3:-96)
+    0x148b5 call mpsort_with_tmp(0:-72, 1:-24, 2:-88, 3:-96)
+mpsort_with_tmp: params base@-104*, n@-112, tmp@-120*, cmp@-128*
+    0x14aa7 call mpsort_with_tmp(1:-40, 2:-120, 3:-128)
+    0x14ad6 call mpsort_into_tmp(0:-104, 1:-48, 2:-120, 3:-128)
+needs_quoting: params name@-40*
+    0x8d00 call quotearg_buffer(0:&-10, 2:-40)
+next_prime: params candidate@-8
+    0x1156b call is_prime(0:-8)
+nstrftime: params s@-24*, maxsize@-32, format@-40*, tp@-48*, tz@-56*, ns@-60
+    0x14dcc call __strftime_internal(0:-24, 1:-32, 2:-40, 3:-48, 7:-88, 8:-80, 9:-72)
+patterns_match: params patterns@-24*, file@-32*
+prep_non_filename_text: params -
+    0xd3fb call put_indicator()
+    0xd409 call put_indicator()
+    0xd415 call put_indicator()
+    0xd421 call put_indicator()
+print_color_indicator: params ind@-8*
+    0xd7b5 call is_colored()
+    0xd7be call restore_default_color()
+    0xd7ca call put_indicator()
+    0xd7d6 call put_indicator(0:-8)
+    0xd7e2 call put_indicator()
+print_current_files: params -
+    0xb680 call print_file_name_and_frills()
+    0xb6b7 call print_with_separator()
+    0xb6c1 call print_many_per_line()
+    0xb6dc call print_with_separator()
+    0xb6e3 call print_horizontal()
+    0xb6ef call print_with_separator()
+    0xb700 call set_normal_color()
+    0xb71d call print_long_format()
+print_dir: params name@-872*, realname@-880*, command_line_arg@-884
+    0x81f5 call file_failure(0:-884, 2:-872)
+    0x823f call __fstat()
+    0x825d call __stat()
+    0x8280 call file_failure(0:-884, 2:-872)
+    0x82ad call visit_dir(0:-816, 1:-808)
+    0x82ca call quotearg_n_style_colon(2:-872)
+    0x8301 call set_exit_status()
+    0x831f call dev_ino_push(0:-816, 1:-808)
+    0x8324 call clear_files()
+    0x83d6 call canonicalize_filename_mode(0:-872)
+    0x8403 call file_failure(0:-884, 2:-872)
+    0x844d call quote_name(6:-912)
+    0x84d4 call file_ignored()
+    0x85ae call gobble_file(1:-864, 4:-872)
+    0x85ec call sort_files()
+    0x85f1 call print_current_files()
+    0x85f6 call clear_files()
+    0x861f call file_failure(0:-884, 2:-872)
+    0x8630 call process_signals()
+    0x8668 call file_failure(0:-884, 2:-872)
+    0x866d call sort_files()
+    0x868c call extract_dirs_from_files(0:-872)
+    0x8770 call human_readable(0:-856, 1:&-672)
+    0x87dd call print_current_files()
+print_file_name_and_frills: params f@-696*, start_col@-704
+    0xd455 call set_normal_color()
+    0xd47b call format_inode(0:&-672, 2:-696)
+    0xd504 call human_readable(1:&-672)
+    0xd599 call print_name_with_quoting(0:-696, 3:-704)
+    0xd5db call print_type_indicator()
+print_horizontal: params -
+    0xdfa7 call calculate_columns()
+    0xdfe8 call length_of_file_name_and_frills(0:-16)
+    0xe00c call print_file_name_and_frills(0:-16)
+    0xe066 call indent()
+    0xe09a call print_file_name_and_frills(0:-16, 1:-56)
+    0xe0a6 call length_of_file_name_and_frills(0:-16)
+print_long_format: params f@-4552*
+    0xbc6a call filemodestring(1:&-4380)
+    0xbd27 call get_stat_ctime()
+    0xbd4a call get_stat_mtime()
+    0xbd6d call get_stat_atime()
+    0xbdb6 call format_inode(0:&-4336, 2:-4552)
+    0xbe4f call human_readable(1:&-4336)
+    0xbe70 call gnu_mbswidth(0:-4504)
+    0xbf1d call umaxtostr(1:&-4336)
+    0xc03e call format_user()
+    0xc073 call format_group()
+    0xc0a8 call format_user()
+    0xc0d4 call format_user_or_group()
+    0xc16e call umaxtostr(1:&-4336)
+    0xc19f call umaxtostr(1:&-4368)
+    0xc236 call unsigned_file_size()
+    0xc252 call human_readable(1:&-4336)
+    0xc273 call gnu_mbswidth(0:-4496)
+    0xc330 call localtime_rz(1:&-4480, 2:&-4448)
+    0xc360 call timespec_cmp()
+    0xc370 call gettime()
+    0xc3b9 call timespec_cmp()
+    0xc3e4 call timespec_cmp()
+    0xc439 call align_nstrftime(0:-4512, 2:-4533, 3:&-4448)
+    0xc4be call timetostr(0:-4480, 1:&-4336)
+    0xc4c6 call long_time_expected_width()
+    0xc572 call print_name_with_quoting(0:-4552)
+    0xc616 call print_name_with_quoting(0:-4552)
+    0xc63e call print_type_indicator()
+    0xc67b call print_type_indicator()
+print_many_per_line: params -
+    0xde44 call calculate_columns()
+    0xdeeb call length_of_file_name_and_frills(0:-24)
+    0xdf24 call print_file_name_and_frills(0:-24, 1:-56)
+    0xdf5a call indent()
+print_name_with_quoting: params f@-40*, symlink_target@-44, stack@-56*, start_col@-64
+    0xd2e6 call get_color_indicator(0:-40, 1:-44)
+    0xd30d call is_colored()
+    0xd36c call quote_name(0:-24, 3:-16, 5:-56, 6:-80)
+    0xd379 call process_signals()
+    0xd384 call prep_non_filename_text()
+    0xd3d5 call put_indicator()
+print_type_indicator: params stat_ok@-20, mode@-24, type@-28
+    0xd765 call get_type_indicator(1:-24, 2:-28)
+print_with_separator: params sep@-52
+    0xe13e call length_of_file_name_and_frills(0:-16)
+    0xe1c8 call print_file_name_and_frills(0:-16, 1:-24)
+process_signals: params -
+    0x5b29 call restore_default_color()
+put_indicator: params ind@-8*
+    0xdc0e call signal_init()
+    0xdc13 call prep_non_filename_text()
+queue_directory: params name@-24*, realname@-32*, command_line_arg@-36
+    0x80fa call xmalloc()
+    0x8111 call xstrdup(0:-32)
+    0x8136 call xstrdup(0:-24)
+quote: params arg@-8*
+    0x19606 call quote_n(1:-8)
+quote_n: params n@-4, arg@-16*
+    0x195e3 call quote_n_mem(0:-4, 1:-16)
+quote_n_mem: params n@-4, arg@-16*, argsize@-24
+    0x1958b call quotearg_n_options(0:-4, 1:-16, 2:-24)
+quote_name: params name@-8312*, options@-8320*, needs_general_quoting@-8324, color@-8336*, allow_pad@-8328, stack@-8344*, absolute_name@-8352*
+    0xcec4 call quote_name_buf(0:&-8288, 2:-8312, 3:-8320, 4:-8324, 6:-8368)
+    0xcf18 call print_color_indicator(0:-8336)
+    0xcf80 call file_escape()
+    0xcf9b call file_escape(0:-8352)
+    0xd085 call _obstack_newchunk(0:-8256)
+    0xd19f call _obstack_newchunk(0:-8232)
+quote_name_buf: params inbuf@-152*, bufsize@-160, name@-168*, options@-176*, needs_general_quoting@-180, width@-192*, pad@-200*
+    0xc715 call get_quoting_style(0:-176)
+    0xc786 call quotearg_buffer(0:-120, 1:-160, 2:-168, 4:-176)
+    0xc7a7 call xmalloc()
+    0xc7d7 call quotearg_buffer(0:-120, 2:-168, 4:-176)
+    0xc858 call xmalloc()
+    0xc979 call rpl_mbrtowc(0:&-132, 1:-96, 3:&-32)
+    0xcaa7 call to_uchar()
+    0xcb13 call mbsnwidth(0:-120, 1:-104)
+    0xcb55 call to_uchar()
+quote_name_width: params name@-8248*, options@-8256*, needs_general_quoting@-8260
+    0xcc9b call quote_name_buf(0:&-8224, 2:-8248, 3:-8256, 4:-8260, 5:&-8216, 6:-8288)
+quotearg_buffer: params buffer@-40*, buffersize@-48, arg@-56*, argsize@-64, o@-72*
+    0x18b6c call quotearg_buffer_restyled(0:-40, 1:-48, 2:-56, 3:-64, 6:-112, 7:-104, 8:-96)
+quotearg_buffer_restyled: params buffer@-136*, buffersize@-144, arg@-152*, argsize@-160, quoting_style@-164, flags@-168, quote_these_too@-176*, left_quote@-184*, right_quote@-192*
+    0x17c5c call gettext_quote(1:-164)
+    0x17c77 call gettext_quote(1:-164)
+    0x183a2 call rpl_mbrtowc(0:&-108, 3:&-32)
+    0x1899b call quotearg_buffer_restyled(0:-136, 1:-88, 2:-152, 3:-160, 6:-224, 7:-216, 8:-208)
+    0x18abe call quotearg_buffer_restyled(0:-136, 1:-144, 2:-152, 3:-160, 7:-216, 8:-208)
+quotearg_n_options: params n@-52, arg@-64*, argsize@-72, options@-80*
+    0x18e14 call xalloc_die()
+    0x18e3f call xrealloc()
+    0x18f41 call quotearg_buffer_restyled(0:-24, 1:-16, 2:-64, 3:-72, 5:-36, 6:-112, 7:-104, 8:-96)
+    0x18fa2 call xcharalloc(0:-16)
+    0x1900b call quotearg_buffer_restyled(0:-24, 1:-16, 2:-64, 3:-72, 5:-36, 6:-112, 7:-104, 8:-96)
+quotearg_n_style: params n@-68, s@-72, arg@-80*
+    0x19106 call quoting_options_from_style(0:-72)
+    0x19122 call quotearg_n_options(0:-68, 1:-80, 3:&-64)
+quotearg_n_style_colon: params n@-68, s@-72, arg@-80*
+    0x1936c call quoting_options_from_style(0:-72)
+    0x193c0 call set_char_quoting(0:&-64)
+    0x193dc call quotearg_n_options(0:-68, 1:-80, 3:&-64)
+quotearg_style: params s@-4, arg@-16*
+    0x191c4 call quotearg_n_style(1:-4, 2:-16)
+quoting_options_from_style: params style@-92
+record_file: params ht@-24*, file@-32*, stats@-40*
+    0x10327 call xmalloc()
+    0x10337 call xstrdup(0:-32)
+    0x10373 call hash_insert(0:-24, 1:-16)
+    0x10383 call xalloc_die()
+    0x10399 call triple_free(0:-16)
+restore_default_color: params -
+    0x5a57 call put_indicator()
+    0x5a63 call put_indicator()
+revert_tz: params tz@-24*
+    0x1c2c6 call change_env(0:-24)
+    0x1c2ea call tzfree(0:-24)
+rpl_fclose: params fp@-24*
+    0x1c8cd call rpl_fflush(0:-24)
+rpl_fflush: params stream@-8*
+    0x1c97f call clear_ungetc_buffer_preserving_position(0:-8)
+rpl_fseeko: params fp@-24*, offset@-32, whence@-36
+rpl_mbrtowc: params pwc@-40*, s@-48*, n@-56, ps@-64*
+    0x1b6b7 call hard_locale()
+safe_hasher: params table@-24*, key@-32*
+save_abbr: params tz@-40*, tm@-48*
+    0x1c022 call extend_abbrs(0:-32, 1:-24, 2:-16)
+    0x1c033 call tzalloc(0:-24)
+seen_file: params ht@-40*, file@-48*, stats@-56*
+    0x10405 call hash_lookup(0:-40, 1:&-32)
+seen_triple: params ht@-24*, filename@-32*, st@-40*
+    0xf55e call hash_initialize()
+    0xf576 call xalloc_die()
+    0xf590 call seen_file(1:-32, 2:-40)
+    0xf5b5 call record_file(1:-32, 2:-40)
+set_char_quoting: params o@-40*, c@-44, i@-48
+set_exit_status: params serious@-4
+set_line_length: params spec@-24*
+    0x6611 call xstrtoumax(0:-24, 3:&-16)
+set_normal_color: params -
+    0x5a83 call is_colored()
+    0x5a93 call put_indicator()
+    0x5a9f call put_indicator()
+    0x5aab call put_indicator()
+set_program_name: params argv0@-24*
+set_quoting_style: params o@-8*, s@-12
+set_tz: params tz@-40*
+    0x1c1d6 call getenv_TZ()
+    0x1c23d call tzalloc(0:-16)
+    0x1c25a call change_env(0:-40)
+    0x1c277 call tzfree(0:-8)
+setenv_TZ: params tz@-8*
+signal_init: params -
+    0x5ec1 call signal_setup()
+signal_setup: params init@-180
+sort_files: params -
+    0xb511 call xnmalloc()
+    0xb534 call initialize_ordering_vector()
+    0xb590 call initialize_ordering_vector()
+    0xb611 call mpsort()
+strmode: params mode@-4, str@-16*
+    0x104ed call ftypelet(0:-4)
+timespec_cmp: params a@-16, b@-32
+timetostr: params t@-8, buf@-16*
+    0x50ca call imaxtostr(0:-8, 1:-16)
+to_uchar: params ch@-4
+transfer_entries: params dst@-56*, src@-64*, safe@-68
+    0x11e7d call safe_hasher(0:-56, 1:-32)
+    0x11ee9 call free_entry(0:-56, 1:-40)
+    0x11f30 call safe_hasher(0:-56, 1:-32)
+    0x11f4c call allocate_entry(0:-56)
+triple_free: params x@-24*
+tzalloc: params name@-40*
+    0x1bf02 call extend_abbrs(1:-40, 2:-24)
+tzfree: params tz@-24*
+umaxtostr: params i@-24, buf@-32*
+unsigned_file_size: params size@-8
+usage: params status@-4
+    0xe8a6 call emit_mandatory_arg_note()
+    0xebab call emit_size_note()
+    0xec42 call emit_ancillary_info()
+version_etc: params stream@-216*, command_name@-224*, package@-232*, version@-240*
+    0x1a3de call version_etc_va(0:-216, 1:-224, 2:-232, 3:-240, 4:&-208)
+version_etc_arn: params stream@-24*, command_name@-32*, package@-40*, version@-48*, authors@-56*, n_authors@-64
+version_etc_va: params stream@-120*, command_name@-128*, package@-136*, version@-144*, authors@-152*
+    0x1a2fd call version_etc_arn(0:-120, 1:-128, 2:-136, 3:-144, 4:&-96, 5:-104)
+visit_dir: params dev@-40, ino@-48
+    0x58ff call xmalloc()
+    0x5930 call hash_insert(1:-16)
+    0x5940 call xalloc_die()
+wc_ensure_printable: params wchars@-24*
+wc_truncate: params wc@-24*, width@-32
+xalloc_die: params -
+xcharalloc: params n@-8
+    0x1a60a call xmalloc(0:-8)
+xgetcwd: params -
+    0x1a9d8 call xalloc_die()
+xmalloc: params n@-24
+    0x1a63f call xalloc_die()
+xmemdup: params p@-8*, s@-16
+    0x1a792 call xmalloc(0:-16)
+xnmalloc: params n@-8, s@-16
+    0x1a49b call xalloc_die()
+    0x1a4ac call xmalloc()
+xnrealloc: params p@-8*, n@-16, s@-24
+    0x1a4f3 call xalloc_die()
+    0x1a50e call xrealloc(0:-8)
+xnumtoumax: params n_str@-56*, base@-60, min@-72, max@-80, suffixes@-88*, err@-96*, err_exit@16
+    0x1a85f call xstrtoumax(0:-56, 2:-60, 3:&-32, 4:-88)
+    0x1a8df call quote(0:-56)
+xrealloc: params p@-8*, n@-16
+    0x1a6a4 call xalloc_die()
+xstrdup: params string@-8*
+    0x1a7d9 call xmemdup(0:-8)
+xstrtol_error: params err@-52, opt_idx@-56, c@-60, long_options@-72*, arg@-80*, exit_status@-64
+xstrtol_fatal: params err@-4, opt_idx@-8, c@-12, long_options@-24*, arg@-32*
+    0x1b145 call xstrtol_error(0:-4, 1:-8, 2:-12, 3:-24, 4:-32)
+xstrtoul: params s@-72*, ptr@-80*, strtol_base@-84, val@-96*, valid_suffixes@-104*
+    0x1ae67 call bkm_scale()
+    0x1ae80 call bkm_scale()
+    0x1aeaa call bkm_scale_by_power()
+    0x1aec8 call bkm_scale_by_power()
+    0x1aee6 call bkm_scale_by_power()
+    0x1af04 call bkm_scale_by_power()
+    0x1af22 call bkm_scale_by_power()
+    0x1af3d call bkm_scale_by_power()
+    0x1af53 call bkm_scale()
+    0x1af6e call bkm_scale_by_power()
+    0x1af89 call bkm_scale_by_power()
+xstrtoumax: params s@-72*, ptr@-80*, strtol_base@-84, val@-96*, valid_suffixes@-104*
+    0x1b4bd call bkm_scale()
+    0x1b4d6 call bkm_scale()
+    0x1b500 call bkm_scale_by_power()
+    0x1b51e call bkm_scale_by_power()
+    0x1b53c call bkm_scale_by_power()
+    0x1b55a call bkm_scale_by_power()
+    0x1b578 call bkm_scale_by_power()
+    0x1b593 call bkm_scale_by_power()
+    0x1b5a9 call bkm_scale()
+    0x1b5c4 call bkm_scale_by_power()
+    0x1b5df call bkm_scale_by_power()

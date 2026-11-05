@@ -1,0 +1,119 @@
+$ in_image iocs:dev bash -c ./iocs.sh tiny tools build && cp result/tiny/tiny.s result/tiny/tiny.s.compiler
+Build the DTA tool
+cd src && CPPFLAGS= DFTFLAGS= make
+make[1]: Entering directory '/iocs/third_party/libdft64/src'
+/usr/bin/make objects
+make[2]: Entering directory '/iocs/third_party/libdft64/src'
+make[2]: Nothing to be done for 'objects'.
+make[2]: Leaving directory '/iocs/third_party/libdft64/src'
+/usr/bin/make libs
+make[2]: Entering directory '/iocs/third_party/libdft64/src'
+make[2]: Nothing to be done for 'libs'.
+make[2]: Leaving directory '/iocs/third_party/libdft64/src'
+/usr/bin/make dlls
+make[2]: Entering directory '/iocs/third_party/libdft64/src'
+make[2]: Nothing to be done for 'dlls'.
+make[2]: Leaving directory '/iocs/third_party/libdft64/src'
+/usr/bin/make apps
+make[2]: Entering directory '/iocs/third_party/libdft64/src'
+make[2]: Nothing to be done for 'apps'.
+make[2]: Leaving directory '/iocs/third_party/libdft64/src'
+/usr/bin/make tools
+make[2]: Entering directory '/iocs/third_party/libdft64/src'
+make[2]: Nothing to be done for 'tools'.
+make[2]: Leaving directory '/iocs/third_party/libdft64/src'
+make[1]: Leaving directory '/iocs/third_party/libdft64/src'
+# cd tools && TARGET=ia32 CPPFLAGS= DFTFLAGS= make
+cd tools && TARGET=intel64 CPPFLAGS= DFTFLAGS= make
+make[1]: Entering directory '/iocs/third_party/libdft64/tools'
+/usr/bin/make objects
+make[2]: Entering directory '/iocs/third_party/libdft64/tools'
+make[2]: Nothing to be done for 'objects'.
+make[2]: Leaving directory '/iocs/third_party/libdft64/tools'
+/usr/bin/make libs
+make[2]: Entering directory '/iocs/third_party/libdft64/tools'
+make[2]: Nothing to be done for 'libs'.
+make[2]: Leaving directory '/iocs/third_party/libdft64/tools'
+/usr/bin/make dlls
+make[2]: Entering directory '/iocs/third_party/libdft64/tools'
+make[2]: Nothing to be done for 'dlls'.
+make[2]: Leaving directory '/iocs/third_party/libdft64/tools'
+/usr/bin/make apps
+make[2]: Entering directory '/iocs/third_party/libdft64/tools'
+make[2]: Nothing to be done for 'apps'.
+make[2]: Leaving directory '/iocs/third_party/libdft64/tools'
+/usr/bin/make tools
+make[2]: Entering directory '/iocs/third_party/libdft64/tools'
+make[2]: Nothing to be done for 'tools'.
+make[2]: Leaving directory '/iocs/third_party/libdft64/tools'
+make[1]: Leaving directory '/iocs/third_party/libdft64/tools'
+mkdir -p obj-intel64/
+/usr/bin/make objects
+make[1]: Entering directory '/iocs/src/dta/sources'
+make[1]: Nothing to be done for 'objects'.
+make[1]: Leaving directory '/iocs/src/dta/sources'
+/usr/bin/make libs
+make[1]: Entering directory '/iocs/src/dta/sources'
+make[1]: Nothing to be done for 'libs'.
+make[1]: Leaving directory '/iocs/src/dta/sources'
+/usr/bin/make dlls
+make[1]: Entering directory '/iocs/src/dta/sources'
+make[1]: Nothing to be done for 'dlls'.
+make[1]: Leaving directory '/iocs/src/dta/sources'
+/usr/bin/make apps
+make[1]: Entering directory '/iocs/src/dta/sources'
+make[1]: Nothing to be done for 'apps'.
+make[1]: Leaving directory '/iocs/src/dta/sources'
+/usr/bin/make tools
+make[1]: Entering directory '/iocs/src/dta/sources'
+g++ -Wall -Werror -Wno-unknown-pragmas -DPIN_CRT=1 -fno-stack-protector -fno-exceptions -funwind-tables -fasynchronous-unwind-tables -fno-rtti -DTARGET_IA32E -DHOST_IA32E -fPIC -DTARGET_LINUX -fabi-version=2 -faligned-new -I/opt/pin-3.27/source/include/pin -I/opt/pin-3.27/source/include/pin/gen -isystem /opt/pin-3.27/extras/cxx/include -isystem /opt/pin-3.27/extras/crt/include -isystem /opt/pin-3.27/extras/crt/include/arch-x86_64 -isystem /opt/pin-3.27/extras/crt/include/kernel/uapi -isystem /opt/pin-3.27/extras/crt/include/kernel/uapi/asm-x86 -I/opt/pin-3.27/extras/components/include -I/opt/pin-3.27/extras/xed-intel64/include/xed -I/opt/pin-3.27/source/tools/Utils -I/opt/pin-3.27/source/tools/InstLib -O3 -fomit-frame-pointer -fno-strict-aliasing  -Wno-dangling-pointer -Wno-deprecated-declarations -DNO_PINTOOL_LOG -I/iocs/third_party/libdft64/src/ -L/iocs/third_party/libdft64/src/obj-intel64/ -c -o obj-intel64/libdft-mod.o libdft-mod.cpp
+g++ -shared -Wl,--hash-style=sysv /opt/pin-3.27/intel64/runtime/pincrt/crtbeginS.o -Wl,-Bsymbolic -Wl,--version-script=/opt/pin-3.27/source/include/pin/pintool.ver -fabi-version=2   -o obj-intel64/libdft-mod.so obj-intel64/libdft-mod.o -L/opt/pin-3.27/intel64/runtime/pincrt -L/opt/pin-3.27/intel64/lib -L/opt/pin-3.27/intel64/lib-ext -L/opt/pin-3.27/extras/xed-intel64/lib -lpin -lxed /opt/pin-3.27/intel64/runtime/pincrt/crtendS.o -lpindwarf -ldl-dynamic -nostdlib -lc++ -lc++abi -lm-dynamic -lc-dynamic -lunwind-dynamic -L/iocs/third_party/libdft64/src/obj-intel64/ -ldft
+make[1]: Leaving directory '/iocs/src/dta/sources'
+Build tiny
+;\
+print tiny
+tiny
+print /iocs /iocs/result
+/iocs /iocs/result
+if [ ! -d  /iocs/result/tiny ]; then \
+	mkdir /iocs/result/tiny ;\
+fi ;\
+cp libMakefile  /iocs/result/tiny/Makefile ;\
+gcc -O0 -gdwarf-2 -c -save-temps=obj tiny.c -o /iocs/result/tiny/tiny.out ;\
+gcc -O0 -gdwarf-2 -S -masm=intel tiny.c -o /iocs/result/tiny/tiny.intel ;\
+as /iocs/result/tiny/tiny.s -o /iocs/result/tiny/tiny.o
+tiny.c: In function 'serve_static':
+tiny.c:346:16: warning: format '%d' expects argument of type 'int', but argument 2 has type 'off_t' {aka 'long int'} [-Wformat=]
+  346 |         printf("offset: %d \n\n", offset);
+      |                ^~~~~~~~~~~~~~~~~  ~~~~~~
+      |                                   |
+      |                                   off_t {aka long int}
+tiny.c: In function 'process':
+tiny.c:358:12: warning: format '%d' expects argument of type 'int', but argument 2 has type 'off_t' {aka 'long int'} [-Wformat=]
+  358 |     printf("%d\n", req.offset);
+      |            ^~~~~~  ~~~~~~~~~~
+      |                       |
+      |                       off_t {aka long int}
+tiny.c: In function 'serve_static':
+tiny.c:346:26: warning: format '%d' expects argument of type 'int', but argument 2 has type 'off_t' {aka 'long int'} [-Wformat=]
+  346 |         printf("offset: %d \n\n", offset);
+      |                         ~^        ~~~~~~
+      |                          |        |
+      |                          int      off_t {aka long int}
+      |                         %ld
+tiny.c: In function 'process':
+tiny.c:358:14: warning: format '%d' expects argument of type 'int', but argument 2 has type 'off_t' {aka 'long int'} [-Wformat=]
+  358 |     printf("%d\n", req.offset);
+      |             ~^     ~~~~~~~~~~
+      |              |        |
+      |              int      off_t {aka long int}
+      |             %ld
+gcc -O0 -gdwarf-2 /iocs/result/tiny/tiny.o -o /iocs/result/tiny/tiny.out
+if [ ! -e /iocs/result/tiny/taint.in ] ;\
+then ;\
+	echo "Doesn't exist" ;\
+fi ;\
+
+Doesn't exist
+
+[exit 0]

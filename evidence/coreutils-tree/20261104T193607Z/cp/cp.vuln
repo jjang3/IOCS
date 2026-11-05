@@ -1,0 +1,2496 @@
+file: src/copy.c - line_num: 1949 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %67 = load i32, i32* %backup_type91, align 8, !dbg !501
+
+file: src/copy.c - line_num: 1949 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %67 = load i32, i32* %backup_type91, align 8, !dbg !501
+
+file: src/copy.c - line_num: 2788 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %535 = load %struct.hash_table*, %struct.hash_table** %dest_info886, align 8, !dbg !1659
+
+file: src/copy.c - line_num: 2788 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %535 = load %struct.hash_table*, %struct.hash_table** %dest_info886, align 8, !dbg !1659
+
+file: src/copy.c - line_num: 2852 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %582 = load i8, i8* %preserve_xattr, align 1, !dbg !1745
+
+file: src/copy.c - line_num: 2852 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %582 = load i8, i8* %preserve_xattr, align 1, !dbg !1745
+
+file: src/copy.c - line_num: 2141 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %167 = load i32, i32* %backup_type264, align 8, !dbg !763
+
+file: src/copy.c - line_num: 2141 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %167 = load i32, i32* %backup_type264, align 8, !dbg !763
+
+file: src/copy.c - line_num: 2269 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %238 = load i8, i8* %recursive375, align 2, !dbg !931
+
+file: src/copy.c - line_num: 2269 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %238 = load i8, i8* %recursive375, align 2, !dbg !931
+
+file: src/copy.c - line_num: 2034 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %116 = load i8, i8* %move_mode160, align 8, !dbg !619
+
+file: src/copy.c - line_num: 2034 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %116 = load i8, i8* %move_mode160, align 8, !dbg !619
+
+file: src/copy.c - line_num: 2116 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %157 = load i32, i32* %backup_type244, align 8, !dbg !734
+
+file: src/copy.c - line_num: 2116 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %157 = load i32, i32* %backup_type244, align 8, !dbg !734
+
+file: src/copy.c - line_num: 2061 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %132 = load i8, i8* %move_mode193, align 8, !dbg !667
+
+file: src/copy.c - line_num: 2061 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %134 = load i32, i32* %backup_type196, align 8, !dbg !670
+
+file: src/copy.c - line_num: 2061 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %132 = load i8, i8* %move_mode193, align 8, !dbg !667
+
+file: src/copy.c - line_num: 2061 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %134 = load i32, i32* %backup_type196, align 8, !dbg !670
+
+file: src/copy.c - line_num: 2662 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %444 = load i8, i8* %unlink_dest_after_failed_open702, align 2, !dbg !1428
+
+file: src/copy.c - line_num: 2662 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %444 = load i8, i8* %unlink_dest_after_failed_open702, align 2, !dbg !1428
+
+file: src/copy.c - line_num: 2189 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %208 = load i8, i8* %verbose319, align 2, !dbg !851
+
+file: src/copy.c - line_num: 2189 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %208 = load i8, i8* %verbose319, align 2, !dbg !851
+
+file: src/copy.c - line_num: 2198 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %212 = load %struct.hash_table*, %struct.hash_table** %dest_info331, align 8, !dbg !862
+
+file: src/copy.c - line_num: 2198 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %212 = load %struct.hash_table*, %struct.hash_table** %dest_info331, align 8, !dbg !862
+
+file: src/copy.c - line_num: 1899 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %33 = load i8, i8* %install_mode, align 1, !dbg !428
+
+file: src/copy.c - line_num: 1899 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %33 = load i8, i8* %install_mode, align 1, !dbg !428
+
+file: src/copy.c - line_num: 2747 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %509 = load i8, i8* %preserve_ownership831, align 1, !dbg !1596
+
+file: src/copy.c - line_num: 2747 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %509 = load i8, i8* %preserve_ownership831, align 1, !dbg !1596
+
+file: src/copy.c - line_num: 2582 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %403 = load i8, i8* %require_preserve_context, align 2, !dbg !1328
+
+file: src/copy.c - line_num: 2582 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %403 = load i8, i8* %require_preserve_context, align 2, !dbg !1328
+
+file: src/copy.c - line_num: 1990 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %94 = load i8, i8* %preserve_timestamps, align 1, !dbg !571
+
+file: src/copy.c - line_num: 1990 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %94 = load i8, i8* %preserve_timestamps, align 1, !dbg !571
+
+file: src/copy.c - line_num: 2719 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %488 = load i8, i8* %unlink_dest_after_failed_open789, align 2, !dbg !1541
+
+file: src/copy.c - line_num: 2719 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %488 = load i8, i8* %unlink_dest_after_failed_open789, align 2, !dbg !1541
+
+file: src/copy.c - line_num: 2783 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %532 = load i8, i8* %require_preserve_context877, align 2, !dbg !1650
+
+file: src/copy.c - line_num: 2783 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %532 = load i8, i8* %require_preserve_context877, align 2, !dbg !1650
+
+file: src/copy.c - line_num: 2911 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %632 = load i8, i8* %require_preserve1062, align 4, !dbg !1876
+
+file: src/copy.c - line_num: 2911 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %632 = load i8, i8* %require_preserve1062, align 4, !dbg !1876
+
+file: src/copy.c - line_num: 2200 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %216 = load i32, i32* %backup_type337, align 8, !dbg !868
+
+file: src/copy.c - line_num: 2200 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %216 = load i32, i32* %backup_type337, align 8, !dbg !868
+
+file: src/copy.c - line_num: 2319 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %275 = load i8, i8* %move_mode439, align 8, !dbg !1020
+
+file: src/copy.c - line_num: 2319 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %275 = load i8, i8* %move_mode439, align 8, !dbg !1020
+
+file: src/copy.c - line_num: 2221 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %223 = load %struct.hash_table*, %struct.hash_table** %dest_info355, align 8, !dbg !899
+
+file: src/copy.c - line_num: 2221 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %223 = load %struct.hash_table*, %struct.hash_table** %dest_info355, align 8, !dbg !899
+
+file: src/copy.c - line_num: 2285 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %260 = load i32, i32* %dereference416, align 4, !dbg !980
+
+file: src/copy.c - line_num: 2285 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %260 = load i32, i32* %dereference416, align 4, !dbg !980
+
+file: src/copy.c - line_num: 2831 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %568 = load i8, i8* %require_preserve932, align 4, !dbg !1717
+
+file: src/copy.c - line_num: 2831 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %568 = load i8, i8* %require_preserve932, align 4, !dbg !1717
+
+file: src/copy.c - line_num: 2870 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %604 = load i32, i32* %mode995, align 8, !dbg !1791
+
+file: src/copy.c - line_num: 2870 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %604 = load i32, i32* %mode995, align 8, !dbg !1791
+
+file: src/copy.c - line_num: 1921 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %41 = load i32, i32* %backup_type, align 8, !dbg !445
+
+file: src/copy.c - line_num: 1921 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %41 = load i32, i32* %backup_type, align 8, !dbg !445
+
+file: src/copy.c - line_num: 2049 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %125 = load i32, i32* %interactive176, align 8, !dbg !645
+
+file: src/copy.c - line_num: 2049 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %125 = load i32, i32* %interactive176, align 8, !dbg !645
+
+file: src/copy.c - line_num: 2177 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %196 = load i8, i8* %unlink_dest_before_opening296, align 1, !dbg !820
+
+file: src/copy.c - line_num: 2177 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %196 = load i8, i8* %unlink_dest_before_opening296, align 1, !dbg !820
+
+file: src/copy.c - line_num: 2778 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %524 = load i8, i8* %set_security_context865, align 1, !dbg !1634
+
+file: src/copy.c - line_num: 2778 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %526 = load i8, i8* %preserve_security_context869, align 1, !dbg !1637
+
+file: src/copy.c - line_num: 2778 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %524 = load i8, i8* %set_security_context865, align 1, !dbg !1634
+
+file: src/copy.c - line_num: 2778 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %526 = load i8, i8* %preserve_security_context869, align 1, !dbg !1637
+
+file: src/copy.c - line_num: 2360 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %298 = load i8, i8* %verbose484, align 2, !dbg !1082
+
+file: src/copy.c - line_num: 2360 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %298 = load i8, i8* %verbose484, align 2, !dbg !1082
+
+file: src/copy.c - line_num: 2799 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %541 = load i8, i8* %hard_link896, align 1, !dbg !1676
+
+file: src/copy.c - line_num: 2799 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %541 = load i8, i8* %hard_link896, align 1, !dbg !1676
+
+file: src/copy.c - line_num: 2744 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %507 = load i8, i8* %preserve_security_context827, align 1, !dbg !1591
+
+file: src/copy.c - line_num: 2744 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %507 = load i8, i8* %preserve_security_context827, align 1, !dbg !1591
+
+file: src/copy.c - line_num: 2579 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %400 = load i8, i8* %preserve_security_context628, align 1, !dbg !1321
+
+file: src/copy.c - line_num: 2579 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %400 = load i8, i8* %preserve_security_context628, align 1, !dbg !1321
+
+file: src/copy.c - line_num: 2097 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %148 = load i8, i8* %move_mode222, align 8, !dbg !709
+
+file: src/copy.c - line_num: 2097 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %150 = load i32, i32* %backup_type225, align 8, !dbg !712
+
+file: src/copy.c - line_num: 2097 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %148 = load i8, i8* %move_mode222, align 8, !dbg !709
+
+file: src/copy.c - line_num: 2097 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %150 = load i32, i32* %backup_type225, align 8, !dbg !712
+
+file: src/copy.c - line_num: 2280 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %252 = load i8, i8* %preserve_links402, align 2, !dbg !965
+
+file: src/copy.c - line_num: 2280 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %252 = load i8, i8* %preserve_links402, align 2, !dbg !965
+
+file: src/copy.c - line_num: 2234 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %229 = load i8, i8* %verbose362, align 2, !dbg !912
+
+file: src/copy.c - line_num: 2234 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %231 = load i8, i8* %move_mode365, align 8, !dbg !915
+
+file: src/copy.c - line_num: 2234 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %229 = load i8, i8* %verbose362, align 2, !dbg !912
+
+file: src/copy.c - line_num: 2234 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %231 = load i8, i8* %move_mode365, align 8, !dbg !915
+
+file: src/copy.c - line_num: 2179 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %201 = load i32, i32* %dereference303, align 4, !dbg !829
+
+file: src/copy.c - line_num: 2179 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %201 = load i32, i32* %dereference303, align 4, !dbg !829
+
+file: src/copy.c - line_num: 2353 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %291 = load i8, i8* %move_mode469, align 8, !dbg !1061
+
+file: src/copy.c - line_num: 2353 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %291 = load i8, i8* %move_mode469, align 8, !dbg !1061
+
+file: src/copy.c - line_num: 1889 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %23 = load i32, i32* %dereference, align 4, !dbg !409
+
+file: src/copy.c - line_num: 1889 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %23 = load i32, i32* %dereference, align 4, !dbg !409
+
+file: src/copy.c - line_num: 2017 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %113 = load i8, i8* %verbose, align 2, !dbg !608
+
+file: src/copy.c - line_num: 2017 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %113 = load i8, i8* %verbose, align 2, !dbg !608
+
+file: src/copy.c - line_num: 2563 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %388 = load i8, i8* %verbose611, align 2, !dbg !1295
+
+file: src/copy.c - line_num: 2563 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %388 = load i8, i8* %verbose611, align 2, !dbg !1295
+
+file: src/copy.c - line_num: 2145 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %171 = load i8, i8* %move_mode269, align 8, !dbg !774
+
+file: src/copy.c - line_num: 2145 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %171 = load i8, i8* %move_mode269, align 8, !dbg !774
+
+file: src/copy.c - line_num: 2865 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %599 = load i8, i8* %require_preserve986, align 4, !dbg !1779
+
+file: src/copy.c - line_num: 2865 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %599 = load i8, i8* %require_preserve986, align 4, !dbg !1779
+
+file: src/copy.c - line_num: 2636 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %436 = load i8, i8* %unlink_dest_after_failed_open688, align 2, !dbg !1407
+
+file: src/copy.c - line_num: 2636 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %436 = load i8, i8* %unlink_dest_after_failed_open688, align 2, !dbg !1407
+
+file: src/copy.c - line_num: 2819 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %547 = load i8, i8* %preserve_timestamps910, align 1, !dbg !1689
+
+file: src/copy.c - line_num: 2819 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %547 = load i8, i8* %preserve_timestamps910, align 1, !dbg !1689
+
+file: src/copy.c - line_num: 2465 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %334 = load i8, i8* %verbose535, align 2, !dbg !1165
+
+file: src/copy.c - line_num: 2465 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %334 = load i8, i8* %verbose535, align 2, !dbg !1165
+
+file: src/copy.c - line_num: 1873 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %4 = load i8, i8* %move_mode, align 8, !dbg !366
+
+file: src/copy.c - line_num: 1873 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %4 = load i8, i8* %move_mode, align 8, !dbg !366
+
+file: src/copy.c - line_num: 1946 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %57 = load i8, i8* %copy_as_regular, align 4, !dbg !485
+
+file: src/copy.c - line_num: 1946 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %57 = load i8, i8* %copy_as_regular, align 4, !dbg !485
+
+file: src/copy.c - line_num: 2794 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %538 = load %struct.hash_table*, %struct.hash_table** %dest_info893, align 8, !dbg !1670
+
+file: src/copy.c - line_num: 2794 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %538 = load %struct.hash_table*, %struct.hash_table** %dest_info893, align 8, !dbg !1670
+
+file: src/copy.c - line_num: 2565 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %390 = load i8, i8* %move_mode614, align 8, !dbg !1300
+
+file: src/copy.c - line_num: 2565 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %390 = load i8, i8* %move_mode614, align 8, !dbg !1300
+
+file: src/copy.c - line_num: 2083 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %139 = load i32, i32* %backup_type206, align 8, !dbg !685
+
+file: src/copy.c - line_num: 2083 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %139 = load i32, i32* %backup_type206, align 8, !dbg !685
+
+file: src/copy.c - line_num: 2757 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %517 = load i8, i8* %require_preserve, align 4, !dbg !1615
+
+file: src/copy.c - line_num: 2757 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %517 = load i8, i8* %require_preserve, align 4, !dbg !1615
+
+file: src/copy.c - line_num: 2284 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %258 = load i32, i32* %dereference413, align 4, !dbg !976
+
+file: src/copy.c - line_num: 2284 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %258 = load i32, i32* %dereference413, align 4, !dbg !976
+
+file: src/copy.c - line_num: 2366 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %303 = load i8, i8* %set_security_context, align 1, !dbg !1093
+
+file: src/copy.c - line_num: 2366 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %303 = load i8, i8* %set_security_context, align 1, !dbg !1093
+
+file: src/copy.c - line_num: 2604 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %418 = load i8, i8* %symbolic_link652, align 4, !dbg !1359
+
+file: src/copy.c - line_num: 2604 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %418 = load i8, i8* %symbolic_link652, align 4, !dbg !1359
+
+file: src/copy.c - line_num: 1948 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %61 = load i8, i8* %move_mode84, align 8, !dbg !492
+
+file: src/copy.c - line_num: 1948 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %63 = load i8, i8* %symbolic_link, align 4, !dbg !495
+
+file: src/copy.c - line_num: 1948 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %65 = load i8, i8* %hard_link, align 1, !dbg !498
+
+file: src/copy.c - line_num: 1948 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %61 = load i8, i8* %move_mode84, align 8, !dbg !492
+
+file: src/copy.c - line_num: 1948 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %63 = load i8, i8* %symbolic_link, align 4, !dbg !495
+
+file: src/copy.c - line_num: 1948 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %65 = load i8, i8* %hard_link, align 1, !dbg !498
+
+file: src/copy.c - line_num: 2668 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %454 = load i8, i8* %copy_as_regular721, align 4, !dbg !1446
+
+file: src/copy.c - line_num: 2668 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %454 = load i8, i8* %copy_as_regular721, align 4, !dbg !1446
+
+file: src/copy.c - line_num: 1975 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %84 = load i32, i32* %interactive120, align 8, !dbg !548
+
+file: src/copy.c - line_num: 1975 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %84 = load i32, i32* %interactive120, align 8, !dbg !548
+
+file: src/copy.c - line_num: 2588 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %405 = load i8, i8* %one_file_system, align 4, !dbg !1335
+
+file: src/copy.c - line_num: 2588 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %405 = load i8, i8* %one_file_system, align 4, !dbg !1335
+
+file: src/copy.c - line_num: 2780 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %529 = load i8, i8* %preserve_security_context873, align 1, !dbg !1643
+
+file: src/copy.c - line_num: 2780 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %529 = load i8, i8* %preserve_security_context873, align 1, !dbg !1643
+
+file: src/copy.c - line_num: 1886 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %18 = load i32, i32* %interactive, align 8, !dbg !400
+
+file: src/copy.c - line_num: 1886 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %18 = load i32, i32* %interactive, align 8, !dbg !400
+
+file: src/copy.c - line_num: 1950 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %69 = load i8, i8* %unlink_dest_before_opening, align 1, !dbg !505
+
+file: src/copy.c - line_num: 1950 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %69 = load i8, i8* %unlink_dest_before_opening, align 1, !dbg !505
+
+file: src/copy.c - line_num: 1959 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %78 = load i8, i8* %unlink_dest_after_failed_open, align 2, !dbg !526
+
+file: src/copy.c - line_num: 1959 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %78 = load i8, i8* %unlink_dest_after_failed_open, align 2, !dbg !526
+
+file: src/copy.c - line_num: 2853 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %587 = load i8, i8* %require_preserve_xattr, align 8, !dbg !1753
+
+file: src/copy.c - line_num: 2853 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %587 = load i8, i8* %require_preserve_xattr, align 8, !dbg !1753
+
+file: src/copy.c - line_num: 2862 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %592 = load i8, i8* %preserve_mode, align 2, !dbg !1765
+
+file: src/copy.c - line_num: 2862 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %594 = load i8, i8* %move_mode978, align 8, !dbg !1768
+
+file: src/copy.c - line_num: 2862 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %592 = load i8, i8* %preserve_mode, align 2, !dbg !1765
+
+file: src/copy.c - line_num: 2862 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %594 = load i8, i8* %move_mode978, align 8, !dbg !1768
+
+file: src/copy.c - line_num: 2325 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %279 = load i32, i32* %dereference446, align 4, !dbg !1030
+
+file: src/copy.c - line_num: 2325 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %279 = load i32, i32* %dereference446, align 4, !dbg !1030
+
+file: src/copy.c - line_num: 2480 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %346 = load i8, i8* %preserve_ownership, align 1, !dbg !1187
+
+file: src/copy.c - line_num: 2480 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %346 = load i8, i8* %preserve_ownership, align 1, !dbg !1187
+
+file: src/copy.c - line_num: 2837 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %571 = load i8, i8* %preserve_ownership940, align 1, !dbg !1726
+
+file: src/copy.c - line_num: 2837 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %571 = load i8, i8* %preserve_ownership940, align 1, !dbg !1726
+
+file: src/copy.c - line_num: 2663 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %446 = load i32, i32* %interactive706, align 8, !dbg !1431
+
+file: src/copy.c - line_num: 2663 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %446 = load i32, i32* %interactive706, align 8, !dbg !1431
+
+file: src/copy.c - line_num: 2126 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %161 = load i32, i32* %backup_type251, align 8, !dbg !747
+
+file: src/copy.c - line_num: 2126 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %161 = load i32, i32* %backup_type251, align 8, !dbg !747
+
+file: src/copy.c - line_num: 1897 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %31 = load i8, i8* %recursive, align 2, !dbg !424
+
+file: src/copy.c - line_num: 1897 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %31 = load i8, i8* %recursive, align 2, !dbg !424
+
+file: src/copy.c - line_num: 2135 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %164 = load i8, i8* %move_mode257, align 8, !dbg !756
+
+file: src/copy.c - line_num: 2135 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %164 = load i8, i8* %move_mode257, align 8, !dbg !756
+
+file: src/copy.c - line_num: 2199 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %214 = load i8, i8* %move_mode334, align 8, !dbg !865
+
+file: src/copy.c - line_num: 2199 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %214 = load i8, i8* %move_mode334, align 8, !dbg !865
+
+file: src/copy.c - line_num: 2327 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %282 = load i32, i32* %dereference451, align 4, !dbg !1036
+
+file: src/copy.c - line_num: 2327 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %282 = load i32, i32* %dereference451, align 4, !dbg !1036
+
+file: src/copy.c - line_num: 2873 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %606 = load i8, i8* %explicit_no_preserve_mode, align 8, !dbg !1799
+
+file: src/copy.c - line_num: 2873 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %606 = load i8, i8* %explicit_no_preserve_mode, align 8, !dbg !1799
+
+file: src/copy.c - line_num: 2281 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %254 = load i8, i8* %hard_link405, align 1, !dbg !968
+
+file: src/copy.c - line_num: 2281 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %254 = load i8, i8* %hard_link405, align 1, !dbg !968
+
+file: src/copy.c - line_num: 1918 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %38 = load %struct.hash_table*, %struct.hash_table** %src_info, align 8, !dbg !438
+
+file: src/copy.c - line_num: 1918 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %38 = load %struct.hash_table*, %struct.hash_table** %src_info, align 8, !dbg !438
+
+file: src/copy.c - line_num: 2345 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %288 = load i8, i8* %verbose461, align 2, !dbg !1052
+
+file: src/copy.c - line_num: 2345 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %288 = load i8, i8* %verbose461, align 2, !dbg !1052
+
+file: src/copy.c - line_num: 1872 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %2 = load i32, i32* %rename_errno2, align 4, !dbg !363
+
+file: src/copy.c - line_num: 1872 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %2 = load i32, i32* %rename_errno2, align 4, !dbg !363
+
+file: src/copy.c - line_num: 1991 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %96 = load i8, i8* %move_mode134, align 8, !dbg !574
+
+file: src/copy.c - line_num: 1991 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %96 = load i8, i8* %move_mode134, align 8, !dbg !574
+
+file: src/copy.c - line_num: 1936 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %54 = load i32, i32* %interactive70, align 8, !dbg !476
+
+file: src/copy.c - line_num: 1936 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %54 = load i32, i32* %interactive70, align 8, !dbg !476
+
+file: src/copy.c - line_num: 2720 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %491 = load i8, i8* %update795, align 1, !dbg !1548
+
+file: src/copy.c - line_num: 2720 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %491 = load i8, i8* %update795, align 1, !dbg !1548
+
+file: src/copy.c - line_num: 2375 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %310 = load i8, i8* %last_file498, align 1, !dbg !1110
+
+file: src/copy.c - line_num: 2375 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %310 = load i8, i8* %last_file498, align 1, !dbg !1110
+
+file: src/copy.c - line_num: 2921 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %635 = load i8, i8* %preserve_security_context1072, align 1, !dbg !1887
+
+file: src/copy.c - line_num: 2921 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %635 = load i8, i8* %preserve_security_context1072, align 1, !dbg !1887
+
+file: src/copy.c - line_num: 2384 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %312 = load %struct.hash_table*, %struct.hash_table** %dest_info501, align 8, !dbg !1114
+
+file: src/copy.c - line_num: 2384 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %312 = load %struct.hash_table*, %struct.hash_table** %dest_info501, align 8, !dbg !1114
+
+file: src/copy.c - line_num: 2155 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %178 = load i32, i32* %backup_type275, align 8, !dbg !785
+
+file: src/copy.c - line_num: 2155 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %178 = load i32, i32* %backup_type275, align 8, !dbg !785
+
+file: src/copy.c - line_num: 2939 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %645 = load i8, i8* %verbose1091, align 2, !dbg !1913
+
+file: src/copy.c - line_num: 2939 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %645 = load i8, i8* %verbose1091, align 2, !dbg !1913
+
+file: src/copy.c - line_num: 1984 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %91 = load i8, i8* %update, align 1, !dbg !563
+
+file: src/copy.c - line_num: 1984 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %91 = load i8, i8* %update, align 1, !dbg !563
+
+file: src/copy.c - line_num: 1929 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %47 = load %struct.hash_table*, %struct.hash_table** %src_info60, align 8, !dbg !458
+
+file: src/copy.c - line_num: 1929 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %47 = load %struct.hash_table*, %struct.hash_table** %src_info60, align 8, !dbg !458
+
+file: src/copy.c - line_num: 2048 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %123 = load i32, i32* %interactive173, align 8, !dbg !641
+
+file: src/copy.c - line_num: 2048 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %123 = load i32, i32* %interactive173, align 8, !dbg !641
+
+file: src/copy.c - line_num: 2112 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %153 = load i8, i8* %move_mode233, align 8, !dbg !725
+
+file: src/copy.c - line_num: 2112 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %153 = load i8, i8* %move_mode233, align 8, !dbg !725
+
+file: src/copy.c - line_num: 2658 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %442 = load i8, i8* %hard_link698, align 1, !dbg !1422
+
+file: src/copy.c - line_num: 2658 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %442 = load i8, i8* %hard_link698, align 1, !dbg !1422
+
+file: src/copy.c - line_num: 2777 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %521 = load i8, i8* %copy_as_regular858, align 4, !dbg !1629
+
+file: src/copy.c - line_num: 2777 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %521 = load i8, i8* %copy_as_regular858, align 4, !dbg !1629
+
+file: src/copy.c - line_num: 2176 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %194 = load i8, i8* %move_mode293, align 8, !dbg !817
+
+file: src/copy.c - line_num: 2176 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %194 = load i8, i8* %move_mode293, align 8, !dbg !817
+
+file: src/copy.c - line_num: 2084 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %141 = load %struct.hash_table*, %struct.hash_table** %dest_info, align 8, !dbg !689
+
+file: src/copy.c - line_num: 2084 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %141 = load %struct.hash_table*, %struct.hash_table** %dest_info, align 8, !dbg !689
+
+file: src/copy.c - line_num: 2868 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %601 = load i8, i8* %set_mode992, align 1, !dbg !1785
+
+file: src/copy.c - line_num: 2868 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %601 = load i8, i8* %set_mode992, align 1, !dbg !1785
+
+file: src/copy.c - line_num: 2276 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %247 = load i8, i8* %move_mode392, align 8, !dbg !952
+
+file: src/copy.c - line_num: 2276 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %247 = load i8, i8* %move_mode392, align 8, !dbg !952
+
+file: src/copy.c - line_num: 2578 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %395 = load i8, i8* %set_security_context623, align 1, !dbg !1313
+
+file: src/copy.c - line_num: 2578 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %397 = load i8, i8* %preserve_security_context, align 1, !dbg !1316
+
+file: src/copy.c - line_num: 2578 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %395 = load i8, i8* %set_security_context623, align 1, !dbg !1313
+
+file: src/copy.c - line_num: 2578 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %397 = load i8, i8* %preserve_security_context, align 1, !dbg !1316
+
+file: src/copy.c - line_num: 1922 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %43 = load %struct.hash_table*, %struct.hash_table** %src_info55, align 8, !dbg !449
+
+file: src/copy.c - line_num: 1922 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %43 = load %struct.hash_table*, %struct.hash_table** %src_info55, align 8, !dbg !449
+
+file: src/copy.c - line_num: 2178 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %198 = load i8, i8* %preserve_links, align 2, !dbg !823
+
+file: src/copy.c - line_num: 2178 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %198 = load i8, i8* %preserve_links, align 2, !dbg !823
+
+file: src/copy.c - line_num: 2477 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %340 = load i8, i8* %set_mode, align 1, !dbg !1179
+
+file: src/copy.c - line_num: 2477 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %342 = load i32, i32* %mode, align 8, !dbg !1181
+
+file: src/copy.c - line_num: 2477 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %340 = load i8, i8* %set_mode, align 1, !dbg !1179
+
+file: src/copy.c - line_num: 2477 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %342 = load i32, i32* %mode, align 8, !dbg !1181
+
+file: src/copy.c - line_num: 1885 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %15 = load i8, i8* %last_file, align 1, !dbg !395
+
+file: src/copy.c - line_num: 1885 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %15 = load i8, i8* %last_file, align 1, !dbg !395
+
+file: src/cp.c - line_num: 690 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %60 = load i8, i8* %verbose, align 2, !dbg !410
+
+file: src/cp.c - line_num: 601 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %unlink_dest_after_failed_open, align 2, !dbg !277
+
+file: src/cp.c - line_num: 756 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %106 = load i32, i32* %backup_type, align 8, !dbg !510
+
+file: src/cp.c - line_num: 600 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %unlink_dest_before_opening, align 1, !dbg !274
+
+file: src/cp.c - line_num: 762 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %113 = load i32, i32* %backup_type132, align 8, !dbg !522
+
+file: src/cp.c - line_num: 755 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %104 = load i8, i8* %unlink_dest_after_failed_open115, align 2, !dbg !507
+
+file: src/force-link.c - line_num: 54 - fun_name: samedir_template
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add = add i64 %2, 9, !dbg !239
+
+file: src/force-link.c - line_num: 53 - fun_name: samedir_template
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast, !dbg !235
+
+file: src/copy.c - line_num: 1476 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %29 = load i8, i8* %move_mode, align 8, !dbg !378
+
+file: src/copy.c - line_num: 1476 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %29 = load i8, i8* %move_mode, align 8, !dbg !378
+
+file: src/copy.c - line_num: 1515 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %52 = load i32, i32* %backup_type59, align 8, !dbg !421
+
+file: src/copy.c - line_num: 1515 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %52 = load i32, i32* %backup_type59, align 8, !dbg !421
+
+file: src/copy.c - line_num: 1579 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %76 = load i8, i8* %move_mode100, align 8, !dbg !472
+
+file: src/copy.c - line_num: 1579 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %76 = load i8, i8* %move_mode100, align 8, !dbg !472
+
+file: src/copy.c - line_num: 1453 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %15 = load i32, i32* %dereference, align 4, !dbg !344
+
+file: src/copy.c - line_num: 1453 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %15 = load i32, i32* %dereference, align 4, !dbg !344
+
+file: src/copy.c - line_num: 1590 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %90 = load i8, i8* %hard_link122, align 1, !dbg !488
+
+file: src/copy.c - line_num: 1590 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %90 = load i8, i8* %hard_link122, align 1, !dbg !488
+
+file: src/copy.c - line_num: 1535 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %55 = load i8, i8* %move_mode64, align 8, !dbg !431
+
+file: src/copy.c - line_num: 1535 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %55 = load i8, i8* %move_mode64, align 8, !dbg !431
+
+file: src/copy.c - line_num: 1565 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %65 = load i8, i8* %move_mode83, align 8, !dbg !450
+
+file: src/copy.c - line_num: 1565 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %67 = load i8, i8* %unlink_dest_before_opening86, align 1, !dbg !453
+
+file: src/copy.c - line_num: 1565 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %65 = load i8, i8* %move_mode83, align 8, !dbg !450
+
+file: src/copy.c - line_num: 1565 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %67 = load i8, i8* %unlink_dest_before_opening86, align 1, !dbg !453
+
+file: src/copy.c - line_num: 1592 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %91, align 1, !dbg !492
+
+file: src/copy.c - line_num: 1592 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %91, align 1, !dbg !492
+
+file: src/copy.c - line_num: 1631 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %105 = load i8, i8* %symbolic_link, align 4, !dbg !527
+
+file: src/copy.c - line_num: 1631 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %105 = load i8, i8* %symbolic_link, align 4, !dbg !527
+
+file: src/copy.c - line_num: 1466 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %25 = load i32, i32* %backup_type, align 8, !dbg !367
+
+file: src/copy.c - line_num: 1466 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %25 = load i32, i32* %backup_type, align 8, !dbg !367
+
+file: src/copy.c - line_num: 1649 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %127 = load i8, i8* %hard_link185, align 1, !dbg !568
+
+file: src/copy.c - line_num: 1649 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %127 = load i8, i8* %hard_link185, align 1, !dbg !568
+
+file: src/copy.c - line_num: 1617 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %93 = load i8, i8* %move_mode127, align 8, !dbg !497
+
+file: src/copy.c - line_num: 1617 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %93 = load i8, i8* %move_mode127, align 8, !dbg !497
+
+file: src/copy.c - line_num: 1475 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %27, align 1, !dbg !376
+
+file: src/copy.c - line_num: 1475 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %27, align 1, !dbg !376
+
+file: src/copy.c - line_num: 1447 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %12 = load i8, i8* %hard_link, align 1, !dbg !336
+
+file: src/copy.c - line_num: 1447 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %12 = load i8, i8* %hard_link, align 1, !dbg !336
+
+file: src/copy.c - line_num: 1440 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 0, i8* %9, align 1, !dbg !331
+
+file: src/copy.c - line_num: 1440 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 0, i8* %9, align 1, !dbg !331
+
+file: src/copy.c - line_num: 1506 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %50 = load i8, i8* %unlink_dest_before_opening, align 1, !dbg !416
+
+file: src/copy.c - line_num: 1506 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %50 = load i8, i8* %unlink_dest_before_opening, align 1, !dbg !416
+
+file: src/copy.c - line_num: 1634 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %109 = load i32, i32* %dereference153, align 4, !dbg !534
+
+file: src/copy.c - line_num: 1634 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %109 = load i32, i32* %dereference153, align 4, !dbg !534
+
+file: src/copy.c - line_num: 1536 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %57 = load i32, i32* %dereference67, align 4, !dbg !434
+
+file: src/copy.c - line_num: 1536 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %57 = load i32, i32* %dereference67, align 4, !dbg !434
+
+file: src/copy.c - line_num: 1655 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 %frombool192, i8* %130, align 1, !dbg !574
+
+file: src/copy.c - line_num: 1655 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 %frombool192, i8* %130, align 1, !dbg !574
+
+file: src/copy.c - line_num: 1449 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %13, align 1, !dbg !340
+
+file: src/copy.c - line_num: 1449 - fun_name: same_file_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %13, align 1, !dbg !340
+
+file: src/system.h - line_num: 269 - fun_name: dot_or_dotdot
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %4 = load i8, i8* %arrayidx2, align 1, !dbg !236
+
+file: src/system.h - line_num: 269 - fun_name: dot_or_dotdot
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add = add nsw i32 %conv5, 1, !dbg !238
+
+file: src/system.h - line_num: 269 - fun_name: dot_or_dotdot
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %5 = load i8, i8* %arrayidx6, align 1, !dbg !235
+
+file: src/system.h - line_num: 267 - fun_name: dot_or_dotdot
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %arrayidx, align 1, !dbg !228
+
+file: src/cp.c - line_num: 409 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %29 = load i8, i8* %preserve_ownership, align 1, !dbg !354
+
+file: src/cp.c - line_num: 409 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %31 = load i8, i8* %preserve_mode, align 2, !dbg !357
+
+file: src/cp.c - line_num: 409 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %29 = load i8, i8* %preserve_ownership, align 1, !dbg !354
+
+file: src/cp.c - line_num: 409 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %31 = load i8, i8* %preserve_mode, align 2, !dbg !357
+
+file: src/cp.c - line_num: 459 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %67 = load i8, i8* %preserve_ownership51, align 1, !dbg !433
+
+file: src/cp.c - line_num: 459 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %67 = load i8, i8* %preserve_ownership51, align 1, !dbg !433
+
+file: src/cp.c - line_num: 532 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %110 = load i8, i8* %set_security_context, align 1, !dbg !547
+
+file: src/cp.c - line_num: 532 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %112 = load i8, i8* %preserve_security_context, align 1, !dbg !550
+
+file: src/cp.c - line_num: 532 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %110 = load i8, i8* %set_security_context, align 1, !dbg !547
+
+file: src/cp.c - line_num: 532 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %112 = load i8, i8* %preserve_security_context, align 1, !dbg !550
+
+file: src/cp.c - line_num: 461 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %69 = load i8, i8* %preserve_mode56, align 2, !dbg !435
+
+file: src/cp.c - line_num: 461 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %69 = load i8, i8* %preserve_mode56, align 2, !dbg !435
+
+file: src/cp.c - line_num: 534 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %115 = load i8, i8* %preserve_security_context149, align 1, !dbg !556
+
+file: src/cp.c - line_num: 534 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %tobool153, label %if.then155, label %if.end156, !dbg !562
+
+file: src/cp.c - line_num: 534 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %115 = load i8, i8* %preserve_security_context149, align 1, !dbg !556
+
+file: src/cp.c - line_num: 534 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %tobool153, label %if.then155, label %if.end156, !dbg !562
+
+file: src/cp.c - line_num: 536 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %118 = load i8, i8* %require_preserve_context, align 2, !dbg !561
+
+file: src/cp.c - line_num: 536 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %118 = load i8, i8* %require_preserve_context, align 2, !dbg !561
+
+file: src/cp.c - line_num: 495 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %88 = load i8, i8* %preserve_mode89, align 2, !dbg !477
+
+file: src/cp.c - line_num: 495 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %88 = load i8, i8* %preserve_mode89, align 2, !dbg !477
+
+file: src/cp.c - line_num: 410 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %33 = load i8, i8* %preserve_timestamps, align 1, !dbg !360
+
+file: src/cp.c - line_num: 410 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %33 = load i8, i8* %preserve_timestamps, align 1, !dbg !360
+
+file: src/cp.c - line_num: 469 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %72 = load i8, i8* %explicit_no_preserve_mode, align 8, !dbg !439
+
+file: src/cp.c - line_num: 469 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %72 = load i8, i8* %explicit_no_preserve_mode, align 8, !dbg !439
+
+file: src/copy.c - line_num: 1677 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %2 = load i32, i32* %st_mode, align 8, !dbg !312
+
+file: src/copy.c - line_num: 1677 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %2 = load i32, i32* %st_mode, align 8, !dbg !312
+
+file: src/copy.c - line_num: 1688 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %17 = load i32, i32* %st_mode5, align 8, !dbg !340
+
+file: src/copy.c - line_num: 1688 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %17 = load i32, i32* %st_mode5, align 8, !dbg !340
+
+file: src/copy.c - line_num: 1680 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %4 = load i32, i32* %st_mode1, align 8, !dbg !322
+
+file: src/copy.c - line_num: 1680 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %4 = load i32, i32* %st_mode1, align 8, !dbg !322
+
+file: src/copy.c - line_num: 1076 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %30 = load i8, i8* %set_security_context, align 1, !dbg !397
+
+file: src/copy.c - line_num: 1076 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %32 = load i8, i8* %preserve_security_context, align 1, !dbg !400
+
+file: src/copy.c - line_num: 1076 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %30 = load i8, i8* %set_security_context, align 1, !dbg !397
+
+file: src/copy.c - line_num: 1076 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %32 = load i8, i8* %preserve_security_context, align 1, !dbg !400
+
+file: src/copy.c - line_num: 1206 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %105 = load i32, i32* %reflink_mode141, align 8, !dbg !608
+
+file: src/copy.c - line_num: 1206 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %105 = load i32, i32* %reflink_mode141, align 8, !dbg !608
+
+file: src/copy.c - line_num: 1334 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %195 = load i8, i8* %preserve_ownership, align 1, !dbg !823
+
+file: src/copy.c - line_num: 1334 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %195 = load i8, i8* %preserve_ownership, align 1, !dbg !823
+
+file: src/copy.c - line_num: 1382 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %247 = load i8, i8* %explicit_no_preserve_mode, align 8, !dbg !932
+
+file: src/copy.c - line_num: 1382 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %247 = load i8, i8* %explicit_no_preserve_mode, align 8, !dbg !932
+
+file: src/copy.c - line_num: 1137 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %68 = load i8, i8* %move_mode, align 8, !dbg !499
+
+file: src/copy.c - line_num: 1137 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %68 = load i8, i8* %move_mode, align 8, !dbg !499
+
+file: src/copy.c - line_num: 1082 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %39 = load i8, i8* %require_preserve_context, align 2, !dbg !416
+
+file: src/copy.c - line_num: 1082 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %39 = load i8, i8* %require_preserve_context, align 2, !dbg !416
+
+file: src/copy.c - line_num: 1377 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %241 = load i8, i8* %set_mode, align 1, !dbg !916
+
+file: src/copy.c - line_num: 1377 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %241 = load i8, i8* %set_mode, align 1, !dbg !916
+
+file: src/copy.c - line_num: 1203 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %100 = load i32, i32* %reflink_mode, align 8, !dbg !595
+
+file: src/copy.c - line_num: 1203 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %100 = load i32, i32* %reflink_mode, align 8, !dbg !595
+
+file: src/copy.c - line_num: 1395 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %261 = load i8, i8* %require_preserve371, align 4, !dbg !972
+
+file: src/copy.c - line_num: 1395 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %261 = load i8, i8* %require_preserve371, align 4, !dbg !972
+
+file: src/copy.c - line_num: 1315 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %171 = load i8, i8* %preserve_timestamps, align 1, !dbg !787
+
+file: src/copy.c - line_num: 1315 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %171 = load i8, i8* %preserve_timestamps, align 1, !dbg !787
+
+file: src/copy.c - line_num: 1379 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %245 = load i32, i32* %mode, align 8, !dbg !923
+
+file: src/copy.c - line_num: 1379 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %245 = load i32, i32* %mode, align 8, !dbg !923
+
+file: src/copy.c - line_num: 1324 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %193 = load i8, i8* %require_preserve, align 4, !dbg !814
+
+file: src/copy.c - line_num: 1324 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %193 = load i8, i8* %require_preserve, align 4, !dbg !814
+
+file: src/copy.c - line_num: 1098 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %47 = load i8, i8* %verbose, align 2, !dbg !444
+
+file: src/copy.c - line_num: 1098 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %47 = load i8, i8* %verbose, align 2, !dbg !444
+
+file: src/copy.c - line_num: 1299 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %162 = load i32, i32* %sparse_mode238, align 4, !dbg !759
+
+file: src/copy.c - line_num: 1299 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %162 = load i32, i32* %sparse_mode238, align 4, !dbg !759
+
+file: src/copy.c - line_num: 1182 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %91 = load i8, i8* %move_mode116, align 8, !dbg !569
+
+file: src/copy.c - line_num: 1182 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %91 = load i8, i8* %move_mode116, align 8, !dbg !569
+
+file: src/copy.c - line_num: 1374 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %239 = load i8, i8* %require_preserve329, align 4, !dbg !909
+
+file: src/copy.c - line_num: 1374 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %239 = load i8, i8* %require_preserve329, align 4, !dbg !909
+
+file: src/copy.c - line_num: 1031 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %data_copy_required1, align 1, !dbg !343
+
+file: src/copy.c - line_num: 1031 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %data_copy_required1, align 1, !dbg !343
+
+file: src/copy.c - line_num: 1351 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %210 = load i8, i8* %preserve_xattr, align 1, !dbg !844
+
+file: src/copy.c - line_num: 1351 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %210 = load i8, i8* %preserve_xattr, align 1, !dbg !844
+
+file: src/copy.c - line_num: 1079 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %36 = load i8, i8* %preserve_security_context31, align 1, !dbg !409
+
+file: src/copy.c - line_num: 1079 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %36 = load i8, i8* %preserve_security_context31, align 1, !dbg !409
+
+file: src/copy.c - line_num: 1143 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %72 = load i8, i8* %open_dangling_dest_symlink, align 8, !dbg !514
+
+file: src/copy.c - line_num: 1143 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %72 = load i8, i8* %open_dangling_dest_symlink, align 8, !dbg !514
+
+file: src/copy.c - line_num: 1106 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %51 = load i8, i8* %set_security_context55, align 1, !dbg !452
+
+file: src/copy.c - line_num: 1106 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %51 = load i8, i8* %set_security_context55, align 1, !dbg !452
+
+file: src/copy.c - line_num: 1243 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %119 = load i32, i32* %sparse_mode177, align 4, !dbg !658
+
+file: src/copy.c - line_num: 1243 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %119 = load i32, i32* %sparse_mode177, align 4, !dbg !658
+
+file: src/copy.c - line_num: 1362 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %220 = load i8, i8* %require_preserve_xattr, align 8, !dbg !872
+
+file: src/copy.c - line_num: 1362 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %220 = load i8, i8* %require_preserve_xattr, align 8, !dbg !872
+
+file: src/copy.c - line_num: 1371 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %230 = load i8, i8* %preserve_mode, align 2, !dbg !893
+
+file: src/copy.c - line_num: 1371 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %232 = load i8, i8* %move_mode321, align 8, !dbg !896
+
+file: src/copy.c - line_num: 1371 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %230 = load i8, i8* %preserve_mode, align 2, !dbg !893
+
+file: src/copy.c - line_num: 1371 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %232 = load i8, i8* %move_mode321, align 8, !dbg !896
+
+file: src/copy.c - line_num: 1090 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %42 = load i8, i8* %unlink_dest_after_failed_open, align 2, !dbg !428
+
+file: src/copy.c - line_num: 1090 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %42 = load i8, i8* %unlink_dest_after_failed_open, align 2, !dbg !428
+
+file: src/copy.c - line_num: 1035 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %6 = load i32, i32* %dereference, align 4, !dbg !346
+
+file: src/copy.c - line_num: 1035 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %6 = load i32, i32* %dereference, align 4, !dbg !346
+
+file: src/copy.c - line_num: 1236 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %117 = load i32, i32* %sparse_mode, align 4, !dbg !651
+
+file: src/copy.c - line_num: 1236 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %117 = load i32, i32* %sparse_mode, align 4, !dbg !651
+
+file: src/copy.c - line_num: 1065 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %24 = load i8, i8* %data_copy_required20, align 1, !dbg !387
+
+file: src/copy.c - line_num: 1065 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %24 = load i8, i8* %data_copy_required20, align 1, !dbg !387
+
+file: src/copy.c - line_num: 1284 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %151 = load i32, i32* %sparse_mode221, align 4, !dbg !734
+
+file: src/copy.c - line_num: 1284 - fun_name: copy_reg
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %151 = load i32, i32* %sparse_mode221, align 4, !dbg !734
+
+file: src/copy.c - line_num: 1750 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %stdin_tty, align 1, !dbg !326
+
+file: src/copy.c - line_num: 1750 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %stdin_tty, align 1, !dbg !326
+
+file: src/copy.c - line_num: 1750 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %stdin_tty, align 1, !dbg !326
+
+file: src/copy.c - line_num: 1747 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i32, i32* %interactive, align 8, !dbg !314
+
+file: src/copy.c - line_num: 1747 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i32, i32* %interactive, align 8, !dbg !314
+
+file: src/copy.c - line_num: 1747 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i32, i32* %interactive, align 8, !dbg !314
+
+file: src/copy.c - line_num: 1749 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i32, i32* %interactive3, align 8, !dbg !322
+
+file: src/copy.c - line_num: 1749 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i32, i32* %interactive3, align 8, !dbg !322
+
+file: src/copy.c - line_num: 1749 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i32, i32* %interactive3, align 8, !dbg !322
+
+file: src/copy.c - line_num: 1746 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %move_mode, align 8, !dbg !309
+
+file: src/copy.c - line_num: 1746 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %move_mode, align 8, !dbg !309
+
+file: src/copy.c - line_num: 1746 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %move_mode, align 8, !dbg !309
+
+file: src/copy.c - line_num: 1748 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %5 = load i32, i32* %interactive1, align 8, !dbg !318
+
+file: src/copy.c - line_num: 1748 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %5 = load i32, i32* %interactive1, align 8, !dbg !318
+
+file: src/copy.c - line_num: 1748 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %5 = load i32, i32* %interactive1, align 8, !dbg !318
+
+file: src/copy.c - line_num: 731 - fun_name: copy_dir
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %8 = load i32, i32* %dereference, align 4, !dbg !352
+
+file: src/copy.c - line_num: 731 - fun_name: copy_dir
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %8 = load i32, i32* %dereference, align 4, !dbg !352
+
+file: src/copy.c - line_num: 2955 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %20 = load i32, i32* %reflink_mode28, align 8, !dbg !290
+
+file: src/copy.c - line_num: 2955 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %22 = load i32, i32* %sparse_mode31, align 4, !dbg !290
+
+file: src/copy.c - line_num: 2955 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %20 = load i32, i32* %reflink_mode28, align 8, !dbg !290
+
+file: src/copy.c - line_num: 2955 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %22 = load i32, i32* %sparse_mode31, align 4, !dbg !290
+
+file: src/copy.c - line_num: 2952 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %4 = load i32, i32* %sparse_mode, align 4, !dbg !278
+
+file: src/copy.c - line_num: 2952 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %6 = load i32, i32* %sparse_mode6, align 4, !dbg !278
+
+file: src/copy.c - line_num: 2952 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %8 = load i32, i32* %sparse_mode9, align 4, !dbg !278
+
+file: src/copy.c - line_num: 2952 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %4 = load i32, i32* %sparse_mode, align 4, !dbg !278
+
+file: src/copy.c - line_num: 2952 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %6 = load i32, i32* %sparse_mode6, align 4, !dbg !278
+
+file: src/copy.c - line_num: 2952 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %8 = load i32, i32* %sparse_mode9, align 4, !dbg !278
+
+file: src/copy.c - line_num: 2954 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %16 = load i8, i8* %hard_link, align 1, !dbg !286
+
+file: src/copy.c - line_num: 2954 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %18 = load i8, i8* %symbolic_link, align 4, !dbg !286
+
+file: src/copy.c - line_num: 2954 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %16 = load i8, i8* %hard_link, align 1, !dbg !286
+
+file: src/copy.c - line_num: 2954 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %18 = load i8, i8* %symbolic_link, align 4, !dbg !286
+
+file: src/copy.c - line_num: 2951 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %2 = load i32, i32* %backup_type, align 8, !dbg !274
+
+file: src/copy.c - line_num: 2951 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %2 = load i32, i32* %backup_type, align 8, !dbg !274
+
+file: src/copy.c - line_num: 2953 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %10 = load i32, i32* %reflink_mode, align 8, !dbg !282
+
+file: src/copy.c - line_num: 2953 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %12 = load i32, i32* %reflink_mode16, align 8, !dbg !282
+
+file: src/copy.c - line_num: 2953 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %14 = load i32, i32* %reflink_mode19, align 8, !dbg !282
+
+file: src/copy.c - line_num: 2953 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %10 = load i32, i32* %reflink_mode, align 8, !dbg !282
+
+file: src/copy.c - line_num: 2953 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %12 = load i32, i32* %reflink_mode16, align 8, !dbg !282
+
+file: src/copy.c - line_num: 2953 - fun_name: valid_options
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %14 = load i32, i32* %reflink_mode19, align 8, !dbg !282
+
+file: src/copy.c - line_num: 795 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %12 = load i32, i32* %st_mode, align 8, !dbg !341
+
+file: src/copy.c - line_num: 959 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %require_preserve_context, align 2, !dbg !282
+
+file: src/copy.c - line_num: 959 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %require_preserve_context, align 2, !dbg !282
+
+file: src/copy.c - line_num: 959 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %require_preserve_context, align 2, !dbg !282
+
+file: src/copy.c - line_num: 959 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %require_preserve_context, align 2, !dbg !282
+
+file: src/copy.c - line_num: 959 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %require_preserve_context, align 2, !dbg !282
+
+file: src/copy.c - line_num: 959 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %require_preserve_context, align 2, !dbg !282
+
+file: src/copy.c - line_num: 959 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %require_preserve_context, align 2, !dbg !282
+
+file: src/copy.c - line_num: 959 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %require_preserve_context, align 2, !dbg !282
+
+file: src/copy.c - line_num: 959 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %require_preserve_context, align 2, !dbg !282
+
+file: src/copy.c - line_num: 959 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %require_preserve_context, align 2, !dbg !282
+
+file: src/copy.c - line_num: 959 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %require_preserve_context, align 2, !dbg !282
+
+file: src/copy.c - line_num: 958 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %data_copy_required, align 1, !dbg !279
+
+file: src/copy.c - line_num: 958 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %data_copy_required, align 1, !dbg !279
+
+file: src/copy.c - line_num: 958 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %data_copy_required, align 1, !dbg !279
+
+file: src/copy.c - line_num: 958 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %data_copy_required, align 1, !dbg !279
+
+file: src/copy.c - line_num: 958 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %data_copy_required, align 1, !dbg !279
+
+file: src/copy.c - line_num: 958 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %data_copy_required, align 1, !dbg !279
+
+file: src/copy.c - line_num: 958 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %data_copy_required, align 1, !dbg !279
+
+file: src/copy.c - line_num: 958 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %data_copy_required, align 1, !dbg !279
+
+file: src/copy.c - line_num: 958 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %data_copy_required, align 1, !dbg !279
+
+file: src/copy.c - line_num: 958 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %data_copy_required, align 1, !dbg !279
+
+file: src/copy.c - line_num: 958 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %data_copy_required, align 1, !dbg !279
+
+file: src/copy.c - line_num: 960 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %reduce_diagnostics, align 1, !dbg !288
+
+file: src/copy.c - line_num: 960 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %reduce_diagnostics, align 1, !dbg !288
+
+file: src/copy.c - line_num: 960 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %reduce_diagnostics, align 1, !dbg !288
+
+file: src/copy.c - line_num: 960 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %reduce_diagnostics, align 1, !dbg !288
+
+file: src/copy.c - line_num: 960 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %reduce_diagnostics, align 1, !dbg !288
+
+file: src/copy.c - line_num: 960 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %reduce_diagnostics, align 1, !dbg !288
+
+file: src/copy.c - line_num: 960 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %reduce_diagnostics, align 1, !dbg !288
+
+file: src/copy.c - line_num: 960 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %reduce_diagnostics, align 1, !dbg !288
+
+file: src/copy.c - line_num: 960 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %reduce_diagnostics, align 1, !dbg !288
+
+file: src/copy.c - line_num: 960 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %reduce_diagnostics, align 1, !dbg !288
+
+file: src/copy.c - line_num: 960 - fun_name: set_file_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %reduce_diagnostics, align 1, !dbg !288
+
+file: src/copy.c - line_num: 1807 - fun_name: should_dereference
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i32, i32* %dereference1, align 4, !dbg !277
+
+file: src/copy.c - line_num: 1807 - fun_name: should_dereference
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i32, i32* %dereference1, align 4, !dbg !277
+
+file: src/copy.c - line_num: 1806 - fun_name: should_dereference
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i32, i32* %dereference, align 4, !dbg !273
+
+file: src/copy.c - line_num: 1806 - fun_name: should_dereference
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i32, i32* %dereference, align 4, !dbg !273
+
+file: src/copy.c - line_num: 797 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %14 = load i8, i8* %preserve_mode5, align 2, !dbg !345
+
+file: src/copy.c - line_num: 797 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %16 = load i8, i8* %move_mode8, align 8, !dbg !348
+
+file: src/copy.c - line_num: 797 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %20 = load i32, i32* %mode, align 8, !dbg !352
+
+file: src/copy.c - line_num: 797 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %14 = load i8, i8* %preserve_mode5, align 2, !dbg !345
+
+file: src/copy.c - line_num: 797 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %16 = load i8, i8* %move_mode8, align 8, !dbg !348
+
+file: src/copy.c - line_num: 797 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %20 = load i32, i32* %mode, align 8, !dbg !352
+
+file: src/copy.c - line_num: 797 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %14 = load i8, i8* %preserve_mode5, align 2, !dbg !345
+
+file: src/copy.c - line_num: 797 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %16 = load i8, i8* %move_mode8, align 8, !dbg !348
+
+file: src/copy.c - line_num: 797 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %20 = load i32, i32* %mode, align 8, !dbg !352
+
+file: src/copy.c - line_num: 797 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %14 = load i8, i8* %preserve_mode5, align 2, !dbg !345
+
+file: src/copy.c - line_num: 797 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %16 = load i8, i8* %move_mode8, align 8, !dbg !348
+
+file: src/copy.c - line_num: 797 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %20 = load i32, i32* %mode, align 8, !dbg !352
+
+file: src/copy.c - line_num: 797 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %14 = load i8, i8* %preserve_mode5, align 2, !dbg !345
+
+file: src/copy.c - line_num: 797 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %16 = load i8, i8* %move_mode8, align 8, !dbg !348
+
+file: src/copy.c - line_num: 797 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %20 = load i32, i32* %mode, align 8, !dbg !352
+
+file: src/copy.c - line_num: 808 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %32 = load i8, i8* %require_preserve, align 4, !dbg !384
+
+file: src/copy.c - line_num: 808 - fun_name: set_owner
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub nsw i32 0, %conv, !dbg !385
+
+file: src/copy.c - line_num: 808 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %32 = load i8, i8* %require_preserve, align 4, !dbg !384
+
+file: src/copy.c - line_num: 808 - fun_name: set_owner
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub nsw i32 0, %conv, !dbg !385
+
+file: src/copy.c - line_num: 808 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %32 = load i8, i8* %require_preserve, align 4, !dbg !384
+
+file: src/copy.c - line_num: 808 - fun_name: set_owner
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub nsw i32 0, %conv, !dbg !385
+
+file: src/copy.c - line_num: 808 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %32 = load i8, i8* %require_preserve, align 4, !dbg !384
+
+file: src/copy.c - line_num: 808 - fun_name: set_owner
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub nsw i32 0, %conv, !dbg !385
+
+file: src/copy.c - line_num: 808 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %32 = load i8, i8* %require_preserve, align 4, !dbg !384
+
+file: src/copy.c - line_num: 808 - fun_name: set_owner
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub nsw i32 0, %conv, !dbg !385
+
+file: src/copy.c - line_num: 793 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %6 = load i8, i8* %preserve_mode, align 2, !dbg !329
+
+file: src/copy.c - line_num: 793 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %8 = load i8, i8* %move_mode, align 8, !dbg !332
+
+file: src/copy.c - line_num: 793 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %10 = load i8, i8* %set_mode, align 1, !dbg !335
+
+file: src/copy.c - line_num: 793 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %6 = load i8, i8* %preserve_mode, align 2, !dbg !329
+
+file: src/copy.c - line_num: 793 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %8 = load i8, i8* %move_mode, align 8, !dbg !332
+
+file: src/copy.c - line_num: 793 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %10 = load i8, i8* %set_mode, align 1, !dbg !335
+
+file: src/copy.c - line_num: 793 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %6 = load i8, i8* %preserve_mode, align 2, !dbg !329
+
+file: src/copy.c - line_num: 793 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %8 = load i8, i8* %move_mode, align 8, !dbg !332
+
+file: src/copy.c - line_num: 793 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %10 = load i8, i8* %set_mode, align 1, !dbg !335
+
+file: src/copy.c - line_num: 793 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %6 = load i8, i8* %preserve_mode, align 2, !dbg !329
+
+file: src/copy.c - line_num: 793 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %8 = load i8, i8* %move_mode, align 8, !dbg !332
+
+file: src/copy.c - line_num: 793 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %10 = load i8, i8* %set_mode, align 1, !dbg !335
+
+file: src/copy.c - line_num: 793 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %6 = load i8, i8* %preserve_mode, align 2, !dbg !329
+
+file: src/copy.c - line_num: 793 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %8 = load i8, i8* %move_mode, align 8, !dbg !332
+
+file: src/copy.c - line_num: 793 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %10 = load i8, i8* %set_mode, align 1, !dbg !335
+
+file: src/copy.c - line_num: 843 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %58 = load i8, i8* %require_preserve70, align 4, !dbg !457
+
+file: src/copy.c - line_num: 843 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %58 = load i8, i8* %require_preserve70, align 4, !dbg !457
+
+file: src/copy.c - line_num: 843 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %58 = load i8, i8* %require_preserve70, align 4, !dbg !457
+
+file: src/copy.c - line_num: 843 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %58 = load i8, i8* %require_preserve70, align 4, !dbg !457
+
+file: src/copy.c - line_num: 843 - fun_name: set_owner
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %58 = load i8, i8* %require_preserve70, align 4, !dbg !457
+
+file: src/copy.c - line_num: 3039 - fun_name: owner_failure_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %owner_privileges, align 1, !dbg !277
+
+file: src/copy.c - line_num: 3039 - fun_name: owner_failure_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %owner_privileges, align 1, !dbg !277
+
+file: src/copy.c - line_num: 3039 - fun_name: owner_failure_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %owner_privileges, align 1, !dbg !277
+
+file: src/copy.c - line_num: 3039 - fun_name: owner_failure_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %owner_privileges, align 1, !dbg !277
+
+file: src/copy.c - line_num: 3039 - fun_name: owner_failure_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %owner_privileges, align 1, !dbg !277
+
+file: src/copy.c - line_num: 927 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %28 = load i8, i8* %require_preserve_context33, align 2, !dbg !352
+
+file: src/copy.c - line_num: 927 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %28 = load i8, i8* %require_preserve_context33, align 2, !dbg !352
+
+file: src/copy.c - line_num: 927 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %28 = load i8, i8* %require_preserve_context33, align 2, !dbg !352
+
+file: src/copy.c - line_num: 927 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %28 = load i8, i8* %require_preserve_context33, align 2, !dbg !352
+
+file: src/copy.c - line_num: 927 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %28 = load i8, i8* %require_preserve_context33, align 2, !dbg !352
+
+file: src/copy.c - line_num: 927 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %28 = load i8, i8* %require_preserve_context33, align 2, !dbg !352
+
+file: src/copy.c - line_num: 927 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %28 = load i8, i8* %require_preserve_context33, align 2, !dbg !352
+
+file: src/copy.c - line_num: 927 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %28 = load i8, i8* %require_preserve_context33, align 2, !dbg !352
+
+file: src/copy.c - line_num: 911 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %19 = load i8, i8* %require_preserve_context18, align 2, !dbg !326
+
+file: src/copy.c - line_num: 911 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %19 = load i8, i8* %require_preserve_context18, align 2, !dbg !326
+
+file: src/copy.c - line_num: 911 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %19 = load i8, i8* %require_preserve_context18, align 2, !dbg !326
+
+file: src/copy.c - line_num: 911 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %19 = load i8, i8* %require_preserve_context18, align 2, !dbg !326
+
+file: src/copy.c - line_num: 911 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %19 = load i8, i8* %require_preserve_context18, align 2, !dbg !326
+
+file: src/copy.c - line_num: 911 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %19 = load i8, i8* %require_preserve_context18, align 2, !dbg !326
+
+file: src/copy.c - line_num: 911 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %19 = load i8, i8* %require_preserve_context18, align 2, !dbg !326
+
+file: src/copy.c - line_num: 911 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %19 = load i8, i8* %require_preserve_context18, align 2, !dbg !326
+
+file: src/copy.c - line_num: 931 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %30 = load i8, i8* %set_security_context, align 1, !dbg !358
+
+file: src/copy.c - line_num: 931 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %30 = load i8, i8* %set_security_context, align 1, !dbg !358
+
+file: src/copy.c - line_num: 931 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %30 = load i8, i8* %set_security_context, align 1, !dbg !358
+
+file: src/copy.c - line_num: 931 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %30 = load i8, i8* %set_security_context, align 1, !dbg !358
+
+file: src/copy.c - line_num: 931 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %30 = load i8, i8* %set_security_context, align 1, !dbg !358
+
+file: src/copy.c - line_num: 931 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %30 = load i8, i8* %set_security_context, align 1, !dbg !358
+
+file: src/copy.c - line_num: 931 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %30 = load i8, i8* %set_security_context, align 1, !dbg !358
+
+file: src/copy.c - line_num: 931 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %30 = load i8, i8* %set_security_context, align 1, !dbg !358
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %data_copy_required, align 1, !dbg !286
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %5 = load i8, i8* %require_preserve_context, align 2, !dbg !289
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %data_copy_required, align 1, !dbg !286
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %5 = load i8, i8* %require_preserve_context, align 2, !dbg !289
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %data_copy_required, align 1, !dbg !286
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %5 = load i8, i8* %require_preserve_context, align 2, !dbg !289
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %data_copy_required, align 1, !dbg !286
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %5 = load i8, i8* %require_preserve_context, align 2, !dbg !289
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %data_copy_required, align 1, !dbg !286
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %5 = load i8, i8* %require_preserve_context, align 2, !dbg !289
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %data_copy_required, align 1, !dbg !286
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %5 = load i8, i8* %require_preserve_context, align 2, !dbg !289
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %data_copy_required, align 1, !dbg !286
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %5 = load i8, i8* %require_preserve_context, align 2, !dbg !289
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %data_copy_required, align 1, !dbg !286
+
+file: src/copy.c - line_num: 899 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %5 = load i8, i8* %require_preserve_context, align 2, !dbg !289
+
+file: src/copy.c - line_num: 896 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %preserve_security_context, align 1, !dbg !280
+
+file: src/copy.c - line_num: 896 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %preserve_security_context, align 1, !dbg !280
+
+file: src/copy.c - line_num: 896 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %preserve_security_context, align 1, !dbg !280
+
+file: src/copy.c - line_num: 896 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %preserve_security_context, align 1, !dbg !280
+
+file: src/copy.c - line_num: 896 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %preserve_security_context, align 1, !dbg !280
+
+file: src/copy.c - line_num: 896 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %preserve_security_context, align 1, !dbg !280
+
+file: src/copy.c - line_num: 896 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %preserve_security_context, align 1, !dbg !280
+
+file: src/copy.c - line_num: 896 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %preserve_security_context, align 1, !dbg !280
+
+file: src/copy.c - line_num: 900 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %reduce_diagnostics, align 1, !dbg !295
+
+file: src/copy.c - line_num: 900 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %reduce_diagnostics, align 1, !dbg !295
+
+file: src/copy.c - line_num: 900 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %reduce_diagnostics, align 1, !dbg !295
+
+file: src/copy.c - line_num: 900 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %reduce_diagnostics, align 1, !dbg !295
+
+file: src/copy.c - line_num: 900 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %reduce_diagnostics, align 1, !dbg !295
+
+file: src/copy.c - line_num: 900 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %reduce_diagnostics, align 1, !dbg !295
+
+file: src/copy.c - line_num: 900 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %reduce_diagnostics, align 1, !dbg !295
+
+file: src/copy.c - line_num: 900 - fun_name: set_process_security_ctx
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %reduce_diagnostics, align 1, !dbg !295
+
+file: src/cp.c - line_num: 635 - fun_name: do_copy
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub37 = sub nsw i32 %31, 1, !dbg !335
+
+file: src/cp.c - line_num: 635 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %32 = load i8*, i8** %arrayidx39, align 8, !dbg !335
+
+file: src/cp.c - line_num: 625 - fun_name: do_copy
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub nsw i32 %16, 1, !dbg !311
+
+file: src/cp.c - line_num: 625 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %17 = load i8*, i8** %arrayidx17, align 8, !dbg !311
+
+file: src/cp.c - line_num: 631 - fun_name: do_copy
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub26 = sub nsw i32 %23, 1, !dbg !323
+
+file: src/cp.c - line_num: 631 - fun_name: do_copy
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %24 = load i8*, i8** %arrayidx28, align 8, !dbg !321
+
+file: src/cp.c - line_num: 633 - fun_name: do_copy
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %dec = add nsw i32 %27, -1, !dbg !328
+
+file: src/cp.c - line_num: 654 - fun_name: do_copy
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %cmp50, label %for.body, label %for.end, !dbg !359
+
+file: src/copy.c - line_num: 2607 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %420 = load i8, i8* %419, align 1, !dbg !1365
+
+file: src/copy.c - line_num: 2607 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %420 = load i8, i8* %419, align 1, !dbg !1365
+
+file: src/copy.c - line_num: 2607 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %420 = load i8, i8* %419, align 1, !dbg !1365
+
+file: src/copy.c - line_num: 2607 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %420 = load i8, i8* %419, align 1, !dbg !1365
+
+file: src/cp.c - line_num: 399 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %22 = load i8, i8* %21, align 1, !dbg !331
+
+file: src/cp.c - line_num: 399 - fun_name: make_dir_parents_private
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %cmp4, label %while.body, label %while.end, !dbg !329
+
+file: src/cp.c - line_num: 429 - fun_name: make_dir_parents_private
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast, !dbg !387
+
+file: src/copy.c - line_num: 1706 - fun_name: dest_info_init
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store %struct.hash_table* %call, %struct.hash_table** %dest_info, align 8, !dbg !272
+
+file: src/cp.c - line_num: 328 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %51 = load i8, i8* %preserve_mode, align 2, !dbg !367
+
+file: src/cp.c - line_num: 328 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %51 = load i8, i8* %preserve_mode, align 2, !dbg !367
+
+file: src/cp.c - line_num: 312 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %37 = load i8, i8* %preserve_ownership, align 1, !dbg !336
+
+file: src/cp.c - line_num: 312 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %37 = load i8, i8* %preserve_ownership, align 1, !dbg !336
+
+file: src/cp.c - line_num: 297 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %16 = load i8, i8* %preserve_timestamps, align 1, !dbg !307
+
+file: src/cp.c - line_num: 297 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %16 = load i8, i8* %preserve_timestamps, align 1, !dbg !307
+
+file: src/copy.c - line_num: 3029 - fun_name: chown_failure_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %chown_privileges, align 2, !dbg !277
+
+file: src/copy.c - line_num: 3029 - fun_name: chown_failure_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %chown_privileges, align 2, !dbg !277
+
+file: src/copy.c - line_num: 3029 - fun_name: chown_failure_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %chown_privileges, align 2, !dbg !277
+
+file: src/copy.c - line_num: 3029 - fun_name: chown_failure_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %chown_privileges, align 2, !dbg !277
+
+file: src/copy.c - line_num: 3029 - fun_name: chown_failure_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %chown_privileges, align 2, !dbg !277
+
+file: src/copy.c - line_num: 3029 - fun_name: chown_failure_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %chown_privileges, align 2, !dbg !277
+
+file: src/copy.c - line_num: 3029 - fun_name: chown_failure_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %chown_privileges, align 2, !dbg !277
+
+file: src/copy.c - line_num: 3029 - fun_name: chown_failure_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %chown_privileges, align 2, !dbg !277
+
+file: src/copy.c - line_num: 3029 - fun_name: chown_failure_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %chown_privileges, align 2, !dbg !277
+
+file: src/copy.c - line_num: 2373 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %307, align 1, !dbg !1104
+
+file: src/copy.c - line_num: 2373 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %307, align 1, !dbg !1104
+
+file: src/copy.c - line_num: 2373 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %307, align 1, !dbg !1104
+
+file: src/copy.c - line_num: 2373 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %307, align 1, !dbg !1104
+
+file: src/copy.c - line_num: 2003 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %105, align 1, !dbg !593
+
+file: src/copy.c - line_num: 2003 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %105, align 1, !dbg !593
+
+file: src/copy.c - line_num: 2003 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %105, align 1, !dbg !593
+
+file: src/copy.c - line_num: 2003 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %105, align 1, !dbg !593
+
+file: src/copy.c - line_num: 1881 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 %frombool11, i8* %12, align 1, !dbg !387
+
+file: src/copy.c - line_num: 1881 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 %frombool11, i8* %12, align 1, !dbg !387
+
+file: src/copy.c - line_num: 1881 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 %frombool11, i8* %12, align 1, !dbg !387
+
+file: src/copy.c - line_num: 1881 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 %frombool11, i8* %12, align 1, !dbg !387
+
+file: src/copy.c - line_num: 2320 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %277, align 1, !dbg !1025
+
+file: src/copy.c - line_num: 2320 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %277, align 1, !dbg !1025
+
+file: src/copy.c - line_num: 2320 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %277, align 1, !dbg !1025
+
+file: src/copy.c - line_num: 2320 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %277, align 1, !dbg !1025
+
+file: src/copy.c - line_num: 2041 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %120, align 1, !dbg !632
+
+file: src/copy.c - line_num: 2041 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %120, align 1, !dbg !632
+
+file: src/copy.c - line_num: 2041 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %120, align 1, !dbg !632
+
+file: src/copy.c - line_num: 2041 - fun_name: copy_internal
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 1, i8* %120, align 1, !dbg !632
+
+file: src/copy.c - line_num: 1683 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %move_mode, align 8, !dbg !329
+
+file: src/copy.c - line_num: 1683 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %unlink_dest_before_opening, align 1, !dbg !332
+
+file: src/copy.c - line_num: 1683 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %move_mode, align 8, !dbg !329
+
+file: src/copy.c - line_num: 1683 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %unlink_dest_before_opening, align 1, !dbg !332
+
+file: src/copy.c - line_num: 1683 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %move_mode, align 8, !dbg !329
+
+file: src/copy.c - line_num: 1683 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %unlink_dest_before_opening, align 1, !dbg !332
+
+file: src/copy.c - line_num: 1683 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %move_mode, align 8, !dbg !329
+
+file: src/copy.c - line_num: 1683 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %unlink_dest_before_opening, align 1, !dbg !332
+
+file: src/copy.c - line_num: 1683 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %move_mode, align 8, !dbg !329
+
+file: src/copy.c - line_num: 1683 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %unlink_dest_before_opening, align 1, !dbg !332
+
+file: src/copy.c - line_num: 1683 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i8, i8* %move_mode, align 8, !dbg !329
+
+file: src/copy.c - line_num: 1683 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %9 = load i8, i8* %unlink_dest_before_opening, align 1, !dbg !332
+
+file: src/copy.c - line_num: 1684 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %11 = load i8, i8* %unlink_dest_after_failed_open, align 2, !dbg !335
+
+file: src/copy.c - line_num: 1684 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %11 = load i8, i8* %unlink_dest_after_failed_open, align 2, !dbg !335
+
+file: src/copy.c - line_num: 1684 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %11 = load i8, i8* %unlink_dest_after_failed_open, align 2, !dbg !335
+
+file: src/copy.c - line_num: 1684 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %11 = load i8, i8* %unlink_dest_after_failed_open, align 2, !dbg !335
+
+file: src/copy.c - line_num: 1684 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %11 = load i8, i8* %unlink_dest_after_failed_open, align 2, !dbg !335
+
+file: src/copy.c - line_num: 1684 - fun_name: overwrite_ok
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %11 = load i8, i8* %unlink_dest_after_failed_open, align 2, !dbg !335
+
+file: src/cp.c - line_num: 316 - fun_name: re_protect
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %call21, label %if.end25, label %if.then22, !dbg !354
+
+file: src/cp.c - line_num: 316 - fun_name: re_protect
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %call21, label %if.end25, label %if.then22, !dbg !354
+
+file: src/cp.c - line_num: 291 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 0, i8* %arrayidx, align 1, !dbg !304
+
+file: src/cp.c - line_num: 343 - fun_name: re_protect
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 47, i8* %arrayidx51, align 1, !dbg !403
+
+file: src/copy.c - line_num: 1751 - fun_name: abandon_move
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %12 = load i32, i32* %st_mode, align 8, !dbg !330
+
+file: src/copy.c - line_num: 1728 - fun_name: src_info_init
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store %struct.hash_table* %call, %struct.hash_table** %src_info, align 8, !dbg !272
+

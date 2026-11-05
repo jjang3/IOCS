@@ -1,0 +1,5 @@
+# Workload for cp: copy one regular file; dta_verify checks the copy.
+head -c 70000 /dev/zero | tr '\0' 'x' > "$work/src.txt"; printf '\nend\n' >> "$work/src.txt"
+rm -f "$work/dst.txt"
+DTA_ARGS=("$work/src.txt" "$work/dst.txt")
+dta_verify() { cmp -s "$work/src.txt" "$work/dst.txt"; }

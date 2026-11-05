@@ -1,0 +1,617 @@
+== chroot
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== hostid
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== timeout
+compartments: 1 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 settimeout -88(%rbp) duration
+== nice
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== who
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== users
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== pinky
+compartments: 7 (slots the rewritten code uses)
+table slots: 8 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+used      0 count_ampersands -24(%rbp) str
+used      1 create_fullname -96(%rbp) user_name
+used      2 create_fullname -88(%rbp) gecos_name
+used      3 long_pinky -32(%rbp) argv_names
+used      4 long_pinky -20(%rbp) argc_names
+used      5 scan_entries -48(%rbp) argv_names
+used      6 scan_entries -24(%rbp) n
+== uptime
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== stty
+compartments: 4 (slots the rewritten code uses)
+table slots: 4 (unused: 0, placeholder/padding: 0), kept on stack: 1, rounds: 1
+used      0 recover_mode -80(%rbp) mode
+used      1 set_control_char -40(%rbp) mode
+used      2 set_control_char -24(%rbp) info
+used      3 strtoul_cc_t -48(%rbp) result
+== df
+compartments: 3 (slots the rewritten code uses)
+table slots: 4 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+used      0 find_mount_point -416(%rbp) file_stat
+used      1 get_entry -16(%rbp) statp
+used      2 get_point -256(%rbp) statp
+== stdbuf
+compartments: 1 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 parse_size -64(%rbp) size
+== b2sum
+compartments: 8 (slots the rewritten code uses)
+table slots: 8 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 bsd_split_3 -24(%rbp) s
+used      1 digest_check -192(%rbp) filename
+used      2 digest_check -218(%rbp) missing
+used      3 filename_unescape -24(%rbp) s
+used      4 filename_unescape -32(%rbp) s_len
+used      5 main -169(%rbp) missing
+used      6 print_filename -8(%rbp) file
+used      7 split_3 -72(%rbp) s
+== base64
+compartments: 1 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 wrap_write -56(%rbp) wrap_column
+== base32
+compartments: 1 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 wrap_write -56(%rbp) wrap_column
+== basenc
+compartments: 1 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 wrap_write -56(%rbp) wrap_column
+== basename
+compartments: 2 (slots the rewritten code uses)
+table slots: 2 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 remove_suffix -24(%rbp) name
+used      1 remove_suffix -32(%rbp) suffix
+== cat
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== chcon
+compartments: 2 (slots the rewritten code uses)
+table slots: 2 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 process_file -80(%rbp) ent
+used      1 process_file -72(%rbp) fts
+== chgrp
+compartments: 3 (slots the rewritten code uses)
+table slots: 4 (unused: 0, placeholder/padding: 1), kept on stack: 1, rounds: 1
+used      0 change_file_owner -280(%rbp) chopt
+used      1 change_file_owner -248(%rbp) fts
+used      2 parse_group -40(%rbp) name
+== chmod
+compartments: 2 (slots the rewritten code uses)
+table slots: 2 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 process_file -128(%rbp) ent
+used      1 process_file -120(%rbp) fts
+== chown
+compartments: 2 (slots the rewritten code uses)
+table slots: 2 (unused: 0, placeholder/padding: 0), kept on stack: 1, rounds: 1
+used      0 change_file_owner -280(%rbp) chopt
+used      1 change_file_owner -248(%rbp) fts
+== cksum
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== comm
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 1, rounds: 1
+== cp
+compartments: 24 (slots the rewritten code uses)
+table slots: 24 (unused: 0, placeholder/padding: 0), kept on stack: 4, rounds: 1
+used      0 abandon_move -24(%rbp) dst_sb
+used      1 abandon_move -8(%rbp) x
+used      2 chown_failure_ok -8(%rbp) x
+used      3 copy_reg -488(%rbp) x
+used      4 dest_info_init -8(%rbp) x
+used      5 do_copy -352(%rbp) x
+used      6 do_copy -324(%rbp) n_files
+used      7 make_dir_parents_private -464(%rbp) x
+used      8 make_dir_parents_private -424(%rbp) const_dir
+used      9 overwrite_ok -72(%rbp) dst_sb
+used     10 overwrite_ok -56(%rbp) x
+used     11 owner_failure_ok -8(%rbp) x
+used     12 re_protect -160(%rbp) x
+used     13 re_protect -136(%rbp) const_dst_name
+used     14 same_file_ok -392(%rbp) x
+used     15 same_file_ok -400(%rbp) return_now
+used     16 samedir_template -40(%rbp) dstname
+used     17 set_file_security_ctx -56(%rbp) x
+used     18 set_owner -104(%rbp) dst_sb
+used     19 set_owner -72(%rbp) x
+used     20 set_process_security_ctx -80(%rbp) x
+used     21 should_dereference -8(%rbp) x
+used     22 src_info_init -8(%rbp) x
+used     23 valid_options -8(%rbp) co
+== csplit
+compartments: 5 (slots the rewritten code uses)
+table slots: 6 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+used      0 extract_regexp -64(%rbp) str
+used      1 parse_patterns -84(%rbp) argc
+used      2 parse_patterns -96(%rbp) argv
+used      3 parse_repeat_count -36(%rbp) argnum
+used      4 parse_repeat_count -56(%rbp) str
+== cut
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== date
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== dd
+compartments: 5 (slots the rewritten code uses)
+table slots: 6 (unused: 0, placeholder/padding: 1), kept on stack: 1, rounds: 1
+used      0 operand_matches -8(%rbp) str
+used      1 operand_matches -16(%rbp) pattern
+used      2 parse_symbols -40(%rbp) str
+used      3 scanargs -100(%rbp) argc
+used      4 scanargs -112(%rbp) argv
+== dir
+compartments: 10 (slots the rewritten code uses)
+table slots: 10 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 attach -32(%rbp) dirname
+used      1 attach -24(%rbp) dest
+used      2 attach -40(%rbp) name
+used      3 file_has_acl_cache -32(%rbp) f
+used      4 gobble_file -968(%rbp) name
+used      5 gobble_file -992(%rbp) dirname
+used      6 has_capability_cache -32(%rbp) f
+used      7 make_link_name -32(%rbp) linkname
+used      8 make_link_name -24(%rbp) name
+used      9 needs_quoting -40(%rbp) name
+== dircolors
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== dirname
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== du
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== echo
+compartments: 1 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 hextobin -4(%rbp) c
+== env
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== expand
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== expr
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== factor
+compartments: 2 (slots the rewritten code uses)
+table slots: 2 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 print_factors -24(%rbp) t1
+used      1 strto2uintmax -72(%rbp) s
+== false
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== fmt
+compartments: 2 (slots the rewritten code uses)
+table slots: 2 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 copy_rest -28(%rbp) c
+used      1 get_space -12(%rbp) c
+== fold
+compartments: 1 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 adjust_column -8(%rbp) column
+== ginstall
+compartments: 13 (slots the rewritten code uses)
+table slots: 14 (unused: 0, placeholder/padding: 1), kept on stack: 4, rounds: 1
+used      0 abandon_move -8(%rbp) x
+used      1 chown_failure_ok -8(%rbp) x
+used      2 copy_reg -488(%rbp) x
+used      3 main -256(%rbp) x
+used      4 mkancesdirs_safe_wd -56(%rbp) from
+used      5 overwrite_ok -56(%rbp) x
+used      6 owner_failure_ok -8(%rbp) x
+used      7 same_file_ok -392(%rbp) x
+used      8 same_file_ok -400(%rbp) return_now
+used      9 set_file_security_ctx -56(%rbp) x
+used     10 set_owner -72(%rbp) x
+used     11 set_process_security_ctx -80(%rbp) x
+used     12 should_dereference -8(%rbp) x
+== groups
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== head
+compartments: 7 (slots the rewritten code uses)
+table slots: 8 (unused: 0, placeholder/padding: 1), kept on stack: 1, rounds: 1
+used      0 elide_tail_bytes_file -72(%rbp) current_pos
+used      1 elide_tail_bytes_pipe -240(%rbp) current_pos
+used      2 elide_tail_lines_pipe -144(%rbp) current_pos
+used      3 elide_tail_lines_seekable -8304(%rbp) start_pos
+used      4 elide_tail_lines_seekable -8312(%rbp) size
+used      5 head_bytes -8264(%rbp) bytes_to_write
+used      6 head_lines -8424(%rbp) lines_to_write
+== id
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== join
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 1, rounds: 1
+== kill
+compartments: 3 (slots the rewritten code uses)
+table slots: 4 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+used      0 list_signals -80(%rbp) argv
+used      1 operand2sig -56(%rbp) operand
+used      2 send_signals -80(%rbp) argv
+== link
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== ln
+compartments: 5 (slots the rewritten code uses)
+table slots: 6 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+used      0 do_link -408(%rbp) source
+used      1 path_common_prefix -32(%rbp) path2
+used      2 path_common_prefix -24(%rbp) path1
+used      3 relpath -64(%rbp) len
+used      4 relpath -40(%rbp) can_fname
+== logname
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== ls
+compartments: 10 (slots the rewritten code uses)
+table slots: 10 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 attach -32(%rbp) dirname
+used      1 attach -24(%rbp) dest
+used      2 attach -40(%rbp) name
+used      3 file_has_acl_cache -32(%rbp) f
+used      4 gobble_file -968(%rbp) name
+used      5 gobble_file -992(%rbp) dirname
+used      6 has_capability_cache -32(%rbp) f
+used      7 make_link_name -32(%rbp) linkname
+used      8 make_link_name -24(%rbp) name
+used      9 needs_quoting -40(%rbp) name
+== md5sum
+compartments: 8 (slots the rewritten code uses)
+table slots: 8 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 bsd_split_3 -24(%rbp) s
+used      1 digest_check -144(%rbp) filename
+used      2 digest_check -170(%rbp) missing
+used      3 filename_unescape -24(%rbp) s
+used      4 filename_unescape -32(%rbp) s_len
+used      5 main -113(%rbp) missing
+used      6 print_filename -8(%rbp) file
+used      7 split_3 -40(%rbp) s
+== mkdir
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== mkfifo
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== mknod
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== mktemp
+compartments: 2 (slots the rewritten code uses)
+table slots: 2 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 count_consecutive_X_s -24(%rbp) s
+used      1 count_consecutive_X_s -32(%rbp) len
+== mv
+compartments: 12 (slots the rewritten code uses)
+table slots: 12 (unused: 0, placeholder/padding: 0), kept on stack: 4, rounds: 1
+used      0 abandon_move -8(%rbp) x
+used      1 chown_failure_ok -8(%rbp) x
+used      2 copy_reg -488(%rbp) x
+used      3 main -256(%rbp) x
+used      4 overwrite_ok -56(%rbp) x
+used      5 owner_failure_ok -8(%rbp) x
+used      6 same_file_ok -392(%rbp) x
+used      7 same_file_ok -400(%rbp) return_now
+used      8 set_file_security_ctx -56(%rbp) x
+used      9 set_owner -72(%rbp) x
+used     10 set_process_security_ctx -80(%rbp) x
+used     11 should_dereference -8(%rbp) x
+== nl
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== nproc
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== nohup
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== numfmt
+compartments: 5 (slots the rewritten code uses)
+table slots: 6 (unused: 0, placeholder/padding: 1), kept on stack: 3, rounds: 1
+used      0 next_field -8(%rbp) field_start
+used      1 parse_human_number -32(%rbp) ptr
+used      2 process_line -40(%rbp) line
+used      3 process_suffixed_number -88(%rbp) text
+used      4 simple_strtod_int -40(%rbp) input_str
+== od
+compartments: 1 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 parse_old_offset -24(%rbp) s
+== paste
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== pathchk
+compartments: 6 (slots the rewritten code uses)
+table slots: 6 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 component_len -24(%rbp) f
+used      1 component_start -8(%rbp) f
+used      2 no_leading_hyphen -24(%rbp) file
+used      3 portable_chars_only -80(%rbp) filelen
+used      4 portable_chars_only -72(%rbp) file
+used      5 validate_file_name -312(%rbp) file
+== pr
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== printenv
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== printf
+compartments: 6 (slots the rewritten code uses)
+table slots: 6 (unused: 0, placeholder/padding: 0), kept on stack: 1, rounds: 1
+used      0 print_esc -56(%rbp) escstart
+used      1 print_formatted -360(%rbp) format
+used      2 verify_numeric -32(%rbp) end
+used      3 vstrtoimax -40(%rbp) s
+used      4 vstrtold -56(%rbp) s
+used      5 vstrtoumax -40(%rbp) s
+== ptx
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== pwd
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== readlink
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== realpath
+compartments: 4 (slots the rewritten code uses)
+table slots: 4 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 path_common_prefix -24(%rbp) path1
+used      1 path_common_prefix -32(%rbp) path2
+used      2 relpath -64(%rbp) len
+used      3 relpath -40(%rbp) can_fname
+== rm
+compartments: 9 (slots the rewritten code uses)
+table slots: 10 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+used      0 diagnose_leading_hyphen -196(%rbp) argc
+used      1 diagnose_leading_hyphen -208(%rbp) argv
+used      2 excise -200(%rbp) fts
+used      3 main -64(%rbp) x
+used      4 prompt -160(%rbp) st
+used      5 prompt -264(%rbp) is_empty_p
+used      6 prompt -232(%rbp) fts
+used      7 rm -40(%rbp) file
+used      8 rm_fts -216(%rbp) fts
+== rmdir
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== runcon
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== seq
+compartments: 4 (slots the rewritten code uses)
+table slots: 4 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 all_digits_p -24(%rbp) s
+used      1 incr -8(%rbp) s
+used      2 scan_arg -112(%rbp) arg
+used      3 trim_leading_zeros -24(%rbp) s
+== sha1sum
+compartments: 8 (slots the rewritten code uses)
+table slots: 8 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 bsd_split_3 -24(%rbp) s
+used      1 digest_check -144(%rbp) filename
+used      2 digest_check -170(%rbp) missing
+used      3 filename_unescape -24(%rbp) s
+used      4 filename_unescape -32(%rbp) s_len
+used      5 main -113(%rbp) missing
+used      6 print_filename -8(%rbp) file
+used      7 split_3 -40(%rbp) s
+== sha224sum
+compartments: 8 (slots the rewritten code uses)
+table slots: 8 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 bsd_split_3 -24(%rbp) s
+used      1 digest_check -160(%rbp) filename
+used      2 digest_check -186(%rbp) missing
+used      3 filename_unescape -24(%rbp) s
+used      4 filename_unescape -32(%rbp) s_len
+used      5 main -129(%rbp) missing
+used      6 print_filename -8(%rbp) file
+used      7 split_3 -40(%rbp) s
+== sha256sum
+compartments: 8 (slots the rewritten code uses)
+table slots: 8 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 bsd_split_3 -24(%rbp) s
+used      1 digest_check -160(%rbp) filename
+used      2 digest_check -186(%rbp) missing
+used      3 filename_unescape -24(%rbp) s
+used      4 filename_unescape -32(%rbp) s_len
+used      5 main -129(%rbp) missing
+used      6 print_filename -8(%rbp) file
+used      7 split_3 -40(%rbp) s
+== sha384sum
+compartments: 8 (slots the rewritten code uses)
+table slots: 8 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 bsd_split_3 -24(%rbp) s
+used      1 digest_check -176(%rbp) filename
+used      2 digest_check -202(%rbp) missing
+used      3 filename_unescape -24(%rbp) s
+used      4 filename_unescape -32(%rbp) s_len
+used      5 main -145(%rbp) missing
+used      6 print_filename -8(%rbp) file
+used      7 split_3 -40(%rbp) s
+== sha512sum
+compartments: 8 (slots the rewritten code uses)
+table slots: 8 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 bsd_split_3 -24(%rbp) s
+used      1 digest_check -192(%rbp) filename
+used      2 digest_check -218(%rbp) missing
+used      3 filename_unescape -24(%rbp) s
+used      4 filename_unescape -32(%rbp) s_len
+used      5 main -161(%rbp) missing
+used      6 print_filename -8(%rbp) file
+used      7 split_3 -40(%rbp) s
+== shred
+compartments: 9 (slots the rewritten code uses)
+table slots: 10 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 2
+used      0 do_wipefd -288(%rbp) flags
+used      1 do_wipefd -160(%rbp) st
+used      2 dopass -2120(%rbp) size
+used      3 fillpattern -40(%rbp) size
+used      4 genpattern -80(%rbp) num
+used      5 incname -32(%rbp) len
+used      6 incname -24(%rbp) name
+used      7 wipefile -48(%rbp) flags
+used      8 wipename -88(%rbp) flags
+== shuf
+compartments: 3 (slots the rewritten code uses)
+table slots: 4 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+used      0 input_from_argv -40(%rbp) operand
+used      1 write_permuted_lines -40(%rbp) n_lines
+used      2 write_permuted_lines -56(%rbp) permutation
+== sleep
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== sort
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== split
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== stat
+compartments: 3 (slots the rewritten code uses)
+table slots: 4 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+used      0 make_format -48(%rbp) prefix_len
+used      1 out_epoch_sec -144(%rbp) prefix_len
+used      2 print_it -88(%rbp) format
+== sum
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== sync
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== tac
+compartments: 4 (slots the rewritten code uses)
+table slots: 4 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 output -32(%rbp) past_end
+used      1 tac_nonseekable -48(%rbp) tmp_stream
+used      2 tac_seekable -96(%rbp) rsize
+used      3 tac_seekable -184(%rbp) file_pos
+== tail
+compartments: 34 (slots the rewritten code uses)
+table slots: 34 (unused: 0, placeholder/padding: 0), kept on stack: 1, rounds: 1
+used      0 any_live_files -24(%rbp) f
+used      1 any_live_files -32(%rbp) n_files
+used      2 any_non_regular_fifo -24(%rbp) f
+used      3 any_non_regular_fifo -32(%rbp) n_files
+used      4 any_non_remote_file -32(%rbp) n_files
+used      5 any_non_remote_file -24(%rbp) f
+used      6 any_remote_file -32(%rbp) n_files
+used      7 any_remote_file -24(%rbp) f
+used      8 any_symlinks -192(%rbp) n_files
+used      9 any_symlinks -184(%rbp) f
+used     10 check_fspec -200(%rbp) fspec
+used     11 dump_remainder -8280(%rbp) n_bytes
+used     12 file_lines -8280(%rbp) n_lines
+used     13 ignore_fifo_and_pipe -48(%rbp) n_files
+used     14 ignore_fifo_and_pipe -40(%rbp) f
+used     15 main -208(%rbp) n_units
+used     16 main -200(%rbp) sleep_interval
+used     17 pipe_bytes -104(%rbp) n_bytes
+used     18 pipe_lines -136(%rbp) n_lines
+used     19 pretty_name -8(%rbp) f
+used     20 recheck -200(%rbp) f
+used     21 record_open_fd -24(%rbp) f
+used     22 start_bytes -8264(%rbp) n_bytes
+used     23 start_lines -8280(%rbp) n_lines
+used     24 tail_bytes -232(%rbp) n_bytes
+used     25 tail_file -184(%rbp) read_pos
+used     26 tail_file -200(%rbp) f
+used     27 tail_forever -248(%rbp) f
+used     28 tail_forever -256(%rbp) n_files
+used     29 tail_forever_inotify -384(%rbp) prev_fspec
+used     30 tail_forever_inotify -448(%rbp) sleep_interval
+used     31 tailable_stdin -32(%rbp) n_files
+used     32 tailable_stdin -24(%rbp) f
+used     33 valid_file_spec -8(%rbp) f
+== tee
+compartments: 1 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 tee_files -8276(%rbp) nfiles
+== test
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== touch
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== tr
+compartments: 7 (slots the rewritten code uses)
+table slots: 8 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+used      0 append_char_class -24(%rbp) list
+used      1 append_equiv_class -24(%rbp) list
+used      2 append_normal_char -24(%rbp) list
+used      3 append_range -40(%rbp) list
+used      4 append_repeated_char -24(%rbp) list
+used      5 parse_str -32(%rbp) es
+used      6 unquote -40(%rbp) s
+== true
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== truncate
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== tsort
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== tty
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== uname
+compartments: 1 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 decode_switches -32(%rbp) argv
+== unexpand
+compartments: 1 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 add_tab_stop -24(%rbp) tabval
+== uniq
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== unlink
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== vdir
+compartments: 10 (slots the rewritten code uses)
+table slots: 10 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 attach -32(%rbp) dirname
+used      1 attach -24(%rbp) dest
+used      2 attach -40(%rbp) name
+used      3 file_has_acl_cache -32(%rbp) f
+used      4 gobble_file -968(%rbp) name
+used      5 gobble_file -992(%rbp) dirname
+used      6 has_capability_cache -32(%rbp) f
+used      7 make_link_name -32(%rbp) linkname
+used      8 make_link_name -24(%rbp) name
+used      9 needs_quoting -40(%rbp) name
+== wc
+compartments: 6 (slots the rewritten code uses)
+table slots: 6 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 compute_number_width -40(%rbp) nfiles
+used      1 compute_number_width -48(%rbp) fstatus
+used      2 get_input_fstatus -32(%rbp) file
+used      3 get_input_fstatus -24(%rbp) nfiles
+used      4 wc -16640(%rbp) current_pos
+used      5 wc -16632(%rbp) fstatus
+== whoami
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1
+== yes
+compartments: 0 (slots the rewritten code uses)
+table slots: 1 (unused: 0, placeholder/padding: 1), kept on stack: 0, rounds: 1

@@ -1,0 +1,4045 @@
+$ D env IOCS_REWRITE_MODE=directory ./iocs.sh basename rewrite
+Assembly rewriting the application
+[Line: 359 -              main()]    INFO    Analyzing FileData(name='basename', asm_path='/iocs/result/basename/basename.s', obj_path='/iocs/result/basename/basename.o', fun_list=['emit_mandatory_arg_note', 'emit_ancillary_info', 'usage', 'remove_suffix', 'perform_basename', 'main'], intel_path='/iocs/result/basename/basename.intel') 
+[Line: 308 -    dwarf_analysis()]    INFO    /iocs/result/basename 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: optarg 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: optind 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: opterr 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: optopt 
+[Line: 530 -    dwarf_analysis()] WARNING    Creating temp_struct: option 32 50 
+[Line: 682 -    dwarf_analysis()] CRITICAL    Inserting temp_struct (0) option 
+[Line: 669 -    dwarf_analysis()] CRITICAL    Inserting temp_typedef (base) size_t 
+[Line: 669 -    dwarf_analysis()] CRITICAL    Inserting temp_typedef (base) __off_t 
+[Line: 669 -    dwarf_analysis()] CRITICAL    Inserting temp_typedef (base) __off64_t 
+[Line: 669 -    dwarf_analysis()] CRITICAL    Inserting temp_typedef (base) __time_t 
+[Line: 530 -    dwarf_analysis()] WARNING    Creating temp_struct: _IO_FILE 216 49 
+[Line: 682 -    dwarf_analysis()] CRITICAL    Inserting temp_struct (0) _IO_FILE 
+[Line: 669 -    dwarf_analysis()] CRITICAL    Inserting temp_typedef (base) FILE 
+[Line: 669 -    dwarf_analysis()] CRITICAL    Inserting temp_typedef (base) _IO_lock_t 
+[Line: 530 -    dwarf_analysis()] WARNING    Creating temp_struct: _IO_marker None None 
+[Line: 535 -    dwarf_analysis()] CRITICAL    Inserting temp_struct (decl): _IO_marker 
+[Line: 530 -    dwarf_analysis()] WARNING    Creating temp_struct: _IO_codecvt None None 
+[Line: 535 -    dwarf_analysis()] CRITICAL    Inserting temp_struct (decl): _IO_codecvt 
+[Line: 530 -    dwarf_analysis()] WARNING    Creating temp_struct: _IO_wide_data None None 
+[Line: 535 -    dwarf_analysis()] CRITICAL    Inserting temp_struct (decl): _IO_wide_data 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: stdin 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: stdout 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: stderr 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: sys_nerr 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: sys_errlist 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: _sys_nerr 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: _sys_errlist 
+[Line: 669 -    dwarf_analysis()] CRITICAL    Inserting temp_typedef (base) time_t 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: _gl_cxxalias_dummy 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: __tzname 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: __daylight 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: __timezone 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: tzname 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: daylight 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: timezone 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: getdate_err 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: _sys_siglist 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: sys_siglist 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: __environ 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: environ 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: program_invocation_name 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: program_invocation_short_name 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: Version 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: exit_failure 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: version_etc_copyright 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: program_name 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: quoting_style_args 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: quoting_style_vals 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: error_print_progname 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: error_message_count 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: error_one_per_line 
+[Line: 530 -    dwarf_analysis()] WARNING    Creating temp_struct: quoting_options None None 
+[Line: 535 -    dwarf_analysis()] CRITICAL    Inserting temp_struct (decl): quoting_options 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: quote_quoting_options 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: longopts 
+[Line: 497 -    dwarf_analysis()] CRITICAL    Inserting global var longopts 
+[Line: 391 -    dwarf_analysis()]    INFO    Function name: main 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: multiple_names 
+[Line: 449 -    dwarf_analysis()]   DEBUG    	Offset:	-14(%rbp) (hex: -0xe) 
+[Line: 499 -    dwarf_analysis()] CRITICAL    Inserting base var multiple_names 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: use_nuls 
+[Line: 449 -    dwarf_analysis()]   DEBUG    	Offset:	-13(%rbp) (hex: -0xd) 
+[Line: 499 -    dwarf_analysis()] CRITICAL    Inserting base var use_nuls 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: suffix 
+[Line: 449 -    dwarf_analysis()]   DEBUG    	Offset:	-8(%rbp) (hex: -0x8) 
+[Line: 499 -    dwarf_analysis()] CRITICAL    Inserting base var suffix 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: c 
+[Line: 449 -    dwarf_analysis()]   DEBUG    	Offset:	-12(%rbp) (hex: -0xc) 
+[Line: 499 -    dwarf_analysis()] CRITICAL    Inserting base var c 
+[Line: 391 -    dwarf_analysis()]    INFO    Function name: perform_basename 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: name 
+[Line: 449 -    dwarf_analysis()]   DEBUG    	Offset:	-8(%rbp) (hex: -0x8) 
+[Line: 499 -    dwarf_analysis()] CRITICAL    Inserting base var name 
+[Line: 391 -    dwarf_analysis()]    INFO    Function name: remove_suffix 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: np 
+[Line: 449 -    dwarf_analysis()]   DEBUG    	Offset:	-16(%rbp) (hex: -0x10) 
+[Line: 499 -    dwarf_analysis()] CRITICAL    Inserting base var np 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: sp 
+[Line: 449 -    dwarf_analysis()]   DEBUG    	Offset:	-8(%rbp) (hex: -0x8) 
+[Line: 499 -    dwarf_analysis()] CRITICAL    Inserting base var sp 
+[Line: 391 -    dwarf_analysis()]    INFO    Function name: usage 
+[Line: 391 -    dwarf_analysis()]    INFO    Function name: emit_ancillary_info 
+[Line: 530 -    dwarf_analysis()] WARNING    Creating temp_struct: infomap 16 633 
+[Line: 682 -    dwarf_analysis()] CRITICAL    Inserting temp_struct (0) infomap 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: infomap 
+[Line: 449 -    dwarf_analysis()]   DEBUG    	Offset:	-128(%rbp) (hex: -0x80) 
+[Line: 499 -    dwarf_analysis()] CRITICAL    Inserting base var infomap 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: node 
+[Line: 449 -    dwarf_analysis()]   DEBUG    	Offset:	-152(%rbp) (hex: -0x98) 
+[Line: 499 -    dwarf_analysis()] CRITICAL    Inserting base var node 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: map_prog 
+[Line: 449 -    dwarf_analysis()]   DEBUG    	Offset:	-144(%rbp) (hex: -0x90) 
+[Line: 499 -    dwarf_analysis()] CRITICAL    Inserting base var map_prog 
+[Line: 436 -    dwarf_analysis()]   DEBUG    	Var name: lc_messages 
+[Line: 449 -    dwarf_analysis()]   DEBUG    	Offset:	-136(%rbp) (hex: -0x88) 
+[Line: 499 -    dwarf_analysis()] CRITICAL    Inserting base var lc_messages 
+[Line: 391 -    dwarf_analysis()]    INFO    Function name: emit_mandatory_arg_note 
+[Line: 325 -    generate_table()] WARNING    Added 
+[Line: 325 -    generate_table()] WARNING    Added 
+[Line: 325 -    generate_table()] WARNING    Added 
+[Line: 337 -    generate_table()]    INFO    Generating the table with variable count: 3 
+[Line: 430 -    generate_table()]    INFO    Based on offsets, generate offsets per respective variables 
+[Line: 860 -          __init__()] WARNING    consistency: recursive functions (activations on one thread share pages): none 
+[Line: 238 -    analyze_binary()]    INFO    Analyzing binary 
+[Line: 258 -    analyze_binary()]    INFO    Function: remove_suffix	| begin: 0x371 | end: 0x3fb 
+[Line: 411 -    analyze_binary()]   ERROR    push(%rbp), LowLevelILOperation.LLIL_PUSH 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: [%rbp - 0x18 {var_20}].q = %rdi | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     %rdi, qword ptr [%rbp-0x18] 
+[Line: 404 -  asm_lex_analysis()]   DEBUG    ptr Dest 
+[Line: 410 -  asm_lex_analysis()]   DEBUG    mov %rdi qword ptr [%rbp-0x18] qword ptr 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -24(%rbp) 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: %rdi | Dest: -24(%rbp) | Ptr: dest 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     %rdi, qword ptr [%rbp-0x18] 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ [%rbp - 0x18 {var_20}].q = %rdi 
+[Line: 219 -           gen_ast()]   DEBUG    [%rbp#1 - 0x18 {var_20}].q = %rdi#0 @ mem#1 -> mem#2 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x18 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x18 {var_20}].q = %rdi#0 @ mem#1 -> mem#2 <class 'binaryninja.lowlevelil.LowLevelILStoreSsa'> 
+[Line: 267 - calc_ssa_off_expr()]   DEBUG    ↳ StoreSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x18 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -24(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: %rdi | Dest: -24(%rbp) | Ptr: dest 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: [%rbp - 0x20 {var_28}].q = %rsi | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     %rsi, qword ptr [%rbp-0x20] 
+[Line: 404 -  asm_lex_analysis()]   DEBUG    ptr Dest 
+[Line: 410 -  asm_lex_analysis()]   DEBUG    mov %rsi qword ptr [%rbp-0x20] qword ptr 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rsi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -32(%rbp) 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: %rsi | Dest: -32(%rbp) | Ptr: dest 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     %rsi, qword ptr [%rbp-0x20] 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ [%rbp - 0x20 {var_28}].q = %rsi 
+[Line: 219 -           gen_ast()]   DEBUG    [%rbp#1 - 0x20 {var_28}].q = %rsi#0 @ mem#2 -> mem#3 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x20 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x20 {var_28}].q = %rsi#0 @ mem#2 -> mem#3 <class 'binaryninja.lowlevelil.LowLevelILStoreSsa'> 
+[Line: 267 - calc_ssa_off_expr()]   DEBUG    ↳ StoreSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x20 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -32(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: %rsi | Dest: -32(%rbp) | Ptr: dest 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rax = [%rbp - 0x18 {var_20}].q | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x18], %rax 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -24(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -24(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x18], %rax 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rax = [%rbp - 0x18 {var_20}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rax#1 = [%rbp#1 - 0x18 {var_20}].q @ mem#3 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x18 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rax#1 = [%rbp#1 - 0x18 {var_20}].q @ mem#3 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x18 {var_20}].q @ mem#3 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x18 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -24(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -24(%rbp) | Dest: %rax | Ptr: src 
+[Line: 354 -    analyze_binary()] WARNING    Handling call instruction %rax_1 = 0xe88(%rdi) 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of %rax#1 <class 'binaryninja.lowlevelil.LowLevelILRegSsa'> 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of <ssa %rax version 1> <class 'binaryninja.lowlevelil.SSARegister'> 
+[Line: 122 -      mark_arg_def()]   DEBUG    <ssa %rax version 1> 
+[Line: 133 -      mark_arg_def()] CRITICAL    %rax#1 = [%rbp#1 - 0x18 {var_20}].q @ mem#3 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rdx = [%rbp - 0x18 {var_20}].q | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x18], %rdx 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -24(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdx 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -24(%rbp) | Dest: %rdx | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x18], %rdx 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rdx = [%rbp - 0x18 {var_20}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rdx#2 = [%rbp#1 - 0x18 {var_20}].q @ mem#4 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x18 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rdx#2 = [%rbp#1 - 0x18 {var_20}].q @ mem#4 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x18 {var_20}].q @ mem#4 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x18 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -24(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -24(%rbp) | Dest: %rdx | Ptr: src 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: [%rbp - 0x10 {var_18}].q = %rax | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     %rax, qword ptr [%rbp-0x10] 
+[Line: 404 -  asm_lex_analysis()]   DEBUG    ptr Dest 
+[Line: 410 -  asm_lex_analysis()]   DEBUG    mov %rax qword ptr [%rbp-0x10] qword ptr 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -16(%rbp) 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: %rax | Dest: -16(%rbp) | Ptr: dest 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     %rax, qword ptr [%rbp-0x10] 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ [%rbp - 0x10 {var_18}].q = %rax 
+[Line: 219 -           gen_ast()]   DEBUG    [%rbp#1 - 0x10 {var_18}].q = %rax#3 @ mem#4 -> mem#5 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x10 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x10 {var_18}].q = %rax#3 @ mem#4 -> mem#5 <class 'binaryninja.lowlevelil.LowLevelILStoreSsa'> 
+[Line: 267 - calc_ssa_off_expr()]   DEBUG    ↳ StoreSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x10 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -16(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: %rax | Dest: -16(%rbp) | Ptr: dest 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rax = [%rbp - 0x20 {var_28}].q | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x20], %rax 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -32(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -32(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x20], %rax 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rax = [%rbp - 0x20 {var_28}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rax#4 = [%rbp#1 - 0x20 {var_28}].q @ mem#5 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x20 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rax#4 = [%rbp#1 - 0x20 {var_28}].q @ mem#5 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x20 {var_28}].q @ mem#5 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x20 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -32(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -32(%rbp) | Dest: %rax | Ptr: src 
+[Line: 354 -    analyze_binary()] WARNING    Handling call instruction %rax_4 = 0xe88(%rdi_1) 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of %rax#4 <class 'binaryninja.lowlevelil.LowLevelILRegSsa'> 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of <ssa %rax version 4> <class 'binaryninja.lowlevelil.SSARegister'> 
+[Line: 122 -      mark_arg_def()]   DEBUG    <ssa %rax version 4> 
+[Line: 133 -      mark_arg_def()] CRITICAL    %rax#4 = [%rbp#1 - 0x20 {var_28}].q @ mem#5 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rdx = [%rbp - 0x20 {var_28}].q | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x20], %rdx 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -32(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdx 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -32(%rbp) | Dest: %rdx | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x20], %rdx 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rdx = [%rbp - 0x20 {var_28}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rdx#4 = [%rbp#1 - 0x20 {var_28}].q @ mem#6 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x20 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rdx#4 = [%rbp#1 - 0x20 {var_28}].q @ mem#6 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x20 {var_28}].q @ mem#6 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x20 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -32(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -32(%rbp) | Dest: %rdx | Ptr: src 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: [%rbp - 8 {var_10}].q = %rax | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     %rax, qword ptr [%rbp-0x8] 
+[Line: 404 -  asm_lex_analysis()]   DEBUG    ptr Dest 
+[Line: 410 -  asm_lex_analysis()]   DEBUG    mov %rax qword ptr [%rbp-0x8] qword ptr 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: %rax | Dest: -8(%rbp) | Ptr: dest 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     %rax, qword ptr [%rbp-0x8] 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ [%rbp - 8 {var_10}].q = %rax 
+[Line: 219 -           gen_ast()]   DEBUG    [%rbp#1 - 8 {var_10}].q = %rax#6 @ mem#6 -> mem#7 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 8 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 8 {var_10}].q = %rax#6 @ mem#6 -> mem#7 <class 'binaryninja.lowlevelil.LowLevelILStoreSsa'> 
+[Line: 267 - calc_ssa_off_expr()]   DEBUG    ↳ StoreSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 8 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -8(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: %rax | Dest: -8(%rbp) | Ptr: dest 
+[Line: 411 -    analyze_binary()]   ERROR    goto 18 @ 0x3d1, LowLevelILOperation.LLIL_GOTO 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rax = [%rbp - 0x10 {var_18}].q | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x10], %rax 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -16(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -16(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x10], %rax 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rax = [%rbp - 0x10 {var_18}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rax#8 = [%rbp#1 - 0x10 {var_18}].q @ mem#8 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x10 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rax#8 = [%rbp#1 - 0x10 {var_18}].q @ mem#8 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x10 {var_18}].q @ mem#8 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x10 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -16(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -16(%rbp) | Dest: %rax | Ptr: src 
+[Line: 411 -    analyze_binary()]   ERROR    if (%rax u<= [%rbp - 0x18 {var_20}].q) then 20 @ 0x3e5 else 22 @ 0x3db, LowLevelILOperation.LLIL_IF 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rax = [%rbp - 0x10 {var_18}].q | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x10], %rax 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -16(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -16(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x10], %rax 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rax = [%rbp - 0x10 {var_18}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rax#10 = [%rbp#1 - 0x10 {var_18}].q @ mem#8 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x10 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rax#10 = [%rbp#1 - 0x10 {var_18}].q @ mem#8 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x10 {var_18}].q @ mem#8 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x10 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -16(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -16(%rbp) | Dest: %rax | Ptr: src 
+[Line: 411 -    analyze_binary()]   ERROR    if (%rax u<= [%rbp - 0x18 {var_20}].q) then 24 @ 0x3f9 else 27 @ 0x3ef, LowLevelILOperation.LLIL_IF 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rax = [%rbp - 8 {var_10}].q | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x8], %rax 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -8(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x8], %rax 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rax = [%rbp - 8 {var_10}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rax#12 = [%rbp#1 - 8 {var_10}].q @ mem#8 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 8 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rax#12 = [%rbp#1 - 8 {var_10}].q @ mem#8 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 8 {var_10}].q @ mem#8 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 8 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -8(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -8(%rbp) | Dest: %rax | Ptr: src 
+[Line: 411 -    analyze_binary()]   ERROR    if (%rax u> [%rbp - 0x20 {var_28}].q) then 30 @ 0x3b5 else 20 @ 0x3e5, LowLevelILOperation.LLIL_IF 
+[Line: 411 -    analyze_binary()]   ERROR    <return> jump(pop), LowLevelILOperation.LLIL_RET 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rax = [%rbp - 0x10 {var_18}].q | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x10], %rax 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -16(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -16(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x10], %rax 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rax = [%rbp - 0x10 {var_18}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rax#11 = [%rbp#1 - 0x10 {var_18}].q @ mem#8 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x10 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rax#11 = [%rbp#1 - 0x10 {var_18}].q @ mem#8 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x10 {var_18}].q @ mem#8 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x10 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -16(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -16(%rbp) | Dest: %rax | Ptr: src 
+[Line: 411 -    analyze_binary()]   ERROR    goto 24 @ 0x3f9, LowLevelILOperation.LLIL_GOTO 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: [%rbp - 0x10 {var_18}].q = [%rbp - 0x10 {var_18}].q - 1 | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ sub     $0x1, qword ptr [%rbp-0x10] 
+[Line: 404 -  asm_lex_analysis()]   DEBUG    ptr Dest 
+[Line: 410 -  asm_lex_analysis()]   DEBUG    sub $0x1 qword ptr [%rbp-0x10] qword ptr 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: $0x1 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -16(%rbp) 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: sub | Suffix: q | Source: $1 | Dest: -16(%rbp) | Ptr: dest 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    sub     $0x1, qword ptr [%rbp-0x10] 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ [%rbp - 0x10 {var_18}].q = [%rbp - 0x10 {var_18}].q - 1 
+[Line: 219 -           gen_ast()]   DEBUG    [%rbp#1 - 0x10 {var_18}].q = [%rbp#1 - 0x10 {var_18}].q @ mem#8 - 1 @ mem#8 -> mem#10 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x10 Arithmetic 
+[Line: 202 -           gen_ast()]   DEBUG    [%rbp#1 - 0x10 {var_18}].q @ mem#8 - 1 Arithmetic 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x10 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x10 {var_18}].q = [%rbp#1 - 0x10 {var_18}].q @ mem#8 - 1 @ mem#8 -> mem#10 <class 'binaryninja.lowlevelil.LowLevelILStoreSsa'> 
+[Line: 267 - calc_ssa_off_expr()]   DEBUG    ↳ StoreSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x10 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -16(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: sub | Suffix: q | Source: $1 | Dest: -16(%rbp) | Ptr: dest 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rax = [%rbp - 0x10 {var_18}].q | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x10], %rax 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -16(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -16(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x10], %rax 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rax = [%rbp - 0x10 {var_18}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rax#13 = [%rbp#1 - 0x10 {var_18}].q @ mem#10 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x10 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rax#13 = [%rbp#1 - 0x10 {var_18}].q @ mem#10 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x10 {var_18}].q @ mem#10 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x10 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -16(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -16(%rbp) | Dest: %rax | Ptr: src 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: [%rbp - 8 {var_10}].q = [%rbp - 8 {var_10}].q - 1 | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ sub     $0x1, qword ptr [%rbp-0x8] 
+[Line: 404 -  asm_lex_analysis()]   DEBUG    ptr Dest 
+[Line: 410 -  asm_lex_analysis()]   DEBUG    sub $0x1 qword ptr [%rbp-0x8] qword ptr 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: $0x1 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: sub | Suffix: q | Source: $1 | Dest: -8(%rbp) | Ptr: dest 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    sub     $0x1, qword ptr [%rbp-0x8] 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ [%rbp - 8 {var_10}].q = [%rbp - 8 {var_10}].q - 1 
+[Line: 219 -           gen_ast()]   DEBUG    [%rbp#1 - 8 {var_10}].q = [%rbp#1 - 8 {var_10}].q @ mem#10 - 1 @ mem#10 -> mem#11 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 8 Arithmetic 
+[Line: 202 -           gen_ast()]   DEBUG    [%rbp#1 - 8 {var_10}].q @ mem#10 - 1 Arithmetic 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 8 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 8 {var_10}].q = [%rbp#1 - 8 {var_10}].q @ mem#10 - 1 @ mem#10 -> mem#11 <class 'binaryninja.lowlevelil.LowLevelILStoreSsa'> 
+[Line: 267 - calc_ssa_off_expr()]   DEBUG    ↳ StoreSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 8 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -8(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: sub | Suffix: q | Source: $1 | Dest: -8(%rbp) | Ptr: dest 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rax = [%rbp - 8 {var_10}].q | Fun: remove_suffix 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x8], %rax 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -8(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x8], %rax 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rax = [%rbp - 8 {var_10}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rax#14 = [%rbp#1 - 8 {var_10}].q @ mem#11 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 8 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rax#14 = [%rbp#1 - 8 {var_10}].q @ mem#11 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 8 {var_10}].q @ mem#11 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 8 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -8(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -8(%rbp) | Dest: %rax | Ptr: src 
+[Line: 411 -    analyze_binary()]   ERROR    if (%dl != %al) then 37 @ 0x3f8 else 18 @ 0x3d1, LowLevelILOperation.LLIL_IF 
+[Line: 411 -    analyze_binary()]   ERROR    goto 24 @ 0x3f9, LowLevelILOperation.LLIL_GOTO 
+[Line: 359 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: cmp     qword ptr [%rbp-0x18], %rax | Fun: remove_suffix 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -24(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: cmp | Suffix: q | Source: -24(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    cmp     qword ptr [%rbp-0x18], %rax 
+[Line: 245 -           gen_ast()]   DEBUG    Inst type: cmp | Suffix: q | Source: -24(%rbp) | Dest: %rax | Ptr: src 
+[Line: 359 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: cmp     qword ptr [%rbp-0x18], %rax | Fun: remove_suffix 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -24(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: cmp | Suffix: q | Source: -24(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    cmp     qword ptr [%rbp-0x18], %rax 
+[Line: 245 -           gen_ast()]   DEBUG    Inst type: cmp | Suffix: q | Source: -24(%rbp) | Dest: %rax | Ptr: src 
+[Line: 359 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: cmp     qword ptr [%rbp-0x20], %rax | Fun: remove_suffix 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -32(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: cmp | Suffix: q | Source: -32(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    cmp     qword ptr [%rbp-0x20], %rax 
+[Line: 245 -           gen_ast()]   DEBUG    Inst type: cmp | Suffix: q | Source: -32(%rbp) | Dest: %rax | Ptr: src 
+[Line: 258 -    analyze_binary()]    INFO    Function: perform_basename	| begin: 0x3fb | end: 0x493 
+[Line: 411 -    analyze_binary()]   ERROR    push(%rbp), LowLevelILOperation.LLIL_PUSH 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: [%rbp - 0x18 {var_20}].q = %rdi | Fun: perform_basename 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     %rdi, qword ptr [%rbp-0x18] 
+[Line: 404 -  asm_lex_analysis()]   DEBUG    ptr Dest 
+[Line: 410 -  asm_lex_analysis()]   DEBUG    mov %rdi qword ptr [%rbp-0x18] qword ptr 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -24(%rbp) 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: %rdi | Dest: -24(%rbp) | Ptr: dest 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     %rdi, qword ptr [%rbp-0x18] 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ [%rbp - 0x18 {var_20}].q = %rdi 
+[Line: 219 -           gen_ast()]   DEBUG    [%rbp#1 - 0x18 {var_20}].q = %rdi#0 @ mem#1 -> mem#2 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x18 Arithmetic 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{'perform_basename': [VarData(name='name',
+                              offset=-8,
+                              var_type='char',
+                              base_type='DW_TAG_pointer_type',
+                              fun_name='perform_basename',
+                              offset_expr='-8(%rbp)',
+                              struct=None,
+                              kind='pointer',
+                              size=8)],
+ 'remove_suffix': [VarData(name='np',
+                           offset=-16,
+                           var_type='char',
+                           base_type='DW_TAG_pointer_type',
+                           fun_name='remove_suffix',
+                           offset_expr='-16(%rbp)',
+                           struct=None,
+                           kind='pointer',
+                           size=8),
+                   VarData(name='sp',
+                           offset=-8,
+                           var_type='char',
+                           base_type='DW_TAG_pointer_type',
+                           fun_name='remove_suffix',
+                           offset_expr='-8(%rbp)',
+                           struct=None,
+                           kind='pointer',
+                           size=8)]}
+                                                                               
+
+VarData(name='name', offset=-8, var_type='char', base_type='DW_TAG_pointer_type', fun_name='perform_basename', offset_expr='-8(%rbp)', struct=None, kind='pointer', size=8)
+VarData(name='np', offset=-16, var_type='char', base_type='DW_TAG_pointer_type', fun_name='remove_suffix', offset_expr='-16(%rbp)', struct=None, kind='pointer', size=8)
+VarData(name='sp', offset=-8, var_type='char', base_type='DW_TAG_pointer_type', fun_name='remove_suffix', offset_expr='-8(%rbp)', struct=None, kind='pointer', size=8)
+NON ARG %rbp = %rsp {__saved_%rbp} %rbp = &__saved_%rbp LowLevelILOperation.LLIL_SET_REG
+NON ARG %rsp = %rsp - 0x20 %rsp = &var_28 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-24
+=
+<ssa %rdi version 0>
+[%rbp - 0x18 {var_20}].q = %rdi <class 'binaryninja.lowlevelil.LowLevelILStore'>
+
+Converting suffix %s qword ptr
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-32
+=
+<ssa %rsi version 0>
+[%rbp - 0x20 {var_28}].q = %rsi <class 'binaryninja.lowlevelil.LowLevelILStore'>
+NON ARG %rax = [%rbp - 0x18 {var_20}].q %rax = var_20 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rax version 1>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-24
+%rax = [%rbp - 0x18 {var_20}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %rdi = %rax arg1 = %rax LowLevelILOperation.LLIL_SET_REG
+[<mlil: %rdi>]
+0x38c <class 'binaryninja.mediumlevelil.MediumLevelILVar'> %rdi#1
+%rdi#1 = %rax#1
+BnVarData(name='var_20', dis_inst='mov     qword ptr [%rbp-0x18], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca489300>, offset_expr='-24(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 0x18 {var_20}].q>, arg=True)
+NON ARG %rdx = [%rbp - 0x18 {var_20}].q %rdx = var_20 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rdx version 2>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-24
+%rdx = [%rbp - 0x18 {var_20}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %rax = %rax + %rdx %rax = %rax + %rdx LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-16
+=
+<ssa %rax version 3>
+[%rbp - 0x10 {var_18}].q = %rax <class 'binaryninja.lowlevelil.LowLevelILStore'>
+NON ARG %rax = [%rbp - 0x20 {var_28}].q %rax = var_28 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rax version 4>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-32
+%rax = [%rbp - 0x20 {var_28}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %rdi = %rax arg1 = %rax LowLevelILOperation.LLIL_SET_REG
+[<mlil: %rdi_1>]
+0x3a3 <class 'binaryninja.mediumlevelil.MediumLevelILVar'> %rdi_1#2
+%rdi#3 = %rax#4
+BnVarData(name='var_28', dis_inst='mov     qword ptr [%rbp-0x20], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48a0e0>, offset_expr='-32(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 0x20 {var_28}].q>, arg=True)
+NON ARG %rdx = [%rbp - 0x20 {var_28}].q %rdx = var_28 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rdx version 4>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-32
+%rdx = [%rbp - 0x20 {var_28}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %rax = %rax + %rdx %rax = %rax + %rdx LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-8
+=
+<ssa %rax version 6>
+[%rbp - 8 {var_10}].q = %rax <class 'binaryninja.lowlevelil.LowLevelILStore'>
+NON ARG %rax = [%rbp - 0x10 {var_18}].q %rax = var_18 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rax version 8>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-16
+%rax = [%rbp - 0x10 {var_18}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %rax = [%rbp - 0x10 {var_18}].q %rax = var_18 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rax version 10>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-16
+%rax = [%rbp - 0x10 {var_18}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %rax = [%rbp - 8 {var_10}].q %rax = var_10 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rax version 12>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-8
+%rax = [%rbp - 8 {var_10}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %rsp = %rbp %rsp = &__saved_%rbp LowLevelILOperation.LLIL_SET_REG
+NON ARG %rbp = pop %rbp = __saved_%rbp LowLevelILOperation.LLIL_SET_REG
+NON ARG %rax = [%rbp - 0x10 {var_18}].q %rax = var_18 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rax version 11>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-16
+%rax = [%rbp - 0x10 {var_18}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+
+Converting suffix %s qword ptr
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-16
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-16
+LowLevelILOperation.LLIL_SUB
+1
+[%rbp - 0x10 {var_18}].q = [%rbp - 0x10 {var_18}].q - 1 <class 'binaryninja.lowlevelil.LowLevelILStore'>
+NON ARG %rax = [%rbp - 0x10 {var_18}].q %rax = var_18 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rax version 13>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-16
+%rax = [%rbp - 0x10 {var_18}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %edx = zx.d([%rax].b) %rdx = zx.q(zx.d([%rax].b)) LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-8
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-8
+LowLevelILOperation.LLIL_SUB
+1
+[%rbp - 8 {var_10}].q = [%rbp - 8 {var_10}].q - 1 <class 'binaryninja.lowlevelil.LowLevelILStore'>
+NON ARG %rax = [%rbp - 8 {var_10}].q %rax = var_10 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rax version 14>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-8
+%rax = [%rbp - 8 {var_10}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %eax = zx.d([%rax].b) %rax = zx.q(zx.d([%rax].b)) LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+
+Converting suffix %s qword ptr
+
+Converting suffix %s qword ptr
+NON ARG %rbp = %rsp {__saved_%rbp} %rbp = &__saved_%rbp LowLevelILOperation.LLIL_SET_REG
+NON ARG %rsp = %rsp - 0x30 %rsp = &var_38 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-24
+=
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x18 {var_20}].q = %rdi#0 @ mem#1 -> mem#2 <class 'binaryninja.lowlevelil.LowLevelILStoreSsa'> 
+[Line: 267 - calc_ssa_off_expr()]   DEBUG    ↳ StoreSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x18 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -24(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: %rdi | Dest: -24(%rbp) | Ptr: dest 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: [%rbp - 0x20 {var_28}].q = %rsi | Fun: perform_basename 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     %rsi, qword ptr [%rbp-0x20] 
+[Line: 404 -  asm_lex_analysis()]   DEBUG    ptr Dest 
+[Line: 410 -  asm_lex_analysis()]   DEBUG    mov %rsi qword ptr [%rbp-0x20] qword ptr 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rsi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -32(%rbp) 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: %rsi | Dest: -32(%rbp) | Ptr: dest 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     %rsi, qword ptr [%rbp-0x20] 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ [%rbp - 0x20 {var_28}].q = %rsi 
+[Line: 219 -           gen_ast()]   DEBUG    [%rbp#1 - 0x20 {var_28}].q = %rsi#0 @ mem#2 -> mem#3 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x20 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x20 {var_28}].q = %rsi#0 @ mem#2 -> mem#3 <class 'binaryninja.lowlevelil.LowLevelILStoreSsa'> 
+[Line: 267 - calc_ssa_off_expr()]   DEBUG    ↳ StoreSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x20 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -32(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: %rsi | Dest: -32(%rbp) | Ptr: dest 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: [%rbp - 0x24 {var_2c}].b = %al | Fun: perform_basename 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     %al, byte ptr [%rbp-0x24] 
+[Line: 404 -  asm_lex_analysis()]   DEBUG    ptr Dest 
+[Line: 410 -  asm_lex_analysis()]   DEBUG    mov %al byte ptr [%rbp-0x24] byte ptr 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %al 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -36(%rbp) 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: b | Source: %al | Dest: -36(%rbp) | Ptr: dest 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     %al, byte ptr [%rbp-0x24] 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ [%rbp - 0x24 {var_2c}].b = %al 
+[Line: 219 -           gen_ast()]   DEBUG    [%rbp#1 - 0x24 {var_2c}].b = %rax#1.%al @ mem#3 -> mem#4 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x24 Arithmetic 
+[Line: 162 -           gen_ast()]   DEBUG    RegisterSSAPartial 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x24 {var_2c}].b = %rax#1.%al @ mem#3 -> mem#4 <class 'binaryninja.lowlevelil.LowLevelILStoreSsa'> 
+[Line: 267 - calc_ssa_off_expr()]   DEBUG    ↳ StoreSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x24 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -36(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: b | Source: %al | Dest: -36(%rbp) | Ptr: dest 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rax = [%rbp - 0x18 {var_20}].q | Fun: perform_basename 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x18], %rax 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -24(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -24(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x18], %rax 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rax = [%rbp - 0x18 {var_20}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rax#2 = [%rbp#1 - 0x18 {var_20}].q @ mem#4 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x18 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rax#2 = [%rbp#1 - 0x18 {var_20}].q @ mem#4 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x18 {var_20}].q @ mem#4 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x18 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -24(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -24(%rbp) | Dest: %rax | Ptr: src 
+[Line: 354 -    analyze_binary()] WARNING    Handling call instruction %rax_2 = 0xde0(%rdi) 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of %rax#2 <class 'binaryninja.lowlevelil.LowLevelILRegSsa'> 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of <ssa %rax version 2> <class 'binaryninja.lowlevelil.SSARegister'> 
+[Line: 122 -      mark_arg_def()]   DEBUG    <ssa %rax version 2> 
+[Line: 133 -      mark_arg_def()] CRITICAL    %rax#2 = [%rbp#1 - 0x18 {var_20}].q @ mem#4 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: [%rbp - 8 {var_10}].q = %rax | Fun: perform_basename 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     %rax, qword ptr [%rbp-0x8] 
+[Line: 404 -  asm_lex_analysis()]   DEBUG    ptr Dest 
+[Line: 410 -  asm_lex_analysis()]   DEBUG    mov %rax qword ptr [%rbp-0x8] qword ptr 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: %rax | Dest: -8(%rbp) | Ptr: dest 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     %rax, qword ptr [%rbp-0x8] 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ [%rbp - 8 {var_10}].q = %rax 
+[Line: 219 -           gen_ast()]   DEBUG    [%rbp#1 - 8 {var_10}].q = %rax#3 @ mem#5 -> mem#6 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 8 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 8 {var_10}].q = %rax#3 @ mem#5 -> mem#6 <class 'binaryninja.lowlevelil.LowLevelILStoreSsa'> 
+[Line: 267 - calc_ssa_off_expr()]   DEBUG    ↳ StoreSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 8 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -8(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: %rax | Dest: -8(%rbp) | Ptr: dest 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rax = [%rbp - 8 {var_10}].q | Fun: perform_basename 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x8], %rax 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -8(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x8], %rax 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rax = [%rbp - 8 {var_10}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rax#4 = [%rbp#1 - 8 {var_10}].q @ mem#6 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 8 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rax#4 = [%rbp#1 - 8 {var_10}].q @ mem#6 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 8 {var_10}].q @ mem#6 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 8 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -8(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -8(%rbp) | Dest: %rax | Ptr: src 
+[Line: 354 -    analyze_binary()] WARNING    Handling call instruction 0xe80(%rdi_1) 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of %rax#4 <class 'binaryninja.lowlevelil.LowLevelILRegSsa'> 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of <ssa %rax version 4> <class 'binaryninja.lowlevelil.SSARegister'> 
+[Line: 122 -      mark_arg_def()]   DEBUG    <ssa %rax version 4> 
+[Line: 133 -      mark_arg_def()] CRITICAL    %rax#4 = [%rbp#1 - 8 {var_10}].q @ mem#6 
+[Line: 411 -    analyze_binary()]   ERROR    if ([%rbp - 0x20 {var_28}].q == 0) then 15 @ 0x455 else 21 @ 0x437, LowLevelILOperation.LLIL_IF 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rax = [%rbp - 8 {var_10}].q | Fun: perform_basename 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x8], %rax 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -8(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x8], %rax 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rax = [%rbp - 8 {var_10}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rax#7 = [%rbp#1 - 8 {var_10}].q @ mem#8 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 8 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rax#7 = [%rbp#1 - 8 {var_10}].q @ mem#8 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 8 {var_10}].q @ mem#8 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 8 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -8(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -8(%rbp) | Dest: %rax | Ptr: src 
+[Line: 354 -    analyze_binary()] WARNING    Handling call instruction 0xe08(%rdi_3, %rsi_1, %rdx_1) 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of %rax#7 <class 'binaryninja.lowlevelil.LowLevelILRegSsa'> 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of <ssa %rax version 7> <class 'binaryninja.lowlevelil.SSARegister'> 
+[Line: 122 -      mark_arg_def()]   DEBUG    <ssa %rax version 7> 
+[Line: 133 -      mark_arg_def()] CRITICAL    %rax#7 = [%rbp#1 - 8 {var_10}].q @ mem#8 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of %rdx#4 <class 'binaryninja.lowlevelil.LowLevelILRegSsa'> 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of <ssa %rdx version 4> <class 'binaryninja.lowlevelil.SSARegister'> 
+[Line: 122 -      mark_arg_def()]   DEBUG    <ssa %rdx version 4> 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of [0xe70].q @ mem#8 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 154 -       get_ssa_reg()]   DEBUG    ↳ LoadReg 
+[Line: 122 -      mark_arg_def()]   DEBUG    [0xe70].q @ mem#8 
+[Line: 411 -    analyze_binary()]   ERROR    if ([%rbp - 0x24 {var_2c}].b == 0) then 24 @ 0x478 else 26 @ 0x471, LowLevelILOperation.LLIL_IF 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rax = [%rbp - 8 {var_10}].q | Fun: perform_basename 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x8], %rax 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -8(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x8], %rax 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rax = [%rbp - 8 {var_10}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rax#15 = [%rbp#1 - 8 {var_10}].q @ mem#7 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 8 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rax#15 = [%rbp#1 - 8 {var_10}].q @ mem#7 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 8 {var_10}].q @ mem#7 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 8 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -8(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -8(%rbp) | Dest: %rax | Ptr: src 
+[Line: 411 -    analyze_binary()]   ERROR    if (%al == 0x2f) then 15 @ 0x455 else 28 @ 0x442, LowLevelILOperation.LLIL_IF 
+[Line: 411 -    analyze_binary()]   ERROR    goto 34 @ 0x47d, LowLevelILOperation.LLIL_GOTO 
+[Line: 411 -    analyze_binary()]   ERROR    goto 34 @ 0x47d, LowLevelILOperation.LLIL_GOTO 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rdx = [%rbp - 0x20 {var_28}].q | Fun: perform_basename 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x20], %rdx 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -32(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdx 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -32(%rbp) | Dest: %rdx | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x20], %rdx 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rdx = [%rbp - 0x20 {var_28}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rdx#8 = [%rbp#1 - 0x20 {var_28}].q @ mem#7 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 0x20 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rdx#8 = [%rbp#1 - 0x20 {var_28}].q @ mem#7 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 0x20 {var_28}].q @ mem#7 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 0x20 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -32(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -32(%rbp) | Dest: %rdx | Ptr: src 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rax = [%rbp - 8 {var_10}].q | Fun: perform_basename 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x8], %rax 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -8(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x8], %rax 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rax = [%rbp - 8 {var_10}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rax#17 = [%rbp#1 - 8 {var_10}].q @ mem#7 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 8 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rax#17 = [%rbp#1 - 8 {var_10}].q @ mem#7 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 8 {var_10}].q @ mem#7 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 8 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -8(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -8(%rbp) | Dest: %rax | Ptr: src 
+[Line: 354 -    analyze_binary()] WARNING    Handling call instruction 0x371(%rdi_2, %rsi) 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of %rax#17 <class 'binaryninja.lowlevelil.LowLevelILRegSsa'> 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of <ssa %rax version 17> <class 'binaryninja.lowlevelil.SSARegister'> 
+[Line: 122 -      mark_arg_def()]   DEBUG    <ssa %rax version 17> 
+[Line: 133 -      mark_arg_def()] CRITICAL    %rax#17 = [%rbp#1 - 8 {var_10}].q @ mem#7 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of %rdx#8 <class 'binaryninja.lowlevelil.LowLevelILRegSsa'> 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of <ssa %rdx version 8> <class 'binaryninja.lowlevelil.SSARegister'> 
+[Line: 122 -      mark_arg_def()]   DEBUG    <ssa %rdx version 8> 
+[Line: 133 -      mark_arg_def()] CRITICAL    %rdx#8 = [%rbp#1 - 0x20 {var_28}].q @ mem#7 
+[Line: 411 -    analyze_binary()]   ERROR    goto 15 @ 0x455, LowLevelILOperation.LLIL_GOTO 
+[Line: 354 -    analyze_binary()] WARNING    Handling call instruction 0xe48(%rdi_4) 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of zx.q(%rax#11.%eax) <class 'binaryninja.lowlevelil.LowLevelILZx'> 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of <ssa %rax version 11> <class 'binaryninja.lowlevelil.SSARegister'> 
+[Line: 122 -      mark_arg_def()]   DEBUG    <ssa %rax version 11> 
+[Line: 356 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: %rax = [%rbp - 8 {var_10}].q | Fun: perform_basename 
+[Line: 357 -  asm_lex_analysis()] WARNING    	↳ mov     qword ptr [%rbp-0x8], %rax 
+[Line: 381 -  asm_lex_analysis()]   DEBUG    ptr Source 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -8(%rbp) | Dest: %rax | Ptr: src 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    mov     qword ptr [%rbp-0x8], %rax 
+[Line: 457 -  asm_lex_analysis()]   DEBUG    	↳ %rax = [%rbp - 8 {var_10}].q 
+[Line: 219 -           gen_ast()]   DEBUG    %rax#13 = [%rbp#1 - 8 {var_10}].q @ mem#10 
+[Line: 202 -           gen_ast()]   DEBUG    %rbp#1 - 8 Arithmetic 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rax#13 = [%rbp#1 - 8 {var_10}].q @ mem#10 <class 'binaryninja.lowlevelil.LowLevelILSetRegSsa'> 
+[Line: 272 - calc_ssa_off_expr()]   DEBUG    ↳ SetRegSSA 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of [%rbp#1 - 8 {var_10}].q @ mem#10 <class 'binaryninja.lowlevelil.LowLevelILLoadSsa'> 
+[Line: 258 - calc_ssa_off_expr()]   DEBUG    ↳ LoadReg 
+[Line: 254 - calc_ssa_off_expr()]    INFO    Calculating the offset of %rbp#1 - 8 <class 'binaryninja.lowlevelil.LowLevelILAdd'> 
+[Line: 288 - calc_ssa_off_expr()]   DEBUG    ↳ Arithmetic 
+[Line: 347 - calc_ssa_off_expr()]   DEBUG    -8(%rbp) 
+[Line: 471 -  asm_lex_analysis()]   DEBUG    Inst type: mov | Suffix: q | Source: -8(%rbp) | Dest: %rax | Ptr: src 
+[Line: 354 -    analyze_binary()] WARNING    Handling call instruction %rax_10 = 0xe10(%rdi_5) 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of %rax#13 <class 'binaryninja.lowlevelil.LowLevelILRegSsa'> 
+[Line: 146 -       get_ssa_reg()]    INFO    Getting the SSA register of <ssa %rax version 13> <class 'binaryninja.lowlevelil.SSARegister'> 
+[Line: 122 -      mark_arg_def()]   DEBUG    <ssa %rax version 13> 
+[Line: 133 -      mark_arg_def()] CRITICAL    %rax#13 = [%rbp#1 - 8 {var_10}].q @ mem#10 
+[Line: 411 -    analyze_binary()]   ERROR    <return> jump(pop), LowLevelILOperation.LLIL_RET 
+[Line: 359 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: cmp     $0x0, qword ptr [%rbp-0x20] | Fun: perform_basename 
+[Line: 404 -  asm_lex_analysis()]   DEBUG    ptr Dest 
+[Line: 410 -  asm_lex_analysis()]   DEBUG    cmp $0x0 qword ptr [%rbp-0x20] qword ptr 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: $0x0 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -32(%rbp) 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: cmp | Suffix: q | Source: $0 | Dest: -32(%rbp) | Ptr: dest 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    cmp     $0x0, qword ptr [%rbp-0x20] 
+[Line: 245 -           gen_ast()]   DEBUG    Inst type: cmp | Suffix: q | Source: $0 | Dest: -32(%rbp) | Ptr: dest 
+[Line: 359 -  asm_lex_analysis()] WARNING    ASM Lexical Analysis: cmp     $0x0, byte ptr [%rbp-0x24] | Fun: perform_basename 
+[Line: 404 -  asm_lex_analysis()]   DEBUG    ptr Dest 
+[Line: 410 -  asm_lex_analysis()]   DEBUG    cmp $0x0 byte ptr [%rbp-0x24] byte ptr 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: $0x0 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -36(%rbp) 
+[Line: 443 -  asm_lex_analysis()]   DEBUG    Inst type: cmp | Suffix: b | Source: $0 | Dest: -36(%rbp) | Ptr: dest 
+[Line: 452 -  asm_lex_analysis()]   DEBUG    cmp     $0x0, byte ptr [%rbp-0x24] 
+[Line: 245 -           gen_ast()]   DEBUG    Inst type: cmp | Suffix: b | Source: $0 | Dest: -36(%rbp) | Ptr: dest 
+[Line:  60 -   static_verifier()]    INFO    Pre-condition verification 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+<ssa %rdi version 0>
+[%rbp - 0x18 {var_20}].q = %rdi <class 'binaryninja.lowlevelil.LowLevelILStore'>
+
+Converting suffix %s qword ptr
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-32
+=
+<ssa %rsi version 0>
+[%rbp - 0x20 {var_28}].q = %rsi <class 'binaryninja.lowlevelil.LowLevelILStore'>
+NON ARG %eax = %edx %rax = zx.q(arg3.%edx) LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s byte ptr
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-36
+=
+<ssa %rax version 1>
+[%rbp - 0x24 {var_2c}].b = %al <class 'binaryninja.lowlevelil.LowLevelILStore'>
+NON ARG %rax = [%rbp - 0x18 {var_20}].q %rax = var_20 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rax version 2>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-24
+%rax = [%rbp - 0x18 {var_20}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %rdi = %rax arg1 = %rax LowLevelILOperation.LLIL_SET_REG
+[<mlil: %rdi>]
+0x41b <class 'binaryninja.mediumlevelil.MediumLevelILVar'> %rdi#1
+%rdi#1 = %rax#2
+BnVarData(name='var_20', dis_inst='mov     qword ptr [%rbp-0x18], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca4bb6d0>, offset_expr='-24(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 0x18 {var_20}].q>, arg=True)
+
+Converting suffix %s qword ptr
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-8
+=
+<ssa %rax version 3>
+[%rbp - 8 {var_10}].q = %rax <class 'binaryninja.lowlevelil.LowLevelILStore'>
+NON ARG %rax = [%rbp - 8 {var_10}].q %rax = var_10 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rax version 4>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-8
+%rax = [%rbp - 8 {var_10}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %rdi = %rax arg1 = %rax LowLevelILOperation.LLIL_SET_REG
+[<mlil: %rdi_1>]
+0x42b <class 'binaryninja.mediumlevelil.MediumLevelILVar'> %rdi_1#2
+%rdi#3 = %rax#4
+BnVarData(name='var_10', dis_inst='mov     qword ptr [%rbp-0x8], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca4bbca0>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 8 {var_10}].q>, arg=True)
+NON ARG %rax = [%rbp - 8 {var_10}].q %rax = var_10 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rax version 7>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-8
+%rax = [%rbp - 8 {var_10}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %rsi = %rdx arg2 = arg3 LowLevelILOperation.LLIL_SET_REG
+NON ARG %rdi = %rax arg1 = %rax LowLevelILOperation.LLIL_SET_REG
+[<mlil: %rdi_3>, <mlil: %rsi_1>, <mlil: %rdx_1>]
+0x466 <class 'binaryninja.mediumlevelil.MediumLevelILVar'> %rdi_3#5
+%rdi#6 = %rax#7
+BnVarData(name='var_10', dis_inst='mov     qword ptr [%rbp-0x8], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48b760>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 8 {var_10}].q>, arg=True)
+0x466 <class 'binaryninja.mediumlevelil.MediumLevelILVar'> %rsi_1#3
+%rsi#4 = %rdx#4
+0x466 <class 'binaryninja.mediumlevelil.MediumLevelILVar'> %rdx_1#3
+%rdx#4 = [0xe70].q @ mem#8
+NON ARG %rax = [%rbp - 8 {var_10}].q %rax = var_10 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rax version 15>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-8
+%rax = [%rbp - 8 {var_10}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %eax = zx.d([%rax].b) %rax = zx.q(zx.d([%rax].b)) LowLevelILOperation.LLIL_SET_REG
+NON ARG %rdx = [%rbp - 0x20 {var_28}].q arg3 = var_28 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rdx version 8>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-32
+%rdx = [%rbp - 0x20 {var_28}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %rax = [%rbp - 8 {var_10}].q %rax = var_10 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rax version 17>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-8
+%rax = [%rbp - 8 {var_10}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %rsi = %rdx arg2 = arg3 LowLevelILOperation.LLIL_SET_REG
+NON ARG %rdi = %rax arg1 = %rax LowLevelILOperation.LLIL_SET_REG
+[<mlil: %rdi_2>, <mlil: %rsi>]
+0x450 <class 'binaryninja.mediumlevelil.MediumLevelILVar'> %rdi_2#3
+%rdi#12 = %rax#17
+BnVarData(name='var_10', dis_inst='mov     qword ptr [%rbp-0x8], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca4c49a0>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 8 {var_10}].q>, arg=True)
+0x450 <class 'binaryninja.mediumlevelil.MediumLevelILVar'> %rsi#1
+%rsi#8 = %rdx#8
+BnVarData(name='var_28', dis_inst='mov     qword ptr [%rbp-0x20], %rdx', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca4c4400>, offset_expr='-32(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rdx = [%rbp - 0x20 {var_28}].q>, arg=True)
+NON ARG %edi = %eax arg1 = zx.q(%rax.%eax) LowLevelILOperation.LLIL_SET_REG
+[<mlil: %rdi_4>]
+0x47f <class 'binaryninja.mediumlevelil.MediumLevelILVar'> %rdi_4#6
+%rdi#8 = zx.q(%rax#11.%eax)
+NON ARG %rax = [%rbp - 8 {var_10}].q %rax = var_10 LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+<ssa %rax version 13>
+=
+LowLevelILOperation.LLIL_LOAD_SSA
+<ssa %rbp version 1>
+LowLevelILOperation.LLIL_ADD
+-8
+%rax = [%rbp - 8 {var_10}].q <class 'binaryninja.lowlevelil.LowLevelILSetReg'>
+NON ARG %rdi = %rax arg1 = %rax LowLevelILOperation.LLIL_SET_REG
+[<mlil: %rdi_5>]
+0x48b <class 'binaryninja.mediumlevelil.MediumLevelILVar'> %rdi_5#7
+%rdi#10 = %rax#13
+BnVarData(name='var_10', dis_inst='mov     qword ptr [%rbp-0x8], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca4c5bd0>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 8 {var_10}].q>, arg=True)
+NON ARG %rsp = %rbp %rsp = &__saved_%rbp LowLevelILOperation.LLIL_SET_REG
+NON ARG %rbp = pop %rbp = __saved_%rbp LowLevelILOperation.LLIL_SET_REG
+
+Converting suffix %s qword ptr
+
+Converting suffix %s byte ptr
+push	rbp
+rbp
+None
+mov	rbp, rsp
+rbp
+rsp
+mov	rax, QWORD PTR stdout[rip]
+rax
+QWORD PTR stdout[rip]
+mov	rcx, rax
+rcx
+rax
+mov	edx, 74
+edx
+74
+mov	esi, 1
+esi
+1
+lea	rdi, .LC0[rip]
+rdi
+.LC0[rip]
+call	fwrite_unlocked@PLT
+fwrite_unlocked@PLT
+None
+nop
+pop	rbp
+rbp
+None
+ret
+push	rbp
+rbp
+None
+mov	rbp, rsp
+rbp
+rsp
+sub	rsp, 176
+rsp
+176
+mov	QWORD PTR -168[rbp], rdi
+QWORD PTR -168[rbp]
+rdi
+mov	QWORD PTR -8[rbp], rax
+QWORD PTR -8[rbp]
+rax
+xor	eax, eax
+eax
+eax
+lea	rax, .LC1[rip]
+rax
+.LC1[rip]
+mov	QWORD PTR -128[rbp], rax
+QWORD PTR -128[rbp]
+rax
+lea	rax, .LC2[rip]
+rax
+.LC2[rip]
+mov	QWORD PTR -120[rbp], rax
+QWORD PTR -120[rbp]
+rax
+lea	rax, .LC3[rip]
+rax
+.LC3[rip]
+mov	QWORD PTR -112[rbp], rax
+QWORD PTR -112[rbp]
+rax
+lea	rax, .LC4[rip]
+rax
+.LC4[rip]
+mov	QWORD PTR -104[rbp], rax
+QWORD PTR -104[rbp]
+rax
+lea	rax, .LC5[rip]
+rax
+.LC5[rip]
+mov	QWORD PTR -96[rbp], rax
+QWORD PTR -96[rbp]
+rax
+lea	rax, .LC6[rip]
+rax
+.LC6[rip]
+mov	QWORD PTR -88[rbp], rax
+QWORD PTR -88[rbp]
+rax
+lea	rax, .LC7[rip]
+rax
+.LC7[rip]
+mov	QWORD PTR -80[rbp], rax
+QWORD PTR -80[rbp]
+rax
+lea	rax, .LC6[rip]
+rax
+.LC6[rip]
+mov	QWORD PTR -72[rbp], rax
+QWORD PTR -72[rbp]
+rax
+lea	rax, .LC8[rip]
+rax
+.LC8[rip]
+mov	QWORD PTR -64[rbp], rax
+QWORD PTR -64[rbp]
+rax
+lea	rax, .LC6[rip]
+rax
+.LC6[rip]
+mov	QWORD PTR -56[rbp], rax
+QWORD PTR -56[rbp]
+rax
+lea	rax, .LC9[rip]
+rax
+.LC9[rip]
+mov	QWORD PTR -48[rbp], rax
+QWORD PTR -48[rbp]
+rax
+lea	rax, .LC6[rip]
+rax
+.LC6[rip]
+mov	QWORD PTR -40[rbp], rax
+QWORD PTR -40[rbp]
+rax
+mov	QWORD PTR -32[rbp], 0
+QWORD PTR -32[rbp]
+0
+mov	QWORD PTR -24[rbp], 0
+QWORD PTR -24[rbp]
+0
+mov	rax, QWORD PTR -168[rbp]
+rax
+QWORD PTR -168[rbp]
+mov	QWORD PTR -152[rbp], rax
+QWORD PTR -152[rbp]
+rax
+lea	rax, -128[rbp]
+rax
+-128[rbp]
+mov	QWORD PTR -144[rbp], rax
+QWORD PTR -144[rbp]
+rax
+jmp	.L3
+.L3
+None
+add	QWORD PTR -144[rbp], 16
+QWORD PTR -144[rbp]
+16
+mov	rax, QWORD PTR -144[rbp]
+rax
+QWORD PTR -144[rbp]
+mov	rax, QWORD PTR [rax]
+rax
+QWORD PTR [rax]
+test	rax, rax
+rax
+rax
+je	.L4
+.L4
+None
+mov	rax, QWORD PTR -144[rbp]
+rax
+QWORD PTR -144[rbp]
+mov	rdx, QWORD PTR [rax]
+rdx
+QWORD PTR [rax]
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+mov	rax, QWORD PTR -168[rbp]
+rax
+QWORD PTR -168[rbp]
+mov	rsi, rdx
+rsi
+rdx
+mov	rdi, rax
+rdi
+rax
+call	strcmp@PLT
+strcmp@PLT
+None
+test	eax, eax
+eax
+eax
+jne	.L5
+.L5
+None
+mov	rax, QWORD PTR -144[rbp]
+rax
+QWORD PTR -144[rbp]
+mov	rax, QWORD PTR 8[rax]
+rax
+QWORD PTR 8[rax]
+test	rax, rax
+rax
+rax
+je	.L6
+.L6
+None
+mov	rax, QWORD PTR -144[rbp]
+rax
+QWORD PTR -144[rbp]
+mov	rax, QWORD PTR 8[rax]
+rax
+QWORD PTR 8[rax]
+mov	QWORD PTR -152[rbp], rax
+QWORD PTR -152[rbp]
+rax
+lea	rdx, .LC10[rip]
+rdx
+.LC10[rip]
+lea	rsi, .LC11[rip]
+rsi
+.LC11[rip]
+lea	rdi, .LC12[rip]
+rdi
+.LC12[rip]
+mov	eax, 0
+eax
+0
+call	printf@PLT
+printf@PLT
+None
+mov	esi, 0
+esi
+0
+mov	edi, 5
+edi
+5
+call	setlocale@PLT
+setlocale@PLT
+None
+mov	QWORD PTR -136[rbp], rax
+QWORD PTR -136[rbp]
+rax
+cmp	QWORD PTR -136[rbp], 0
+QWORD PTR -136[rbp]
+0
+je	.L7
+.L7
+None
+mov	rax, QWORD PTR -136[rbp]
+rax
+QWORD PTR -136[rbp]
+mov	edx, 3
+edx
+3
+lea	rsi, .LC13[rip]
+rsi
+.LC13[rip]
+mov	rdi, rax
+rdi
+rax
+call	strncmp@PLT
+strncmp@PLT
+None
+test	eax, eax
+eax
+eax
+je	.L7
+.L7
+None
+mov	rax, QWORD PTR stdout[rip]
+rax
+QWORD PTR stdout[rip]
+mov	rcx, rax
+rcx
+rax
+mov	edx, 70
+edx
+70
+mov	esi, 1
+esi
+1
+lea	rdi, .LC14[rip]
+rdi
+.LC14[rip]
+call	fwrite_unlocked@PLT
+fwrite_unlocked@PLT
+None
+mov	rax, QWORD PTR -168[rbp]
+rax
+QWORD PTR -168[rbp]
+mov	rdx, rax
+rdx
+rax
+lea	rsi, .LC10[rip]
+rsi
+.LC10[rip]
+lea	rdi, .LC15[rip]
+rdi
+.LC15[rip]
+mov	eax, 0
+eax
+0
+call	printf@PLT
+printf@PLT
+None
+mov	rax, QWORD PTR -152[rbp]
+rax
+QWORD PTR -152[rbp]
+cmp	rax, QWORD PTR -168[rbp]
+rax
+QWORD PTR -168[rbp]
+jne	.L8
+.L8
+None
+lea	rax, .LC16[rip]
+rax
+.LC16[rip]
+jmp	.L9
+.L9
+None
+lea	rax, .LC17[rip]
+rax
+.LC17[rip]
+mov	rcx, QWORD PTR -152[rbp]
+rcx
+QWORD PTR -152[rbp]
+mov	rdx, rax
+rdx
+rax
+mov	rsi, rcx
+rsi
+rcx
+lea	rdi, .LC18[rip]
+rdi
+.LC18[rip]
+mov	eax, 0
+eax
+0
+call	printf@PLT
+printf@PLT
+None
+nop
+mov	rax, QWORD PTR -8[rbp]
+rax
+QWORD PTR -8[rbp]
+je	.L10
+.L10
+None
+call	__stack_chk_fail@PLT
+__stack_chk_fail@PLT
+None
+leave
+ret
+endbr64
+push	rbp
+rbp
+None
+mov	rbp, rsp
+rbp
+rsp
+sub	rsp, 16
+rsp
+16
+mov	DWORD PTR -4[rbp], edi
+DWORD PTR -4[rbp]
+edi
+cmp	DWORD PTR -4[rbp], 0
+DWORD PTR -4[rbp]
+0
+je	.L12
+.L12
+None
+mov	rdx, QWORD PTR program_name[rip]
+rdx
+QWORD PTR program_name[rip]
+mov	rax, QWORD PTR stderr[rip]
+rax
+QWORD PTR stderr[rip]
+lea	rsi, .LC24[rip]
+rsi
+.LC24[rip]
+mov	rdi, rax
+rdi
+rax
+mov	eax, 0
+eax
+0
+call	fprintf@PLT
+fprintf@PLT
+None
+jmp	.L13
+.L13
+None
+mov	rdx, QWORD PTR program_name[rip]
+rdx
+QWORD PTR program_name[rip]
+mov	rax, QWORD PTR program_name[rip]
+rax
+QWORD PTR program_name[rip]
+mov	rsi, rax
+rsi
+rax
+lea	rdi, .LC25[rip]
+rdi
+.LC25[rip]
+mov	eax, 0
+eax
+0
+call	printf@PLT
+printf@PLT
+None
+mov	rax, QWORD PTR stdout[rip]
+rax
+QWORD PTR stdout[rip]
+mov	rcx, rax
+rcx
+rax
+mov	edx, 103
+edx
+103
+mov	esi, 1
+esi
+1
+lea	rdi, .LC26[rip]
+rdi
+.LC26[rip]
+call	fwrite_unlocked@PLT
+fwrite_unlocked@PLT
+None
+call	emit_mandatory_arg_note
+emit_mandatory_arg_note
+None
+mov	rax, QWORD PTR stdout[rip]
+rax
+QWORD PTR stdout[rip]
+mov	rcx, rax
+rcx
+rax
+mov	edx, 201
+edx
+201
+mov	esi, 1
+esi
+1
+lea	rdi, .LC27[rip]
+rdi
+.LC27[rip]
+call	fwrite_unlocked@PLT
+fwrite_unlocked@PLT
+None
+mov	rax, QWORD PTR stdout[rip]
+rax
+QWORD PTR stdout[rip]
+mov	rcx, rax
+rcx
+rax
+mov	edx, 44
+edx
+44
+mov	esi, 1
+esi
+1
+lea	rdi, .LC28[rip]
+rdi
+.LC28[rip]
+call	fwrite_unlocked@PLT
+fwrite_unlocked@PLT
+None
+mov	rax, QWORD PTR stdout[rip]
+rax
+QWORD PTR stdout[rip]
+mov	rcx, rax
+rcx
+rax
+mov	edx, 53
+edx
+53
+mov	esi, 1
+esi
+1
+lea	rdi, .LC29[rip]
+rdi
+.LC29[rip]
+call	fwrite_unlocked@PLT
+fwrite_unlocked@PLT
+None
+mov	rsi, QWORD PTR program_name[rip]
+rsi
+QWORD PTR program_name[rip]
+mov	rcx, QWORD PTR program_name[rip]
+rcx
+QWORD PTR program_name[rip]
+mov	rdx, QWORD PTR program_name[rip]
+rdx
+QWORD PTR program_name[rip]
+mov	rax, QWORD PTR program_name[rip]
+rax
+QWORD PTR program_name[rip]
+mov	r8, rsi
+r8
+rsi
+mov	rsi, rax
+rsi
+rax
+lea	rdi, .LC30[rip]
+rdi
+.LC30[rip]
+mov	eax, 0
+eax
+0
+call	printf@PLT
+printf@PLT
+None
+lea	rdi, .LC31[rip]
+rdi
+.LC31[rip]
+call	emit_ancillary_info
+emit_ancillary_info
+None
+mov	eax, DWORD PTR -4[rbp]
+eax
+DWORD PTR -4[rbp]
+mov	edi, eax
+edi
+eax
+call	exit@PLT
+exit@PLT
+None
+endbr64
+push	rbp
+rbp
+None
+mov	rbp, rsp
+rbp
+rsp
+sub	rsp, 32
+rsp
+32
+mov	QWORD PTR -24[rbp], rdi
+QWORD PTR -24[rbp]
+rdi
+mov	QWORD PTR -32[rbp], rsi
+QWORD PTR -32[rbp]
+rsi
+mov	rax, QWORD PTR -24[rbp]
+rax
+QWORD PTR -24[rbp]
+mov	rdi, rax
+rdi
+rax
+call	strlen@PLT
+strlen@PLT
+None
+mov	rdx, QWORD PTR -24[rbp]
+rdx
+QWORD PTR -24[rbp]
+add	rax, rdx
+rax
+rdx
+mov	QWORD PTR -16[rbp], rax
+QWORD PTR -16[rbp]
+rax
+mov	rax, QWORD PTR -32[rbp]
+rax
+QWORD PTR -32[rbp]
+mov	rdi, rax
+rdi
+rax
+call	strlen@PLT
+strlen@PLT
+None
+mov	rdx, QWORD PTR -32[rbp]
+rdx
+QWORD PTR -32[rbp]
+add	rax, rdx
+rax
+rdx
+mov	QWORD PTR -8[rbp], rax
+QWORD PTR -8[rbp]
+rax
+jmp	.L15
+.L15
+None
+sub	QWORD PTR -16[rbp], 1
+QWORD PTR -16[rbp]
+1
+mov	rax, QWORD PTR -16[rbp]
+rax
+QWORD PTR -16[rbp]
+movzx	edx, BYTE PTR [rax]
+edx
+BYTE PTR [rax]
+sub	QWORD PTR -8[rbp], 1
+QWORD PTR -8[rbp]
+1
+mov	rax, QWORD PTR -8[rbp]
+rax
+QWORD PTR -8[rbp]
+movzx	eax, BYTE PTR [rax]
+eax
+BYTE PTR [rax]
+cmp	dl, al
+dl
+al
+jne	.L19
+.L19
+None
+mov	rax, QWORD PTR -16[rbp]
+rax
+QWORD PTR -16[rbp]
+cmp	rax, QWORD PTR -24[rbp]
+rax
+QWORD PTR -24[rbp]
+jbe	.L17
+.L17
+None
+mov	rax, QWORD PTR -8[rbp]
+rax
+QWORD PTR -8[rbp]
+cmp	rax, QWORD PTR -32[rbp]
+rax
+QWORD PTR -32[rbp]
+ja	.L18
+.L18
+None
+mov	rax, QWORD PTR -16[rbp]
+rax
+QWORD PTR -16[rbp]
+cmp	rax, QWORD PTR -24[rbp]
+rax
+QWORD PTR -24[rbp]
+jbe	.L14
+.L14
+None
+mov	rax, QWORD PTR -16[rbp]
+rax
+QWORD PTR -16[rbp]
+mov	BYTE PTR [rax], 0
+BYTE PTR [rax]
+0
+jmp	.L14
+.L14
+None
+nop
+leave
+ret
+endbr64
+push	rbp
+rbp
+None
+mov	rbp, rsp
+rbp
+rsp
+sub	rsp, 48
+rsp
+48
+mov	QWORD PTR -24[rbp], rdi
+QWORD PTR -24[rbp]
+rdi
+mov	QWORD PTR -32[rbp], rsi
+QWORD PTR -32[rbp]
+rsi
+mov	eax, edx
+eax
+edx
+mov	BYTE PTR -36[rbp], al
+BYTE PTR -36[rbp]
+al
+mov	rax, QWORD PTR -24[rbp]
+rax
+QWORD PTR -24[rbp]
+mov	rdi, rax
+rdi
+rax
+call	base_name@PLT
+base_name@PLT
+None
+mov	QWORD PTR -8[rbp], rax
+QWORD PTR -8[rbp]
+rax
+mov	rax, QWORD PTR -8[rbp]
+rax
+QWORD PTR -8[rbp]
+mov	rdi, rax
+rdi
+rax
+call	strip_trailing_slashes@PLT
+strip_trailing_slashes@PLT
+None
+cmp	QWORD PTR -32[rbp], 0
+QWORD PTR -32[rbp]
+0
+je	.L21
+.L21
+None
+mov	rax, QWORD PTR -8[rbp]
+rax
+QWORD PTR -8[rbp]
+movzx	eax, BYTE PTR [rax]
+eax
+BYTE PTR [rax]
+cmp	al, 47
+al
+47
+je	.L21
+.L21
+None
+mov	rdx, QWORD PTR -32[rbp]
+rdx
+QWORD PTR -32[rbp]
+mov	rax, QWORD PTR -8[rbp]
+rax
+QWORD PTR -8[rbp]
+mov	rsi, rdx
+rsi
+rdx
+mov	rdi, rax
+rdi
+rax
+call	remove_suffix
+remove_suffix
+None
+mov	rdx, QWORD PTR stdout[rip]
+rdx
+QWORD PTR stdout[rip]
+mov	rax, QWORD PTR -8[rbp]
+rax
+QWORD PTR -8[rbp]
+mov	rsi, rdx
+rsi
+rdx
+mov	rdi, rax
+rdi
+rax
+call	fputs_unlocked@PLT
+fputs_unlocked@PLT
+None
+cmp	BYTE PTR -36[rbp], 0
+BYTE PTR -36[rbp]
+0
+je	.L22
+.L22
+None
+mov	eax, 0
+eax
+0
+jmp	.L23
+.L23
+None
+mov	eax, 10
+eax
+10
+mov	edi, eax
+edi
+eax
+call	putchar_unlocked@PLT
+putchar_unlocked@PLT
+None
+mov	rax, QWORD PTR -8[rbp]
+rax
+QWORD PTR -8[rbp]
+mov	rdi, rax
+rdi
+rax
+call	free@PLT
+free@PLT
+None
+nop
+leave
+ret
+endbr64
+push	rbp
+rbp
+None
+mov	rbp, rsp
+rbp
+rsp
+sub	rsp, 32
+rsp
+32
+mov	DWORD PTR -20[rbp], edi
+DWORD PTR -20[rbp]
+edi
+mov	QWORD PTR -32[rbp], rsi
+QWORD PTR -32[rbp]
+rsi
+mov	BYTE PTR -14[rbp], 0
+BYTE PTR -14[rbp]
+0
+mov	BYTE PTR -13[rbp], 0
+BYTE PTR -13[rbp]
+0
+mov	QWORD PTR -8[rbp], 0
+QWORD PTR -8[rbp]
+0
+mov	rax, QWORD PTR -32[rbp]
+rax
+QWORD PTR -32[rbp]
+mov	rax, QWORD PTR [rax]
+rax
+QWORD PTR [rax]
+mov	rdi, rax
+rdi
+rax
+call	set_program_name@PLT
+set_program_name@PLT
+None
+lea	rsi, .LC17[rip]
+rsi
+.LC17[rip]
+mov	edi, 6
+edi
+6
+call	setlocale@PLT
+setlocale@PLT
+None
+mov	rax, QWORD PTR close_stdout@GOTPCREL[rip]
+rax
+QWORD PTR close_stdout@GOTPCREL[rip]
+mov	rdi, rax
+rdi
+rax
+call	atexit@PLT
+atexit@PLT
+None
+mov	rsi, QWORD PTR -32[rbp]
+rsi
+QWORD PTR -32[rbp]
+mov	eax, DWORD PTR -20[rbp]
+eax
+DWORD PTR -20[rbp]
+mov	r8d, 0
+r8d
+0
+lea	rcx, longopts[rip]
+rcx
+longopts[rip]
+lea	rdx, .LC32[rip]
+rdx
+.LC32[rip]
+mov	edi, eax
+edi
+eax
+call	getopt_long@PLT
+getopt_long@PLT
+None
+mov	DWORD PTR -12[rbp], eax
+DWORD PTR -12[rbp]
+eax
+cmp	DWORD PTR -12[rbp], -1
+DWORD PTR -12[rbp]
+-1
+je	.L45
+.L45
+None
+cmp	DWORD PTR -12[rbp], 122
+DWORD PTR -12[rbp]
+122
+je	.L27
+.L27
+None
+cmp	DWORD PTR -12[rbp], 122
+DWORD PTR -12[rbp]
+122
+jg	.L28
+.L28
+None
+cmp	DWORD PTR -12[rbp], 115
+DWORD PTR -12[rbp]
+115
+je	.L29
+.L29
+None
+cmp	DWORD PTR -12[rbp], 115
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line:  80 -   static_verifier()] CRITICAL    Checked 
+[Line:  94 -   static_verifier()] CRITICAL    OP1 Checked 
+[Line: 105 -   static_verifier()] CRITICAL    OP2 Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line: 110 -   static_verifier()] CRITICAL    Checked 
+[Line:1080 -          rewriter()] WARNING    remove_suffix 
+[Line:1105 -          rewriter()] WARNING    ('-16(%rbp)', 8) 
+[Line:1105 -          rewriter()] WARNING    ('-8(%rbp)', 16) 
+[Line:1124 -          rewriter()]   DEBUG    	.type	remove_suffix, @function
+ 
+[Line:1124 -          rewriter()]   DEBUG    remove_suffix:
+ 
+[Line:1124 -          rewriter()]   DEBUG    .LFB48:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 86 1
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.cfi_startproc
+ 
+[Line:1124 -          rewriter()]   DEBUG    	endbr64
+ 
+[Line:1124 -          rewriter()]   DEBUG    	pushq	%rbp
+ 
+[Line:1124 -          rewriter()]   DEBUG    .LCFI8:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.cfi_def_cfa_offset 16
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.cfi_offset 6, -16
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rsp, %rbp
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rsp %rbp 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rbp 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rsp 
+[Line:1124 -          rewriter()]   DEBUG    .LCFI9:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.cfi_def_cfa_register 6
+ 
+[Line:1124 -          rewriter()]   DEBUG    	subq	$32, %rsp
+ 
+[Line:1132 -          rewriter()]   DEBUG    sub q $32 %rsp 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rsp 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: $32 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rdi, -24(%rbp)
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rdi -24(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -24(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdi 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rsi, -32(%rbp)
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rsi -32(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -32(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rsi 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 90 15
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-24(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -24(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -24(%rbp) 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rax, %rdi
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rax %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:1124 -          rewriter()]   DEBUG    	call	strlen@PLT
+ 
+[Line:1132 -          rewriter()]   DEBUG    call  strlen@PLT None 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 90 6
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-24(%rbp), %rdx
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -24(%rbp) %rdx 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdx 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -24(%rbp) 
+[Line:1124 -          rewriter()]   DEBUG    	addq	%rdx, %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    add q %rdx %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdx 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rax, -16(%rbp)
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rax -16(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -16(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_18', dis_inst='mov     %rax, qword ptr [%rbp-0x10]', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48ac20>, offset_expr='-16(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: [%rbp - 0x10 {var_18}].q = %rax>, arg=False) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	movq	%rax, -16(%rbp)
+ | Offset: 8 
+[Line: 471 -        patch_inst()]   DEBUG    store 
+[Line: 473 -        patch_inst()]    INFO    Patching with mov_gs 
+[Line:1230 -          rewriter()]   DEBUG    
+		movq	%rax, -16(%rbp)
+	mov_store_gs	%rax, 8, 64
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 91 17
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-32(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -32(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -32(%rbp) 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rax, %rdi
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rax %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:1124 -          rewriter()]   DEBUG    	call	strlen@PLT
+ 
+[Line:1132 -          rewriter()]   DEBUG    call  strlen@PLT None 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 91 6
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-32(%rbp), %rdx
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -32(%rbp) %rdx 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdx 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -32(%rbp) 
+[Line:1124 -          rewriter()]   DEBUG    	addq	%rdx, %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    add q %rdx %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdx 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rax, -8(%rbp)
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rax -8(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_10', dis_inst='mov     %rax, qword ptr [%rbp-0x8]', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48bbb0>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: [%rbp - 8 {var_10}].q = %rax>, arg=False) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	movq	%rax, -8(%rbp)
+ | Offset: 16 
+[Line: 471 -        patch_inst()]   DEBUG    store 
+[Line: 473 -        patch_inst()]    INFO    Patching with mov_gs 
+[Line:1230 -          rewriter()]   DEBUG    
+		movq	%rax, -8(%rbp)
+	mov_store_gs	%rax, 16, 64
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 93 9
+ 
+[Line:1124 -          rewriter()]   DEBUG    	jmp	.L15
+ 
+[Line:1124 -          rewriter()]   DEBUG    .L18:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 94 8
+ 
+[Line:1124 -          rewriter()]   DEBUG    	subq	$1, -16(%rbp)
+ 
+[Line:1132 -          rewriter()]   DEBUG    sub q $1 -16(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -16(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: $1 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_18', dis_inst='sub     $0x1, qword ptr [%rbp-0x10]', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca4b99c0>, offset_expr='-16(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: [%rbp - 0x10 {var_18}].q = [%rbp - 0x10 {var_18}].q - 1>, arg=False) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	subq	$1, -16(%rbp)
+ | Offset: 8 
+[Line: 535 -        patch_inst()]    INFO    Patching with sub_gs 
+[Line:1230 -          rewriter()]   DEBUG    
+		subq	$1, -16(%rbp)
+	sub_store_gs	$1, 8, 64
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 94 9
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-16(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -16(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -16(%rbp) 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_18', dis_inst='mov     qword ptr [%rbp-0x10], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48b3a0>, offset_expr='-16(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 0x10 {var_18}].q>, arg=False) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	movq	-16(%rbp), %rax
+ | Offset: 8 
+[Line: 471 -        patch_inst()]   DEBUG    load 
+[Line: 473 -        patch_inst()]    INFO    Patching with mov_gs 
+[Line: 491 -        patch_inst()]   DEBUG    BnVarData(name='var_18', dis_inst='mov     qword ptr [%rbp-0x10], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48b3a0>, offset_expr='-16(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 0x10 {var_18}].q>, arg=False) 
+[Line:1230 -          rewriter()]   DEBUG    
+	#	movq	-16(%rbp), %rax
+	mov_load_gs	%rax, 8, 64
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movzbl	(%rax), %edx
+ 
+[Line:1132 -          rewriter()]   DEBUG    movz bl (%rax) %edx 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %edx 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: (%rax) 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 94 8
+ 
+[Line:1124 -          rewriter()]   DEBUG    	subq	$1, -8(%rbp)
+ 
+[Line:1132 -          rewriter()]   DEBUG    sub q $1 -8(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: $1 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_10', dis_inst='sub     $0x1, qword ptr [%rbp-0x8]', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca4ba6b0>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: [%rbp - 8 {var_10}].q = [%rbp - 8 {var_10}].q - 1>, arg=False) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	subq	$1, -8(%rbp)
+ | Offset: 16 
+[Line: 535 -        patch_inst()]    INFO    Patching with sub_gs 
+[Line:1230 -          rewriter()]   DEBUG    
+		subq	$1, -8(%rbp)
+	sub_store_gs	$1, 16, 64
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 94 18
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-8(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -8(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_10', dis_inst='mov     qword ptr [%rbp-0x8], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48ae60>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 8 {var_10}].q>, arg=False) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	movq	-8(%rbp), %rax
+ | Offset: 16 
+[Line: 471 -        patch_inst()]   DEBUG    load 
+[Line: 473 -        patch_inst()]    INFO    Patching with mov_gs 
+[Line: 491 -        patch_inst()]   DEBUG    BnVarData(name='var_10', dis_inst='mov     qword ptr [%rbp-0x8], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48ae60>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 8 {var_10}].q>, arg=False) 
+[Line:1230 -          rewriter()]   DEBUG    
+	#	movq	-8(%rbp), %rax
+	mov_load_gs	%rax, 16, 64
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movzbl	(%rax), %eax
+ 
+[Line:1132 -          rewriter()]   DEBUG    movz bl (%rax) %eax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %eax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: (%rax) 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 94 8
+ 
+[Line:1124 -          rewriter()]   DEBUG    	cmpb	%al, %dl
+ 
+[Line:1132 -          rewriter()]   DEBUG    cmp b %al %dl 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %dl 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %al 
+[Line:1124 -          rewriter()]   DEBUG    	jne	.L19
+ 
+[Line:1124 -          rewriter()]   DEBUG    .L15:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 93 9
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-16(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -16(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -16(%rbp) 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_18', dis_inst='mov     qword ptr [%rbp-0x10], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48b3a0>, offset_expr='-16(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 0x10 {var_18}].q>, arg=False) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	movq	-16(%rbp), %rax
+ | Offset: 8 
+[Line: 471 -        patch_inst()]   DEBUG    load 
+[Line: 473 -        patch_inst()]    INFO    Patching with mov_gs 
+[Line: 491 -        patch_inst()]   DEBUG    BnVarData(name='var_18', dis_inst='mov     qword ptr [%rbp-0x10], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48b3a0>, offset_expr='-16(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 0x10 {var_18}].q>, arg=False) 
+[Line:1230 -          rewriter()]   DEBUG    
+	#	movq	-16(%rbp), %rax
+	mov_load_gs	%rax, 8, 64
+ 
+[Line:1124 -          rewriter()]   DEBUG    	cmpq	-24(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    cmp q -24(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -24(%rbp) 
+[Line:1124 -          rewriter()]   DEBUG    	jbe	.L17
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 93 20 discriminator 1
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-8(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -8(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_10', dis_inst='mov     qword ptr [%rbp-0x8], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48ae60>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 8 {var_10}].q>, arg=False) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	movq	-8(%rbp), %rax
+ | Offset: 16 
+[Line: 471 -        patch_inst()]   DEBUG    load 
+[Line: 473 -        patch_inst()]    INFO    Patching with mov_gs 
+[Line: 491 -        patch_inst()]   DEBUG    BnVarData(name='var_10', dis_inst='mov     qword ptr [%rbp-0x8], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48ae60>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 8 {var_10}].q>, arg=False) 
+[Line:1230 -          rewriter()]   DEBUG    
+	#	movq	-8(%rbp), %rax
+	mov_load_gs	%rax, 16, 64
+ 
+[Line:1124 -          rewriter()]   DEBUG    	cmpq	-32(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    cmp q -32(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -32(%rbp) 
+[Line:1124 -          rewriter()]   DEBUG    	ja	.L18
+ 
+[Line:1124 -          rewriter()]   DEBUG    .L17:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 96 6
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-16(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -16(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -16(%rbp) 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_18', dis_inst='mov     qword ptr [%rbp-0x10], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48b3a0>, offset_expr='-16(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 0x10 {var_18}].q>, arg=False) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	movq	-16(%rbp), %rax
+ | Offset: 8 
+[Line: 471 -        patch_inst()]   DEBUG    load 
+[Line: 473 -        patch_inst()]    INFO    Patching with mov_gs 
+[Line: 491 -        patch_inst()]   DEBUG    BnVarData(name='var_18', dis_inst='mov     qword ptr [%rbp-0x10], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48b3a0>, offset_expr='-16(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 0x10 {var_18}].q>, arg=False) 
+[Line:1230 -          rewriter()]   DEBUG    
+	#	movq	-16(%rbp), %rax
+	mov_load_gs	%rax, 8, 64
+ 
+[Line:1124 -          rewriter()]   DEBUG    	cmpq	-24(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    cmp q -24(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -24(%rbp) 
+[Line:1124 -          rewriter()]   DEBUG    	jbe	.L14
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 97 9
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-16(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -16(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -16(%rbp) 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_18', dis_inst='mov     qword ptr [%rbp-0x10], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48b3a0>, offset_expr='-16(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 0x10 {var_18}].q>, arg=False) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	movq	-16(%rbp), %rax
+ | Offset: 8 
+[Line: 471 -        patch_inst()]   DEBUG    load 
+[Line: 473 -        patch_inst()]    INFO    Patching with mov_gs 
+[Line: 491 -        patch_inst()]   DEBUG    BnVarData(name='var_18', dis_inst='mov     qword ptr [%rbp-0x10], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca48b3a0>, offset_expr='-16(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 0x10 {var_18}].q>, arg=False) 
+[Line:1230 -          rewriter()]   DEBUG    
+	#	movq	-16(%rbp), %rax
+	mov_load_gs	%rax, 8, 64
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movb	$0, (%rax)
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov b $0 (%rax) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: (%rax) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: $0 
+[Line:1124 -          rewriter()]   DEBUG    	jmp	.L14
+ 
+[Line:1124 -          rewriter()]   DEBUG    .L19:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 95 7
+ 
+[Line:1124 -          rewriter()]   DEBUG    	nop
+ 
+[Line:1124 -          rewriter()]   DEBUG    .L14:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 98 1
+ 
+[Line:1124 -          rewriter()]   DEBUG    	leave
+ 
+[Line:1124 -          rewriter()]   DEBUG    .LCFI10:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.cfi_def_cfa 7, 8
+ 
+[Line:1124 -          rewriter()]   DEBUG    	ret
+ 
+[Line:1080 -          rewriter()] WARNING    perform_basename 
+[Line:1105 -          rewriter()] WARNING    ('-8(%rbp)', 0) 
+[Line:1124 -          rewriter()]   DEBUG    	.type	perform_basename, @function
+ 
+[Line:1124 -          rewriter()]   DEBUG    perform_basename:
+ 
+[Line:1124 -          rewriter()]   DEBUG    .LFB49:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 105 1
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.cfi_startproc
+ 
+[Line:1124 -          rewriter()]   DEBUG    	endbr64
+ 
+[Line:1124 -          rewriter()]   DEBUG    	pushq	%rbp
+ 
+[Line:1124 -          rewriter()]   DEBUG    .LCFI11:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.cfi_def_cfa_offset 16
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.cfi_offset 6, -16
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rsp, %rbp
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rsp %rbp 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rbp 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rsp 
+[Line:1124 -          rewriter()]   DEBUG    .LCFI12:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.cfi_def_cfa_register 6
+ 
+[Line:1124 -          rewriter()]   DEBUG    	subq	$48, %rsp
+ 
+[Line:1132 -          rewriter()]   DEBUG    sub q $48 %rsp 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rsp 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: $48 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rdi, -24(%rbp)
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rdi -24(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -24(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdi 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rsi, -32(%rbp)
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rsi -32(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -32(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rsi 
+[Line:1124 -          rewriter()]   DEBUG    	movl	%edx, %eax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov l %edx %eax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %eax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %edx 
+[Line:1124 -          rewriter()]   DEBUG    	movb	%al, -36(%rbp)
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov b %al -36(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -36(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %al 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 106 16
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-24(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -24(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -24(%rbp) 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rax, %rdi
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rax %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:1124 -          rewriter()]   DEBUG    	call	base_name@PLT
+ 
+[Line:1132 -          rewriter()]   DEBUG    call  base_name@PLT None 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rax, -8(%rbp)
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rax -8(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_10', dis_inst='mov     %rax, qword ptr [%rbp-0x8]', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca4b9330>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: [%rbp - 8 {var_10}].q = %rax>, arg=False) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	movq	%rax, -8(%rbp)
+ | Offset: 0 
+[Line: 471 -        patch_inst()]   DEBUG    store 
+[Line: 473 -        patch_inst()]    INFO    Patching with mov_gs 
+[Line:1230 -          rewriter()]   DEBUG    
+		movq	%rax, -8(%rbp)
+	mov_store_gs	%rax, 0, 64
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 107 3
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-8(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -8(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_10', dis_inst='mov     qword ptr [%rbp-0x8], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca4bbca0>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 8 {var_10}].q>, arg=True) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	movq	-8(%rbp), %rax
+ | Offset: 0 
+[Line:1230 -          rewriter()]   DEBUG    
+	movq	-8(%rbp), %rax
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rax, %rdi
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rax %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:1124 -          rewriter()]   DEBUG    	call	strip_trailing_slashes@PLT
+ 
+[Line:1132 -          rewriter()]   DEBUG    call  strip_trailing_slashes@PLT None 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 115 6
+ 
+[Line:1124 -          rewriter()]   DEBUG    	cmpq	$0, -32(%rbp)
+ 
+[Line:1132 -          rewriter()]   DEBUG    cmp q $0 -32(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -32(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: $0 
+[Line:1124 -          rewriter()]   DEBUG    	je	.L21
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 115 29 discriminator 1
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-8(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -8(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_10', dis_inst='mov     qword ptr [%rbp-0x8], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca4bbca0>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 8 {var_10}].q>, arg=True) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	movq	-8(%rbp), %rax
+ | Offset: 0 
+[Line:1230 -          rewriter()]   DEBUG    
+	movq	-8(%rbp), %rax
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movzbl	(%rax), %eax
+ 
+[Line:1132 -          rewriter()]   DEBUG    movz bl (%rax) %eax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %eax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: (%rax) 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 115 54 discriminator 1
+ 
+[Line:1124 -          rewriter()]   DEBUG    	cmpb	$47, %al
+ 
+[Line:1132 -          rewriter()]   DEBUG    cmp b $47 %al 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %al 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: $47 
+[Line:1124 -          rewriter()]   DEBUG    	je	.L21
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 116 5
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-32(%rbp), %rdx
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -32(%rbp) %rdx 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdx 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -32(%rbp) 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-8(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -8(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_10', dis_inst='mov     qword ptr [%rbp-0x8], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca4bbca0>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 8 {var_10}].q>, arg=True) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	movq	-8(%rbp), %rax
+ | Offset: 0 
+[Line:1230 -          rewriter()]   DEBUG    
+	movq	-8(%rbp), %rax
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rdx, %rsi
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rdx %rsi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rsi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdx 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rax, %rdi
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rax %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:1124 -          rewriter()]   DEBUG    	call	remove_suffix
+ 
+[Line:1132 -          rewriter()]   DEBUG    call  remove_suffix None 
+[Line:1124 -          rewriter()]   DEBUG    .L21:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 118 3
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	stdout(%rip), %rdx
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q stdout(%rip) %rdx 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdx 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: stdout(%rip) 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-8(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -8(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_10', dis_inst='mov     qword ptr [%rbp-0x8], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca4bbca0>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 8 {var_10}].q>, arg=True) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	movq	-8(%rbp), %rax
+ | Offset: 0 
+[Line:1230 -          rewriter()]   DEBUG    
+	movq	-8(%rbp), %rax
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rdx, %rsi
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rdx %rsi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rsi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdx 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rax, %rdi
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rax %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:1124 -          rewriter()]   DEBUG    	call	fputs_unlocked@PLT
+ 
+[Line:1132 -          rewriter()]   DEBUG    call  fputs_unlocked@PLT None 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 119 3
+ 
+[Line:1124 -          rewriter()]   DEBUG    	cmpb	$0, -36(%rbp)
+ 
+[Line:1132 -          rewriter()]   DEBUG    cmp b $0 -36(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -36(%rbp) 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: $0 
+[Line:1124 -          rewriter()]   DEBUG    	je	.L22
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 119 3 is_stmt 0 discriminator 1
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movl	$0, %eax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov l $0 %eax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %eax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: $0 
+[Line:1124 -          rewriter()]   DEBUG    	jmp	.L23
+ 
+[Line:1124 -          rewriter()]   DEBUG    .L22:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 119 3 discriminator 2
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movl	$10, %eax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov l $10 %eax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %eax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: $10 
+[Line:1124 -          rewriter()]   DEBUG    .L23:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 119 3 discriminator 4
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movl	%eax, %edi
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov l %eax %edi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %edi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %eax 
+[Line:1124 -          rewriter()]   DEBUG    	call	putchar_unlocked@PLT
+ 
+[Line:1132 -          rewriter()]   DEBUG    call  putchar_unlocked@PLT None 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 120 3 is_stmt 1 discriminator 4
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	-8(%rbp), %rax
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q -8(%rbp) %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: -8(%rbp) 
+[Line:1209 -          rewriter()] WARNING    Offset found 
+[Line:1210 -          rewriter()] WARNING    BnVarData(name='var_10', dis_inst='mov     qword ptr [%rbp-0x8], %rax', patch_inst=<asm_analysis.PatchingInst object at 0x7fffca4bbca0>, offset_expr='-8(%rbp)', asm_syntax_tree=BnSSAOp, llil_inst=<llil: %rax = [%rbp - 8 {var_10}].q>, arg=True) 
+[Line: 345 -        patch_inst()] CRITICAL    Patch the instruction 	movq	-8(%rbp), %rax
+ | Offset: 0 
+[Line:1230 -          rewriter()]   DEBUG    
+	movq	-8(%rbp), %rax
+ 
+[Line:1124 -          rewriter()]   DEBUG    	movq	%rax, %rdi
+ 
+[Line:1132 -          rewriter()]   DEBUG    mov q %rax %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rdi 
+[Line:  96 -          conv_imm()]   DEBUG    Converting: %rax 
+[Line:1124 -          rewriter()]   DEBUG    	call	free@PLT
+ 
+[Line:1132 -          rewriter()]   DEBUG    call  free@PLT None 
+[Line:1124 -          rewriter()]   DEBUG    	.loc 2 121 1 discriminator 4
+ 
+[Line:1124 -          rewriter()]   DEBUG    	nop
+ 
+[Line:1124 -          rewriter()]   DEBUG    	leave
+ 
+[Line:1124 -          rewriter()]   DEBUG    .LCFI13:
+ 
+[Line:1124 -          rewriter()]   DEBUG    	.cfi_def_cfa 7, 8
+ 
+[Line:1124 -          rewriter()]   DEBUG    	ret
+ 
+[Line: 374 -              main()] CRITICAL    Patch count 16 
+DWORD PTR -12[rbp]
+115
+jg	.L28
+.L28
+None
+cmp	DWORD PTR -12[rbp], 97
+DWORD PTR -12[rbp]
+97
+je	.L30
+.L30
+None
+cmp	DWORD PTR -12[rbp], 97
+DWORD PTR -12[rbp]
+97
+jg	.L28
+.L28
+None
+cmp	DWORD PTR -12[rbp], -131
+DWORD PTR -12[rbp]
+-131
+je	.L31
+.L31
+None
+cmp	DWORD PTR -12[rbp], -130
+DWORD PTR -12[rbp]
+-130
+je	.L32
+.L32
+None
+jmp	.L28
+.L28
+None
+mov	rax, QWORD PTR optarg[rip]
+rax
+QWORD PTR optarg[rip]
+mov	QWORD PTR -8[rbp], rax
+QWORD PTR -8[rbp]
+rax
+mov	BYTE PTR -14[rbp], 1
+BYTE PTR -14[rbp]
+1
+jmp	.L33
+.L33
+None
+mov	BYTE PTR -13[rbp], 1
+BYTE PTR -13[rbp]
+1
+jmp	.L33
+.L33
+None
+mov	edi, 0
+edi
+0
+call	usage
+usage
+None
+mov	rdx, QWORD PTR Version[rip]
+rdx
+QWORD PTR Version[rip]
+mov	rax, QWORD PTR stdout[rip]
+rax
+QWORD PTR stdout[rip]
+mov	r9d, 0
+r9d
+0
+lea	r8, .LC33[rip]
+r8
+.LC33[rip]
+mov	rcx, rdx
+rcx
+rdx
+lea	rdx, .LC11[rip]
+rdx
+.LC11[rip]
+lea	rsi, .LC31[rip]
+rsi
+.LC31[rip]
+mov	rdi, rax
+rdi
+rax
+mov	eax, 0
+eax
+0
+call	version_etc@PLT
+version_etc@PLT
+None
+mov	edi, 0
+edi
+0
+call	exit@PLT
+exit@PLT
+None
+mov	edi, 1
+edi
+1
+call	usage
+usage
+None
+jmp	.L34
+.L34
+None
+nop
+mov	eax, DWORD PTR optind[rip]
+eax
+DWORD PTR optind[rip]
+cmp	DWORD PTR -20[rbp], eax
+DWORD PTR -20[rbp]
+eax
+jg	.L35
+.L35
+None
+lea	rdx, .LC34[rip]
+rdx
+.LC34[rip]
+mov	esi, 0
+esi
+0
+mov	edi, 0
+edi
+0
+mov	eax, 0
+eax
+0
+call	error@PLT
+error@PLT
+None
+mov	edi, 1
+edi
+1
+call	usage
+usage
+None
+movzx	eax, BYTE PTR -14[rbp]
+eax
+BYTE PTR -14[rbp]
+xor	eax, 1
+eax
+1
+test	al, al
+al
+al
+je	.L36
+.L36
+None
+mov	eax, DWORD PTR optind[rip]
+eax
+DWORD PTR optind[rip]
+add	eax, 2
+eax
+2
+cmp	DWORD PTR -20[rbp], eax
+DWORD PTR -20[rbp]
+eax
+jle	.L36
+.L36
+None
+mov	eax, DWORD PTR optind[rip]
+eax
+DWORD PTR optind[rip]
+cdqe
+add	rax, 2
+rax
+2
+lea	rdx, 0[0+rax*8]
+rdx
+0[0+rax*8]
+mov	rax, QWORD PTR -32[rbp]
+rax
+QWORD PTR -32[rbp]
+add	rax, rdx
+rax
+rdx
+mov	rax, QWORD PTR [rax]
+rax
+QWORD PTR [rax]
+mov	rdi, rax
+rdi
+rax
+call	quote@PLT
+quote@PLT
+None
+mov	rcx, rax
+rcx
+rax
+lea	rdx, .LC35[rip]
+rdx
+.LC35[rip]
+mov	esi, 0
+esi
+0
+mov	edi, 0
+edi
+0
+mov	eax, 0
+eax
+0
+call	error@PLT
+error@PLT
+None
+mov	edi, 1
+edi
+1
+call	usage
+usage
+None
+cmp	BYTE PTR -14[rbp], 0
+BYTE PTR -14[rbp]
+0
+je	.L37
+.L37
+None
+jmp	.L38
+.L38
+None
+movzx	edx, BYTE PTR -13[rbp]
+edx
+BYTE PTR -13[rbp]
+mov	eax, DWORD PTR optind[rip]
+eax
+DWORD PTR optind[rip]
+cdqe
+lea	rcx, 0[0+rax*8]
+rcx
+0[0+rax*8]
+mov	rax, QWORD PTR -32[rbp]
+rax
+QWORD PTR -32[rbp]
+add	rax, rcx
+rax
+rcx
+mov	rax, QWORD PTR [rax]
+rax
+QWORD PTR [rax]
+mov	rcx, QWORD PTR -8[rbp]
+rcx
+QWORD PTR -8[rbp]
+mov	rsi, rcx
+rsi
+rcx
+mov	rdi, rax
+rdi
+rax
+call	perform_basename
+perform_basename
+None
+mov	eax, DWORD PTR optind[rip]
+eax
+DWORD PTR optind[rip]
+add	eax, 1
+eax
+1
+mov	DWORD PTR optind[rip], eax
+DWORD PTR optind[rip]
+eax
+mov	eax, DWORD PTR optind[rip]
+eax
+DWORD PTR optind[rip]
+cmp	DWORD PTR -20[rbp], eax
+DWORD PTR -20[rbp]
+eax
+jg	.L39
+.L39
+None
+jmp	.L40
+.L40
+None
+movzx	edx, BYTE PTR -13[rbp]
+edx
+BYTE PTR -13[rbp]
+mov	eax, DWORD PTR optind[rip]
+eax
+DWORD PTR optind[rip]
+add	eax, 2
+eax
+2
+cmp	DWORD PTR -20[rbp], eax
+DWORD PTR -20[rbp]
+eax
+jne	.L41
+.L41
+None
+mov	eax, DWORD PTR optind[rip]
+eax
+DWORD PTR optind[rip]
+cdqe
+add	rax, 1
+rax
+1
+lea	rcx, 0[0+rax*8]
+rcx
+0[0+rax*8]
+mov	rax, QWORD PTR -32[rbp]
+rax
+QWORD PTR -32[rbp]
+add	rax, rcx
+rax
+rcx
+mov	rax, QWORD PTR [rax]
+rax
+QWORD PTR [rax]
+jmp	.L42
+.L42
+None
+mov	eax, 0
+eax
+0
+mov	ecx, DWORD PTR optind[rip]
+ecx
+DWORD PTR optind[rip]
+movsx	rcx, ecx
+rcx
+ecx
+lea	rsi, 0[0+rcx*8]
+rsi
+0[0+rcx*8]
+mov	rcx, QWORD PTR -32[rbp]
+rcx
+QWORD PTR -32[rbp]
+add	rcx, rsi
+rcx
+rsi
+mov	rcx, QWORD PTR [rcx]
+rcx
+QWORD PTR [rcx]
+mov	rsi, rax
+rsi
+rax
+mov	rdi, rcx
+rdi
+rcx
+call	perform_basename
+perform_basename
+None
+mov	eax, 0
+eax
+0
+leave
+ret
+/iocs/result/basename/basename.s
+No debug file exists
+/iocs/result/basename/basename.s /iocs/result/basename/basename.o
+Assembly of /iocs/result/basename/basename.s completed. Output in /iocs/result/basename/basename.o
+
+[exit 0]

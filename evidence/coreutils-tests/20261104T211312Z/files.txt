@@ -1,0 +1,7 @@
+1-smoke.log
+2-suite.log.xz
+env.txt
+logs
+smoke.txt
+summary.txt
+tests.txt

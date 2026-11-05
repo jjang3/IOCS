@@ -1,0 +1,6 @@
+# Tainted pointer parameters: lifted to the caller objects they point to, or kept in their
+# own slot (why). Variables without a compartment: kept-on-stack lines.
+lifted: log_access c_addr@-32 -> main:-288(clientaddr)
+lifted: parse_request req@-4160 -> process:-544(req)
+lifted: rio_readinitb rp@-8 -> parse_request:-4128(rio)
+lifted: url_decode dest@-48 -> process:-544(req)

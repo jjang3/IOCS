@@ -1,0 +1,4 @@
+# Tainted pointer parameters: lifted to the caller objects they point to, or kept in their
+# own slot (why). Variables without a compartment: kept-on-stack lines.
+own slot: remove_suffix name@-24 (call of remove_suffix at 0x2a99: perform_basename passes name, a pointer not set from one frame address)
+own slot: remove_suffix suffix@-32 (call of perform_basename at 0x2cd8: main passes suffix, a pointer not set from one frame address)

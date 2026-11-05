@@ -1,0 +1,1137 @@
+0a1,299
+> # var_c14n macros
+> # Load effective address macro
+> .macro lea_gs dest, offset
+> 	rdgsbase %r11
+> 	mov   \offset(%r11), %r11
+> 	lea   (%r11), \dest
+> .endm
+> 
+> .macro lea_store_gs src, offset
+> 	leaq  \src, %r11
+> 	movq  (%r11), %r10
+> 	rdgsbase %r11
+> 	movq  \offset(%r11), %r11
+> 	movq  %r10, (%r11)
+> .endm
+> 
+> # Data movement macros
+> .macro mov_store_gs src, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 		movb \src, (%r11)  # 8-bit 
+> 	.elseif \value == 16
+> 		movw \src, (%r11)  # 16-bit
+> 	.elseif \value == 32
+> 		movl \src, (%r11)  # 32-bit
+> 	.elseif \value == 64
+> 		movq \src, (%r11)  # 64-bit
+> 	.endif
+> .endm
+> 
+> .macro mov_load_gs dest, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 		movb (%r11), \dest  # 8-bit 
+> 	.elseif \value == 16
+> 		movw (%r11), \dest  # 16-bit
+> 	.elseif \value == 32
+> 		movl (%r11), \dest  # 32-bit
+> 	.elseif \value == 64
+> 		movq (%r11), \dest  # 64-bit
+> 	.endif
+> .endm
+> 
+> .macro mov_arr_store_gs src, offset, disp, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	add \disp, %r11
+> 	.if \value == 8
+> 		movb \src, (%r11)  # 8-bit 
+> 	.elseif \value == 16
+> 		movw \src, (%r11)  # 16-bit 
+> 	.elseif \value == 32
+> 		movl \src, (%r11)  # 32-bit 
+> 	.elseif \value == 64
+> 		movq \src, (%r11)  # 64-bit 
+> 	.endif
+> .endm
+> 
+> .macro mov_arr_load_gs src, offset, disp, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	add \disp, %r11
+> 	.if \value == 8
+> 		movb (%r11), \dest  # 8-bit
+> 	.elseif \value == 16
+> 		movw (%r11), \dest  # 16-bit
+> 	.elseif \value == 32
+> 		movl (%r11), \dest  # 32-bit
+> 	.elseif \value == 64
+> 		movq (%r11), \dest  # 64-bit
+> 	.endif
+> .endm
+> 
+> .macro movss_store_gs src, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 		movss \src, (%r11)  # 64-bit
+> .endm
+> 
+> .macro movss_load_gs dest, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	movss (%r11), \dest  # 64-bit
+> .endm
+> 
+> .macro movzx_load_gs dest, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 		movzbl (%r11), \dest  # 8-bit 
+> 	.elseif \value == 16
+> 		movzw (%r11), \dest  # 16-bit (a bare movzx is assembled as movzbl: one byte)
+> 	.endif
+> .endm
+> 
+> # Comparison / Shift macros
+> # ---- Comparison ---- #
+> .macro cmp_store_gs operand, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 		cmpb \operand, (%r11)  # 8-bit 
+> 	.elseif \value == 16
+> 		cmpw \operand, (%r11)  # 16-bit
+> 	.elseif \value == 32
+> 		cmpl \operand, (%r11)  # 32-bit
+> 	.elseif \value == 64
+> 		cmpq \operand, (%r11)  # 64-bit
+> 	.endif
+> .endm
+> 
+> .macro cmp_load_gs operand, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 		cmpb (%r11), \operand  # 8-bit 
+> 	.elseif \value == 16
+> 		cmpw (%r11), \operand  # 16-bit
+> 	.elseif \value == 32
+> 		cmpl (%r11), \operand  # 32-bit
+> 	.elseif \value == 64
+> 		cmpq (%r11), \operand  # 64-bit
+> 	.endif
+> .endm
+> 
+> .macro and_store_gs operand, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 		andb \operand, (%r11)  # 8-bit 
+> 	.elseif \value == 16
+> 		andw \operand, (%r11)  # 16-bit
+> 	.elseif \value == 32
+> 		andl \operand, (%r11)  # 32-bit
+> 	.elseif \value == 64
+> 		andq \operand, (%r11)  # 64-bit
+> 	.endif
+> .endm
+> 
+> .macro and_load_gs operand, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 		andb (%r11), \operand  # 8-bit 
+> 	.elseif \value == 16
+> 		andw (%r11), \operand  # 16-bit
+> 	.elseif \value == 32
+> 		andl (%r11), \operand  # 32-bit
+> 	.elseif \value == 64
+> 		andq (%r11), \operand  # 64-bit
+> 	.endif
+> .endm
+> 
+> # Arithmetic macros
+> # ---- Addition ---- #
+> .macro add_store_gs operand, offset, value
+> 	rdgsbase %r10
+> 	mov	\offset(%r10), %r10 
+> 	rdgsbase %r11
+> 	mov	\offset(%r11), %r11
+> 	mov (%r11), %r11
+> 	.if \value == 8
+> 	add \operand, %r11b  # 8-bit 
+> 	mov %r11b, (%r10)
+> 	.elseif \value == 16
+> 	add \operand, %r11w  # 16-bit 
+> 	mov %r11w, (%r10)
+> 	.elseif \value == 32
+> 	add \operand, %r11d  # 32-bit 
+> 	mov %r11d, (%r10)
+> 	.elseif \value == 64
+> 	add \operand, %r11   # 64-bit 
+> 	mov %r11, (%r10)
+> 	.endif
+> .endm
+> 
+> .macro add_load_gs dest, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 	mov (%r11), %r11b
+> 	add %r11b, \dest  # 8-bit 
+> 	.elseif \value == 16
+> 	mov (%r11), %r11w
+> 	add %r11w, \dest  # 16-bit 
+> 	.elseif \value == 32
+> 	mov (%r11), %r11d
+> 	add %r11d, \dest  # 32-bit 
+> 	.elseif \value == 64
+> 	mov (%r11), %r11
+> 	add %r11, \dest   # 64-bit 
+> 	.endif
+> .endm
+> 
+> # ---- Subtraction ---- #
+> .macro sub_store_gs operand, offset, value
+> 	rdgsbase %r10
+> 	mov	\offset(%r10), %r10 
+> 	rdgsbase %r11
+> 	mov	\offset(%r11), %r11
+> 	mov (%r11), %r11
+> 	.if \value == 8
+> 	sub \operand, %r11b  # 8-bit 
+> 	mov %r11b, (%r10)
+> 	.elseif \value == 16
+> 	sub \operand, %r11w  # 16-bit 
+> 	mov %r11w, (%r10)
+> 	.elseif \value == 32
+> 	sub \operand, %r11d  # 32-bit 
+> 	mov %r11d, (%r10)
+> 	.elseif \value == 64
+> 	sub \operand, %r11   # 64-bit 
+> 	mov %r11, (%r10)
+> 	.endif
+> .endm
+> 
+> .macro sub_load_gs dest, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 	mov (%r11), %r11b
+> 	sub %r11b, \dest  # 8-bit 
+> 	.elseif \value == 16
+> 	mov (%r11), %r11w
+> 	sub %r11w, \dest  # 16-bit 
+> 	.elseif \value == 32
+> 	mov (%r11), %r11d
+> 	sub %r11d, \dest  # 32-bit 
+> 	.elseif \value == 64
+> 	mov (%r11), %r11
+> 	sub %r11, \dest   # 64-bit 
+> 	.endif
+> .endm
+> 
+> # ---- Multiplication ---- #
+> .macro imul_store_gs operand, offset, value
+> 	rdgsbase %r10
+> 	mov	\offset(%r10), %r10 
+> 	rdgsbase %r11
+> 	mov	\offset(%r11), %r11
+> 	.if \value == 8
+> 	mov (%r11), %r11b   # (multiply the page's value, in %r11, not the 6th-argument register %r9)
+> 	imul \operand, %r11b  # 8-bit 
+> 	mov %r11b, (%r10)
+> 	.elseif \value == 16
+> 	mov (%r11), %r11w
+> 	imul \operand, %r11w  # 16-bit 
+> 	mov %r11w, (%r10)
+> 	.elseif \value == 32
+> 	mov (%r11), %r11d
+> 	imul \operand, %r11d  # 32-bit 
+> 	mov %r11d, (%r10)
+> 	.elseif \value == 64
+> 	mov (%r11), %r11
+> 	imul \operand, %r11   # 64-bit 
+> 	mov %r11, (%r10)
+> 	.endif
+> .endm
+> 
+> .macro imul_load_gs dest, offset, value
+> 	rdgsbase %r11
+> 	mov \offset(%r11), %r11
+> 	.if \value == 8
+> 	mov (%r11), %r10b
+> 	imul %r10b, \dest  # 8-bit 
+> 	.elseif \value == 16
+> 	mov (%r11), %r10w
+> 	imul %r10w, \dest  # 16-bit 
+> 	.elseif \value == 32
+> 	mov (%r11), %r10d
+> 	imul %r10d, \dest  # 32-bit 
+> 	.elseif \value == 64
+> 	mov (%r11), %r10
+> 	imul %r10, \dest   # 64-bit 
+> 	.endif
+> .endm
+> 
+> .macro shl_store_gs operand, offset, value
+> 	rdgsbase %r10
+> 	mov	\offset(%r10), %r10 
+> 	rdgsbase %r11
+> 	mov	\offset(%r11), %r11
+> 	mov (%r11), %r11
+> 	.if \value == 8
+> 	shl \operand, %r11b  # 8-bit 
+> 	mov %r11b, (%r10)
+> 	.elseif \value == 16
+> 	shl \operand, %r11w  # 16-bit 
+> 	mov %r11w, (%r10)
+> 	.elseif \value == 32
+> 	shl \operand, %r11d  # 32-bit 
+> 	mov %r11d, (%r10)
+> 	.elseif \value == 64
+> 	shl \operand, %r11   # 64-bit 
+> 	mov %r11, (%r10)
+> 	.endif
+> .endm
+157c456,457
+< 	movq	%rax, -24(%rbp)
+---
+> 		movq	%rax, -24(%rbp)
+> 	mov_store_gs	%rax, 552, 64
+160c460,461
+< 	movq	%rax, -8(%rbp)
+---
+> 		movq	%rax, -8(%rbp)
+> 	mov_store_gs	%rax, 568, 64
+171c472,473
+< 	movq	%rax, -16(%rbp)
+---
+> 		movq	%rax, -16(%rbp)
+> 	mov_store_gs	%rax, 560, 64
+173c475,476
+< 	cmpq	$0, -16(%rbp)
+---
+> 		cmpq	$0, -16(%rbp)
+> 	cmp_store_gs	$0, 560, 64
+183c486,487
+< 	movq	$0, -16(%rbp)
+---
+> 		movq	$0, -16(%rbp)
+> 	mov_store_gs	$0, 560, 64
+191,192c495,498
+< 	movq	-16(%rbp), %rax
+< 	subq	%rax, -24(%rbp)
+---
+> 	#	movq	-16(%rbp), %rax
+> 	mov_load_gs	%rax, 560, 64
+> 		subq	%rax, -24(%rbp)
+> 	sub_store_gs	%rax, 552, 64
+194,195c500,503
+< 	movq	-16(%rbp), %rax
+< 	addq	%rax, -8(%rbp)
+---
+> 	#	movq	-16(%rbp), %rax
+> 	mov_load_gs	%rax, 560, 64
+> 		addq	%rax, -8(%rbp)
+> 	add_store_gs	%rax, 568, 64
+198c506,507
+< 	cmpq	$0, -24(%rbp)
+---
+> 		cmpq	$0, -24(%rbp)
+> 	cmp_store_gs	$0, 552, 64
+287c596,597
+< 	movl	%eax, -4(%rbp)
+---
+> 		movl	%eax, -4(%rbp)
+> 	mov_store_gs	%eax, 544, 32
+298c608,609
+< 	movl	%eax, -4(%rbp)
+---
+> 		movl	%eax, -4(%rbp)
+> 	mov_store_gs	%eax, 544, 32
+301c612,613
+< 	movl	-4(%rbp), %eax
+---
+> 	#	movl	-4(%rbp), %eax
+> 	mov_load_gs	%eax, 544, 32
+314c626,627
+< 	movl	-4(%rbp), %eax
+---
+> 	#	movl	-4(%rbp), %eax
+> 	mov_load_gs	%eax, 544, 32
+322c635,636
+< 	subl	-4(%rbp), %eax
+---
+> 	#	subl	-4(%rbp), %eax
+> 	sub_load_gs	%eax, 544, 32
+327c641,642
+< 	movl	-4(%rbp), %eax
+---
+> 	#	movl	-4(%rbp), %eax
+> 	mov_load_gs	%eax, 544, 32
+362c677,678
+< 	movq	%rax, -16(%rbp)
+---
+> 		movq	%rax, -16(%rbp)
+> 	mov_store_gs	%rax, 536, 64
+364c680,681
+< 	movl	$1, -24(%rbp)
+---
+> 		movl	$1, -24(%rbp)
+> 	mov_store_gs	$1, 512, 32
+374c691,693
+< 	call	rio_read
+---
+> 		call	rio_read
+> 	lea_store_gs	-25(%rbp), 528
+> 
+376c695,696
+< 	movl	%eax, -20(%rbp)
+---
+> 		movl	%eax, -20(%rbp)
+> 	mov_store_gs	%eax, 520, 32
+378c698,699
+< 	cmpl	$1, -20(%rbp)
+---
+> 		cmpl	$1, -20(%rbp)
+> 	cmp_store_gs	$1, 520, 32
+381c702,703
+< 	movq	-16(%rbp), %rax
+---
+> 	#	movq	-16(%rbp), %rax
+> 	mov_load_gs	%rax, 536, 64
+383c705,706
+< 	movq	%rdx, -16(%rbp)
+---
+> 		movq	%rdx, -16(%rbp)
+> 	mov_store_gs	%rdx, 536, 64
+385c708,709
+< 	movzbl	-25(%rbp), %edx
+---
+> 	#	movzbl	-25(%rbp), %edx
+> 	movzx_load_gs	%edx, 528, 8
+386a711
+> 	lea_store_gs	-25(%rbp), 528
+388c713,714
+< 	movzbl	-25(%rbp), %eax
+---
+> 	#	movzbl	-25(%rbp), %eax
+> 	movzx_load_gs	%eax, 528, 8
+396c722,723
+< 	cmpl	$0, -20(%rbp)
+---
+> 		cmpl	$0, -20(%rbp)
+> 	cmp_store_gs	$0, 520, 32
+399c726,727
+< 	cmpl	$1, -24(%rbp)
+---
+> 		cmpl	$1, -24(%rbp)
+> 	cmp_store_gs	$1, 512, 32
+410c738,739
+< 	addl	$1, -24(%rbp)
+---
+> 		addl	$1, -24(%rbp)
+> 	add_store_gs	$1, 512, 32
+413c742,743
+< 	movl	-24(%rbp), %eax
+---
+> 	#	movl	-24(%rbp), %eax
+> 	mov_load_gs	%eax, 512, 32
+424c754,755
+< 	movq	-16(%rbp), %rax
+---
+> 	#	movq	-16(%rbp), %rax
+> 	mov_load_gs	%rax, 536, 64
+425a757
+> 	lea_store_gs	-25(%rbp), 528
+427c759,760
+< 	movl	-24(%rbp), %eax
+---
+> 	#	movl	-24(%rbp), %eax
+> 	mov_load_gs	%eax, 512, 32
+435a769
+> 	lea_store_gs	-25(%rbp), 528
+497c831,832
+< 	movq	%rax, -8(%rbp)
+---
+> 		movq	%rax, -8(%rbp)
+> 	mov_store_gs	%rax, 504, 64
+499c834,835
+< 	cmpq	$1023, -8(%rbp)
+---
+> 		cmpq	$1023, -8(%rbp)
+> 	cmp_store_gs	$1023, 504, 64
+514c850,851
+< 	cmpq	$1048575, -8(%rbp)
+---
+> 		cmpq	$1048575, -8(%rbp)
+> 	cmp_store_gs	$1048575, 504, 64
+532c869,870
+< 	cmpq	$1073741823, -8(%rbp)
+---
+> 		cmpq	$1073741823, -8(%rbp)
+> 	cmp_store_gs	$1073741823, 504, 64
+643c981,984
+< 	call	sprintf@PLT
+---
+> 		call	sprintf@PLT
+> 	lea_store_gs	-1040(%rbp), 328
+> 
+> 	lea_store_gs	-1208(%rbp), 376
+648c989,992
+< 	call	strlen@PLT
+---
+> 		call	strlen@PLT
+> 	lea_store_gs	-1040(%rbp), 328
+> 
+> 	lea_store_gs	-1208(%rbp), 376
+654c998,1001
+< 	call	writen
+---
+> 		call	writen
+> 	lea_store_gs	-1040(%rbp), 328
+> 
+> 	lea_store_gs	-1208(%rbp), 376
+659c1006,1008
+< 	movq	%rax, -1256(%rbp)
+---
+> 	lea_store_gs	-1208(%rbp), 376
+> 		movq	%rax, -1256(%rbp)
+> 	mov_store_gs	%rax, 472, 64
+664c1013,1014
+< 	movq	-1248(%rbp), %rax
+---
+> 	#	movq	-1248(%rbp), %rax
+> 	mov_load_gs	%rax, 480, 64
+669a1020
+> 	lea_store_gs	-1208(%rbp), 376
+674c1025,1026
+< 	movq	-1248(%rbp), %rax
+---
+> 	#	movq	-1248(%rbp), %rax
+> 	mov_load_gs	%rax, 480, 64
+679a1032
+> 	lea_store_gs	-1208(%rbp), 376
+687c1040,1041
+< 	movq	-1248(%rbp), %rax
+---
+> 	#	movq	-1248(%rbp), %rax
+> 	mov_load_gs	%rax, 480, 64
+696c1050,1052
+< 	movl	%eax, -1260(%rbp)
+---
+> 	lea_store_gs	-1208(%rbp), 376
+> 		movl	%eax, -1260(%rbp)
+> 	mov_store_gs	%eax, 488, 32
+698c1054,1055
+< 	cmpl	$-1, -1260(%rbp)
+---
+> 		cmpl	$-1, -1260(%rbp)
+> 	cmp_store_gs	$-1, 488, 32
+701c1058,1059
+< 	movq	-1248(%rbp), %rax
+---
+> 	#	movq	-1248(%rbp), %rax
+> 	mov_load_gs	%rax, 480, 64
+705a1064
+> 	lea_store_gs	-1208(%rbp), 376
+714c1073,1089
+< 	call	fstat@PLT
+---
+> 		call	fstat@PLT
+> 	lea_store_gs	-1232(%rbp), 352
+> 	lea_store_gs	-1224(%rbp), 360
+> 	lea_store_gs	-1216(%rbp), 368
+> 	lea_store_gs	-1208(%rbp), 376
+> 	lea_store_gs	-1204(%rbp), 384
+> 	lea_store_gs	-1200(%rbp), 392
+> 	lea_store_gs	-1196(%rbp), 400
+> 	lea_store_gs	-1192(%rbp), 408
+> 	lea_store_gs	-1184(%rbp), 416
+> 	lea_store_gs	-1176(%rbp), 424
+> 	lea_store_gs	-1168(%rbp), 432
+> 	lea_store_gs	-1160(%rbp), 440
+> 	lea_store_gs	-1144(%rbp), 448
+> 	lea_store_gs	-1128(%rbp), 456
+> 	lea_store_gs	-1112(%rbp), 464
+> 
+716c1091,1092
+< 	leaq	-1232(%rbp), %rax
+---
+> 		leaq	-1232(%rbp), %rax
+> 	#lea_gs	%rax, 352
+719a1096
+> 	lea_store_gs	-1208(%rbp), 376
+727c1104,1107
+< 	call	strftime@PLT
+---
+> 		call	strftime@PLT
+> 	lea_store_gs	-1072(%rbp), 336
+> 
+> 	lea_store_gs	-1208(%rbp), 376
+733c1113,1130
+< 	call	format_size
+---
+> 		call	format_size
+> 	lea_store_gs	-1232(%rbp), 352
+> 	lea_store_gs	-1224(%rbp), 360
+> 	lea_store_gs	-1216(%rbp), 368
+> 	lea_store_gs	-1208(%rbp), 376
+> 	lea_store_gs	-1204(%rbp), 384
+> 	lea_store_gs	-1200(%rbp), 392
+> 	lea_store_gs	-1196(%rbp), 400
+> 	lea_store_gs	-1192(%rbp), 408
+> 	lea_store_gs	-1184(%rbp), 416
+> 	lea_store_gs	-1176(%rbp), 424
+> 	lea_store_gs	-1168(%rbp), 432
+> 	lea_store_gs	-1160(%rbp), 440
+> 	lea_store_gs	-1144(%rbp), 448
+> 	lea_store_gs	-1128(%rbp), 456
+> 	lea_store_gs	-1112(%rbp), 464
+> 	lea_store_gs	-1088(%rbp), 344
+> 
+735c1132,1133
+< 	movl	-1208(%rbp), %eax
+---
+> 	#	movl	-1208(%rbp), %eax
+> 	mov_load_gs	%eax, 376, 32
+742c1140,1141
+< 	movl	-1208(%rbp), %eax
+---
+> 	#	movl	-1208(%rbp), %eax
+> 	mov_load_gs	%eax, 376, 32
+751c1150,1151
+< 	movl	-1208(%rbp), %eax
+---
+> 	#	movl	-1208(%rbp), %eax
+> 	mov_load_gs	%eax, 376, 32
+765c1165,1166
+< 	movq	%rax, -1240(%rbp)
+---
+> 		movq	%rax, -1240(%rbp)
+> 	mov_store_gs	%rax, 496, 64
+767c1168,1169
+< 	movq	-1248(%rbp), %rax
+---
+> 	#	movq	-1248(%rbp), %rax
+> 	mov_load_gs	%rax, 480, 64
+770c1172,1173
+< 	movq	-1248(%rbp), %rax
+---
+> 	#	movq	-1248(%rbp), %rax
+> 	mov_load_gs	%rax, 480, 64
+786c1189,1194
+< 	call	sprintf@PLT
+---
+> 		call	sprintf@PLT
+> 	lea_store_gs	-1040(%rbp), 328
+> 	lea_store_gs	-1088(%rbp), 344
+> 	lea_store_gs	-1072(%rbp), 336
+> 
+> 	lea_store_gs	-1208(%rbp), 376
+791c1199,1202
+< 	call	strlen@PLT
+---
+> 		call	strlen@PLT
+> 	lea_store_gs	-1040(%rbp), 328
+> 
+> 	lea_store_gs	-1208(%rbp), 376
+797c1208,1211
+< 	call	writen
+---
+> 		call	writen
+> 	lea_store_gs	-1040(%rbp), 328
+> 
+> 	lea_store_gs	-1208(%rbp), 376
+803a1218
+> 	lea_store_gs	-1208(%rbp), 376
+809c1224,1226
+< 	movq	%rax, -1248(%rbp)
+---
+> 	lea_store_gs	-1208(%rbp), 376
+> 		movq	%rax, -1248(%rbp)
+> 	mov_store_gs	%rax, 480, 64
+811c1228,1229
+< 	cmpq	$0, -1248(%rbp)
+---
+> 		cmpq	$0, -1248(%rbp)
+> 	cmp_store_gs	$0, 480, 64
+818c1236,1239
+< 	call	sprintf@PLT
+---
+> 		call	sprintf@PLT
+> 	lea_store_gs	-1040(%rbp), 328
+> 
+> 	lea_store_gs	-1208(%rbp), 376
+822c1243,1246
+< 	call	strlen@PLT
+---
+> 		call	strlen@PLT
+> 	lea_store_gs	-1040(%rbp), 328
+> 
+> 	lea_store_gs	-1208(%rbp), 376
+828c1252,1255
+< 	call	writen
+---
+> 		call	writen
+> 	lea_store_gs	-1040(%rbp), 328
+> 
+> 	lea_store_gs	-1208(%rbp), 376
+832a1260
+> 	lea_store_gs	-1208(%rbp), 376
+838a1267
+> 	lea_store_gs	-1208(%rbp), 376
+936c1365,1366
+< 	movl	$1, -48(%rbp)
+---
+> 		movl	$1, -48(%rbp)
+> 	mov_store_gs	$1, 280, 32
+942c1372,1373
+< 	movl	%eax, -52(%rbp)
+---
+> 		movl	%eax, -52(%rbp)
+> 	mov_store_gs	%eax, 272, 32
+944c1375,1376
+< 	cmpl	$0, -52(%rbp)
+---
+> 		cmpl	$0, -52(%rbp)
+> 	cmp_store_gs	$0, 272, 32
+958c1390,1393
+< 	call	setsockopt@PLT
+---
+> 		call	setsockopt@PLT
+> 	lea_store_gs	-48(%rbp), 280
+> 	lea_store_gs	-40(%rbp), 320
+> 
+974c1409,1412
+< 	call	setsockopt@PLT
+---
+> 		call	setsockopt@PLT
+> 	lea_store_gs	-48(%rbp), 280
+> 	lea_store_gs	-40(%rbp), 320
+> 
+987c1425,1430
+< 	call	memset@PLT
+---
+> 		call	memset@PLT
+> 	lea_store_gs	-32(%rbp), 288
+> 	lea_store_gs	-30(%rbp), 296
+> 	lea_store_gs	-28(%rbp), 304
+> 	lea_store_gs	-24(%rbp), 312
+> 
+989c1432,1433
+< 	movw	$2, -32(%rbp)
+---
+> 		movw	$2, -32(%rbp)
+> 	mov_store_gs	$2, 288, 16
+994c1438,1439
+< 	movl	%eax, -28(%rbp)
+---
+> 		movl	%eax, -28(%rbp)
+> 	mov_store_gs	%eax, 304, 32
+1002c1447,1448
+< 	movw	%ax, -30(%rbp)
+---
+> 		movw	%ax, -30(%rbp)
+> 	mov_store_gs	%ax, 296, 16
+1009c1455,1460
+< 	call	bind@PLT
+---
+> 		call	bind@PLT
+> 	lea_store_gs	-32(%rbp), 288
+> 	lea_store_gs	-30(%rbp), 296
+> 	lea_store_gs	-28(%rbp), 304
+> 	lea_store_gs	-24(%rbp), 312
+> 
+1070c1521,1522
+< 	movq	%rax, -24(%rbp)
+---
+> 		movq	%rax, -24(%rbp)
+> 	mov_store_gs	%rax, 256, 64
+1072c1524,1525
+< 	movw	$0, -11(%rbp)
+---
+> 		movw	$0, -11(%rbp)
+> 	mov_store_gs	$0, 264, 16
+1078c1531,1532
+< 	movq	-24(%rbp), %rax
+---
+> 	#	movq	-24(%rbp), %rax
+> 	mov_load_gs	%rax, 256, 64
+1084,1085c1538,1541
+< 	addq	$1, -24(%rbp)
+< 	movq	-24(%rbp), %rax
+---
+> 		addq	$1, -24(%rbp)
+> 	add_store_gs	$1, 256, 64
+> 	#	movq	-24(%rbp), %rax
+> 	mov_load_gs	%rax, 256, 64
+1087c1543,1544
+< 	movw	%ax, -11(%rbp)
+---
+> 		movw	%ax, -11(%rbp)
+> 	mov_store_gs	%ax, 264, 16
+1093c1550,1552
+< 	call	strtoul@PLT
+---
+> 		call	strtoul@PLT
+> 	lea_store_gs	-11(%rbp), 264
+> 
+1104c1563,1564
+< 	addq	$2, -24(%rbp)
+---
+> 		addq	$2, -24(%rbp)
+> 	add_store_gs	$2, 256, 64
+1108c1568,1569
+< 	movq	-24(%rbp), %rdx
+---
+> 	#	movq	-24(%rbp), %rdx
+> 	mov_load_gs	%rdx, 256, 64
+1110c1571,1572
+< 	movq	%rax, -24(%rbp)
+---
+> 		movq	%rax, -24(%rbp)
+> 	mov_store_gs	%rax, 256, 64
+1121c1583,1584
+< 	movq	-24(%rbp), %rax
+---
+> 	#	movq	-24(%rbp), %rax
+> 	mov_load_gs	%rax, 256, 64
+1179a1643,1644
+> 	lea_store_gs	-3088(%rbp), 208
+> 	lea_store_gs	-1040(%rbp), 224
+1182a1648,1649
+> 	lea_store_gs	-3088(%rbp), 208
+> 	lea_store_gs	-1040(%rbp), 224
+1188c1655,1662
+< 	call	rio_readinitb
+---
+> 		call	rio_readinitb
+> 	lea_store_gs	-4128(%rbp), 176
+> 	lea_store_gs	-4124(%rbp), 184
+> 	lea_store_gs	-4120(%rbp), 192
+> 	lea_store_gs	-4112(%rbp), 200
+> 
+> 	lea_store_gs	-3088(%rbp), 208
+> 	lea_store_gs	-1040(%rbp), 224
+1195c1669,1676
+< 	call	rio_readlineb
+---
+> 		call	rio_readlineb
+> 	lea_store_gs	-3088(%rbp), 208
+> 	lea_store_gs	-4128(%rbp), 176
+> 	lea_store_gs	-4124(%rbp), 184
+> 	lea_store_gs	-4120(%rbp), 192
+> 	lea_store_gs	-4112(%rbp), 200
+> 
+> 	lea_store_gs	-1040(%rbp), 224
+1203c1684,1688
+< 	call	__isoc99_sscanf@PLT
+---
+> 		call	__isoc99_sscanf@PLT
+> 	lea_store_gs	-1040(%rbp), 224
+> 	lea_store_gs	-2064(%rbp), 216
+> 	lea_store_gs	-3088(%rbp), 208
+> 
+1213c1698,1705
+< 	call	rio_readlineb
+---
+> 		call	rio_readlineb
+> 	lea_store_gs	-3088(%rbp), 208
+> 	lea_store_gs	-4128(%rbp), 176
+> 	lea_store_gs	-4124(%rbp), 184
+> 	lea_store_gs	-4120(%rbp), 192
+> 	lea_store_gs	-4112(%rbp), 200
+> 
+> 	lea_store_gs	-1040(%rbp), 224
+1215c1707,1708
+< 	movzbl	-3088(%rbp), %eax
+---
+> 	#	movzbl	-3088(%rbp), %eax
+> 	movzx_load_gs	%eax, 208, 8
+1238c1731,1734
+< 	call	__isoc99_sscanf@PLT
+---
+> 		call	__isoc99_sscanf@PLT
+> 	lea_store_gs	-3088(%rbp), 208
+> 
+> 	lea_store_gs	-1040(%rbp), 224
+1251a1748,1749
+> 	lea_store_gs	-3088(%rbp), 208
+> 	lea_store_gs	-1040(%rbp), 224
+1254c1752,1753
+< 	movzbl	-3088(%rbp), %eax
+---
+> 	#	movzbl	-3088(%rbp), %eax
+> 	movzx_load_gs	%eax, 208, 8
+1265,1266c1764,1767
+< 	leaq	-1040(%rbp), %rax
+< 	movq	%rax, -4136(%rbp)
+---
+> 		leaq	-1040(%rbp), %rax
+> 	#lea_gs	%rax, 224
+> 		movq	%rax, -4136(%rbp)
+> 	mov_store_gs	%rax, 232, 64
+1268c1769,1770
+< 	movzbl	-1040(%rbp), %eax
+---
+> 	#	movzbl	-1040(%rbp), %eax
+> 	movzx_load_gs	%eax, 224, 8
+1274c1776,1777
+< 	leaq	-1040(%rbp), %rax
+---
+> 		leaq	-1040(%rbp), %rax
+> 	#lea_gs	%rax, 224
+1276c1779,1780
+< 	movq	%rax, -4136(%rbp)
+---
+> 		movq	%rax, -4136(%rbp)
+> 	mov_store_gs	%rax, 232, 64
+1280a1785,1786
+> 	lea_store_gs	-3088(%rbp), 208
+> 	lea_store_gs	-1040(%rbp), 224
+1282c1788,1789
+< 	movl	%eax, -4140(%rbp)
+---
+> 		movl	%eax, -4140(%rbp)
+> 	mov_store_gs	%eax, 240, 32
+1284c1791,1792
+< 	cmpl	$0, -4140(%rbp)
+---
+> 		cmpl	$0, -4140(%rbp)
+> 	cmp_store_gs	$0, 240, 32
+1288c1796,1797
+< 	movq	%rax, -4136(%rbp)
+---
+> 		movq	%rax, -4136(%rbp)
+> 	mov_store_gs	%rax, 232, 64
+1293c1802,1803
+< 	movl	$0, -4144(%rbp)
+---
+> 		movl	$0, -4144(%rbp)
+> 	mov_store_gs	$0, 248, 32
+1298c1808,1809
+< 	movl	-4144(%rbp), %eax
+---
+> 	#	movl	-4144(%rbp), %eax
+> 	mov_load_gs	%eax, 248, 32
+1307c1818,1819
+< 	movl	-4144(%rbp), %eax
+---
+> 	#	movl	-4144(%rbp), %eax
+> 	mov_load_gs	%eax, 248, 32
+1312a1825,1826
+> 	lea_store_gs	-3088(%rbp), 208
+> 	lea_store_gs	-1040(%rbp), 224
+1317c1831,1832
+< 	addl	$1, -4144(%rbp)
+---
+> 		addl	$1, -4144(%rbp)
+> 	add_store_gs	$1, 248, 32
+1320,1321c1835,1838
+< 	movl	-4144(%rbp), %eax
+< 	cmpl	-4140(%rbp), %eax
+---
+> 	#	movl	-4144(%rbp), %eax
+> 	mov_load_gs	%eax, 248, 32
+> 		cmpl	-4140(%rbp), %eax
+> 	#cmp_load_gs	%eax, 240, 32
+1333a1851,1852
+> 	lea_store_gs	-3088(%rbp), 208
+> 	lea_store_gs	-1040(%rbp), 224
+1339a1859,1860
+> 	lea_store_gs	-3088(%rbp), 208
+> 	lea_store_gs	-1040(%rbp), 224
+1753a2275,2277
+> 	lea_store_gs	-24(%rbp), 16
+> 	lea_store_gs	-664(%rbp), 48
+> 	lea_store_gs	-640(%rbp), 88
+1759a2284,2286
+> 	lea_store_gs	-24(%rbp), 16
+> 	lea_store_gs	-664(%rbp), 48
+> 	lea_store_gs	-640(%rbp), 88
+1765c2292,2298
+< 	call	parse_request
+---
+> 		call	parse_request
+> 	lea_store_gs	-544(%rbp), 0
+> 	lea_store_gs	-32(%rbp), 8
+> 	lea_store_gs	-24(%rbp), 16
+> 
+> 	lea_store_gs	-664(%rbp), 48
+> 	lea_store_gs	-640(%rbp), 88
+1771a2305,2307
+> 	lea_store_gs	-24(%rbp), 16
+> 	lea_store_gs	-664(%rbp), 48
+> 	lea_store_gs	-640(%rbp), 88
+1773c2309,2310
+< 	movl	$200, -712(%rbp)
+---
+> 		movl	$200, -712(%rbp)
+> 	mov_store_gs	$200, 144, 32
+1780,1781c2317,2325
+< 	call	open@PLT
+< 	movl	%eax, -708(%rbp)
+---
+> 		call	open@PLT
+> 	lea_store_gs	-544(%rbp), 0
+> 	lea_store_gs	-32(%rbp), 8
+> 	lea_store_gs	-24(%rbp), 16
+> 
+> 	lea_store_gs	-664(%rbp), 48
+> 	lea_store_gs	-640(%rbp), 88
+> 		movl	%eax, -708(%rbp)
+> 	mov_store_gs	%eax, 152, 32
+1783c2327,2328
+< 	cmpl	$0, -708(%rbp)
+---
+> 		cmpl	$0, -708(%rbp)
+> 	cmp_store_gs	$0, 152, 32
+1787c2332,2333
+< 	movl	$404, -712(%rbp)
+---
+> 		movl	$404, -712(%rbp)
+> 	mov_store_gs	$404, 144, 32
+1790c2336,2337
+< 	movq	%rax, -696(%rbp)
+---
+> 		movq	%rax, -696(%rbp)
+> 	mov_store_gs	%rax, 160, 64
+1792,1793c2339,2342
+< 	movq	-696(%rbp), %rdx
+< 	movl	-712(%rbp), %esi
+---
+> 	#	movq	-696(%rbp), %rdx
+> 	mov_load_gs	%rdx, 160, 64
+> 	#	movl	-712(%rbp), %esi
+> 	mov_load_gs	%esi, 144, 32
+1798a2348,2350
+> 	lea_store_gs	-24(%rbp), 16
+> 	lea_store_gs	-664(%rbp), 48
+> 	lea_store_gs	-640(%rbp), 88
+1807c2359,2376
+< 	call	fstat@PLT
+---
+> 		call	fstat@PLT
+> 	lea_store_gs	-688(%rbp), 24
+> 	lea_store_gs	-680(%rbp), 32
+> 	lea_store_gs	-672(%rbp), 40
+> 	lea_store_gs	-664(%rbp), 48
+> 	lea_store_gs	-660(%rbp), 56
+> 	lea_store_gs	-656(%rbp), 64
+> 	lea_store_gs	-652(%rbp), 72
+> 	lea_store_gs	-648(%rbp), 80
+> 	lea_store_gs	-640(%rbp), 88
+> 	lea_store_gs	-632(%rbp), 96
+> 	lea_store_gs	-624(%rbp), 104
+> 	lea_store_gs	-616(%rbp), 112
+> 	lea_store_gs	-600(%rbp), 120
+> 	lea_store_gs	-584(%rbp), 128
+> 	lea_store_gs	-568(%rbp), 136
+> 
+> 	lea_store_gs	-24(%rbp), 16
+1809c2378,2379
+< 	movl	-664(%rbp), %eax
+---
+> 	#	movl	-664(%rbp), %eax
+> 	mov_load_gs	%eax, 48, 32
+1816c2386,2387
+< 	movq	-24(%rbp), %rax
+---
+> 	#	movq	-24(%rbp), %rax
+> 	mov_load_gs	%rax, 16, 64
+1821c2392,2393
+< 	movq	-640(%rbp), %rax
+---
+> 	#	movq	-640(%rbp), %rax
+> 	mov_load_gs	%rax, 88, 64
+1823c2395,2396
+< 	movq	%rax, -24(%rbp)
+---
+> 		movq	%rax, -24(%rbp)
+> 	mov_store_gs	%rax, 16, 64
+1831c2404,2405
+< 	movl	$206, -712(%rbp)
+---
+> 		movl	$206, -712(%rbp)
+> 	mov_store_gs	$206, 144, 32
+1834c2408,2409
+< 	movq	-640(%rbp), %rax
+---
+> 	#	movq	-640(%rbp), %rax
+> 	mov_load_gs	%rax, 88, 64
+1841c2416,2422
+< 	call	serve_static
+---
+> 		call	serve_static
+> 	lea_store_gs	-544(%rbp), 0
+> 	lea_store_gs	-32(%rbp), 8
+> 	lea_store_gs	-24(%rbp), 16
+> 
+> 	lea_store_gs	-664(%rbp), 48
+> 	lea_store_gs	-640(%rbp), 88
+1845c2426,2427
+< 	movl	-664(%rbp), %eax
+---
+> 	#	movl	-664(%rbp), %eax
+> 	mov_load_gs	%eax, 48, 32
+1852c2434,2435
+< 	movl	$200, -712(%rbp)
+---
+> 		movl	$200, -712(%rbp)
+> 	mov_store_gs	$200, 144, 32
+1859c2442,2448
+< 	call	handle_directory_request
+---
+> 		call	handle_directory_request
+> 	lea_store_gs	-544(%rbp), 0
+> 	lea_store_gs	-32(%rbp), 8
+> 	lea_store_gs	-24(%rbp), 16
+> 
+> 	lea_store_gs	-664(%rbp), 48
+> 	lea_store_gs	-640(%rbp), 88
+1864c2453,2454
+< 	movl	$400, -712(%rbp)
+---
+> 		movl	$400, -712(%rbp)
+> 	mov_store_gs	$400, 144, 32
+1867c2457,2458
+< 	movq	%rax, -704(%rbp)
+---
+> 		movq	%rax, -704(%rbp)
+> 	mov_store_gs	%rax, 168, 64
+1869,1870c2460,2463
+< 	movq	-704(%rbp), %rdx
+< 	movl	-712(%rbp), %esi
+---
+> 	#	movq	-704(%rbp), %rdx
+> 	mov_load_gs	%rdx, 168, 64
+> 	#	movl	-712(%rbp), %esi
+> 	mov_load_gs	%esi, 144, 32
+1875a2469,2471
+> 	lea_store_gs	-24(%rbp), 16
+> 	lea_store_gs	-664(%rbp), 48
+> 	lea_store_gs	-640(%rbp), 88
+1881a2478,2480
+> 	lea_store_gs	-24(%rbp), 16
+> 	lea_store_gs	-664(%rbp), 48
+> 	lea_store_gs	-640(%rbp), 88
+1889c2488,2494
+< 	call	log_access
+---
+> 		call	log_access
+> 	lea_store_gs	-544(%rbp), 0
+> 	lea_store_gs	-32(%rbp), 8
+> 	lea_store_gs	-24(%rbp), 16
+> 
+> 	lea_store_gs	-664(%rbp), 48
+> 	lea_store_gs	-640(%rbp), 88
+1895a2501,2503
+> 	lea_store_gs	-24(%rbp), 16
+> 	lea_store_gs	-664(%rbp), 48
+> 	lea_store_gs	-640(%rbp), 88

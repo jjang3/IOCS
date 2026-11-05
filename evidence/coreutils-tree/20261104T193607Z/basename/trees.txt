@@ -1,0 +1,92 @@
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# basename, 14 function(s) on the taint path.
+
+(no pointer offset trees)
+
+# Function summaries (function trees' nodes)
+base_len: params name@-24*
+base_name: params name@-24*
+    0x2e99 call last_component(0:-24)
+    0x2eb4 call base_len(0:-24)
+    0x2ec6 call xstrndup(0:-24)
+    0x2ed4 call base_len(0:-8)
+    0x2f02 call xstrndup(0:-8)
+c_strcasecmp: params s1@-40*, s2@-48*
+    0x5ba9 call c_tolower()
+    0x5bb9 call c_tolower()
+c_tolower: params c@-4
+clear_ungetc_buffer_preserving_position: params fp@-8*
+    0x5e15 call rpl_fseeko(0:-8)
+close_stream: params stream@-24*
+    0x5c30 call rpl_fclose(0:-24)
+emit_ancillary_info: params program@-168*
+emit_mandatory_arg_note: params -
+gettext_quote: params msgid@-24*, s@-28
+    0x33d6 call locale_charset()
+    0x33ed call c_strcasecmp(0:-8)
+    0x3421 call c_strcasecmp(0:-8)
+hard_locale: params category@-20
+last_component: params name@-40*
+locale_charset: params -
+main: params argc@-20, argv@-32*
+    0x2b09 call set_program_name()
+    0x2b29 call atexit()
+    0x2bb9 call usage()
+    0x2bf2 call version_etc()
+    0x2c06 call usage()
+    0x2c3c call usage()
+    0x2c7b call quote()
+    0x2ca3 call usage()
+    0x2cd8 call perform_basename(1:-8, 2:-13)
+    0x2d51 call perform_basename(2:-13)
+perform_basename: params string@-24*, suffix@-32*, use_nuls@-36
+    0x2a64 call base_name(0:-24)
+    0x2a74 call strip_trailing_slashes(0:-8)
+    0x2a99 call remove_suffix(0:-8, 1:-32)
+quote: params arg@-8*
+    0x4f74 call quote_n(1:-8)
+quote_n: params n@-4, arg@-16*
+    0x4f51 call quote_n_mem(0:-4, 1:-16)
+quote_n_mem: params n@-4, arg@-16*, argsize@-24
+    0x4ef9 call quotearg_n_options(0:-4, 1:-16, 2:-24)
+quotearg_buffer_restyled: params buffer@-136*, buffersize@-144, arg@-152*, argsize@-160, quoting_style@-164, flags@-168, quote_these_too@-176*, left_quote@-184*, right_quote@-192*
+    0x35ca call gettext_quote(1:-164)
+    0x35e5 call gettext_quote(1:-164)
+    0x3d10 call rpl_mbrtowc(0:&-108, 3:&-32)
+    0x4309 call quotearg_buffer_restyled(0:-136, 1:-88, 2:-152, 3:-160, 6:-224, 7:-216, 8:-208)
+    0x442c call quotearg_buffer_restyled(0:-136, 1:-144, 2:-152, 3:-160, 7:-216, 8:-208)
+quotearg_n_options: params n@-52, arg@-64*, argsize@-72, options@-80*
+    0x4782 call xalloc_die()
+    0x47ad call xrealloc()
+    0x48af call quotearg_buffer_restyled(0:-24, 1:-16, 2:-64, 3:-72, 5:-36, 6:-112, 7:-104, 8:-96)
+    0x4910 call xcharalloc(0:-16)
+    0x4979 call quotearg_buffer_restyled(0:-24, 1:-16, 2:-64, 3:-72, 5:-36, 6:-112, 7:-104, 8:-96)
+remove_suffix: params name@-24*, suffix@-32*
+rpl_fclose: params fp@-24*
+    0x5da7 call rpl_fflush(0:-24)
+rpl_fflush: params stream@-8*
+    0x5e59 call clear_ungetc_buffer_preserving_position(0:-8)
+rpl_fseeko: params fp@-24*, offset@-32, whence@-36
+rpl_mbrtowc: params pwc@-40*, s@-48*, n@-56, ps@-64*
+    0x5b33 call hard_locale()
+set_program_name: params argv0@-24*
+strip_trailing_slashes: params file@-40*
+    0x2fdf call last_component(0:-40)
+    0x3002 call base_len(0:-16)
+usage: params status@-4
+    0x290c call emit_mandatory_arg_note()
+    0x29ab call emit_ancillary_info()
+version_etc: params stream@-216*, command_name@-224*, package@-232*, version@-240*
+    0x5659 call version_etc_va(0:-216, 1:-224, 2:-232, 3:-240, 4:&-208)
+version_etc_arn: params stream@-24*, command_name@-32*, package@-40*, version@-48*, authors@-56*, n_authors@-64
+version_etc_va: params stream@-120*, command_name@-128*, package@-136*, version@-144*, authors@-152*
+    0x5578 call version_etc_arn(0:-120, 1:-128, 2:-136, 3:-144, 4:&-96, 5:-104)
+xalloc_die: params -
+xcharalloc: params n@-8
+    0x5885 call xmalloc(0:-8)
+xmalloc: params n@-24
+    0x58ba call xalloc_die()
+xrealloc: params p@-8*, n@-16
+    0x591f call xalloc_die()
+xstrndup: params string@-24*, n@-32
+    0x5abf call xalloc_die()

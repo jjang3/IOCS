@@ -1,0 +1,4 @@
+$ D bash benchmarks/coreutils/coreutils.sh pwd bitcode
+pwd: 33304 bytes of bitcode
+
+[exit 0]

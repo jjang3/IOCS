@@ -1,0 +1,6 @@
+compartments: 4 (slots the rewritten code uses)
+table slots: 4 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 main -288(%rbp) clientaddr
+used      1 parse_request -4128(%rbp) rio
+used      2 process -544(%rbp) req
+used      3 writen -56(%rbp) n

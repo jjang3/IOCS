@@ -1,0 +1,4 @@
+$ D ./iocs.sh cp dta
+Dynamic taint analysis
+
+[exit 0]

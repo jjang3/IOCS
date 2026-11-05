@@ -1,0 +1,363 @@
+Hybrid taint report for cp
+  DTA: 42 functions executed on the input path (54 calls)
+  SUTURE: 80 entry functions configured; warnings in 3 functions (49 warnings); taint propagated into 8 functions
+
+'found by' counts SUTURE as finding a function when SUTURE reports a warning in it (the
+functions named in its report, .taint/.vuln). 'taint flows' counts the flows SUTURE's log
+shows propagating into the function, whether or not a detector warned there.
+
+function                     DTA calls  SUTURE entry     warnings  taint flows  found by
+do_copy                              1  MY_IOCTL 0_4           14           92  both
+atexit                               1                          0            0  DTA only
+buffer_lcm                           1                          0            0  DTA only
+check_tuning                         1                          0            0  DTA only
+clear_ungetc_buffer_preserving_position         1                          0            0  DTA only
+close_stdout                         1                          0            0  DTA only
+close_stream                         3                          0            0  DTA only
+compute_bucket_size                  1                          0            0  DTA only
+copy                                 1  MY_IOCTL 0_5            0            0  DTA only
+copy_internal                        1  MY_IOCTL 0_9            0            0  DTA only
+copy_reg                             1                          0            0  DTA only
+cp_option_init                       1                          0            0  DTA only
+cp_options_default                   1                          0            0  DTA only
+fd_safer                             2                          0            0  DTA only
+fdadvise                             1                          0            0  DTA only
+freadahead                           1                          0            0  DTA only
+fstatat                              1  MY_IOCTL 0_3            0            0  DTA only
+full_write                           1                          0            0  DTA only
+hash_init                            1                          0            0  DTA only
+hash_initialize                      1                          0            0  DTA only
+io_blksize                           2                          0            0  DTA only
+is_prime                             2                          0            0  DTA only
+is_probably_sparse                   1                          0            0  DTA only
+next_prime                           1                          0            0  DTA only
+open_safer                           2                          0            0  DTA only
+ptr_align                            1                          0            0  DTA only
+rpl_fclose                           3                          0            0  DTA only
+rpl_fflush                           3                          0            0  DTA only
+safe_write                           1                          0            0  DTA only
+set_author                           1                          0            0  DTA only
+set_process_security_ctx             1  MY_IOCTL 0_4            0            0  DTA only
+set_program_name                     1  MY_IOCTL 0_0            0            0  DTA only
+set_simple_backup_suffix             1                          0            0  DTA only
+should_dereference                   1                          0            0  DTA only
+sparse_copy                          1                          0            0  DTA only
+target_directory_operand             1  MY_IOCTL 0_3            0           53  DTA only
+valid_options                        1                          0            0  DTA only
+xmalloc                              1  MY_IOCTL 0_0            0            0  DTA only
+make_dir_parents_private             0  MY_IOCTL 0_5           27          244  SUTURE only
+re_protect                           0  MY_IOCTL 0_3            8           79  SUTURE only
+abandon_move                         0  MY_IOCTL 0_2            0            0  neither
+allocate_entry                       0                          0            0  neither
+areadlink_with_size                  0  MY_IOCTL 0_1            0            0  neither
+argmatch                             0                          0            0  neither
+argmatch_invalid                     0                          0            0  neither
+argmatch_to_argument                 0                          0            0  neither
+argmatch_valid                       0                          0            0  neither
+backup_file_rename                   0  MY_IOCTL 0_2            0            0  neither
+backupfile_internal                  0  MY_IOCTL 0_3            0            0  neither
+base_len                             0  MY_IOCTL 0_0            0            0  neither
+c_isalnum                            0                          0            0  neither
+c_isalpha                            0                          0            0  neither
+c_isascii                            0                          0            0  neither
+c_isblank                            0                          0            0  neither
+c_iscntrl                            0                          0            0  neither
+c_isdigit                            0                          0            0  neither
+c_isgraph                            0                          0            0  neither
+c_islower                            0                          0            0  neither
+c_isprint                            0                          0            0  neither
+c_ispunct                            0                          0            0  neither
+c_isspace                            0                          0            0  neither
+c_isupper                            0                          0            0  neither
+c_isxdigit                           0                          0            0  neither
+c_strcasecmp                         0                          0            0  neither
+c_tolower                            0                          0            0  neither
+c_toupper                            0                          0            0  neither
+cached_umask                         0                          0            0  neither
+can_write_any_file                   0                          0            0  neither
+cdb_advance_fd                       0                          0            0  neither
+cdb_fchdir                           0                          0            0  neither
+cdb_free                             0                          0            0  neither
+cdb_init                             0                          0            0  neither
+chdir_long                           0                          0            0  neither
+check_extension                      0  MY_IOCTL 0_4            0            0  neither
+check_x_suffix                       0  MY_IOCTL 0_1            0            0  neither
+chmod_or_fchmod                      0  MY_IOCTL 0_2            0            0  neither
+chown_failure_ok                     0                          0            0  neither
+clone_file                           0                          0            0  neither
+clone_quoting_options                0                          0            0  neither
+close_stdin                          0                          0            0  neither
+close_stdin_set_file_name            0                          0            0  neither
+close_stdout_set_file_name           0                          0            0  neither
+close_stdout_set_ignore_EPIPE         0                          0            0  neither
+copy_acl                             0  MY_IOCTL 0_4            0            0  neither
+copy_attr                            0                          0            0  neither
+copy_dir                             0                          0            0  neither
+create_hard_link                     0  MY_IOCTL 0_4            0            0  neither
+create_hole                          0                          0            0  neither
+current_timespec                     0                          0            0  neither
+decode_preserve_arg                  0                          0            0  neither
+defaultcon                           0                          0            0  neither
+dest_info_init                       0                          0            0  neither
+dev_info_compare                     0                          0            0  neither
+dev_info_hash                        0                          0            0  neither
+dir_len                              0  MY_IOCTL 0_0            0            0  neither
+dir_name                             0  MY_IOCTL 0_0            0            0  neither
+direntry_cmp_name                    0                          0            0  neither
+dot_or_dotdot                        0  MY_IOCTL 0_0            0            0  neither
+dup_safer                            0                          0            0  neither
+emit_ancillary_info                  0                          0            3  neither
+emit_backup_suffix_note              0                          0            6  neither
+emit_bug_reporting_address           0                          0            0  neither
+emit_mandatory_arg_note              0                          0            3  neither
+emit_verbose                         0  MY_IOCTL 0_2            0            0  neither
+errno_fail                           0                          0            0  neither
+errno_unsupported                    0                          0            0  neither
+extent_copy                          0                          0            0  neither
+extent_need_sync                     0                          0            0  neither
+extent_scan_free                     0                          0            0  neither
+extent_scan_init                     0                          0            0  neither
+extent_scan_read                     0                          0            0  neither
+fadvise                              0                          0            0  neither
+fchmod_or_lchmod                     0                          0            0  neither
+fdutimens                            0  MY_IOCTL 0_2            0            0  neither
+fgetfilecon                          0                          0            0  neither
+file_name_concat                     0  MY_IOCTL 0_2            0            0  neither
+filemodestring                       0                          0            0  neither
+find_backup_file_name                0  MY_IOCTL 0_2            0            0  neither
+find_non_slash                       0                          0            0  neither
+fopen_safer                          0                          0            0  neither
+force_linkat                         0  MY_IOCTL 0_6            0            0  neither
+force_symlinkat                      0  MY_IOCTL 0_4            0            0  neither
+forget_all                           0                          0            0  neither
+forget_created                       0                          0            0  neither
+free_cwd                             0                          0            0  neither
+free_entry                           0                          0            0  neither
+free_permission_context              0                          0            0  neither
+freecon                              0                          0            0  neither
+fsetfilecon                          0                          0            0  neither
+ftypelet                             0                          0            0  neither
+gen_tempname                         0                          0            0  neither
+gen_tempname_len                     0                          0            0  neither
+get_nonce                            0                          0            0  neither
+get_permissions                      0  MY_IOCTL 0_3            0            0  neither
+get_quoting_style                    0                          0            0  neither
+get_stat_atime                       0                          0            0  neither
+get_stat_atime_ns                    0                          0            0  neither
+get_stat_birthtime                   0                          0            0  neither
+get_stat_birthtime_ns                0                          0            0  neither
+get_stat_ctime                       0                          0            0  neither
+get_stat_ctime_ns                    0                          0            0  neither
+get_stat_mtime                       0                          0            0  neither
+get_stat_mtime_ns                    0                          0            0  neither
+get_version                          0                          0            0  neither
+getcon                               0                          0            0  neither
+getfilecon                           0                          0            0  neither
+getfscreatecon                       0                          0            0  neither
+gettext_quote                        0                          0            0  neither
+gettime                              0                          0            0  neither
+hard_locale                          0                          0            0  neither
+hash_clear                           0                          0            0  neither
+hash_delete                          0                          0            0  neither
+hash_do_for_each                     0                          0            0  neither
+hash_find_entry                      0                          0            0  neither
+hash_free                            0                          0            0  neither
+hash_get_entries                     0                          0            0  neither
+hash_get_first                       0                          0            0  neither
+hash_get_max_bucket_length           0                          0            0  neither
+hash_get_n_buckets                   0                          0            0  neither
+hash_get_n_buckets_used              0                          0            0  neither
+hash_get_n_entries                   0                          0            0  neither
+hash_get_next                        0                          0            0  neither
+hash_insert                          0                          0            0  neither
+hash_insert_if_absent                0                          0            0  neither
+hash_lookup                          0                          0            0  neither
+hash_pjw                             0                          0            0  neither
+hash_print_statistics                0                          0            0  neither
+hash_rehash                          0                          0            0  neither
+hash_reset_tuning                    0                          0            0  neither
+hash_string                          0                          0            0  neither
+hash_table_ok                        0                          0            0  neither
+ignorable_ctx_err                    0                          0            0  neither
+ind                                  0                          0            0  neither
+is_ENOTSUP                           0                          0            0  neither
+is_ancestor                          0                          0            0  neither
+is_nul                               0                          0            0  neither
+isaac_refill                         0                          0            0  neither
+isaac_seed                           0                          0            0  neither
+just                                 0                          0            0  neither
+last_component                       0  MY_IOCTL 0_0            0            0  neither
+lgetfilecon                          0                          0            0  neither
+local_utimensat                      0  MY_IOCTL 0_3            0            0  neither
+locale_charset                       0                          0            0  neither
+lsetfilecon                          0                          0            0  neither
+lstatat                              0  MY_IOCTL 0_2            0            0  neither
+lutimens                             0  MY_IOCTL 0_1            0            0  neither
+lutimensat                           0                          0            0  neither
+main                                 0                          0            0  neither
+matchpathcon                         0                          0            0  neither
+matchpathcon_init_prefix             0                          0            0  neither
+mdir_name                            0  MY_IOCTL 0_0            0            0  neither
+mfile_name_concat                    0  MY_IOCTL 0_2            0            0  neither
+numbered_backup                      0  MY_IOCTL 0_6            0            0  neither
+openat_proc_name                     0  MY_IOCTL 0_2            0            0  neither
+openat_restore_fail                  0                          0            0  neither
+openat_safer                         0                          0            0  neither
+openat_save_fail                     0                          0            0  neither
+opendir_safer                        0                          0            0  neither
+opendirat                            0                          0            0  neither
+overwrite_ok                         0  MY_IOCTL 0_2            0            0  neither
+owner_failure_ok                     0                          0            0  neither
+punch_hole                           0                          0            0  neither
+qcopy_acl                            0  MY_IOCTL 0_4            0            0  neither
+qset_acl                             0  MY_IOCTL 0_2            0            0  neither
+quote                                0  MY_IOCTL 0_0            0            0  neither
+quote_mem                            0                          0            0  neither
+quote_n                              0  MY_IOCTL 0_1            0            0  neither
+quote_n_mem                          0  MY_IOCTL 0_2            0            0  neither
+quotearg                             0                          0            0  neither
+quotearg_alloc                       0                          0            0  neither
+quotearg_alloc_mem                   0                          0            0  neither
+quotearg_buffer                      0                          0            0  neither
+quotearg_buffer_restyled             0  MY_IOCTL 0_8            0            0  neither
+quotearg_char                        0                          0            0  neither
+quotearg_char_mem                    0                          0            0  neither
+quotearg_colon                       0                          0            0  neither
+quotearg_colon_mem                   0                          0            0  neither
+quotearg_custom                      0                          0            0  neither
+quotearg_custom_mem                  0                          0            0  neither
+quotearg_free                        0                          0            0  neither
+quotearg_mem                         0                          0            0  neither
+quotearg_n                           0                          0            0  neither
+quotearg_n_custom                    0                          0            0  neither
+quotearg_n_custom_mem                0                          0            0  neither
+quotearg_n_mem                       0                          0            0  neither
+quotearg_n_options                   0  MY_IOCTL 0_3            0            0  neither
+quotearg_n_style                     0  MY_IOCTL 0_2            0            0  neither
+quotearg_n_style_colon               0  MY_IOCTL 0_2            0            0  neither
+quotearg_n_style_mem                 0                          0            0  neither
+quotearg_style                       0  MY_IOCTL 0_1            0            0  neither
+quotearg_style_mem                   0                          0            0  neither
+quoting_options_from_style           0                          0            0  neither
+randint_all_free                     0                          0            0  neither
+randint_all_new                      0                          0            0  neither
+randint_free                         0                          0            0  neither
+randint_genmax                       0                          0            0  neither
+randint_get_source                   0                          0            0  neither
+randint_new                          0                          0            0  neither
+randread                             0                          0            0  neither
+randread_error                       0                          0            0  neither
+randread_free                        0                          0            0  neither
+randread_new                         0                          0            0  neither
+randread_set_handler                 0                          0            0  neither
+randread_set_handler_arg             0                          0            0  neither
+raw_comparator                       0                          0            0  neither
+raw_hasher                           0                          0            0  neither
+readisaac                            0                          0            0  neither
+readsource                           0                          0            0  neither
+record_file                          0  MY_IOCTL 0_2            0            0  neither
+remember_copied                      0  MY_IOCTL 0_2            0            0  neither
+renameatu                            0  MY_IOCTL 0_4            0            0  neither
+restore_cwd                          0                          0            0  neither
+restore_default_fscreatecon_or_die         0                          0            0  neither
+restorecon                           0                          0            0  neither
+rotl16                               0                          0            0  neither
+rotl32                               0                          0            0  neither
+rotl64                               0                          0            0  neither
+rotl8                                0                          0            0  neither
+rotl_sz                              0                          0            0  neither
+rotr16                               0                          0            0  neither
+rotr32                               0                          0            0  neither
+rotr64                               0                          0            0  neither
+rotr8                                0                          0            0  neither
+rotr_sz                              0                          0            0  neither
+rpl_chown                            0  MY_IOCTL 0_2            0            0  neither
+rpl_fcntl                            0                          0            0  neither
+rpl_fcntl_DUPFD                      0                          0            0  neither
+rpl_fcntl_DUPFD_CLOEXEC              0                          0            0  neither
+rpl_fseeko                           0                          0            0  neither
+rpl_lchown                           0  MY_IOCTL 0_2            0            0  neither
+rpl_mbrtowc                          0  MY_IOCTL 0_3            0            0  neither
+rpl_mknod                            0  MY_IOCTL 0_2            0            0  neither
+rpl_utimensat                        0  MY_IOCTL 0_3            0            0  neither
+safe_hasher                          0                          0            0  neither
+same_file_ok                         0  MY_IOCTL 0_5            0            0  neither
+same_name                            0  MY_IOCTL 0_1            0            0  neither
+same_nameat                          0  MY_IOCTL 0_3            0            0  neither
+samedir_template                     0  MY_IOCTL 0_1            0            0  neither
+save_cwd                             0                          0            0  neither
+savedir                              0                          0            0  neither
+se_const                             0                          0            0  neither
+security_check_context               0                          0            0  neither
+security_check_context_raw           0                          0            0  neither
+security_compute_create              0                          0            0  neither
+seen_file                            0  MY_IOCTL 0_2            0            0  neither
+set_acl                              0  MY_IOCTL 0_2            0            0  neither
+set_char_quoting                     0                          0            0  neither
+set_custom_quoting                   0                          0            0  neither
+set_file_security_ctx                0  MY_IOCTL 0_3            0            0  neither
+set_owner                            0  MY_IOCTL 0_5            0            0  neither
+set_permissions                      0  MY_IOCTL 0_2            0            0  neither
+set_quoting_flags                    0                          0            0  neither
+set_quoting_style                    0                          0            0  neither
+setexeccon                           0                          0            0  neither
+setfilecon                           0                          0            0  neither
+setfscreatecon                       0                          0            0  neither
+shift_left                           0                          0            0  neither
+simple_new                           0                          0            0  neither
+source_is_dst_backup                 0  MY_IOCTL 0_2            0            0  neither
+src_info_init                        0                          0            0  neither
+src_to_dest_compare                  0                          0            0  neither
+src_to_dest_free                     0                          0            0  neither
+src_to_dest_hash                     0                          0            0  neither
+src_to_dest_lookup                   0                          0            0  neither
+stat_time_normalize                  0                          0            0  neither
+statat                               0                          0            0  neither
+streamsavedir                        0                          0            0  neither
+string_to_security_class             0                          0            0  neither
+strip_trailing_slashes               0  MY_IOCTL 0_0            0            0  neither
+strmode                              0                          0            0  neither
+transfer_entries                     0                          0            0  neither
+triple_compare                       0                          0            0  neither
+triple_compare_ino_str               0                          0            0  neither
+triple_free                          0                          0            0  neither
+triple_hash                          0                          0            0  neither
+triple_hash_no_name                  0                          0            0  neither
+try_dir                              0                          0            0  neither
+try_file                             0                          0            0  neither
+try_link                             0                          0            0  neither
+try_nocreate                         0                          0            0  neither
+try_symlink                          0                          0            0  neither
+try_tempname                         0                          0            0  neither
+try_tempname_len                     0  MY_IOCTL 0_4            0            0  neither
+update_timespec                      0                          0            0  neither
+usage                                0                          0           66  neither
+utimecmp                             0  MY_IOCTL 0_3            0            0  neither
+utimecmpat                           0  MY_IOCTL 0_4            0            0  neither
+utimens                              0  MY_IOCTL 0_1            0            0  neither
+utimens_symlink                      0  MY_IOCTL 0_1            0            0  neither
+validate_timespec                    0                          0            0  neither
+version_etc                          0                          0            0  neither
+version_etc_ar                       0                          0            0  neither
+version_etc_arn                      0                          0            0  neither
+version_etc_va                       0                          0            0  neither
+writable_destination                 0  MY_IOCTL 0_1            0            0  neither
+write_zeros                          0                          0            0  neither
+x2nrealloc                           0                          0            0  neither
+x2realloc                            0                          0            0  neither
+xalloc_die                           0                          0            0  neither
+xcalloc                              0                          0            0  neither
+xcharalloc                           0  MY_IOCTL 0_0            0            0  neither
+xget_version                         0                          0            0  neither
+xmemdup                              0  MY_IOCTL 0_1            0            0  neither
+xnmalloc                             0                          0            0  neither
+xnrealloc                            0                          0            0  neither
+xrealloc                             0                          0            0  neither
+xstrdup                              0  MY_IOCTL 0_0            0            0  neither
+xzalloc                              0                          0            0  neither
+yesno                                0                          0            0  neither
+
+both: do_copy
+DTA only: atexit, buffer_lcm, check_tuning, clear_ungetc_buffer_preserving_position, close_stdout, close_stream, compute_bucket_size, copy, copy_internal, copy_reg, cp_option_init, cp_options_default, fd_safer, fdadvise, freadahead, fstatat, full_write, hash_init, hash_initialize, io_blksize, is_prime, is_probably_sparse, next_prime, open_safer, ptr_align, rpl_fclose, rpl_fflush, safe_write, set_author, set_process_security_ctx, set_program_name, set_simple_backup_suffix, should_dereference, sparse_copy, target_directory_operand, valid_options, xmalloc
+SUTURE only: make_dir_parents_private, re_protect
+SUTURE taint reached but no warning: emit_ancillary_info, emit_backup_suffix_note, emit_mandatory_arg_note, target_directory_operand, usage

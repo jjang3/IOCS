@@ -1,0 +1,213 @@
+$ in_image iocs-nginx-build:20.04 env COREUTILS_HOME=/iocs/build/coreutils/coreutils-8.31 IOCS_RESULT_DIR=/iocs/build/sweep/result bash -c for u; do bash benchmarks/coreutils/coreutils.sh "$u" migrate && bash benchmarks/coreutils/coreutils.sh "$u" all-functions || echo "SWEEP $u migrate FAILED"; done _ chroot hostid timeout nice who users pinky uptime stty df stdbuf b2sum base64 base32 basenc basename cat chcon chgrp chmod chown cksum comm cp csplit cut date dd dir dircolors dirname du echo env expand expr factor false fmt fold ginstall groups head id join kill link ln logname ls md5sum mkdir mkfifo mknod mktemp mv nl nproc nohup numfmt od paste pathchk pr printenv printf ptx pwd readlink realpath rm rmdir runcon seq sha1sum sha224sum sha256sum sha384sum sha512sum shred shuf sleep sort split stat sum sync tac tail tee test touch tr true truncate tsort tty uname unexpand uniq unlink vdir wc whoami yes
+chroot: 1 objects, 430 lines in src/chroot.c
+chroot: 10 functions targeted
+hostid: 1 objects, 86 lines in src/hostid.c
+hostid: 3 functions targeted
+timeout: 2 objects, 577 lines in src/timeout.c
+timeout: 17 functions targeted
+nice: 1 objects, 221 lines in src/nice.c
+nice: 6 functions targeted
+who: 1 objects, 836 lines in src/who.c
+who: 21 functions targeted
+users: 1 objects, 150 lines in src/users.c
+users: 6 functions targeted
+pinky: 1 objects, 602 lines in src/pinky.c
+pinky: 16 functions targeted
+uptime: 1 objects, 256 lines in src/uptime.c
+uptime: 6 functions targeted
+stty: 1 objects, 2322 lines in src/stty.c
+stty: 28 functions targeted
+df: 2 objects, 1846 lines in src/df.c
+df: 39 functions targeted
+stdbuf: 1 objects, 394 lines in src/stdbuf.c
+stdbuf: 10 functions targeted
+b2sum: 3 objects, ? lines in src/b2sum.c
+b2sum: 33 functions targeted
+base64: 1 objects, ? lines in src/base64.c
+base64: 8 functions targeted
+base32: 1 objects, ? lines in src/base32.c
+base32: 8 functions targeted
+basenc: 1 objects, 1267 lines in src/basenc.c
+basenc: 41 functions targeted
+basename: 1 objects, 190 lines in src/basename.c
+basename: 6 functions targeted
+cat: 1 objects, 767 lines in src/cat.c
+cat: 10 functions targeted
+chcon: 1 objects, 587 lines in src/chcon.c
+chcon: 9 functions targeted
+chgrp: 2 objects, 319 lines in src/chgrp.c
+chgrp: 13 functions targeted
+chmod: 1 objects, 572 lines in src/chmod.c
+chmod: 7 functions targeted
+chown: 2 objects, 331 lines in src/chown.c
+chown: 12 functions targeted
+cksum: 1 objects, 310 lines in src/cksum.c
+cksum: 4 functions targeted
+comm: 1 objects, 499 lines in src/comm.c
+comm: 6 functions targeted
+cp: 6 objects, 1226 lines in src/cp.c
+cp: 73 functions targeted
+csplit: 1 objects, 1526 lines in src/csplit.c
+csplit: 44 functions targeted
+cut: 2 objects, 609 lines in src/cut.c
+cut: 18 functions targeted
+date: 1 objects, 604 lines in src/date.c
+date: 8 functions targeted
+dd: 1 objects, 2514 lines in src/dd.c
+dd: 49 functions targeted
+dir: 2 objects, ? lines in src/dir.c
+dir: 155 functions targeted
+dircolors: 1 objects, 509 lines in src/dircolors.c
+dircolors: 9 functions targeted
+dirname: 1 objects, 136 lines in src/dirname.c
+dirname: 3 functions targeted
+du: 1 objects, 1139 lines in src/du.c
+du: 19 functions targeted
+echo: 1 objects, 273 lines in src/echo.c
+echo: 4 functions targeted
+env: 2 objects, 952 lines in src/env.c
+env: 21 functions targeted
+expand: 2 objects, 238 lines in src/expand.c
+expand: 18 functions targeted
+expr: 1 objects, 1117 lines in src/expr.c
+expr: 42 functions targeted
+factor: 1 objects, 2661 lines in src/factor.c
+factor: 30 functions targeted
+false: 1 objects, 2 lines in src/false.c
+false: 3 functions targeted
+fmt: 1 objects, 1029 lines in src/fmt.c
+fmt: 23 functions targeted
+fold: 1 objects, 309 lines in src/fold.c
+fold: 8 functions targeted
+ginstall: 7 objects, ? lines in src/ginstall.c
+ginstall: 86 functions targeted
+groups: 2 objects, 145 lines in src/groups.c
+groups: 6 functions targeted
+head: 1 objects, 1095 lines in src/head.c
+head: 21 functions targeted
+id: 2 objects, 464 lines in src/id.c
+id: 12 functions targeted
+join: 1 objects, 1199 lines in src/join.c
+join: 27 functions targeted
+kill: 2 objects, 314 lines in src/kill.c
+kill: 8 functions targeted
+link: 1 objects, 93 lines in src/link.c
+link: 3 functions targeted
+ln: 3 objects, 668 lines in src/ln.c
+ln: 17 functions targeted
+logname: 1 objects, 82 lines in src/logname.c
+logname: 3 functions targeted
+ls: 2 objects, 5310 lines in src/ls.c
+ls: 155 functions targeted
+md5sum: 1 objects, 1110 lines in src/md5sum.c
+md5sum: 14 functions targeted
+mkdir: 3 objects, 296 lines in src/mkdir.c
+mkdir: 14 functions targeted
+mkfifo: 2 objects, 182 lines in src/mkfifo.c
+mkfifo: 8 functions targeted
+mknod: 2 objects, 275 lines in src/mknod.c
+mknod: 8 functions targeted
+mktemp: 1 objects, 350 lines in src/mktemp.c
+mktemp: 7 functions targeted
+mv: 7 objects, 512 lines in src/mv.c
+mv: 84 functions targeted
+nl: 1 objects, 600 lines in src/nl.c
+nl: 14 functions targeted
+nproc: 1 objects, 129 lines in src/nproc.c
+nproc: 3 functions targeted
+nohup: 1 objects, 225 lines in src/nohup.c
+nohup: 4 functions targeted
+numfmt: 2 objects, 1651 lines in src/numfmt.c
+numfmt: 40 functions targeted
+od: 1 objects, 1982 lines in src/od.c
+od: 38 functions targeted
+paste: 1 objects, 530 lines in src/paste.c
+paste: 11 functions targeted
+pathchk: 1 objects, 422 lines in src/pathchk.c
+pathchk: 8 functions targeted
+pr: 1 objects, 2847 lines in src/pr.c
+pr: 45 functions targeted
+printenv: 1 objects, 154 lines in src/printenv.c
+printenv: 4 functions targeted
+printf: 1 objects, 715 lines in src/printf.c
+printf: 13 functions targeted
+ptx: 1 objects, 2153 lines in src/ptx.c
+ptx: 26 functions targeted
+pwd: 1 objects, 394 lines in src/pwd.c
+pwd: 12 functions targeted
+readlink: 1 objects, 178 lines in src/readlink.c
+readlink: 3 functions targeted
+realpath: 2 objects, 278 lines in src/realpath.c
+realpath: 10 functions targeted
+rm: 2 objects, 373 lines in src/rm.c
+rm: 20 functions targeted
+rmdir: 2 objects, 251 lines in src/rmdir.c
+rmdir: 11 functions targeted
+runcon: 1 objects, 264 lines in src/runcon.c
+runcon: 4 functions targeted
+seq: 1 objects, 711 lines in src/seq.c
+seq: 15 functions targeted
+sha1sum: 1 objects, ? lines in src/sha1sum.c
+sha1sum: 14 functions targeted
+sha224sum: 1 objects, ? lines in src/sha224sum.c
+sha224sum: 14 functions targeted
+sha256sum: 1 objects, ? lines in src/sha256sum.c
+sha256sum: 14 functions targeted
+sha384sum: 1 objects, ? lines in src/sha384sum.c
+sha384sum: 14 functions targeted
+sha512sum: 1 objects, ? lines in src/sha512sum.c
+sha512sum: 14 functions targeted
+shred: 1 objects, 1313 lines in src/shred.c
+shred: 22 functions targeted
+shuf: 1 objects, 610 lines in src/shuf.c
+shuf: 17 functions targeted
+sleep: 1 objects, 146 lines in src/sleep.c
+sleep: 4 functions targeted
+sort: 1 objects, 4785 lines in src/sort.c
+sort: 105 functions targeted
+split: 1 objects, 1668 lines in src/split.c
+split: 26 functions targeted
+stat: 2 objects, 1706 lines in src/stat.c
+stat: 31 functions targeted
+sum: 1 objects, 273 lines in src/sum.c
+sum: 6 functions targeted
+sync: 1 objects, 239 lines in src/sync.c
+sync: 4 functions targeted
+tac: 1 objects, 713 lines in src/tac.c
+tac: 12 functions targeted
+tail: 1 objects, 2537 lines in src/tail.c
+tail: 42 functions targeted
+tee: 1 objects, 278 lines in src/tee.c
+tee: 5 functions targeted
+test: 1 objects, 867 lines in src/test.c
+test: 22 functions targeted
+touch: 1 objects, 438 lines in src/touch.c
+touch: 6 functions targeted
+tr: 1 objects, 1914 lines in src/tr.c
+tr: 38 functions targeted
+true: 1 objects, 80 lines in src/true.c
+true: 3 functions targeted
+truncate: 1 objects, 399 lines in src/truncate.c
+truncate: 8 functions targeted
+tsort: 1 objects, 566 lines in src/tsort.c
+tsort: 13 functions targeted
+tty: 1 objects, 133 lines in src/tty.c
+tty: 4 functions targeted
+uname: 2 objects, 376 lines in src/uname.c
+uname: 5 functions targeted
+unexpand: 2 objects, 326 lines in src/unexpand.c
+unexpand: 18 functions targeted
+uniq: 1 objects, 675 lines in src/uniq.c
+uniq: 11 functions targeted
+unlink: 1 objects, 88 lines in src/unlink.c
+unlink: 3 functions targeted
+vdir: 2 objects, ? lines in src/vdir.c
+vdir: 155 functions targeted
+wc: 1 objects, 895 lines in src/wc.c
+wc: 13 functions targeted
+whoami: 1 objects, 90 lines in src/whoami.c
+whoami: 3 functions targeted
+yes: 1 objects, 126 lines in src/yes.c
+yes: 4 functions targeted
+
+[exit 0]

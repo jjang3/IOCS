@@ -1,0 +1,4 @@
+$ C pwd migrate
+pwd: 1 objects, 394 lines in src/pwd.c
+
+[exit 0]

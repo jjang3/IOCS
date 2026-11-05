@@ -1,0 +1,5 @@
+# Tainted pointer parameters: lifted to the caller objects they point to, or kept in their
+# own slot (why). Variables without a compartment: kept-on-stack lines.
+own slot: compute_number_width fstatus@-48 (call of compute_number_width at 0x475f: main passes fstatus, a pointer not set from one frame address)
+own slot: get_input_fstatus file@-32 (call of get_input_fstatus at 0x473f: main passes files, a pointer not set from one frame address)
+own slot: wc fstatus@-16632 (call of wc_file at 0x49b4 passes no frame address)

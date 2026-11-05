@@ -1,0 +1,4 @@
+$ C ls migrate
+ls: 2 objects, 5310 lines in src/ls.c
+
+[exit 0]

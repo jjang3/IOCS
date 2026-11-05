@@ -1,0 +1,4 @@
+programs smoke-tested: 105, PASS 105
+tests: 616; orig PASS 404, tree PASS 404
+same result: 614; orig PASS but tree not: 1
+  tests/misc/env-null FAIL

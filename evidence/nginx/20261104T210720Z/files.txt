@@ -1,0 +1,12 @@
+1-build.log
+2-patch.log.xz
+3-relink.log
+4-serve-original.log
+5-serve-iocs.log
+6-serve-no-table.log
+env.txt
+patch-sites.txt
+rewritten-sites.txt
+sha256.txt
+summary.txt
+table.c

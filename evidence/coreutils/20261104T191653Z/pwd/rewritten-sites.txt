@@ -1,0 +1,50 @@
+pwd.s:1636: lea_store_gs -296(%rbp), 8    <- call getenv@PLT
+pwd.s:1637: lea_store_gs -152(%rbp), 128    <- lea_store_gs -296(%rbp), 8
+pwd.s:1639: mov_store_gs %rax, 240, 64    <- movq %rax, -312(%rbp)
+pwd.s:1642: cmp_store_gs $0, 240, 64    <- cmpq $0, -312(%rbp)
+pwd.s:1646: mov_load_gs %rax, 240, 64    <- # movq -312(%rbp), %rax
+pwd.s:1658: mov_load_gs %rax, 240, 64    <- # movq -312(%rbp), %rax
+pwd.s:1660: mov_store_gs %rax, 248, 64    <- movq %rax, -320(%rbp)
+pwd.s:1706: add_store_gs $1, 248, 64    <- addq $1, -320(%rbp)
+pwd.s:1713: lea_store_gs -296(%rbp), 8    <- call strstr@PLT
+pwd.s:1714: lea_store_gs -152(%rbp), 128    <- lea_store_gs -296(%rbp), 8
+pwd.s:1716: mov_store_gs %rax, 248, 64    <- movq %rax, -320(%rbp)
+pwd.s:1719: cmp_store_gs $0, 248, 64    <- cmpq $0, -320(%rbp)
+pwd.s:1724: mov_load_gs %rax, 240, 64    <- # movq -312(%rbp), %rax
+pwd.s:1728: lea_store_gs -304(%rbp), 0    <- call stat@PLT
+pwd.s:1729: lea_store_gs -296(%rbp), 8    <- lea_store_gs -304(%rbp), 0
+pwd.s:1730: lea_store_gs -288(%rbp), 16    <- lea_store_gs -296(%rbp), 8
+pwd.s:1731: lea_store_gs -280(%rbp), 24    <- lea_store_gs -288(%rbp), 16
+pwd.s:1732: lea_store_gs -276(%rbp), 32    <- lea_store_gs -280(%rbp), 24
+pwd.s:1733: lea_store_gs -272(%rbp), 40    <- lea_store_gs -276(%rbp), 32
+pwd.s:1734: lea_store_gs -268(%rbp), 48    <- lea_store_gs -272(%rbp), 40
+pwd.s:1735: lea_store_gs -264(%rbp), 56    <- lea_store_gs -268(%rbp), 48
+pwd.s:1736: lea_store_gs -256(%rbp), 64    <- lea_store_gs -264(%rbp), 56
+pwd.s:1737: lea_store_gs -248(%rbp), 72    <- lea_store_gs -256(%rbp), 64
+pwd.s:1738: lea_store_gs -240(%rbp), 80    <- lea_store_gs -248(%rbp), 72
+pwd.s:1739: lea_store_gs -232(%rbp), 88    <- lea_store_gs -240(%rbp), 80
+pwd.s:1740: lea_store_gs -216(%rbp), 96    <- lea_store_gs -232(%rbp), 88
+pwd.s:1741: lea_store_gs -200(%rbp), 104    <- lea_store_gs -216(%rbp), 96
+pwd.s:1742: lea_store_gs -184(%rbp), 112    <- lea_store_gs -200(%rbp), 104
+pwd.s:1744: lea_store_gs -152(%rbp), 128    <-
+pwd.s:1753: lea_store_gs -160(%rbp), 120    <- call stat@PLT
+pwd.s:1754: lea_store_gs -152(%rbp), 128    <- lea_store_gs -160(%rbp), 120
+pwd.s:1755: lea_store_gs -144(%rbp), 136    <- lea_store_gs -152(%rbp), 128
+pwd.s:1756: lea_store_gs -136(%rbp), 144    <- lea_store_gs -144(%rbp), 136
+pwd.s:1757: lea_store_gs -132(%rbp), 152    <- lea_store_gs -136(%rbp), 144
+pwd.s:1758: lea_store_gs -128(%rbp), 160    <- lea_store_gs -132(%rbp), 152
+pwd.s:1759: lea_store_gs -124(%rbp), 168    <- lea_store_gs -128(%rbp), 160
+pwd.s:1760: lea_store_gs -120(%rbp), 176    <- lea_store_gs -124(%rbp), 168
+pwd.s:1761: lea_store_gs -112(%rbp), 184    <- lea_store_gs -120(%rbp), 176
+pwd.s:1762: lea_store_gs -104(%rbp), 192    <- lea_store_gs -112(%rbp), 184
+pwd.s:1763: lea_store_gs -96(%rbp), 200    <- lea_store_gs -104(%rbp), 192
+pwd.s:1764: lea_store_gs -88(%rbp), 208    <- lea_store_gs -96(%rbp), 200
+pwd.s:1765: lea_store_gs -72(%rbp), 216    <- lea_store_gs -88(%rbp), 208
+pwd.s:1766: lea_store_gs -56(%rbp), 224    <- lea_store_gs -72(%rbp), 216
+pwd.s:1767: lea_store_gs -40(%rbp), 232    <- lea_store_gs -56(%rbp), 224
+pwd.s:1769: lea_store_gs -296(%rbp), 8    <-
+pwd.s:1775: mov_load_gs %rdx, 8, 64    <- # movq -296(%rbp), %rdx
+pwd.s:1778: mov_load_gs %rax, 128, 64    <- # movq -152(%rbp), %rax
+pwd.s:1793: mov_load_gs %rax, 240, 64    <- # movq -312(%rbp), %rax
+pwd.s:1805: lea_store_gs -296(%rbp), 8    <- call __stack_chk_fail@PLT
+pwd.s:1806: lea_store_gs -152(%rbp), 128    <- lea_store_gs -296(%rbp), 8

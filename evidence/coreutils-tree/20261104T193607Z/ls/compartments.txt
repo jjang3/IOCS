@@ -1,0 +1,12 @@
+compartments: 10 (slots the rewritten code uses)
+table slots: 10 (unused: 0, placeholder/padding: 0), kept on stack: 0, rounds: 1
+used      0 attach -32(%rbp) dirname
+used      1 attach -24(%rbp) dest
+used      2 attach -40(%rbp) name
+used      3 file_has_acl_cache -32(%rbp) f
+used      4 gobble_file -968(%rbp) name
+used      5 gobble_file -992(%rbp) dirname
+used      6 has_capability_cache -32(%rbp) f
+used      7 make_link_name -32(%rbp) linkname
+used      8 make_link_name -24(%rbp) name
+used      9 needs_quoting -40(%rbp) name

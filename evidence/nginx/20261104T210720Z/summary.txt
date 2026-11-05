@@ -1,0 +1,9 @@
+nginx:             1.3.9 (sha256 30463a867614bed304f6c02f6a35ff697ec70c227d87af0772a417ee05f548df)
+compartments:      458
+redirected sites:  2482 in 31 files (patch-sites.txt)
+sync copies:       2095 (lea_store_gs, stack -> page)
+relink:            0 C files recompiled (must be 0)
+control:           IOCS binary does not come up without table.so (expected)
+runtime original:  serve_test: PASS
+runtime iocs:      serve_test: PASS; Failed requests:        0
+result:            PASS

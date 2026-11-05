@@ -1,0 +1,108 @@
+file: src/ls.c - line_num: 5001 - fun_name: attach
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 0, i8* %20, align 1, !dbg !724
+
+file: src/ls.c - line_num: 4996 - fun_name: attach
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %13 = load i8, i8* %arrayidx9, align 1, !dbg !708
+
+file: src/ls.c - line_num: 4993 - fun_name: attach
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %6 = load i8, i8* %5, align 1, !dbg !697
+
+file: src/ls.c - line_num: 4993 - fun_name: attach
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %tobool, label %while.body, label %while.end, !dbg !694
+
+file: src/ls.c - line_num: 4999 - fun_name: attach
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %16 = load i8, i8* %15, align 1, !dbg !717
+
+file: src/ls.c - line_num: 4999 - fun_name: attach
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %tobool17, label %while.body18, label %while.end21, !dbg !715
+
+file: src/ls.c - line_num: 4999 - fun_name: attach
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %16 = load i8, i8* %15, align 1, !dbg !717
+
+file: src/ls.c - line_num: 4999 - fun_name: attach
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %tobool17, label %while.body18, label %while.end21, !dbg !715
+
+file: src/ls.c - line_num: 4994 - fun_name: attach
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %8 = load i8, i8* %7, align 1, !dbg !699
+
+file: src/ls.c - line_num: 4994 - fun_name: attach
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 %8, i8* %9, align 1, !dbg !701
+
+file: src/ls.c - line_num: 4991 - fun_name: attach
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %2 = load i8, i8* %arrayidx, align 1, !dbg !687
+
+file: src/ls.c - line_num: 4991 - fun_name: attach
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %4 = load i8, i8* %arrayidx2, align 1, !dbg !691
+
+file: src/ls.c - line_num: 4997 - fun_name: attach
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 47, i8* %14, align 1, !dbg !712
+
+file: src/ls.c - line_num: 5000 - fun_name: attach
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %18 = load i8, i8* %17, align 1, !dbg !719
+
+file: src/ls.c - line_num: 5000 - fun_name: attach
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %18 = load i8, i8* %17, align 1, !dbg !719
+
+file: src/ls.c - line_num: 5000 - fun_name: attach
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 %18, i8* %19, align 1, !dbg !721
+
+file: src/ls.c - line_num: 3094 - fun_name: has_capability_cache
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i64, i64* %st_dev6, align 8, !dbg !702
+
+file: src/ls.c - line_num: 3086 - fun_name: has_capability_cache
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i64, i64* %st_dev, align 8, !dbg !682
+
+file: src/ls.c - line_num: 3486 - fun_name: make_link_name
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %11 = load i8, i8* %arrayidx14, align 1, !dbg !712
+
+file: src/ls.c - line_num: 3486 - fun_name: make_link_name
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %11 = load i8, i8* %arrayidx14, align 1, !dbg !712
+
+file: src/ls.c - line_num: 3472 - fun_name: make_link_name
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %2 = load i8, i8* %arrayidx, align 1, !dbg !686
+
+file: src/ls.c - line_num: 3185 - fun_name: gobble_file
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %45 = load i8, i8* %arrayidx95, align 1, !dbg !814
+
+file: src/ls.c - line_num: 3185 - fun_name: gobble_file
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %47 = load i8, i8* %arrayidx100, align 1, !dbg !818
+
+file: src/ls.c - line_num: 3104 - fun_name: needs_quoting
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %2, align 1, !dbg !689
+
+file: src/ls.c - line_num: 3104 - fun_name: needs_quoting
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i8, i8* %2, align 1, !dbg !689
+
+file: src/ls.c - line_num: 3072 - fun_name: file_has_acl_cache
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %8 = load i64, i64* %st_dev9, align 8, !dbg !707
+
+file: src/ls.c - line_num: 3061 - fun_name: file_has_acl_cache
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i64, i64* %st_dev, align 8, !dbg !682
+

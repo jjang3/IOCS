@@ -1,0 +1,4 @@
+$ C basename migrate
+basename: 1 objects, 190 lines in src/basename.c
+
+[exit 0]

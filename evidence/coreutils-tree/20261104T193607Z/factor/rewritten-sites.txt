@@ -1,0 +1,11 @@
+factor.s:7110: mov_store_gs %rdx, 8, 64    <-verifier_metadata_0:
+factor.s:7121: mov_load_gs %rax, 8, 64    <- # movq -72(%rbp), %rax
+factor.s:7129: add_store_gs $1, 8, 64    <- # addq $1, -72(%rbp)
+factor.s:7137: add_store_gs $1, 8, 64    <- # addq $1, -72(%rbp)
+factor.s:7147: mov_load_gs %rax, 8, 64    <- # movq -72(%rbp), %rax
+factor.s:7196: mov_load_gs %rax, 8, 64    <- # movq -72(%rbp), %rax
+factor.s:7202: mov_store_gs %rdx, 8, 64    <-verifier_metadata_6:
+factor.s:7939: lea_gs %rax, 0    <-verifier_metadata_7:
+factor.s:7953: mov_load_gs %rax, 0, 64    <- # movq -24(%rbp), %rax
+factor.s:7958: mov_load_gs %rax, 0, 64    <- # movq -24(%rbp), %rax
+factor.s:7978: mov_load_gs %rax, 0, 64    <- # movq -24(%rbp), %rax

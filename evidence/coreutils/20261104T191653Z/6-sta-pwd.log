@@ -1,0 +1,359 @@
+$ D ./iocs.sh pwd sta
+Find vulnerable data
+[Line: 378 -    analyze_binary()]   ERROR    Not in _init 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __cxa_finalize 
+[Line: 378 -    analyze_binary()]   ERROR    Not in getenv 
+[Line: 378 -    analyze_binary()]   ERROR    Not in free 
+[Line: 378 -    analyze_binary()]   ERROR    Not in abort 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __errno_location 
+[Line: 378 -    analyze_binary()]   ERROR    Not in strncmp 
+[Line: 378 -    analyze_binary()]   ERROR    Not in _exit 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __fpending 
+[Line: 378 -    analyze_binary()]   ERROR    Not in puts 
+[Line: 378 -    analyze_binary()]   ERROR    Not in fclose 
+[Line: 378 -    analyze_binary()]   ERROR    Not in opendir 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __ctype_get_mb_cur_max 
+[Line: 378 -    analyze_binary()]   ERROR    Not in strlen 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __lxstat 
+[Line: 378 -    analyze_binary()]   ERROR    Not in chdir 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __stack_chk_fail 
+[Line: 378 -    analyze_binary()]   ERROR    Not in getopt_long 
+[Line: 378 -    analyze_binary()]   ERROR    Not in mbrtowc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in printf 
+[Line: 378 -    analyze_binary()]   ERROR    Not in strrchr 
+[Line: 378 -    analyze_binary()]   ERROR    Not in lseek 
+[Line: 378 -    analyze_binary()]   ERROR    Not in memset 
+[Line: 378 -    analyze_binary()]   ERROR    Not in getcwd 
+[Line: 378 -    analyze_binary()]   ERROR    Not in closedir 
+[Line: 378 -    analyze_binary()]   ERROR    Not in memcmp 
+[Line: 378 -    analyze_binary()]   ERROR    Not in ferror_unlocked 
+[Line: 378 -    analyze_binary()]   ERROR    Not in calloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in strcmp 
+[Line: 378 -    analyze_binary()]   ERROR    Not in dirfd 
+[Line: 378 -    analyze_binary()]   ERROR    Not in fprintf 
+[Line: 378 -    analyze_binary()]   ERROR    Not in memcpy 
+[Line: 378 -    analyze_binary()]   ERROR    Not in fileno 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __xstat 
+[Line: 378 -    analyze_binary()]   ERROR    Not in readdir 
+[Line: 378 -    analyze_binary()]   ERROR    Not in malloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in fflush 
+[Line: 378 -    analyze_binary()]   ERROR    Not in nl_langinfo 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __fxstat 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __freading 
+[Line: 378 -    analyze_binary()]   ERROR    Not in fchdir 
+[Line: 378 -    analyze_binary()]   ERROR    Not in fwrite_unlocked 
+[Line: 378 -    analyze_binary()]   ERROR    Not in realloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in setlocale 
+[Line: 378 -    analyze_binary()]   ERROR    Not in error 
+[Line: 378 -    analyze_binary()]   ERROR    Not in fseeko 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __cxa_atexit 
+[Line: 378 -    analyze_binary()]   ERROR    Not in exit 
+[Line: 378 -    analyze_binary()]   ERROR    Not in fwrite 
+[Line: 378 -    analyze_binary()]   ERROR    Not in mbsinit 
+[Line: 378 -    analyze_binary()]   ERROR    Not in iswprint 
+[Line: 378 -    analyze_binary()]   ERROR    Not in strstr 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __ctype_b_loc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in deregister_tm_clones 
+[Line: 378 -    analyze_binary()]   ERROR    Not in register_tm_clones 
+[Line: 378 -    analyze_binary()]   ERROR    Not in dot_or_dotdot 
+[Line: 378 -    analyze_binary()]   ERROR    Not in readdir_ignoring_dot_and_dotdot 
+[Line: 378 -    analyze_binary()]   ERROR    Not in emit_ancillary_info 
+[Line: 378 -    analyze_binary()]   ERROR    Not in usage 
+[Line: 378 -    analyze_binary()]   ERROR    Not in file_name_free 
+[Line: 378 -    analyze_binary()]   ERROR    Not in file_name_init 
+[Line: 378 -    analyze_binary()]   ERROR    Not in file_name_prepend 
+[Line: 378 -    analyze_binary()]   ERROR    Not in nth_parent 
+[Line: 378 -    analyze_binary()]   ERROR    Not in find_dir_entry 
+[Line: 378 -    analyze_binary()]   ERROR    Not in robust_getcwd 
+[Line: 378 -    analyze_binary()]   ERROR    Not in logical_getcwd 
+[Line: 378 -    analyze_binary()]   ERROR    Not in main 
+[Line: 378 -    analyze_binary()]   ERROR    Not in close_stdout 
+[Line: 378 -    analyze_binary()]   ERROR    Not in set_program_name 
+[Line: 378 -    analyze_binary()]   ERROR    Not in set_char_quoting 
+[Line: 378 -    analyze_binary()]   ERROR    Not in set_custom_quoting 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quoting_options_from_style 
+[Line: 378 -    analyze_binary()]   ERROR    Not in gettext_quote 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_buffer_restyled 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_alloc_mem 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_n_options 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_n 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_n_mem 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_n_style 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_n_style_mem 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_style 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_char_mem 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_char 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_colon 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_n_custom 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_n_custom_mem 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quote_n_mem 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quote_n 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quote 
+[Line: 378 -    analyze_binary()]   ERROR    Not in get_root_dev_ino 
+[Line: 378 -    analyze_binary()]   ERROR    Not in version_etc_arn 
+[Line: 378 -    analyze_binary()]   ERROR    Not in version_etc_va 
+[Line: 378 -    analyze_binary()]   ERROR    Not in version_etc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in xnmalloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in x2nrealloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in xcharalloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in xmalloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in xrealloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in xmemdup 
+[Line: 378 -    analyze_binary()]   ERROR    Not in xalloc_die 
+[Line: 378 -    analyze_binary()]   ERROR    Not in xgetcwd 
+[Line: 378 -    analyze_binary()]   ERROR    Not in rpl_mbrtowc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in c_strcasecmp 
+[Line: 378 -    analyze_binary()]   ERROR    Not in close_stream 
+[Line: 378 -    analyze_binary()]   ERROR    Not in hard_locale 
+[Line: 378 -    analyze_binary()]   ERROR    Not in locale_charset 
+[Line: 378 -    analyze_binary()]   ERROR    Not in rpl_fclose 
+[Line: 378 -    analyze_binary()]   ERROR    Not in clear_ungetc_buffer_preserving_position 
+[Line: 378 -    analyze_binary()]   ERROR    Not in rpl_fflush 
+[Line: 378 -    analyze_binary()]   ERROR    Not in rpl_fseeko 
+[Line: 378 -    analyze_binary()]   ERROR    Not in c_tolower 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __libc_csu_init 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __libc_csu_fini 
+[Line: 378 -    analyze_binary()]   ERROR    Not in atexit 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __stat 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __fstat 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __lstat 
+[Line: 236 -     taint_prop_fw()]    INFO    Taint propagation forward 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa var_38 version 1> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_1#3 = var_38#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rsi#2 = var_38#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rsi#1 = ϕ(argv#0, %rsi#2) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_4#7, mem#6 = 0x2460(%rdi_1#3, %rsi#2, 0x74b6, 0xab40, nullptr) @ mem#5 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 278 -     taint_prop_fw()]   ERROR    Import fun: getopt_long 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_4 version 7> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_4#5 = ϕ(%rax_2#4, %rax_4#7) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 247 -     taint_prop_fw()] WARNING    var_1c_1#2 = %rax_4#7 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_1c_1#1 = ϕ(var_1c#0, var_1c_1#2) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_1c_1#2 == 0xffffffff) then 24 @ 0x3649 else 26 @ 0x35b8 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_1c_1#2 == 0x50) then 31 @ 0x35e6 else 33 @ 0x35be 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_1c_1#2 s> 0x50) then 39 else 40 @ 0x35c4 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_1c_1#2 == 0x4c) then 47 @ 0x35e0 else 49 @ 0x35ca 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_1c_1#2 s> 0x4c) then 62 else 63 @ 0x35d3 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_1c_1#2 == 0xffffff7d) then 90 @ 0x35f6 else 98 @ 0x35dc 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_1c_1#2 == 0xffffff7e) then 105 @ 0x35f1 else 107 @ 0x35de 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_2#4 = [%rax_1#3].q @ mem#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi#1 = %rax_2#4 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_4#5 = ϕ(%rax_2#4, %rax_4#7) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    mem#2 = 0x381f(%rdi#1) @ mem#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_1#2 = ϕ(%rdi#1, %rdi_1#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: set_program_name 
+[Line: 236 -     taint_prop_fw()]    INFO    Taint propagation forward 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa var_20 version 1> 
+[Line: 247 -     taint_prop_fw()] WARNING    if (var_20#1 != 0) then 2 @ 0x385b else 7 @ 0x383d 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax#1 = var_20#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_3#3 = var_20#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_5#8 = %rax_4#7 - var_20#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    var_20#4 = ϕ(var_20#1, var_20#2, var_20#3) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_15#19 = var_20#4 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_16#20 = var_20#4 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    [0xb0b8].q = %rax_16#20 @ mem#6 -> mem#7 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_STORE_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    return %rax_16#20 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_RET 
+[Line: 256 -     taint_prop_fw()] WARNING    [0xb0e0].q = %rax_15#19 @ mem#5 -> mem#6 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_STORE_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    if (%rax_5#8 s<= 6) then 21 else 22 @ 0x3897 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_14#18 = ϕ(%rax_5#8, %rax_8#11, %rax_11#14, %rax_14#17) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_3#6 = ϕ(%rax_3#3, %rax_3#5) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_10#1 = %rax_3#6 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_4#7 = var_10#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_6#9 = var_10#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_9#12 = var_10#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_10#13 = var_10#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_12#15 = var_10#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_13#16 = %rax_12#15 + 3 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_20#3 = %rax_13#16 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_20#4 = ϕ(var_20#1, var_20#2, var_20#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_14#17 = var_20#3 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_14#18 = ϕ(%rax_5#8, %rax_8#11, %rax_11#14, %rax_14#17) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    [0xb0a0].q = %rax_14#17 @ mem#3 -> mem#4 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_STORE_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_2#3 = %rax_10#13 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_2#4 = ϕ(%rdi#1, %rdi_1#2, %rdi_2#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_11#14, mem#3 = 0x23b0(%rdi_2#3, 0x7540, 3) @ mem#2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 278 -     taint_prop_fw()]   ERROR    Import fun: strncmp 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_11 version 14> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_14#18 = ϕ(%rax_5#8, %rax_8#11, %rax_11#14, %rax_14#17) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 247 -     taint_prop_fw()] WARNING    if (%rax_11#14 != 0) then 43 else 44 @ 0x38db 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    var_20#2 = %rax_9#12 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_20#4 = ϕ(var_20#1, var_20#2, var_20#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_7#10 = %rax_6#9 - 7 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_1#2 = %rax_7#10 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_8#11, mem#2 = 0x23b0(%rdi_1#2, "/.libs/", 7) @ mem#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_2#4 = ϕ(%rdi#1, %rdi_1#2, %rdi_2#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 278 -     taint_prop_fw()]   ERROR    Import fun: strncmp 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_8 version 11> 
+[Line: 247 -     taint_prop_fw()] WARNING    if (%rax_8#11 != 0) then 36 else 37 @ 0x38b7 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_14#18 = ϕ(%rax_5#8, %rax_8#11, %rax_11#14, %rax_14#17) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_5#8 = %rax_4#7 - var_20#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi#1 = %rax#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_1#2, mem#1 = 0x2490(%rdi#1, 0x2f) @ mem#0 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_2#4 = ϕ(%rdi#1, %rdi_1#2, %rdi_2#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 278 -     taint_prop_fw()]   ERROR    Import fun: strrchr 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_1 version 2> 
+[Line: 247 -     taint_prop_fw()] WARNING    var_18#1 = %rax_1#2 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_18#1 == 0) then 11 @ 0x3881 else 13 @ 0x3877 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_2#4 = var_18#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_3#5 = %rax_2#4 + 1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_3#6 = ϕ(%rax_3#3, %rax_3#5) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 468 -    analyze_binary()] CRITICAL    set_program_name: Operand Index: 0 
+<ssa var_38 version 1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 0
+
+void* set_program_name(void* arg1) idx:  0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+set_program_name MY_IOCTL 0_0
+Make dir: ./benchmark/warns-pwd.config-2026-11-04
+Generate a unified bug report including all warning types...
+high-order/total: 0/0
+Extract the warnings: IntegerOverflowDetector.
+high-order/total: 0/0
+Extract the warnings: TaintedLoopBoundDetector.
+high-order/total: 0/0
+Extract the warnings: TaintedPointerDereferenceChecker.
+high-order/total: 0/0
+Extract the warnings: ImproperTaintedDataUseDetector.
+high-order/total: 0/0
+
+[exit 0]

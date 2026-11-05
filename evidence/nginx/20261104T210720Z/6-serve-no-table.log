@@ -1,0 +1,7 @@
+$ in_image iocs-nginx-build:20.04 bash benchmarks/nginx/serve_test.sh no-table /iocs/build/nginx/nginx-1.3.9/objs/nginx
+benchmarks/nginx/serve_test.sh: line 23:    14 Segmentation fault      "$BIN" -p "$P" -c "$P/test.conf"
+[no-table] up=0
+[no-table] exit=139
+[no-table] serve_test: FAIL
+
+[exit 1]

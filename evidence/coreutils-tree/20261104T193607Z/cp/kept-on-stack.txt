@@ -1,0 +1,4 @@
+copy_dir -208(%rbp) recursive
+copy_internal -792(%rbp) recursive
+copy_internal -832(%rbp) recursive
+copy_internal -856(%rbp) recursive

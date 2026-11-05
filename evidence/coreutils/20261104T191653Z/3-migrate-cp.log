@@ -1,0 +1,4 @@
+$ C cp migrate
+cp: 6 objects, 1226 lines in src/cp.c
+
+[exit 0]

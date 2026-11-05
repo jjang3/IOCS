@@ -1,0 +1,902 @@
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# cp, 42 function(s) on the taint path.
+
+Root Function: do_copy, Register Offset: -176 (sb)
+      └─ Function: target_directory_operand, Register Offset: -32 (arg 1, st)
+
+Root Function: do_copy, Register Offset: -314 (new_dst)
+      └─ Function: target_directory_operand, Register Offset: -40 (arg 2, new_dst)
+      └─ Function: make_dir_parents_private, Register Offset: -456 (arg 4, new_dst)
+
+Root Function: do_copy, Register Offset: -296 (unused)
+      └─ Function: file_name_concat, Register Offset: -40 (arg 2, base_in_result)
+         └─ Function: mfile_name_concat, Register Offset: -88 (arg 2, base_in_result)
+      └─ Function: copy, Register Offset: -56 (arg 4, copy_into_self)
+
+Root Function: do_copy, Register Offset: -304 (attr_list)
+      └─ Function: make_dir_parents_private, Register Offset: -448 (arg 3, attr_list)
+
+Root Function: do_copy, Register Offset: -313 (copy_into_self)
+      └─ Function: copy, Register Offset: -56 (arg 4, copy_into_self)
+
+Root Function: copy_internal, Register Offset: -608 (src_sb)
+      └─ Function: seen_file, Register Offset: -56 (arg 2, stats)
+      └─ Function: record_file, Register Offset: -40 (arg 2, stats)
+      └─ Function: same_file_ok, Register Offset: -368 (arg 1, src_sb)
+      └─ Function: utimecmp, Register Offset: -24 (arg 2, src_stat)
+         └─ Function: utimecmpat, Register Offset: -368 (arg 3, src_stat)
+            └─ Function: get_stat_mtime_ns, Register Offset: -8 (arg 0, st)
+      └─ Function: source_is_dst_backup, Register Offset: -256 (arg 1, src_st)
+      └─ Function: is_ancestor, Register Offset: -8 (arg 0, sb)
+      └─ Function: copy_dir, Register Offset: -192 (arg 3, src_sb)
+         └─ Function: copy_internal, Register Offset: -816 (arg 3, parent)
+      └─ Function: get_stat_atime, Register Offset: -8 (arg 0, st)
+      └─ Function: get_stat_mtime, Register Offset: -8 (arg 0, st)
+      └─ Function: set_owner, Register Offset: -96 (arg 3, src_sb)
+
+Root Function: copy_internal, Register Offset: -464 (dst_sb)
+      └─ Function: same_file_ok, Register Offset: -384 (arg 3, dst_sb)
+      └─ Function: utimecmp, Register Offset: -16 (arg 1, dst_stat)
+         └─ Function: utimecmpat, Register Offset: -360 (arg 2, dst_stat)
+            └─ Function: get_stat_mtime_ns, Register Offset: -8 (arg 0, st)
+            └─ Function: get_stat_atime_ns, Register Offset: -8 (arg 0, st)
+            └─ Function: get_stat_ctime_ns, Register Offset: -8 (arg 0, st)
+      └─ Function: abandon_move, Register Offset: -24 (arg 2, dst_sb)
+         └─ Function: overwrite_ok, Register Offset: -72 (arg 2, dst_sb)
+      └─ Function: overwrite_ok, Register Offset: -72 (arg 2, dst_sb)
+      └─ Function: seen_file, Register Offset: -56 (arg 2, stats)
+      └─ Function: set_owner, Register Offset: -104 (arg 5, dst_sb)
+
+Root Function: copy_internal, Register Offset: -771 (return_now)
+      └─ Function: same_file_ok, Register Offset: -400 (arg 5, return_now)
+
+Root Function: copy_internal, Register Offset: -804 (new_dst)
+      └─ Function: copy_reg, Register Offset: -504 (arg 5, new_dst)
+
+Root Function: copy_internal, Register Offset: -176 (timespec)
+      └─ Function: record_file, Register Offset: -40 (arg 2, stats)
+      └─ Function: utimens_symlink, Register Offset: -32 (arg 1, timespec)
+         └─ Function: lutimens, Register Offset: -240 (arg 1, timespec)
+      └─ Function: utimens, Register Offset: -16 (arg 1, timespec)
+         └─ Function: fdutimens, Register Offset: -360 (arg 2, timespec)
+
+Root Function: copy_reg, Register Offset: -320 (src_open_sb)
+      └─ Function: is_probably_sparse, Register Offset: -8 (arg 0, sb)
+
+Root Function: copy_reg, Register Offset: -352 (timespec)
+      └─ Function: fdutimens, Register Offset: -360 (arg 2, timespec)
+
+Root Function: copy_reg, Register Offset: -176 (sb)
+      └─ Function: set_owner, Register Offset: -104 (arg 5, dst_sb)
+
+
+# Function summaries (function trees' nodes)
+abandon_move: params x@-8*, dst_name@-16*, dst_sb@-24*
+    0x9a3c call writable_destination(0:-16)
+    0x9a5a call overwrite_ok(0:-8, 1:-16, 2:-24)
+allocate_entry: params table@-24*
+areadlink_with_size: params file@-72*, size@-80
+backup_file_rename: params dir_fd@-4, file@-16*, backup_type@-8
+    0xea25 call backupfile_internal(0:-4, 1:-16, 2:-8)
+backupfile_internal: params dir_fd@-100, file@-112*, backup_type@-104, rename@-116
+    0xe766 call last_component(0:-112)
+    0xe7a2 call set_simple_backup_suffix()
+    0xe88a call numbered_backup(0:-100, 1:&-72, 2:-16, 3:-32, 4:-48, 5:&-64, 6:-144)
+    0xe900 call check_extension(0:-72, 1:-32, 3:-84, 4:&-56)
+    0xe97c call renameatu(1:-112, 2:-84, 4:-80)
+base_len: params name@-24*
+buffer_lcm: params a@-56, b@-64, lcm_max@-72
+c_strcasecmp: params s1@-40*, s2@-48*
+    0x1759a call c_tolower()
+    0x175aa call c_tolower()
+c_tolower: params c@-4
+cached_umask: params -
+can_write_any_file: params -
+cdb_advance_fd: params cdb@-24*, dir@-32*
+    0x193a2 call cdb_free(0:-24)
+cdb_fchdir: params cdb@-8*
+cdb_free: params cdb@-24*
+cdb_init: params cdb@-8*
+chdir_long: params dir@-88*
+    0x19459 call cdb_init(0:&-68)
+    0x1952b call cdb_advance_fd(0:&-68, 1:-88)
+    0x1954f call find_non_slash()
+    0x1956f call cdb_advance_fd(0:&-68)
+    0x19655 call cdb_advance_fd(0:&-68, 1:-88)
+    0x19675 call find_non_slash()
+    0x196aa call cdb_advance_fd(0:&-68, 1:-88)
+    0x196ba call cdb_fchdir(0:&-68)
+    0x196ca call cdb_free(0:&-68)
+    0x196f4 call cdb_free(0:&-68)
+check_extension: params file@-56*, filelen@-64, e@-68, dir_fd@-72, base_max@-80*
+    0xe1ae call last_component(0:-56)
+    0xe1be call base_len(0:-24)
+check_tuning: params table@-24*
+check_x_suffix: params s@-8*, len@-16
+chmod_or_fchmod: params name@-8*, desc@-12, mode@-16
+chown_failure_ok: params x@-8*
+clear_ungetc_buffer_preserving_position: params fp@-8*
+    0x16951 call rpl_fseeko(0:-8)
+clone_file: params dest_fd@-4, src_fd@-8
+close_stdout: params -
+    0xed79 call close_stream()
+    0xedc5 call quotearg_colon()
+    0xee35 call close_stream()
+close_stream: params stream@-24*
+    0x17621 call rpl_fclose(0:-24)
+compute_bucket_size: params candidate@-24, tuning@-32*
+    0x10199 call next_prime(0:-24)
+copy: params src_name@-24*, dst_name@-32*, nonexistent_dst@-36, options@-48*, copy_into_self@-56*, rename_succeeded@-64*
+    0xc963 call valid_options(0:-48)
+    0xc9d3 call copy_internal(0:-24, 1:-32, 2:-36, 5:-48, 7:-88, 8:-80, 9:-72)
+copy_acl: params src_name@-40*, source_desc@-44, dst_name@-56*, dest_desc@-48, mode@-60
+    0xda99 call qcopy_acl(0:-40, 1:-44, 2:-56, 3:-48, 4:-60)
+    0xdab6 call quote(0:-40)
+    0xdae9 call quote(0:-56)
+copy_attr: params src_path@-8*, src_fd@-12, dst_path@-24*, dst_fd@-16, x@-32*
+copy_dir: params src_name_in@-168*, dst_name_in@-176*, new_dst@-180, src_sb@-192*, ancestors@-200*, x@-208*, first_dir_created_per_command_line_arg@-216*, copy_into_self@-224*
+    0x76a9 call savedir(0:-168)
+    0x76ce call quotearg_style(1:-168)
+    0x774b call file_name_concat(0:-168, 1:-144)
+    0x776d call file_name_concat(0:-176, 1:-144)
+    0x77be call copy_internal(0:-128, 1:-120, 2:-180, 3:-192, 4:-200, 5:&-112, 7:-248, 8:-240)
+copy_internal: params src_name@-792*, dst_name@-800*, new_dst@-804, parent@-816*, ancestors@-824*, x@-832*, command_line_arg@-808, first_dir_created_per_command_line_arg@-840*, copy_into_self@-848*, rename_succeeded@-856*
+    0x9f87 call renameatu(1:-792, 3:-800)
+    0xa059 call __lstat()
+    0xa079 call __stat()
+    0xa096 call quotearg_style(1:-696)
+    0xa109 call quotearg_style(1:-792)
+    0xa1b6 call seen_file(1:-792, 2:&-608)
+    0xa1ce call quotearg_style(1:-792)
+    0xa21a call record_file(1:-792, 2:&-608)
+    0xa232 call should_dereference(0:-832, 1:-808)
+    0xa34c call fstatat()
+    0xa3a4 call quotearg_style(1:-800)
+    0xa439 call same_file_ok(0:-792, 1:&-608, 2:-800, 3:&-464, 4:-832, 5:&-771)
+    0xa459 call quotearg_n_style(2:-800)
+    0xa475 call quotearg_n_style(2:-792)
+    0xa532 call utimecmp(0:-800, 1:&-464, 2:&-608, 3:-736)
+    0xa56e call remember_copied(0:-800, 1:-600, 2:-608)
+    0xa5b4 call create_hard_link(0:-720, 1:-800, 4:-764)
+    0xa5f8 call abandon_move(0:-832, 1:-800, 2:&-464)
+    0xa66a call overwrite_ok(0:-832, 1:-800, 2:&-464)
+    0xa6ed call quotearg_n_style(2:-792)
+    0xa709 call quotearg_n_style(2:-800)
+    0xa777 call seen_file(1:-800, 2:&-464)
+    0xa794 call quotearg_n_style(2:-792)
+    0xa7b0 call quotearg_n_style(2:-800)
+    0xa82f call quotearg_style(1:-800)
+    0xa8b4 call quotearg_n_style_colon(2:-800)
+    0xa8d0 call quotearg_n_style_colon(2:-792)
+    0xa91b call last_component(0:-792)
+    0xa931 call dot_or_dotdot(0:-688)
+    0xa993 call source_is_dst_backup(0:-688, 1:&-608, 2:-800)
+    0xa9da call quotearg_n_style(2:-792)
+    0xa9f6 call quotearg_n_style(2:-800)
+    0xaa44 call backup_file_rename(1:-800)
+    0xab6b call quotearg_style(1:-800)
+    0xac59 call quotearg_style(1:-800)
+    0xacb2 call quotearg_style(1:-800)
+    0xad47 call __lstat()
+    0xadad call seen_file(1:-800, 2:-704)
+    0xadca call quotearg_n_style(2:-800)
+    0xade6 call quotearg_n_style(2:-792)
+    0xae64 call emit_verbose(0:-792, 1:-800, 2:-712)
+    0xaec7 call remember_copied(0:-800, 1:-600, 2:-608)
+    0xaeec call src_to_dest_lookup(0:-600)
+    0xaf2d call src_to_dest_lookup(0:-600)
+    0xafab call remember_copied(0:-800, 1:-600, 2:-608)
+    0xafef call same_name(0:-792, 1:-720)
+    0xb00c call quotearg_n_style()
+    0xb028 call quotearg_n_style()
+    0xb071 call same_name(0:-800, 1:-720)
+    0xb089 call quotearg_style()
+    0xb11c call quotearg_n_style(2:-720)
+    0xb138 call quotearg_n_style(2:-800)
+    0xb193 call create_hard_link(0:-720, 1:-800, 4:-764)
+    0xb242 call emit_verbose(0:-792, 1:-800, 2:-712)
+    0xb274 call set_file_security_ctx(0:-800, 3:-832)
+    0xb2c7 call record_file(1:-800, 2:&-608)
+    0xb2f3 call quotearg_n_style()
+    0xb30f call quotearg_n_style()
+    0xb366 call quotearg_n_style(2:-800)
+    0xb382 call quotearg_n_style(2:-792)
+    0xb3c2 call forget_created(0:-600)
+    0xb439 call quotearg_n_style(2:-800)
+    0xb455 call quotearg_n_style(2:-792)
+    0xb496 call forget_created(0:-600)
+    0xb4f2 call emit_verbose(0:-792, 1:-800, 2:-712)
+    0xb5a4 call set_process_security_ctx(0:-792, 1:-800, 2:-760, 3:-804, 4:-832)
+    0xb5e4 call is_ancestor(0:&-608, 1:-824)
+    0xb5fc call quotearg_style(1:-792)
+    0xb736 call quotearg_style(1:-800)
+    0xb779 call __lstat()
+    0xb791 call quotearg_style(1:-800)
+    0xb816 call quotearg_style(1:-800)
+    0xb871 call remember_copied(0:-800, 1:-456, 2:-464)
+    0xb8b1 call quotearg_style(1:-800)
+    0xb8e8 call emit_verbose(0:-792, 1:-800)
+    0xb93e call set_file_security_ctx(0:-800, 3:-832)
+    0xb9d2 call copy_dir(0:-792, 1:-800, 3:&-608, 4:-616, 5:-832) [pointer parameter(s) 6,7: no argument found where they are passed]
+    0xba1c call dir_name(0:-800)
+    0xba53 call __stat()
+    0xba70 call __stat()
+    0xbae9 call quotearg_n_style_colon(2:-800)
+    0xbb3b call force_symlinkat(0:-792, 2:-800)
+    0xbb67 call quotearg_n_style(2:-792)
+    0xbb83 call quotearg_n_style(2:-800)
+    0xbc21 call create_hard_link(0:-792, 1:-800, 2:-762, 4:-764)
+    0xbcaf call copy_reg(0:-792, 1:-800, 2:-832, 5:&-804) [pointer parameter(s) 6: no argument found where they are passed]
+    0xbcff call rpl_mknod(0:-800)
+    0xbd47 call quotearg_style(1:-800)
+    0xbdcf call rpl_mknod(0:-800, 2:-568)
+    0xbdeb call quotearg_style(1:-800)
+    0xbe47 call areadlink_with_size(0:-792, 1:-560)
+    0xbe73 call quotearg_style(1:-792)
+    0xbecc call force_symlinkat(0:-640, 2:-800)
+    0xbf4d call areadlink_with_size(0:-800, 1:-416)
+    0xbfc0 call quotearg_style(1:-800)
+    0xbffd call restore_default_fscreatecon_or_die()
+    0xc02d call rpl_lchown(0:-800, 1:-580, 2:-576)
+    0xc044 call chown_failure_ok(0:-832)
+    0xc09c call quotearg_style(1:-792)
+    0xc13f call set_file_security_ctx(0:-800, 3:-832)
+    0xc18b call __lstat()
+    0xc1b3 call record_file(1:-800, 2:&-176)
+    0xc217 call get_stat_atime(0:&-608)
+    0xc234 call get_stat_mtime(0:&-608)
+    0xc264 call utimens_symlink(0:-800, 1:&-176)
+    0xc284 call utimens(0:-800, 1:&-176)
+    0xc2a1 call quotearg_style(1:-800)
+    0xc36b call set_owner(0:-832, 1:-800, 3:&-608, 4:-804, 5:&-464)
+    0xc3c6 call copy_attr() [pointer parameter(s) 0,2,4: no argument found where they are passed]
+    0xc416 call set_author() [pointer parameter(s) 0,2: no argument found where they are passed]
+    0xc45d call copy_acl(0:-792, 2:-800, 4:-760)
+    0xc4af call set_acl(0:-800)
+    0xc516 call cached_umask()
+    0xc536 call set_acl(0:-800)
+    0xc55a call cached_umask()
+    0xc5a5 call __lstat()
+    0xc5bd call quotearg_style(1:-800)
+    0xc651 call quotearg_style(1:-800)
+    0xc6bd call restore_default_fscreatecon_or_die()
+    0xc6e0 call forget_created(0:-600)
+    0xc71f call quotearg_style(1:-800)
+    0xc76e call quotearg_n_style(2:-800)
+    0xc78a call quotearg_n_style(2:-712)
+copy_reg: params src_name@-472*, dst_name@-480*, x@-488*, dst_mode@-492, omitted_permissions@-496, new_dst@-504*, src_sb@-512*
+    0x7fdd call open_safer(0:-472)
+    0x8000 call quotearg_style(1:-472)
+    0x8046 call __fstat()
+    0x805e call quotearg_style(1:-472)
+    0x80d0 call quotearg_style(1:-472)
+    0x814c call open_safer(0:-480, 1:-432)
+    0x81b2 call set_file_security_ctx(0:-480, 3:-488)
+    0x821b call quotearg_style(1:-480)
+    0x826f call quotearg_style(1:-480)
+    0x82cf call set_process_security_ctx(0:-472, 1:-480, 2:-492, 4:-488)
+    0x832f call open_safer(0:-480)
+    0x838b call __lstat()
+    0x83e4 call open_safer(0:-480)
+    0x840d call quotearg_style(1:-480)
+    0x84e9 call quotearg_style(1:-480)
+    0x8530 call __fstat()
+    0x8548 call quotearg_style(1:-480)
+    0x85ad call clone_file(0:-448, 1:-436)
+    0x85f7 call quotearg_n_style(2:-472)
+    0x8613 call quotearg_n_style(2:-480)
+    0x86b6 call io_blksize()
+    0x8711 call fdadvise(0:-436)
+    0x8727 call is_probably_sparse(0:&-320)
+    0x880f call io_blksize()
+    0x8832 call buffer_lcm(1:-408, 2:-376)
+    0x88e7 call xmalloc()
+    0x8907 call ptr_align(0:-416, 1:-392)
+    0x897d call extent_copy(0:-436, 1:-448, 2:-360, 3:-408, 4:-384, 5:-272, 6:-544, 7:-536, 8:-528, 9:-520)
+    0x8a12 call sparse_copy(0:-436, 1:-448, 2:-360, 3:-408, 6:-560, 7:-552, 9:-536, 10:-528)
+    0x8a63 call quotearg_style(1:-480)
+    0x8ab7 call get_stat_atime(0:-512)
+    0x8ad4 call get_stat_mtime(0:-512)
+    0x8b00 call fdutimens(0:-448, 1:-480, 2:&-352)
+    0x8b18 call quotearg_style(1:-480)
+    0x8bd0 call set_owner(0:-488, 1:-480, 2:-448, 3:-512, 5:&-176)
+    0x8c42 call fchmod_or_lchmod(0:-448, 1:-480)
+    0x8c79 call copy_attr() [pointer parameter(s) 0,2,4: no argument found where they are passed]
+    0x8cc6 call fchmod_or_lchmod(0:-448, 1:-480)
+    0x8ce4 call set_author() [pointer parameter(s) 0,2: no argument found where they are passed]
+    0x8d2d call copy_acl(0:-472, 1:-436, 2:-480, 3:-448, 4:-440)
+    0x8d84 call set_acl(0:-480, 1:-448)
+    0x8dba call cached_umask()
+    0x8dda call set_acl(0:-480, 1:-448)
+    0x8e00 call cached_umask()
+    0x8e2e call fchmod_or_lchmod(0:-448, 1:-480, 2:-492)
+    0x8e46 call quotearg_style(1:-480)
+    0x8eac call quotearg_style(1:-480)
+    0x8f00 call quotearg_style(1:-472)
+cp_option_init: params x@-8*
+    0x5b13 call cp_options_default(0:-8)
+cp_options_default: params x@-8*
+create_hard_link: params src_name@-40*, dst_name@-48*, replace@-52, verbose@-56, dereference@-60
+    0x9bab call force_linkat(1:-40, 3:-48, 5:-52)
+    0x9bce call quotearg_n_style(2:-40)
+    0x9be7 call quotearg_n_style(2:-48)
+    0x9c2f call quotearg_style(1:-48)
+create_hole: params fd@-36, name@-48*, punch_holes@-40, size@-56
+    0x6a5e call quotearg_style(1:-48)
+    0x6aac call punch_hole(0:-36, 2:-56)
+    0x6ac1 call quotearg_style(1:-48)
+defaultcon: params path@-8*, mode@-12
+dest_info_init: params x@-8*
+    0x9961 call hash_initialize()
+dir_len: params file@-24*
+    0xeecd call last_component(0:-24)
+dir_name: params file@-24*
+    0xee6a call mdir_name(0:-24)
+    0xee7a call xalloc_die()
+do_copy: params n_files@-324, file@-336*, target_directory@-344*, no_target_directory@-328, x@-352*
+    0x52c5 call quotearg_style()
+    0x52ed call usage()
+    0x5343 call quotearg_style()
+    0x536b call usage()
+    0x53a5 call target_directory_operand(1:&-176, 2:&-314, 3:-310)
+    0x5401 call target_directory_operand(1:&-176, 2:&-314, 3:-310)
+    0x5465 call quotearg_style()
+    0x54a9 call dest_info_init(0:-352)
+    0x54b8 call src_info_init(0:-352)
+    0x5517 call strip_trailing_slashes(0:-256)
+    0x5616 call strip_trailing_slashes(0:-192)
+    0x5636 call file_name_concat(0:-344, 1:-192, 2:&-296)
+    0x5698 call make_dir_parents_private(0:-288, 3:&-304, 4:&-314, 5:-352)
+    0x56b2 call last_component(0:-256)
+    0x579b call strip_trailing_slashes(0:-224)
+    0x57c4 call xstrdup(0:-344)
+    0x57e4 call file_name_concat(0:-344, 1:-224)
+    0x583c call copy(0:-256, 1:-288, 2:-314, 3:-352, 4:&-313)
+    0x588c call re_protect(0:-288, 2:-304, 3:-352)
+    0x596e call usage()
+    0x59f8 call find_backup_file_name(1:-264)
+    0x5ad0 call copy(0:-272, 1:-280, 3:-352, 4:&-296)
+dot_or_dotdot: params file_name@-24*
+dup_safer: params fd@-4
+    0x192be call rpl_fcntl(0:-4)
+emit_ancillary_info: params program@-168*
+emit_backup_suffix_note: params -
+emit_mandatory_arg_note: params -
+emit_verbose: params src@-24*, dst@-32*, backup_dst_name@-40*
+    0x9aa1 call quotearg_n_style(2:-32)
+    0x9aba call quotearg_n_style(2:-24)
+    0x9ae9 call quotearg_style(1:-40)
+errno_fail: params e@-4
+errno_unsupported: params err@-4
+extent_copy: params src_fd@-164, dest_fd@-168, buf@-176*, buf_size@-184, hole_size@-192, src_total_size@-200, sparse_mode@16, src_name@-208*, dst_name@-216*, require_normal_copy@-224*
+    0x6fdb call extent_scan_init(0:-164, 1:&-80)
+    0x6ff8 call extent_scan_read(0:&-80)
+    0x704d call quotearg_n_style_colon(2:-208)
+    0x71b3 call quotearg_style(1:-208)
+    0x71ea call extent_scan_free(0:&-80)
+    0x7239 call create_hole(0:-168, 1:-216, 3:-88)
+    0x7289 call write_zeros(0:-168, 1:-96)
+    0x72a9 call quotearg_n_style_colon(2:-216)
+    0x7367 call sparse_copy(0:-164, 1:-168, 2:-176, 3:-184, 6:-272, 7:-264, 8:-256, 9:-248, 10:-240)
+    0x73e7 call extent_scan_free(0:&-80)
+    0x7455 call write_zeros(0:-168)
+    0x7470 call quotearg_style(1:-216)
+    0x74d1 call punch_hole(0:-168, 1:-120)
+    0x74e9 call quotearg_style(1:-216)
+extent_need_sync: params -
+extent_scan_free: params scan@-8*
+extent_scan_init: params src_fd@-4, scan@-16*
+    0xce24 call extent_need_sync()
+extent_scan_read: params scan@-4184*
+    0xd040 call xnrealloc()
+fchmod_or_lchmod: params desc@-4, name@-16*, mode@-8
+fd_safer: params fd@-20
+    0x14792 call dup_safer(0:-20)
+fdadvise: params fd@-20, offset@-32, len@-40, advice@-24
+fdutimens: params fd@-340, file@-352*, timespec@-360*
+    0x154ce call validate_timespec(0:-312)
+    0x1554c call __stat()
+    0x1556a call __fstat()
+    0x155a6 call get_stat_atime(0:&-176)
+    0x155e0 call get_stat_mtime(0:&-176)
+    0x1570b call __stat()
+    0x15729 call __fstat()
+    0x15761 call update_timespec(0:&-176, 1:&-312)
+    0x158e6 call __fstat()
+    0x1598e call get_stat_atime_ns(0:&-176)
+    0x159d2 call get_stat_mtime_ns(0:&-176)
+file_name_concat: params dir@-24*, base@-32*, base_in_result@-40*
+    0xf66e call mfile_name_concat(0:-24, 1:-32, 2:-40)
+    0xf67e call xalloc_die()
+find_backup_file_name: params dir_fd@-20, file@-32*, backup_type@-24
+    0xea53 call backupfile_internal(0:-20, 1:-32, 2:-24)
+    0xea63 call xalloc_die()
+find_non_slash: params s@-24*
+fopen_safer: params file@-40*, mode@-48*
+    0x1a1e9 call dup_safer(0:-24)
+    0x1a208 call rpl_fclose(0:-8)
+    0x1a225 call rpl_fclose(0:-8)
+force_linkat: params srcdir@-324, srcname@-336*, dstdir@-328, dstname@-344*, flags@-348, force@-352, linkat_errno@16
+    0xd748 call samedir_template(0:-344, 1:&-272)
+    0xd7bf call try_tempname_len(0:-312, 2:&-304)
+force_symlinkat: params srcname@-312*, dstdir@-316, dstname@-328*, force@-320, symlinkat_errno@-332
+    0xd957 call samedir_template(0:-328, 1:&-272)
+    0xd9b6 call try_tempname_len(0:-296, 2:&-288)
+forget_created: params ino@-56, dev@-64
+    0xcc17 call hash_delete(1:&-32)
+    0xcc2e call src_to_dest_free(0:-40)
+freadahead: params fp@-8*
+free_cwd: params cwd@-8*
+free_entry: params table@-8*, entry@-16*
+free_permission_context: params ctx@-8*
+freecon: params con@-8*
+ftypelet: params bits@-4
+full_write: params fd@-36, buf@-48*, count@-56
+    0xf804 call safe_write(0:-36, 1:-16, 2:-56)
+get_nonce: params buffer@-104*, bufsize@-112, bytes_bound@-120
+get_permissions: params name@-8*, desc@-12, mode@-16, ctx@-24*
+get_stat_atime: params st@-8*
+get_stat_atime_ns: params st@-8*
+get_stat_ctime_ns: params st@-8*
+get_stat_mtime: params st@-8*
+get_stat_mtime_ns: params st@-8*
+gettext_quote: params msgid@-24*, s@-28
+    0x1192c call locale_charset()
+    0x11943 call c_strcasecmp(0:-8)
+    0x11977 call c_strcasecmp(0:-8)
+gettime: params ts@-8*
+hard_locale: params category@-20
+hash_delete: params table@-72*, entry@-80*
+    0x10f97 call hash_find_entry(0:-72, 1:-80, 2:&-56)
+    0x1105b call check_tuning(0:-72)
+    0x111cf call hash_rehash(0:-72, 1:-24)
+hash_find_entry: params table@-56*, entry@-64*, bucket_head@-72*, delete@-76
+    0x10642 call safe_hasher(0:-56, 1:-64)
+    0x106e6 call free_entry(0:-56, 1:-8)
+    0x10781 call free_entry(0:-56, 1:-24)
+hash_init: params -
+    0xcd8b call hash_initialize()
+    0xcda3 call xalloc_die()
+hash_initialize: params candidate@-24, tuning@-32*, hasher@-40*, comparator@-48*, data_freer@-56*
+    0x10267 call check_tuning(0:-8)
+    0x10285 call compute_bucket_size(0:-24, 1:-32)
+hash_insert: params table@-40*, entry@-48*
+    0x10f25 call hash_insert_if_absent(0:-40, 1:-48, 2:&-16)
+hash_insert_if_absent: params table@-56*, entry@-64*, matched_ent@-72*
+    0x10bf6 call hash_find_entry(0:-56, 1:-64, 2:&-40)
+    0x10c95 call check_tuning(0:-56)
+    0x10dfd call hash_rehash(0:-56)
+    0x10e27 call hash_find_entry(0:-56, 1:-64, 2:&-40)
+    0x10e49 call allocate_entry(0:-56)
+hash_lookup: params table@-24*, entry@-32*
+    0xfb54 call safe_hasher(0:-24, 1:-32)
+hash_rehash: params table@-120*, candidate@-128
+    0x109b9 call compute_bucket_size(0:-128)
+    0x10ac5 call transfer_entries(0:-104, 1:-120)
+    0x10b55 call transfer_entries(0:-120, 1:-104)
+    0x10b74 call transfer_entries(0:-120, 1:-104)
+ignorable_ctx_err: params err@-4
+ind: params m@-40*, x@-48
+io_blksize: params sb@16
+is_ENOTSUP: params err@-4
+is_ancestor: params sb@-8*, ancestors@-16*
+is_nul: params buf@-40*, length@-48
+is_prime: params candidate@-24
+is_probably_sparse: params sb@-8*
+isaac_refill: params s@-168*, result@-176*
+    0x185aa call ind(0:-168)
+    0x185ed call ind(0:-168)
+    0x185fc call just()
+    0x18623 call just(0:-160)
+    0x18670 call ind(0:-168)
+    0x186b7 call ind(0:-168)
+    0x186c6 call just()
+    0x18736 call ind(0:-168)
+    0x1877d call ind(0:-168)
+    0x1878c call just()
+    0x187b7 call just(0:-160)
+    0x18804 call ind(0:-168)
+    0x1884b call ind(0:-168)
+    0x1885a call just()
+    0x188f7 call ind(0:-168)
+    0x1893a call ind(0:-168)
+    0x18949 call just()
+    0x18970 call just(0:-160)
+    0x189bd call ind(0:-168)
+    0x18a04 call ind(0:-168)
+    0x18a13 call just()
+    0x18a83 call ind(0:-168)
+    0x18aca call ind(0:-168)
+    0x18ad9 call just()
+    0x18b04 call just(0:-160)
+    0x18b51 call ind(0:-168)
+    0x18b98 call ind(0:-168)
+    0x18ba7 call just()
+isaac_seed: params s@-88*
+    0x18d5f call just(0:-8)
+    0x18d9f call just(0:-56)
+    0x18ddf call just(0:-40)
+    0x18e1f call just(0:-24)
+    0x18fc6 call just(0:-8)
+    0x19006 call just(0:-56)
+    0x19046 call just(0:-40)
+    0x19086 call just(0:-24)
+just: params a@-24
+last_component: params name@-40*
+lgetfilecon: params file@-8*, con@-16*
+local_utimensat: params fd@-4100, file@-4112*, ts@-4120*, flag@-4104
+    0x16fc9 call lutimens(0:-4112, 1:-4120)
+    0x16fe7 call utimens(0:-4112, 1:-4120)
+    0x1700a call openat_proc_name(0:&-4048, 1:-4100, 2:-4112)
+    0x17044 call lutimens(0:-4072, 1:-4120)
+    0x1705f call utimens(0:-4072, 1:-4120)
+    0x17102 call save_cwd(0:&-4064)
+    0x17114 call openat_save_fail()
+    0x1713a call free_cwd(0:&-4064)
+    0x1717c call free_cwd(0:&-4064)
+    0x171b8 call lutimens(0:-4112, 1:-4120)
+    0x171d3 call utimens(0:-4112, 1:-4120)
+    0x17205 call restore_cwd(0:&-4064)
+    0x17217 call openat_restore_fail()
+    0x17226 call free_cwd(0:&-4064)
+locale_charset: params -
+lstatat: params fd@-4, name@-16*, st@-24*
+    0x14379 call fstatat()
+lutimens: params file@-232*, timespec@-240*
+    0x15b3f call validate_timespec(0:-216)
+    0x15b8c call __lstat()
+    0x15bc3 call get_stat_atime(0:&-176)
+    0x15bfd call get_stat_mtime(0:&-176)
+    0x15cae call __lstat()
+    0x15ce1 call update_timespec(0:&-176, 1:&-216)
+    0x15d0e call __lstat()
+    0x15d46 call fdutimens(1:-232, 2:-216)
+make_dir_parents_private: params const_dir@-424*, src_offset@-432, verbose_fmt_string@-440*, attr_list@-448*, new_dst@-456*, x@-464*
+    0x4962 call dir_len(0:-352)
+    0x4a5a call __stat()
+    0x4ab0 call __stat()
+    0x4b0e call __stat()
+    0x4b5c call quotearg_style(1:-344)
+    0x4b94 call xmalloc()
+    0x4ce1 call set_process_security_ctx(0:-344, 1:-352, 3:-409, 4:-464)
+    0x4dc3 call quotearg_style(1:-352)
+    0x4e3a call __lstat()
+    0x4e52 call quotearg_style(1:-352)
+    0x4eaa call cached_umask()
+    0x4f4c call quotearg_style(1:-352)
+    0x4fa1 call quotearg_style(1:-352)
+    0x502e call set_file_security_ctx(0:-352, 3:-464)
+    0x50cc call quotearg_style(1:-328)
+mdir_name: params file@-40*
+    0xef21 call dir_len(0:-40)
+mfile_name_concat: params dir@-72*, base@-80*, base_in_result@-88*
+    0xf6a8 call last_component(0:-72)
+    0xf6b8 call base_len(0:-48)
+next_prime: params candidate@-8
+    0xff01 call is_prime(0:-8)
+numbered_backup: params dir_fd@-116, buffer@-128*, buffer_size@-136, filelen@-144, base_offset@-152, dirpp@-160*, pnew_fd@-168*
+    0xe3a3 call base_len(0:-56)
+    0xe3f0 call opendirat(0:-116, 1:-96, 3:-168)
+open_safer: params file@-232*, flags@-236
+    0xf25c call fd_safer()
+openat_proc_name: params buf@-88*, fd@-92, file@-104*
+openat_restore_fail: params errnum@-4
+openat_safer: params fd@-228, file@-240*, flags@-232
+    0x17a35 call fd_safer()
+openat_save_fail: params errnum@-4
+opendir_safer: params name@-40*
+    0x176ce call rpl_fcntl(0:-24)
+opendirat: params dir_fd@-36, dir@-48*, extra_flags@-40, pnew_fd@-56*
+    0x1141b call openat_safer(0:-36, 1:-48, 2:-20)
+overwrite_ok: params x@-56*, dst_name@-64*, dst_sb@-72*
+    0x9826 call writable_destination(0:-64)
+    0x9846 call strmode(1:&-36)
+    0x986c call quotearg_style(1:-64)
+    0x98df call quotearg_style(1:-64)
+    0x9909 call yesno()
+owner_failure_ok: params x@-8*
+ptr_align: params ptr@-24*, alignment@-32
+punch_hole: params fd@-20, offset@-32, length@-40
+    0x69f3 call is_ENOTSUP()
+qcopy_acl: params src_name@-24*, source_desc@-28, dst_name@-40*, dest_desc@-32, mode@-44
+    0x1159e call get_permissions(0:-24, 1:-28, 2:-44, 3:&-16)
+    0x115c4 call set_permissions(0:&-16, 1:-40, 2:-32)
+    0x115d3 call free_permission_context() [pointer parameter(s) 0: no argument found where they are passed]
+qset_acl: params name@-24*, desc@-28, mode@-32
+    0x11643 call set_permissions(0:&-16, 1:-24, 2:-28)
+    0x11652 call free_permission_context() [pointer parameter(s) 0: no argument found where they are passed]
+quote: params arg@-8*
+    0x134ca call quote_n(1:-8)
+quote_n: params n@-4, arg@-16*
+    0x134a7 call quote_n_mem(0:-4, 1:-16)
+quote_n_mem: params n@-4, arg@-16*, argsize@-24
+    0x1344f call quotearg_n_options(0:-4, 1:-16, 2:-24)
+quotearg_buffer_restyled: params buffer@-136*, buffersize@-144, arg@-152*, argsize@-160, quoting_style@-164, flags@-168, quote_these_too@-176*, left_quote@-184*, right_quote@-192*
+    0x11b20 call gettext_quote(1:-164)
+    0x11b3b call gettext_quote(1:-164)
+    0x12266 call rpl_mbrtowc(0:&-108, 3:&-32)
+    0x1285f call quotearg_buffer_restyled(0:-136, 1:-88, 2:-152, 3:-160, 6:-224, 7:-216, 8:-208)
+    0x12982 call quotearg_buffer_restyled(0:-136, 1:-144, 2:-152, 3:-160, 7:-216, 8:-208)
+quotearg_char: params arg@-8*, ch@-12
+    0x131a1 call quotearg_char_mem(0:-8, 2:-12)
+quotearg_char_mem: params arg@-72*, argsize@-80, ch@-84
+    0x13146 call set_char_quoting(0:&-64, 1:-84)
+    0x1315f call quotearg_n_options(1:-72, 2:-80, 3:&-64)
+quotearg_colon: params arg@-8*
+    0x131c4 call quotearg_char(0:-8)
+quotearg_n_options: params n@-52, arg@-64*, argsize@-72, options@-80*
+    0x12cd8 call xalloc_die()
+    0x12d03 call xrealloc()
+    0x12e05 call quotearg_buffer_restyled(0:-24, 1:-16, 2:-64, 3:-72, 5:-36, 6:-112, 7:-104, 8:-96)
+    0x12e66 call xcharalloc(0:-16)
+    0x12ecf call quotearg_buffer_restyled(0:-24, 1:-16, 2:-64, 3:-72, 5:-36, 6:-112, 7:-104, 8:-96)
+quotearg_n_style: params n@-68, s@-72, arg@-80*
+    0x12fca call quoting_options_from_style(0:-72)
+    0x12fe6 call quotearg_n_options(0:-68, 1:-80, 3:&-64)
+quotearg_n_style_colon: params n@-68, s@-72, arg@-80*
+    0x13230 call quoting_options_from_style(0:-72)
+    0x13284 call set_char_quoting(0:&-64)
+    0x132a0 call quotearg_n_options(0:-68, 1:-80, 3:&-64)
+quotearg_style: params s@-4, arg@-16*
+    0x13088 call quotearg_n_style(1:-4, 2:-16)
+quoting_options_from_style: params style@-92
+randint_all_free: params s@-24*
+    0x17d2b call randread_free()
+    0x17d44 call randint_free(0:-24)
+randint_all_new: params name@-24*, bytes_bound@-32
+    0x17ac0 call randread_new(0:-24, 1:-32)
+    0x17ad7 call randint_new(0:-8)
+randint_free: params s@-8*
+randint_genmax: params s@-104*, genmax@-112
+    0x17b83 call shift_left(0:-72)
+    0x17bb3 call randread(0:-64, 1:&-16, 2:-80)
+    0x17bc7 call shift_left(0:-96)
+    0x17beb call shift_left(0:-88)
+randint_new: params source@-24*
+    0x17a68 call xmalloc()
+randread: params s@-8*, buf@-16*, size@-24
+    0x183ed call readsource(0:-8, 1:-16, 2:-24)
+    0x1840a call readisaac(1:-16, 2:-24)
+randread_free: params s@-24*
+    0x18458 call rpl_fclose(0:-8)
+randread_new: params name@-24*, bytes_bound@-32
+    0x180c2 call simple_new()
+    0x180e9 call fopen_safer(0:-24)
+    0x18111 call simple_new(0:-16, 1:-24)
+    0x18177 call get_nonce(2:-32)
+    0x18187 call isaac_seed()
+re_protect: params const_dst_name@-136*, src_offset@-144, attr_list@-152*, x@-160*
+    0x4606 call get_stat_atime(0:-112)
+    0x461a call get_stat_mtime(0:-112)
+    0x4635 call utimens(0:-80, 1:&-64)
+    0x464a call quotearg_style(1:-80)
+    0x46a8 call rpl_lchown(0:-80)
+    0x46bb call chown_failure_ok(0:-160)
+    0x46d3 call quotearg_style(1:-80)
+    0x471a call rpl_lchown(0:-80)
+    0x4750 call copy_acl(0:-72, 2:-80)
+    0x4797 call quotearg_style(1:-80)
+readisaac: params isaac@-40*, p@-48*, size@-56
+    0x1834f call isaac_refill(1:-16)
+    0x183a3 call isaac_refill()
+readsource: params s@-40*, p@-48*, size@-56
+record_file: params ht@-24*, file@-32*, stats@-40*
+    0xf29e call xmalloc()
+    0xf2ae call xstrdup(0:-32)
+    0xf2ea call hash_insert(0:-24, 1:-16)
+    0xf2fa call xalloc_die()
+    0xf310 call triple_free(0:-16)
+remember_copied: params name@-24*, ino@-32, dev@-40
+    0xcce0 call xmalloc()
+    0xccf0 call xstrdup(0:-24)
+    0xcd28 call hash_insert(1:-16)
+    0xcd38 call xalloc_die()
+    0xcd4e call src_to_dest_free(0:-16)
+renameatu: params fd1@-356, src@-368*, fd2@-360, dst@-376*, flags@-380
+    0x135f8 call errno_fail()
+    0x1361b call lstatat(0:-360, 1:-376, 2:&-160)
+    0x13635 call errno_fail()
+    0x13763 call lstatat(0:-356, 1:-368, 2:&-304)
+    0x1379a call errno_fail()
+    0x137bd call lstatat(0:-360, 1:-376, 2:&-160)
+    0x13805 call errno_fail()
+    0x13826 call errno_fail()
+restore_cwd: params cwd@-8*
+    0x1925a call chdir_long()
+restore_default_fscreatecon_or_die: params -
+    0x9b21 call setfscreatecon() [pointer parameter(s) 0: no argument found where they are passed]
+restorecon: params path@-8*, recurse@-12, preserve@-16
+rpl_chown: params file@-184*, uid@-188, gid@-192
+    0x1977c call __stat()
+rpl_fclose: params fp@-24*
+    0x198b1 call rpl_fflush(0:-24)
+rpl_fcntl: params fd@-244, action@-248
+    0x19a05 call rpl_fcntl_DUPFD(0:-244, 1:-224)
+    0x19a6d call rpl_fcntl_DUPFD_CLOEXEC(0:-244, 1:-228)
+rpl_fcntl_DUPFD: params fd@-20, target@-24
+rpl_fcntl_DUPFD_CLOEXEC: params fd@-20, target@-24
+    0x19cda call rpl_fcntl_DUPFD(0:-20, 1:-24)
+    0x19cfe call rpl_fcntl_DUPFD(0:-20, 1:-24)
+rpl_fflush: params stream@-8*
+    0x16995 call clear_ungetc_buffer_preserving_position(0:-8)
+rpl_fseeko: params fp@-24*, offset@-32, whence@-36
+rpl_lchown: params file@-184*, uid@-188, gid@-192
+    0x16b33 call __lstat()
+    0x16b74 call rpl_chown(0:-184, 1:-188, 2:-192)
+rpl_mbrtowc: params pwc@-40*, s@-48*, n@-56, ps@-64*
+    0x16c23 call hard_locale()
+rpl_mknod: params name@-8*, mode@-12, dev@-24
+    0x16cb9 call __mknod()
+rpl_utimensat: params fd@-212, file@-224*, times@-232*, flag@-216
+    0x16d5e call fstatat()
+    0x16dc2 call get_stat_atime(0:&-160)
+    0x16e14 call get_stat_mtime(0:&-160)
+    0x16f14 call local_utimensat(0:-212, 1:-224, 2:-232, 3:-216)
+safe_hasher: params table@-24*, key@-32*
+safe_write: params fd@-20, buf@-32*, count@-40
+same_file_ok: params src_name@-360*, src_sb@-368*, dst_name@-376*, dst_sb@-384*, x@-392*, return_now@-400*
+    0x90a7 call same_name(0:-360, 1:-376)
+    0x9172 call __lstat()
+    0x918f call __lstat()
+    0x92e4 call same_name(0:-360, 1:-376)
+    0x936b call same_name(0:-360, 1:-376)
+    0x9497 call same_name(0:-328, 1:-376)
+    0x95f2 call __stat()
+    0x9707 call __stat()
+same_name: params source@-8*, dest@-16*
+    0x13970 call same_nameat(1:-8, 3:-16)
+same_nameat: params source_dfd@-372, source@-384*, dest_dfd@-376, dest@-392*
+    0x139b9 call last_component(0:-384)
+    0x139cf call last_component(0:-392)
+    0x139e5 call base_len(0:-352)
+    0x139fb call base_len(0:-344)
+    0x13a7f call dir_name(0:-384)
+    0x13ab1 call fstatat()
+    0x13afc call dir_name(0:-392)
+    0x13b24 call fstatat()
+samedir_template: params dstname@-40*, buf@-48*
+    0xd5c8 call last_component(0:-40)
+save_cwd: params cwd@-8*
+    0x191d8 call open_safer()
+savedir: params dir@-40*, option@-44
+    0x13f7c call opendir_safer(0:-40)
+    0x13f9f call streamsavedir(0:-16, 1:-44)
+seen_file: params ht@-40*, file@-48*, stats@-56*
+    0xf37c call hash_lookup(0:-40, 1:&-32)
+set_acl: params name@-40*, desc@-44, mode@-48
+    0xdb44 call qset_acl(0:-40, 1:-44, 2:-48)
+    0xdb59 call quote(0:-40)
+set_author: params dst_name@-8*, dest_desc@-12, src_sb@-24*
+set_char_quoting: params o@-40*, c@-44, i@-48
+set_file_security_ctx: params dst_name@-40*, process_local@-44, recurse@-48, x@-56*
+    0x7e0c call restorecon() [pointer parameter(s) 0: no argument found where they are passed]
+    0x7e2d call errno_unsupported()
+    0x7e4a call quotearg_n_style(2:-40)
+set_owner: params x@-72*, dst_name@-80*, dest_desc@-84, src_sb@-96*, new_dst@-88, dst_sb@-104*
+    0x7986 call qset_acl(0:-80, 1:-84, 2:-36)
+    0x7996 call owner_failure_ok(0:-72)
+    0x79ae call quotearg_style(1:-80)
+    0x7a66 call rpl_lchown(0:-80, 1:-52, 2:-48)
+    0x7aaa call rpl_lchown(0:-80, 2:-48)
+    0x7ac3 call chown_failure_ok(0:-72)
+    0x7adb call quotearg_style(1:-80)
+set_permissions: params ctx@-24*, name@-32*, desc@-36
+    0x1732e call chmod_or_fchmod(0:-32, 1:-36)
+    0x1737d call chmod_or_fchmod(0:-32, 1:-36)
+set_process_security_ctx: params src_name@-56*, dst_name@-64*, mode@-68, new_dst@-72, x@-80*
+    0x7be3 call lgetfilecon() [pointer parameter(s) 0,1: no argument found where they are passed]
+    0x7bf7 call setfscreatecon() [pointer parameter(s) 0: no argument found where they are passed]
+    0x7c15 call errno_unsupported()
+    0x7c28 call quote(0:-32)
+    0x7c65 call freecon() [pointer parameter(s) 0: no argument found where they are passed]
+    0x7c7b call freecon() [pointer parameter(s) 0: no argument found where they are passed]
+    0x7c9a call errno_unsupported()
+    0x7cb2 call quotearg_style(1:-56)
+    0x7d0d call defaultcon() [pointer parameter(s) 0: no argument found where they are passed]
+    0x7d1f call ignorable_ctx_err()
+    0x7d37 call quotearg_style(1:-64)
+set_program_name: params argv0@-24*
+set_simple_backup_suffix: params s@-8*
+    0xe156 call last_component(0:-8)
+setfscreatecon: params con@-8*
+shift_left: params x@-8
+should_dereference: params x@-8*, command_line_arg@-12
+simple_new: params source@-24*, handler_arg@-32*
+    0x17dd9 call xmalloc()
+source_is_dst_backup: params srcbase@-248*, src_st@-256*, dst_name@-264*
+    0x9ce3 call last_component(0:-264)
+    0x9db8 call xmalloc()
+    0x9e0a call __stat()
+sparse_copy: params src_fd@-68, dest_fd@-72, buf@-80*, buf_size@-88, hole_size@-96, punch_holes@-100, src_name@16*, dst_name@24*, max_n_read@32, total_n_read@40*, last_write_made_hole@48*
+    0x6b8c call quotearg_style(1:16)
+    0x6c46 call is_nul(0:-32, 1:-40)
+    0x6ce5 call full_write(0:-72, 1:-24, 2:-56)
+    0x6cff call quotearg_style(1:24)
+    0x6d44 call create_hole(0:-72, 1:24, 2:-100, 3:-56)
+    0x6dd1 call quotearg_style(1:16)
+    0x6e49 call create_hole(0:-72, 1:24, 2:-100, 3:-56)
+src_info_init: params x@-8*
+    0x99a9 call hash_initialize()
+src_to_dest_free: params x@-24*
+src_to_dest_lookup: params ino@-56, dev@-64
+    0xcc8e call hash_lookup(1:&-32)
+streamsavedir: params dirp@-152*, option@-156
+    0x13d41 call x2nrealloc(0:-104, 1:&-128)
+    0x13d6d call xstrdup(0:-48)
+    0x13da3 call xalloc_die()
+    0x13dbb call x2nrealloc(0:-120, 1:&-128)
+    0x13e77 call xmalloc()
+    0x13f29 call xrealloc(0:-120)
+strip_trailing_slashes: params file@-40*
+    0xf07b call last_component(0:-40)
+    0xf09e call base_len(0:-16)
+strmode: params mode@-4, str@-16*
+    0xf464 call ftypelet(0:-4)
+target_directory_operand: params file@-24*, st@-32*, new_dst@-40*, forcing@-44
+    0x514a call __stat()
+    0x51c4 call quotearg_style(1:-24)
+transfer_entries: params dst@-56*, src@-64*, safe@-68
+    0x10813 call safe_hasher(0:-56, 1:-32)
+    0x1087f call free_entry(0:-56, 1:-40)
+    0x108c6 call safe_hasher(0:-56, 1:-32)
+    0x108e2 call allocate_entry(0:-56)
+triple_free: params x@-24*
+try_tempname_len: params tmpl@-72*, suffixlen@-76, args@-88*, tryfunc@-96*, x_suffix_len@-104
+    0x1442a call check_x_suffix(1:-104)
+    0x14475 call randint_all_new(1:-104)
+    0x144b1 call randint_genmax(0:-8)
+    0x14532 call randint_all_free(0:-8)
+    0x1455a call randint_all_free(0:-8)
+update_timespec: params statbuf@-40*, ts@-48*
+    0x15394 call get_stat_atime(0:-40)
+    0x153bd call gettime(0:-24)
+    0x153e5 call get_stat_mtime(0:-40)
+    0x15412 call gettime()
+usage: params status@-4
+    0x4298 call emit_mandatory_arg_note()
+    0x447d call emit_backup_suffix_note()
+    0x44a9 call emit_ancillary_info()
+utimecmp: params dst_name@-8*, dst_stat@-16*, src_stat@-24*, options@-28
+    0x1485b call utimecmpat(1:-8, 2:-16, 3:-24, 4:-28)
+utimecmpat: params dfd@-340, dst_name@-352*, dst_stat@-360*, src_stat@-368*, options@-344
+    0x148d1 call get_stat_mtime_ns(0:-360)
+    0x148e6 call get_stat_mtime_ns(0:-368)
+    0x1499f call hash_initialize()
+    0x14a25 call hash_insert()
+    0x14a94 call hash_lookup(1:&-224)
+    0x14b33 call get_stat_atime_ns(0:-360)
+    0x14b48 call get_stat_ctime_ns(0:-360)
+    0x14eee call rpl_utimensat(0:-340, 1:-352, 2:&-208)
+    0x14f1c call fstatat()
+    0x14f4b call get_stat_mtime_ns(0:&-176)
+    0x14f9c call rpl_utimensat(0:-340, 1:-352, 2:&-208)
+    0x14fd7 call get_stat_mtime_ns(0:&-176)
+utimens: params file@-8*, timespec@-16*
+    0x15a93 call fdutimens(1:-8, 2:-16)
+utimens_symlink: params file@-24*, timespec@-32*
+    0x6986 call lutimens(0:-24, 1:-32)
+valid_options: params co@-8*
+validate_timespec: params timespec@-24*
+writable_destination: params file@-8*, mode@-12
+    0x97bf call can_write_any_file()
+write_zeros: params fd@-20, n_bytes@-32
+    0x6f1d call full_write(0:-20, 2:-8)
+x2nrealloc: params p@-24*, pn@-32*, s@-40
+    0x1664f call xalloc_die()
+    0x1666d call xalloc_die()
+    0x166ac call xrealloc(0:-24)
+xalloc_die: params -
+xcharalloc: params n@-8
+    0x166ca call xmalloc(0:-8)
+xmalloc: params n@-24
+    0x166ff call xalloc_die()
+xmemdup: params p@-8*, s@-16
+    0x16852 call xmalloc(0:-16)
+xnrealloc: params p@-8*, n@-16, s@-24
+    0x165b3 call xalloc_die()
+    0x165ce call xrealloc(0:-8)
+xrealloc: params p@-8*, n@-16
+    0x16764 call xalloc_die()
+xstrdup: params string@-8*
+    0x16899 call xmemdup(0:-8)
+yesno: params -

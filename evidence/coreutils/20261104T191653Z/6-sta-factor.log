@@ -1,0 +1,3056 @@
+$ D ./iocs.sh factor sta
+Find vulnerable data
+[Line: 378 -    analyze_binary()]   ERROR    Not in _init 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __cxa_finalize 
+[Line: 378 -    analyze_binary()]   ERROR    Not in free 
+[Line: 378 -    analyze_binary()]   ERROR    Not in abort 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __errno_location 
+[Line: 378 -    analyze_binary()]   ERROR    Not in strncmp 
+[Line: 378 -    analyze_binary()]   ERROR    Not in _exit 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __fpending 
+[Line: 378 -    analyze_binary()]   ERROR    Not in iconv 
+[Line: 378 -    analyze_binary()]   ERROR    Not in getc_unlocked 
+[Line: 378 -    analyze_binary()]   ERROR    Not in isatty 
+[Line: 378 -    analyze_binary()]   ERROR    Not in iswcntrl 
+[Line: 378 -    analyze_binary()]   ERROR    Not in write 
+[Line: 378 -    analyze_binary()]   ERROR    Not in fclose 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __ctype_get_mb_cur_max 
+[Line: 378 -    analyze_binary()]   ERROR    Not in strlen 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __stack_chk_fail 
+[Line: 378 -    analyze_binary()]   ERROR    Not in getopt_long 
+[Line: 378 -    analyze_binary()]   ERROR    Not in mbrtowc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in strchr 
+[Line: 378 -    analyze_binary()]   ERROR    Not in printf 
+[Line: 378 -    analyze_binary()]   ERROR    Not in strrchr 
+[Line: 378 -    analyze_binary()]   ERROR    Not in lseek 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __assert_fail 
+[Line: 378 -    analyze_binary()]   ERROR    Not in memset 
+[Line: 378 -    analyze_binary()]   ERROR    Not in strnlen 
+[Line: 378 -    analyze_binary()]   ERROR    Not in memchr 
+[Line: 378 -    analyze_binary()]   ERROR    Not in memcmp 
+[Line: 378 -    analyze_binary()]   ERROR    Not in ferror_unlocked 
+[Line: 378 -    analyze_binary()]   ERROR    Not in calloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in strcmp 
+[Line: 378 -    analyze_binary()]   ERROR    Not in fprintf 
+[Line: 378 -    analyze_binary()]   ERROR    Not in memcpy 
+[Line: 378 -    analyze_binary()]   ERROR    Not in fileno 
+[Line: 378 -    analyze_binary()]   ERROR    Not in wcwidth 
+[Line: 378 -    analyze_binary()]   ERROR    Not in iswalnum 
+[Line: 378 -    analyze_binary()]   ERROR    Not in malloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in fflush 
+[Line: 378 -    analyze_binary()]   ERROR    Not in nl_langinfo 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __freading 
+[Line: 378 -    analyze_binary()]   ERROR    Not in fwrite_unlocked 
+[Line: 378 -    analyze_binary()]   ERROR    Not in realloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in setlocale 
+[Line: 378 -    analyze_binary()]   ERROR    Not in iconv_close 
+[Line: 378 -    analyze_binary()]   ERROR    Not in iswspace 
+[Line: 378 -    analyze_binary()]   ERROR    Not in memmove 
+[Line: 378 -    analyze_binary()]   ERROR    Not in error 
+[Line: 378 -    analyze_binary()]   ERROR    Not in fseeko 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __cxa_atexit 
+[Line: 378 -    analyze_binary()]   ERROR    Not in sprintf 
+[Line: 378 -    analyze_binary()]   ERROR    Not in exit 
+[Line: 378 -    analyze_binary()]   ERROR    Not in fwrite 
+[Line: 378 -    analyze_binary()]   ERROR    Not in strdup 
+[Line: 378 -    analyze_binary()]   ERROR    Not in mbsinit 
+[Line: 378 -    analyze_binary()]   ERROR    Not in iswprint 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __ctype_b_loc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in iconv_open 
+[Line: 378 -    analyze_binary()]   ERROR    Not in deregister_tm_clones 
+[Line: 378 -    analyze_binary()]   ERROR    Not in register_tm_clones 
+[Line: 378 -    analyze_binary()]   ERROR    Not in emit_ancillary_info 
+[Line: 378 -    analyze_binary()]   ERROR    Not in mod2 
+[Line: 378 -    analyze_binary()]   ERROR    Not in gcd_odd 
+[Line: 378 -    analyze_binary()]   ERROR    Not in gcd2_odd 
+[Line: 378 -    analyze_binary()]   ERROR    Not in factor_insert_multiplicity 
+[Line: 378 -    analyze_binary()]   ERROR    Not in factor_insert_large 
+[Line: 378 -    analyze_binary()]   ERROR    Not in factor_insert_refind 
+[Line: 378 -    analyze_binary()]   ERROR    Not in factor_using_division 
+[Line: 378 -    analyze_binary()]   ERROR    Not in mulredc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in mulredc2 
+[Line: 378 -    analyze_binary()]   ERROR    Not in powm 
+[Line: 378 -    analyze_binary()]   ERROR    Not in powm2 
+[Line: 378 -    analyze_binary()]   ERROR    Not in millerrabin 
+[Line: 378 -    analyze_binary()]   ERROR    Not in millerrabin2 
+[Line: 378 -    analyze_binary()]   ERROR    Not in prime_p 
+[Line: 378 -    analyze_binary()]   ERROR    Not in prime2_p 
+[Line: 378 -    analyze_binary()]   ERROR    Not in factor_using_pollard_rho 
+[Line: 378 -    analyze_binary()]   ERROR    Not in factor_using_pollard_rho2 
+[Line: 378 -    analyze_binary()]   ERROR    Not in factor 
+[Line: 378 -    analyze_binary()]   ERROR    Not in strto2uintmax 
+[Line: 378 -    analyze_binary()]   ERROR    Not in lbuf_alloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in lbuf_flush 
+[Line: 378 -    analyze_binary()]   ERROR    Not in lbuf_putc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in lbuf_putint 
+[Line: 378 -    analyze_binary()]   ERROR    Not in print_uintmaxes 
+[Line: 378 -    analyze_binary()]   ERROR    Not in print_factors_single 
+[Line: 378 -    analyze_binary()]   ERROR    Not in print_factors 
+[Line: 378 -    analyze_binary()]   ERROR    Not in usage 
+[Line: 378 -    analyze_binary()]   ERROR    Not in do_stdin 
+[Line: 378 -    analyze_binary()]   ERROR    Not in main 
+[Line: 378 -    analyze_binary()]   ERROR    Not in close_stdout 
+[Line: 378 -    analyze_binary()]   ERROR    Not in full_write 
+[Line: 378 -    analyze_binary()]   ERROR    Not in umaxtostr 
+[Line: 378 -    analyze_binary()]   ERROR    Not in set_program_name 
+[Line: 378 -    analyze_binary()]   ERROR    Not in mbsstr_trimmed_wordbounded 
+[Line: 378 -    analyze_binary()]   ERROR    Not in proper_name_utf8 
+[Line: 378 -    analyze_binary()]   ERROR    Not in set_char_quoting 
+[Line: 378 -    analyze_binary()]   ERROR    Not in set_custom_quoting 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quoting_options_from_style 
+[Line: 378 -    analyze_binary()]   ERROR    Not in gettext_quote 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_buffer_restyled 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_alloc_mem 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_n_options 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_n 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_n_mem 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_n_style 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_n_style_mem 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_char_mem 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_char 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_colon 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_n_custom 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quotearg_n_custom_mem 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quote_n_mem 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quote_n 
+[Line: 378 -    analyze_binary()]   ERROR    Not in quote 
+[Line: 378 -    analyze_binary()]   ERROR    Not in init_tokenbuffer 
+[Line: 378 -    analyze_binary()]   ERROR    Not in get_nth_bit 
+[Line: 378 -    analyze_binary()]   ERROR    Not in set_nth_bit 
+[Line: 378 -    analyze_binary()]   ERROR    Not in readtoken 
+[Line: 378 -    analyze_binary()]   ERROR    Not in safe_write 
+[Line: 378 -    analyze_binary()]   ERROR    Not in trim2 
+[Line: 378 -    analyze_binary()]   ERROR    Not in version_etc_arn 
+[Line: 378 -    analyze_binary()]   ERROR    Not in version_etc_va 
+[Line: 378 -    analyze_binary()]   ERROR    Not in version_etc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in xnmalloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in xnrealloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in x2nrealloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in xcharalloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in xmalloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in xrealloc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in xmemdup 
+[Line: 378 -    analyze_binary()]   ERROR    Not in xalloc_die 
+[Line: 378 -    analyze_binary()]   ERROR    Not in xstr_iconv 
+[Line: 378 -    analyze_binary()]   ERROR    Not in rpl_mbrtowc 
+[Line: 378 -    analyze_binary()]   ERROR    Not in c_strcasecmp 
+[Line: 378 -    analyze_binary()]   ERROR    Not in close_stream 
+[Line: 378 -    analyze_binary()]   ERROR    Not in hard_locale 
+[Line: 378 -    analyze_binary()]   ERROR    Not in locale_charset 
+[Line: 378 -    analyze_binary()]   ERROR    Not in mbiter_multi_next 
+[Line: 378 -    analyze_binary()]   ERROR    Not in knuth_morris_pratt 
+[Line: 378 -    analyze_binary()]   ERROR    Not in knuth_morris_pratt_multibyte 
+[Line: 378 -    analyze_binary()]   ERROR    Not in mbsstr 
+[Line: 378 -    analyze_binary()]   ERROR    Not in mbuiter_multi_next 
+[Line: 378 -    analyze_binary()]   ERROR    Not in mem_cd_iconv 
+[Line: 378 -    analyze_binary()]   ERROR    Not in str_cd_iconv 
+[Line: 378 -    analyze_binary()]   ERROR    Not in str_iconv 
+[Line: 378 -    analyze_binary()]   ERROR    Not in strnlen1 
+[Line: 378 -    analyze_binary()]   ERROR    Not in rpl_fclose 
+[Line: 378 -    analyze_binary()]   ERROR    Not in clear_ungetc_buffer_preserving_position 
+[Line: 378 -    analyze_binary()]   ERROR    Not in rpl_fflush 
+[Line: 378 -    analyze_binary()]   ERROR    Not in rpl_fseeko 
+[Line: 378 -    analyze_binary()]   ERROR    Not in c_tolower 
+[Line: 378 -    analyze_binary()]   ERROR    Not in mmalloca 
+[Line: 378 -    analyze_binary()]   ERROR    Not in freea 
+[Line: 378 -    analyze_binary()]   ERROR    Not in mb_copy 
+[Line: 378 -    analyze_binary()]   ERROR    Not in is_basic 
+[Line: 378 -    analyze_binary()]   ERROR    Not in mbslen 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __libc_csu_init 
+[Line: 378 -    analyze_binary()]   ERROR    Not in __libc_csu_fini 
+[Line: 378 -    analyze_binary()]   ERROR    Not in atexit 
+[Line: 236 -     taint_prop_fw()]    INFO    Taint propagation forward 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa var_38 version 1> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax#1 = var_38#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rsi#2 = var_38#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_11#14 = var_38#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_12#15 = %rax_11#14 + %rdx_1#3 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_13#16 = [%rax_12#15].q @ mem#15 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_3#6 = %rax_13#16 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_3#5 = ϕ(%rdi_2#3, %rdi_3#6) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_14#17, mem#16 = 0x6706(%rdi_3#6) @ mem#15 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: print_factors 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_14 version 17> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_15#18 = %rax_14#17 ^ 1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_15#10 = ϕ(%rax_8#9, %rax_15#18) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (%rax_15#18 == 0) then 86 else 87 @ 0x6b2e 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_3#7 = ϕ(%rdi_2#3, %rdi_3#5) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rsi#1 = ϕ(argv#0, %rsi#2) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_5#5, mem#7 = 0x24a0(%rdi_2#3, %rsi#2, 0xe156, 0x14b40, nullptr) @ mem#6 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 278 -     taint_prop_fw()]   ERROR    Import fun: getopt_long 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_5 version 5> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_5#3 = ϕ(%rax_1#2, %rax_5#5) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 247 -     taint_prop_fw()] WARNING    var_1c_1#2 = %rax_5#5 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_1c_1#1 = ϕ(var_1c#0, var_1c_1#2) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_1c_1#2 != 0xffffffff) then 22 @ 0x69fc else 23 @ 0x6ae4 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_1c_1#2 == 0x80) then 25 @ 0x6a22 else 27 @ 0x6a05 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_1c_1#2 s> 0x80) then 35 else 36 @ 0x6a12 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_1c_1#2 == 0xffffff7d) then 57 @ 0x6a46 else 71 @ 0x6a1b 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_1c_1#2 == 0xffffff7e) then 83 @ 0x6a33 else 85 @ 0x6a1d 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_1#2 = [%rax#1].q @ mem#0 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi#1 = %rax_1#2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_5#3 = ϕ(%rax_1#2, %rax_5#5) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    mem#1 = 0x6d81(%rdi#1) @ mem#0 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_2#2 = ϕ(%rdi#1, %rdi_2#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: set_program_name 
+[Line: 236 -     taint_prop_fw()]    INFO    Taint propagation forward 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa var_20 version 1> 
+[Line: 247 -     taint_prop_fw()] WARNING    if (var_20#1 != 0) then 2 @ 0x6dbd else 7 @ 0x6d9f 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax#1 = var_20#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_3#3 = var_20#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_5#8 = %rax_4#7 - var_20#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    var_20#4 = ϕ(var_20#1, var_20#2, var_20#3) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_15#19 = var_20#4 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_16#20 = var_20#4 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    [0x150e0].q = %rax_16#20 @ mem#6 -> mem#7 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_STORE_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    return %rax_16#20 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_RET 
+[Line: 256 -     taint_prop_fw()] WARNING    [0x15140].q = %rax_15#19 @ mem#5 -> mem#6 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_STORE_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    if (%rax_5#8 s<= 6) then 21 else 22 @ 0x6df9 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_14#18 = ϕ(%rax_5#8, %rax_8#11, %rax_11#14, %rax_14#17) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_3#6 = ϕ(%rax_3#3, %rax_3#5) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_10#1 = %rax_3#6 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_4#7 = var_10#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_6#9 = var_10#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_9#12 = var_10#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_10#13 = var_10#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_12#15 = var_10#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_13#16 = %rax_12#15 + 3 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_20#3 = %rax_13#16 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_20#4 = ϕ(var_20#1, var_20#2, var_20#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_14#17 = var_20#3 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_14#18 = ϕ(%rax_5#8, %rax_8#11, %rax_11#14, %rax_14#17) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    [0x150c0].q = %rax_14#17 @ mem#3 -> mem#4 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_STORE_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_2#3 = %rax_10#13 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_2#4 = ϕ(%rdi#1, %rdi_1#2, %rdi_2#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_11#14, mem#3 = 0x23e0(%rdi_2#3, 0x115d0, 3) @ mem#2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 278 -     taint_prop_fw()]   ERROR    Import fun: strncmp 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_11 version 14> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_14#18 = ϕ(%rax_5#8, %rax_8#11, %rax_11#14, %rax_14#17) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 247 -     taint_prop_fw()] WARNING    if (%rax_11#14 != 0) then 43 else 44 @ 0x6e3d 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    var_20#2 = %rax_9#12 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_20#4 = ϕ(var_20#1, var_20#2, var_20#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_7#10 = %rax_6#9 - 7 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_1#2 = %rax_7#10 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_8#11, mem#2 = 0x23e0(%rdi_1#2, "/.libs/", 7) @ mem#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_2#4 = ϕ(%rdi#1, %rdi_1#2, %rdi_2#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 278 -     taint_prop_fw()]   ERROR    Import fun: strncmp 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_8 version 11> 
+[Line: 247 -     taint_prop_fw()] WARNING    if (%rax_8#11 != 0) then 36 else 37 @ 0x6e19 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_14#18 = ϕ(%rax_5#8, %rax_8#11, %rax_11#14, %rax_14#17) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_5#8 = %rax_4#7 - var_20#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi#1 = %rax#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_1#2, mem#1 = 0x24e0(%rdi#1, 0x2f) @ mem#0 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_2#4 = ϕ(%rdi#1, %rdi_1#2, %rdi_2#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 278 -     taint_prop_fw()]   ERROR    Import fun: strrchr 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_1 version 2> 
+[Line: 247 -     taint_prop_fw()] WARNING    var_18#1 = %rax_1#2 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_18#1 == 0) then 11 @ 0x6de3 else 13 @ 0x6dd9 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_2#4 = var_18#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_3#5 = %rax_2#4 + 1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_3#6 = ϕ(%rax_3#3, %rax_3#5) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 236 -     taint_prop_fw()]    INFO    Taint propagation forward 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa var_30 version 1> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rdx#1 = var_30#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_10#13 = var_30#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_7#8 = var_30#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_2#3 = %rax_7#8 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_8#9, mem#5 = 0x94f0(%rdi_2#3) @ mem#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_3#5 = ϕ(%rdi_1#2, %rdi_2#3, %rdi_3#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: quote 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_8 version 9> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rcx_2#3 = %rax_8#9 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    mem#6 = 0x2670(0, 0, "%s is not a valid positive integ…", %rcx_2#3) @ mem#5 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx_3#5 = ϕ(%rcx_1#2, %rcx_2#3, %rcx_3#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 278 -     taint_prop_fw()]   ERROR    Import fun: error 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_3#4 = %rax_10#13 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_11#14, mem#7 = 0x94f0(%rdi_3#4) @ mem#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_3#5 = ϕ(%rdi_1#2, %rdi_2#3, %rdi_3#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: quote 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_11 version 14> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rcx_3#4 = %rax_11#14 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    mem#8 = 0x2670(0, 0, "%s is too large", %rcx_3#4) @ mem#7 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx_3#5 = ϕ(%rcx_1#2, %rcx_2#3, %rcx_3#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 278 -     taint_prop_fw()]   ERROR    Import fun: error 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_1#2, mem#1 = 0x602d(%rdi#1, %rsi#1, %rdx#1) @ mem#0 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_1#4 = ϕ(%rdx#1, %rdx_1#2) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_1#5 = ϕ(%rdx#1, %rdx_2#3, %rdx_1#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_1#5 = ϕ(%rdx#1, %rdx_2#3, %rdx_1#4) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: strto2uintmax 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_1 version 2> 
+[Line: 247 -     taint_prop_fw()] WARNING    var_24#1 = %rax_1#2 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_3#12 = ϕ(%rax_1#2, %rax_3#4) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_24#1 == 0) then 9 @ 0x6751 else 13 @ 0x6749 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_24#1 == 1) then 17 @ 0x67e2 else 18 @ 0x674f 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 236 -     taint_prop_fw()]    INFO    Taint propagation forward 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa var_50 version 1> 
+[Line: 247 -     taint_prop_fw()] WARNING    var_50#2 = ϕ(var_50#1, var_50#8) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_1#2 = var_50#2 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_50#8 = var_50#2 + 1 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_50#3 = var_50#2 + 1 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_50#4 = ϕ(var_50#2, var_50#3) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_3#4 = var_50#4 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_50#5 = ϕ(var_50#4, var_50#6) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_10#15 = var_50#5 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_50#7 = ϕ(var_50#5, var_50#6) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_1#4 = %rax_10#15 + 1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_11#16 = [%rax_10#15].b @ mem#0 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_12#17 = sx.d(%rax_11#16) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_28_1#2 = %rax_12#17 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_40#50 = ϕ(%rax_40#14, %rax_12#17, %rax_14#20, %rax_40#49) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_28_1#2 == 0) then 68 @ 0x61c1 else 69 @ 0x60eb 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    var_28_2#3 = var_28_1#2 - 0x30 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_28_2#4 = ϕ(var_28_2#1, var_28_1#2, var_28_2#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_28_2#1 = ϕ(var_28#0, var_28_2#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_28_2#4 = ϕ(var_28_2#1, var_28_1#2, var_28_2#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_35#42 = zx.q(var_28_2#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_36#43 = zx.q(var_28_2#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    c_2#3 = temp0_1#2 u< %rax_36#43 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_36#44.%al = c_2#3 @ %rax_36#43 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_36#44.%al = c_2#3 @ %rax_36#43 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 256 -     taint_prop_fw()] WARNING    var_18#4 = var_18_1#3 + %rax_35#42 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_18#2 = ϕ(var_18#1, var_18#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_18#5 = ϕ(var_18#2, var_18#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    temp0_1#2 = var_18#4 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    temp0_1#1 = ϕ(temp0#0, temp0_1#2) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    temp0_1#3 = ϕ(temp0_1#1, temp0_1#2) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    c_2#3 = temp0_1#2 u< %rax_36#43 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    temp0_1#3 = ϕ(temp0_1#1, temp0_1#2) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_8#12 = var_18#5 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    [%rax_42#52].q = %rdx_8#12 @ mem#1 -> mem#2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_STORE_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_18#5 = ϕ(var_18#2, var_18#4) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_19#25 = var_18#2 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_21#27 = var_18#2 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_4#7 = var_18#2 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_28#34 = var_18#2 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_6#9 = var_18#2 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_6#3 = ϕ(%rdx#2, %rdx_6#9) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_6#10 = ϕ(%rdx_6#3, %rdx_1#4, %rdx_6#9) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_31#38 = %rdx_6#9 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_33#40 = %rax_32#39 + %rdx_6#9 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_34#41 = %rax_33#40 + %rax_33#40 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_18_1#3 = %rax_34#41 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_18#4 = var_18_1#3 + %rax_35#42 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_32#39 = %rax_31#38 << 2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_33#40 = %rax_32#39 + %rdx_6#9 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_6#10 = ϕ(%rdx_6#3, %rdx_1#4, %rdx_6#9) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_29#35 = %rax_28#34 + %rax_28#34 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    c_1#2 = %rdx_5#8 u< %rax_29#35 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_29#36.%al = c_1#2 @ %rax_29#35 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_29#36.%al = c_1#2 @ %rax_29#35 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_24#30 = %rdx_4#7 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_26#32 = %rax_25#31 + %rdx_4#7 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_27#33 = %rax_26#32 + %rax_26#32 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_5#8 = %rax_27#33 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    c_1#2 = %rdx_5#8 u< %rax_29#35 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_25#31 = %rax_24#30 << 2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_26#32 = %rax_25#31 + %rdx_4#7 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_22#28 = (%rax_21#27 u>> 0x3f).d 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_23#29 = %rax_22#28 + %rdx_3#6 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_24_1#2 = %rax_23#29 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_24_2#3 = var_24_1#2 + %rax_30#37 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_24_3#4 = var_24_2#3 + %rax_37#45 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_24_3#1 = ϕ(var_24#0, var_24_3#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_24_3#5 = ϕ(var_24_3#1, var_24_3#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_38#46 = zx.q(var_24_3#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_39#47 = zx.q(var_24_3#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    c_3#4 = temp1_1#2 u< %rax_39#47 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_39#48.%al = c_3#4 @ %rax_39#47 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 256 -     taint_prop_fw()] WARNING    c_3#1 = ϕ(c#0, c_3#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    c_3#5 = ϕ(c_3#1, c_3#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_39#48.%al = c_3#4 @ %rax_39#47 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 313 -     taint_prop_fw()] WARNING    c_3#5 = ϕ(c_3#1, c_3#4) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_20#4 = var_20_1#3 + %rax_38#46 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_20#2 = ϕ(var_20#1, var_20#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_20#5 = ϕ(var_20#2, var_20#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    temp1_1#2 = var_20#4 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    temp1_1#1 = ϕ(temp1#0, temp1_1#2) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    temp1_1#3 = ϕ(temp1_1#1, temp1_1#2) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    c_3#4 = temp1_1#2 u< %rax_39#47 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    temp1_1#3 = ϕ(temp1_1#1, temp1_1#2) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_7#11 = var_20#5 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    [%rax_41#51].q = %rdx_7#11 @ mem#0 -> mem#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_STORE_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_13#19 = var_20#2 u> 0x1999999999999999 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_20#5 = ϕ(var_20#2, var_20#4) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_2#5 = var_20#2 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_15#21 = %rdx_2#5 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_17#23 = %rax_16#22 + %rdx_2#5 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_18#24 = %rax_17#23 + %rax_17#23 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_20_1#3 = %rax_18#24 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_20#4 = var_20_1#3 + %rax_38#46 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_16#22 = %rax_15#21 << 2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_17#23 = %rax_16#22 + %rdx_2#5 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_14#20 = zx.q(zx.d(%rax_13#19)) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    if (%rax_14#20 == 0) then 93 @ 0x6114 else 140 @ 0x6108 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_40#50 = ϕ(%rax_40#14, %rax_12#17, %rax_14#20, %rax_40#49) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_24_3#5 = ϕ(var_24_3#1, var_24_3#4) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_20#26 = (%rax_19#25 u>> 0x3d).d 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_3#6 = %rax_20#26 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_23#29 = %rax_22#28 + %rdx_3#6 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_28_2#4 = ϕ(var_28_2#1, var_28_1#2, var_28_2#3) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_50#6 = %rdx_1#4 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_6#10 = ϕ(%rdx_6#3, %rdx_1#4, %rdx_6#9) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_50#5 = ϕ(var_50#4, var_50#6) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_50#7 = ϕ(var_50#5, var_50#6) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_10#1 = %rax_3#4 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_9#5 = ϕ(%rax_3#4, %rax_9#12) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_10#2 = ϕ(var_10#1, var_10#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_4#6 = var_10#2 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx#2 = %rax_4#6 + 1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_5#7 = [%rax_4#6].b @ mem#0 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_6#8 = sx.d(%rax_5#7) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_2c_1#2 = %rax_6#8 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_9#13 = ϕ(%rax_6#8, %rax_9#12) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_40#14 = ϕ(%rax_9#13, %rax_40#49) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_40#50 = ϕ(%rax_40#14, %rax_12#17, %rax_14#20, %rax_40#49) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_2c_1#1 = ϕ(var_2c#0, var_2c_1#2) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_2c_1#2 == 0) then 36 @ 0x60c6 else 37 @ 0x60a0 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_7#9 = var_2c_1#2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_8#10 = %rax_7#9 - 0x30 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_8#11.%al = %rax_8#10 u> 9 @ %rax_8#10 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx#1 = ϕ(arg3#0, %rdx#2) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_10#3 = %rdx#2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_6#3 = ϕ(%rdx#2, %rdx_6#9) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_10#2 = ϕ(var_10#1, var_10#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_50#4 = ϕ(var_50#2, var_50#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_50#2 = ϕ(var_50#1, var_50#8) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_2#3 = [%rax_1#2].b @ mem#0 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_2#1 = ϕ(%rax#0, %rax_2#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_31_1#2 = %rax_2#3 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_31_1#1 = ϕ(var_31#0, var_31_1#2) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_31_1#2 != 0x20) then 14 @ 0x6073 else 15 @ 0x6068 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_31_1#2 != 0x2b) then 17 @ 0x607c else 18 @ 0x6075 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 236 -     taint_prop_fw()]    INFO    Taint propagation forward 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa var_10 version 1> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax#1 = var_10#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rsi#1 = %rax#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_1#2, mem#1 = 0x94c3(0, %rsi#1) @ mem#0 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: quote_n 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_1 version 2> 
+[Line: 247 -     taint_prop_fw()] WARNING    return %rax_1#2 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_RET 
+[Line: 236 -     taint_prop_fw()]    INFO    Taint propagation forward 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa var_18 version 1> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rcx#1 = var_18#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rsi#1 = %rcx#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_1#2, mem#1 = 0x9466(%rdi#1, %rsi#1, -1) @ mem#0 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: quote_n_mem 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_1 version 2> 
+[Line: 247 -     taint_prop_fw()] WARNING    return %rax_1#2 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_RET 
+[Line: 236 -     taint_prop_fw()]    INFO    Taint propagation forward 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa var_18 version 1> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rsi#1 = var_18#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_1#2, mem#1 = 0x8cb0(%rdi#1, %rsi#1, %rdx#1, 0x15060) @ mem#0 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: quotearg_n_options 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_1 version 2> 
+[Line: 247 -     taint_prop_fw()] WARNING    return %rax_1#2 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_RET 
+[Line: 236 -     taint_prop_fw()]    INFO    Taint propagation forward 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa var_48 version 1> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rdx_7#10 = var_48#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rdx_12#15 = var_48#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_12#16 = ϕ(%rdx_7#10, %rdx_12#15) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    mem#17 = 0x79f7(%rdi_7#10, %rsi_2#4, %rdx_12#15, %rcx_3#6, %r8_3#4, %r9_3#4, var_78_1#2, var_70_1#2, var_68_1#2) @ mem#16 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: quotearg_buffer_restyled 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_45#51, mem#11 = 0x79f7(%rdi_3#5, %rsi_1#3, %rdx_7#10, %rcx_2#5, %r8_1#2, %r9_1#2, var_78#1, var_70#1, var_68#1) @ mem#10 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_12#16 = ϕ(%rdx_7#10, %rdx_12#15) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: quotearg_buffer_restyled 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_45 version 51> 
+[Line: 247 -     taint_prop_fw()] WARNING    var_10#1 = %rax_45#51 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    if (%rax_46#52 u> var_10#1) then 80 else 81 @ 0x8e62 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_47#53 = var_10#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_48#54 = %rax_47#53 + 1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_18_1#2 = %rax_48#54 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_53#59 = var_18_1#2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_18_1#3 = ϕ(var_18#1, var_18_1#2) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_55#62 = var_18_1#2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rsi_2#4 = var_18_1#2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rsi_2#5 = ϕ(%rsi_1#3, %rsi_2#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    mem#17 = 0x79f7(%rdi_7#10, %rsi_2#4, %rdx_12#15, %rcx_3#6, %r8_3#4, %r9_3#4, var_78_1#2, var_70_1#2, var_68_1#2) @ mem#16 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_5#8 = %rax_55#62 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_56#63, mem#15 = 0xa67d(%rdi_5#8) @ mem#14 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: xcharalloc 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_56 version 63> 
+[Line: 247 -     taint_prop_fw()] WARNING    var_20#2 = %rax_56#63 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_20#3 = ϕ(var_20#1, var_20#2) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_61#68 = var_20#2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_66#73 = var_20#2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_66#74 = ϕ(%rax_46#52, %rax_66#73) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_7#10 = %rax_66#73 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_7#11 = ϕ(%rdi_3#5, %rdi_7#10) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    mem#17 = 0x79f7(%rdi_7#10, %rsi_2#4, %rdx_12#15, %rcx_3#6, %r8_3#4, %r9_3#4, var_78_1#2, var_70_1#2, var_68_1#2) @ mem#16 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    [%rdx_11#14 + 8].q = %rax_61#68 @ mem#15 -> mem#16 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_STORE_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_68#76 = var_20#3 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    return %rax_68#76 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_RET 
+[Line: 256 -     taint_prop_fw()] WARNING    [%rdx_9#12].q = %rax_53#59 @ mem#11 -> mem#12 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_STORE_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_54#61 = ϕ(%rax_53#59, %rax_54#60) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 236 -     taint_prop_fw()]    INFO    Taint propagation forward 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa var_a0 version 1> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rdx_69#16 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rdx_8#22 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_119#161 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_37#59 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_137#188 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rdx_70#142 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rdx_74#151 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_143#195 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rdx_6#19 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_88#122 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_92#126 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_148#218 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_68#100 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_102#136 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_72#104 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_153#201 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rdx_57#115 = var_a0#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_57#88 = ϕ(%rdx_43#87, %rdx_57#115) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_214#298 = %rax_213#297 + %rdx_57#115 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_215#299 = [%rax_214#298].b @ mem#88 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_215#236 = ϕ(%rax_168#235, %rax_215#299) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#14 = %rax_215#299 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#11 = ϕ(var_7b_1#3, var_7b_1#14) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#19 = ϕ(var_7b_1#2, var_7b_1#3, var_7b_1#11, var_7b_1#17) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#13 = ϕ(var_7b_1#11, var_7b_1#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_186#259 = var_7b_1#11 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_190#265 = var_7b_1#11 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_194#271 = var_7b_1#11 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_195#272 = %rax_194#271 & 7 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_196#273 = %rax_195#272 + 0x30 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_170#279 = ϕ(%rax_196#273, %rax_170#274, %rax_199#278) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#12 = %rax_196#273 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#13 = ϕ(var_7b_1#11, var_7b_1#12) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#18 = ϕ(var_7b_1#3, var_7b_1#13, var_7b_1#15, var_7b_1#17) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_212#295 = var_7b_1#13 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    [%rdx_56#113].b = %rax_212#295 @ mem#86 -> mem#87 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_STORE_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_212#296 = ϕ(%rax_210#293, %rax_212#295) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#16 = ϕ(var_7b_1#3, var_7b_1#18) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_254#354 = var_7b_1#18 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    [%rdx_68#140].b = %rax_254#354 @ mem#106 -> mem#107 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_STORE_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_254#355 = ϕ(%rax_252#352, %rax_254#354) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#2 = ϕ(var_7b_1#1, var_7b_1#16) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#1 = ϕ(var_7b#0, var_7b_1#2) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#19 = ϕ(var_7b_1#2, var_7b_1#3, var_7b_1#11, var_7b_1#17) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#20 = ϕ(var_7b_1#2, var_7b_1#19) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#20 = ϕ(var_7b_1#2, var_7b_1#19) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#2 = ϕ(var_7b_1#1, var_7b_1#16) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_190#266 = %rax_190#265 u>> 3 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_191#267 = %rax_190#266 & 7 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx_4#15 = %rax_191#267 + 0x30 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_51#102 = %rcx_4#15 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx_4#16 = ϕ(%rcx_3#14, %rcx_4#15) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_1#17 = ϕ(%rcx_1#12, %rcx_4#16) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx#24 = ϕ(%rcx#4, %rcx_1#17, %rcx_5#20, %rcx#23) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_1#12 = ϕ(%rcx_1#11, %rcx_1#17) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_2#26 = ϕ(arg4#2, %rcx#3, %rcx#4, %rcx_2#8, %rcx_1#12, %rcx#23) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_1#17 = ϕ(%rcx_1#12, %rcx_4#16) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_3#14 = ϕ(%rcx_1#12, %rcx_3#13) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_4#16 = ϕ(%rcx_3#14, %rcx_4#15) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx#22 = ϕ(%rcx#4, %rcx#24) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    arg4#2 = ϕ(arg4#1, %rcx#22) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    arg4#1 = ϕ(arg4#0, arg4#2) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx#4 = ϕ(arg4#2, %rcx#3) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_2#26 = ϕ(arg4#2, %rcx#3, %rcx#4, %rcx_2#8, %rcx_1#12, %rcx#23) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_7#28 = ϕ(arg4#2, %rcx_6#25, %rcx_7#27) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_2#26 = ϕ(arg4#2, %rcx#3, %rcx#4, %rcx_2#8, %rcx_1#12, %rcx#23) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx#18 = ϕ(%rcx#4, %rcx_1#11) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_1#11 = ϕ(%rcx#4, %rcx_1#6, %rcx_1#10) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx#5 = ϕ(%rcx#4, %rcx_1#10) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx#22 = ϕ(%rcx#4, %rcx#24) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx#23 = ϕ(%rcx#4, %rcx_5#21) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx#24 = ϕ(%rcx#4, %rcx_1#17, %rcx_5#20, %rcx#23) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_2#26 = ϕ(arg4#2, %rcx#3, %rcx#4, %rcx_2#8, %rcx_1#12, %rcx#23) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx#24 = ϕ(%rcx#4, %rcx_1#17, %rcx_5#20, %rcx#23) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx#18 = ϕ(%rcx#4, %rcx_1#11) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_1#12 = ϕ(%rcx_1#11, %rcx_1#17) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_5#20 = ϕ(%rcx#18, %rcx_5#19) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx#24 = ϕ(%rcx#4, %rcx_1#17, %rcx_5#20, %rcx#23) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_5#21 = ϕ(%rcx_5#19, %rcx_5#20) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx#23 = ϕ(%rcx#4, %rcx_5#21) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    arg4#2 = ϕ(arg4#1, %rcx#22) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    [%rax_193#269].b = %rdx_51#102 @ mem#76 -> mem#77 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_STORE_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_51#103 = ϕ(%rdx_49#100, %rdx_51#102) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_57#106 = ϕ(%rdx_57#88, %rdx_51#103, %rdx_52#105) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#133 = ϕ(%rdx_9#23, %rdx_57#106, %rdx_60#120, %rdx_64#132) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_57#111 = ϕ(%rdx_57#106, %rdx_54#110) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_53#108 = ϕ(%rdx_57#106, %rdx_53#107) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_54#110 = ϕ(%rdx_53#108, %rdx_54#109) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_57#111 = ϕ(%rdx_57#106, %rdx_54#110) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_56#114 = ϕ(%rdx_57#111, %rdx_56#113) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#138 = ϕ(%rdx_9#133, %rdx_66#137) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_65#135 = ϕ(%rdx_9#133, %rdx_65#134) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_66#137 = ϕ(%rdx_65#135, %rdx_66#136) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#138 = ϕ(%rdx_9#133, %rdx_66#137) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_68#141 = ϕ(%rdx_9#138, %rdx_68#140) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#122 = ϕ(%rdx_9#23, %rdx_68#141) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx#15 = ϕ(%rdx#14, %rdx_9#122) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_69#17 = ϕ(%rdx#15, %rdx_69#16) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    arg3#1 = ϕ(arg3#0, %rdx_69#17) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_7#21 = ϕ(%rdx_69#17, %rdx_5#18, %rdx_7#20) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_42#150 = ϕ(%rdx_69#17, %rdx_7#20, %rdx_9#23, %rdx_20#43, %rdx_42#76, %rdx_57#88, %rdx_9#123) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_69#147 = ϕ(%rdx_69#17, %rdx_69#143) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_69#143 = ϕ(%rdx_69#17, %rdx_72#146) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_69#147 = ϕ(%rdx_69#17, %rdx_69#143) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_72#146 = ϕ(%rdx_69#143, %rdx_72#145) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_69#143 = ϕ(%rdx_69#17, %rdx_72#146) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_73#149 = ϕ(%rdx_69#147, %rdx_73#148) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_74#152 = ϕ(%rdx_70#142, %rdx_73#149, %rdx_74#151) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_186#260 = %rax_186#259 u>> 6 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx_3#13 = %rax_186#260 + 0x30 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_49#99 = %rcx_3#13 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx_3#14 = ϕ(%rcx_1#12, %rcx_3#13) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    [%rax_188#262].b = %rdx_49#99 @ mem#74 -> mem#75 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_STORE_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_49#100 = ϕ(%rdx_47#97, %rdx_49#99) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_51#103 = ϕ(%rdx_49#100, %rdx_51#102) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_170#274 = ϕ(%rax_215#236, %rax_170#238) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_170#279 = ϕ(%rax_196#273, %rax_170#274, %rax_199#278) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_42#150 = ϕ(%rdx_69#17, %rdx_7#20, %rdx_9#23, %rdx_20#43, %rdx_42#76, %rdx_57#88, %rdx_9#123) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_57#106 = ϕ(%rdx_57#88, %rdx_51#103, %rdx_52#105) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_52#105 = ϕ(%rdx_57#88, %rdx_52#104) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_57#95 = ϕ(%rdx_57#88, %rdx_46#94) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_44#90 = ϕ(%rdx_57#88, %rdx_44#89) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_45#92 = ϕ(%rdx_44#90, %rdx_45#91) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_46#94 = ϕ(%rdx_45#92, %rdx_46#93) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_57#95 = ϕ(%rdx_57#88, %rdx_46#94) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_47#97 = ϕ(%rdx_57#95, %rdx_47#96) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_49#100 = ϕ(%rdx_47#97, %rdx_49#99) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_57#106 = ϕ(%rdx_57#88, %rdx_51#103, %rdx_52#105) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_154#202 = %rax_153#201 + %rdx_41#74 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_155#203 = [%rax_154#202].b @ mem#60 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_156#204 = sx.d(%rax_155#203) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_157#205 = %rax_156#204 - 0x5b 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_41#75.%dl = %rax_157#205 u> 0x21 @ %rdx_41#74 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx_2#8 = %rax_157#205.%al 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_158#208 = ϕ(%rax_157#205, %rax_158#207) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_144#197 = ϕ(%rax_144#196, %rax_158#208) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx_2#26 = ϕ(arg4#2, %rcx#3, %rcx#4, %rcx_2#8, %rcx_1#12, %rcx#23) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_42#76 = 1 << %rcx_2#8 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx_2#9 = ϕ(%rcx_1#7, %rcx_2#8) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_1#7 = ϕ(%rcx_1#6, %rcx_2#9) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_1#10 = ϕ(%rcx_1#6, %rcx_1#7) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_2#9 = ϕ(%rcx_1#7, %rcx_2#8) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_1#11 = ϕ(%rcx#4, %rcx_1#6, %rcx_1#10) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx#5 = ϕ(%rcx#4, %rcx_1#10) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_42#150 = ϕ(%rdx_69#17, %rdx_7#20, %rdx_9#23, %rdx_20#43, %rdx_42#76, %rdx_57#88, %rdx_9#123) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_158#206 = 0x20000002b & %rdx_42#76 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_42#77 = ϕ(%rdx_41#75, %rdx_42#76) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_35#71 = ϕ(%rdx_35#70, %rdx_42#77) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_35#78 = ϕ(%rdx_35#70, %rdx_35#71) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_30#86 = ϕ(%rdx_35#70, %rdx_35#78, %rdx_38#83, %rdx_30#85) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#65 = ϕ(%rdx_9#64, %rdx_35#78) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#116 = ϕ(%rdx_9#23, %rdx_9#40, %rdx_9#56, %rdx_9#63, %rdx_30#86) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_60#120 = ϕ(%rdx_9#116, %rdx_60#119) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#133 = ϕ(%rdx_9#23, %rdx_57#106, %rdx_60#120, %rdx_64#132) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_60#121 = ϕ(%rdx_60#119, %rdx_60#120) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#123 = ϕ(%rdx_9#23, %rdx_60#121) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_42#150 = ϕ(%rdx_69#17, %rdx_7#20, %rdx_9#23, %rdx_20#43, %rdx_42#76, %rdx_57#88, %rdx_9#123) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#130 = ϕ(%rdx_9#123, %rdx_63#129) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_61#125 = ϕ(%rdx_9#123, %rdx_61#124) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_62#127 = ϕ(%rdx_61#125, %rdx_62#126) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_63#129 = ϕ(%rdx_62#127, %rdx_63#128) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#130 = ϕ(%rdx_9#123, %rdx_63#129) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_64#132 = ϕ(%rdx_9#130, %rdx_64#131) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#133 = ϕ(%rdx_9#23, %rdx_57#106, %rdx_60#120, %rdx_64#132) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_158#207.%al = %rax_158#206 != 0 @ %rax_158#206 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_73#105 = %rax_72#104 + %rdx_15#34 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_74#106 = [%rax_73#105].b @ mem#32 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_74#115 = ϕ(%rax_64#96, %rax_66#98, %rax_70#102, %rax_74#106, %rax_80#114) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (%rax_74#106 s> 0x39) then 1252 else 1253 @ 0x7e6d 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_82#116 = ϕ(%rax_82#77, %rax_74#115) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_166#300 = ϕ(%rax_50#75, %rax_82#116, %rax_50#158, %rax_50#165, %rax_50#166, %rax_50#168, %rax_50#183, %rax_50#184, %rax_164#230, %rax_166#232) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_103#137 = %rax_102#136 + %rdx_21#44 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_104#138 = [%rax_103#137].b @ mem#23 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#6 = %rax_104#138 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#7 = ϕ(var_7b_1#3, var_7b_1#6) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#8 = ϕ(var_7b_1#3, var_7b_1#7) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#9 = ϕ(var_7b_1#3, var_7b_1#8) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#15 = ϕ(var_7b_1#3, var_7b_1#5, var_7b_1#9) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#17 = ϕ(var_7b_1#10, var_7b_1#15) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#18 = ϕ(var_7b_1#3, var_7b_1#13, var_7b_1#15, var_7b_1#17) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_220#306 = var_7b_1#15 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_224#311 = var_7b_1#15 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_225#312 = %rax_224#311 & 0x1f 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx_5#19 = %rax_225#312 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx_5#20 = ϕ(%rcx#18, %rcx_5#19) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_60#119 = %rdx_59#118 u>> %rcx_5#19 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx_5#21 = ϕ(%rcx_5#19, %rcx_5#20) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_60#120 = ϕ(%rdx_9#116, %rdx_60#119) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_226#313 = %rdx_60#119 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_60#121 = ϕ(%rdx_60#119, %rdx_60#120) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_227#314 = %rax_226#313 & 1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_227#315 = ϕ(%rax_219#304, %rax_219#305, %rax_227#314) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (%rax_227#314 != 0) then 984 else 985 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_229#318 = ϕ(%rax_227#314, %rax_229#317) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_118#320 = ϕ(%rax_118#185, %rax_229#318) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_170#380 = ϕ(%rax_259#57, %rax_42#66, %rax_50#75, %rax_100#134, %rax_117#159, %rax_50#168, %rax_117#186, %rax_158#207, %rax_170#238, %rax_118#320) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_231#335 = ϕ(%rax_118#320, %rax_231#322, %rax_240#334) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_220#307 = %rax_220#306 u>> 5 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_221#308 = zx.q(zx.d(%rax_220#307)) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_58#117 = %rax_221#308 << 2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_223#310 = %rax_222#309 + %rdx_58#117 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_59#118 = [%rax_223#310].d @ mem#89 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_60#119 = %rdx_59#118 u>> %rcx_5#19 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#19 = ϕ(var_7b_1#2, var_7b_1#3, var_7b_1#11, var_7b_1#17) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#18 = ϕ(var_7b_1#3, var_7b_1#13, var_7b_1#15, var_7b_1#17) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_69#101 = %rax_68#100 + %rdx_14#33 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_70#102 = [%rax_69#101].b @ mem#32 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_74#115 = ϕ(%rax_64#96, %rax_66#98, %rax_70#102, %rax_74#106, %rax_80#114) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (%rax_70#102 s<= 0x2f) then 1178 else 1179 @ 0x7e54 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_149#219 = %rax_148#218 + %rdx_38#82 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_150#220 = [%rax_149#219].b @ mem#60 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_150#214 = ϕ(%rax_144#196, %rax_150#220) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (%rax_150#220 != 0) then 1153 @ 0x82d9 else 1155 @ 0x8312 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_150#221 = ϕ(%rax_146#216, %rax_150#220) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_136#229 = ϕ(%rax_144#196, %rax_163#213, %rax_150#221, %rax_136#228) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_93#127 = %rax_92#126 + %rdx_19#42 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_94#128 = [%rax_93#127].b @ mem#23 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_95#129 = sx.d(%rax_94#128) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_96#130 = %rax_95#129 - 0x21 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    if (%rax_96#130 u> 0x1d) then 946 else 947 @ 0x7f5f 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_97#131 = zx.q(%rax_96#130) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_100#155 = ϕ(%rax_96#130, %rax_100#134) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_100#156 = ϕ(%rax_116#154, %rax_100#155) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_90#157 = ϕ(%rax_84#118, %rax_86#120, %rax_90#124, %rax_100#156) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_50#158 = ϕ(%rax_50#75, %rax_90#157) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_166#300 = ϕ(%rax_50#75, %rax_82#116, %rax_50#158, %rax_50#165, %rax_50#166, %rax_50#168, %rax_50#183, %rax_50#184, %rax_164#230, %rax_166#232) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_20#43 = %rax_97#131 << 2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_42#150 = ϕ(%rdx_69#17, %rdx_7#20, %rdx_9#23, %rdx_20#43, %rdx_42#76, %rdx_57#88, %rdx_9#123) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_98#132 = [%rdx_20#43 + 0x118d4].d @ mem#23 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_20#53 = ϕ(%rdx_19#42, %rdx_20#43) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_20#54 = ϕ(%rdx_25#52, %rdx_20#53) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_18#55 = ϕ(%rdx_9#23, %rdx_18#41, %rdx_20#54) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#56 = ϕ(%rdx_9#23, %rdx_18#55) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#116 = ϕ(%rdx_9#23, %rdx_9#40, %rdx_9#56, %rdx_9#63, %rdx_30#86) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_99#133 = sx.q(%rax_98#132) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_100#134 = %rax_99#133 + 0x118d4 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_170#380 = ϕ(%rax_259#57, %rax_42#66, %rax_50#75, %rax_100#134, %rax_117#159, %rax_50#168, %rax_117#186, %rax_158#207, %rax_170#238, %rax_118#320) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    jump(%rax_100#134 => 1018 @ 0x7f86, 1015 @ 0x8037) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_JUMP_TO 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_100#155 = ϕ(%rax_96#130, %rax_100#134) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_89#123 = %rax_88#122 + %rdx_18#41 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_90#124 = [%rax_89#123].b @ mem#23 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_90#157 = ϕ(%rax_84#118, %rax_86#120, %rax_90#124, %rax_100#156) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (%rax_90#124 != 0x3f) then 867 else 868 @ 0x7f3b 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx#3 = %rdx_6#19 + %rax_40#64 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx#4 = ϕ(arg4#2, %rcx#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx_2#26 = ϕ(arg4#2, %rcx#3, %rcx#4, %rcx_2#8, %rcx_1#12, %rcx#23) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_2#7 = %rcx#3 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_2#8 = ϕ(%rdi#4, %rdi_1#6, %rdi_2#7) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_6#23 = ϕ(%rdi#4, %rdi_2#7, %rdi_2#8, %rdi_6#13, %rdi_8#16, %rdi_2#19) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_42#66, mem#22 = 0x2540(%rdi_2#7, %rsi_2#7, %rdx_7#20) @ mem#21 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 278 -     taint_prop_fw()]   ERROR    Import fun: memcmp 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_42 version 66> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_42#67 = ϕ(%rax_259#57, %rax_39#63, %rax_42#66) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_170#380 = ϕ(%rax_259#57, %rax_42#66, %rax_50#75, %rax_100#134, %rax_117#159, %rax_50#168, %rax_117#186, %rax_158#207, %rax_170#238, %rax_118#320) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 247 -     taint_prop_fw()] WARNING    if (%rax_42#66 != 0) then 821 else 822 @ 0x7d13 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_6#23 = ϕ(%rdi#4, %rdi_2#7, %rdi_2#8, %rdi_6#13, %rdi_8#16, %rdi_2#19) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_2#17 = ϕ(%rdi_2#8, %rdi_8#16) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_8#16 = ϕ(%rdi_2#8, %rdi_6#13, %rdi_8#15) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_2#18 = ϕ(%rdi_2#8, %rdi_2#20) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_2#19 = ϕ(%rdi_2#8, %rdi_2#17) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_2#20 = ϕ(%rdi_2#8, %rdi_8#16, %rdi_2#17, %rdi_2#19) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_2#18 = ϕ(%rdi_2#8, %rdi_2#20) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi#4 = ϕ(%rdi#3, %rdi_2#18) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    arg1#1 = ϕ(arg1#0, %rdi#4) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_2#8 = ϕ(%rdi#4, %rdi_1#6, %rdi_2#7) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_6#23 = ϕ(%rdi#4, %rdi_2#7, %rdi_2#8, %rdi_6#13, %rdi_8#16, %rdi_2#19) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_1#6 = ϕ(%rdi#4, %rdi_1#5) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_12#26 = ϕ(%rdi#4, %rdi_10#22, %rdi_12#25) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_2#8 = ϕ(%rdi#4, %rdi_1#6, %rdi_2#7) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi#3 = ϕ(arg1#1, %rdi#2) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi#4 = ϕ(%rdi#3, %rdi_2#18) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_6#23 = ϕ(%rdi#4, %rdi_2#7, %rdi_2#8, %rdi_6#13, %rdi_8#16, %rdi_2#19) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_2#20 = ϕ(%rdi_2#8, %rdi_8#16, %rdi_2#17, %rdi_2#19) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_6#23 = ϕ(%rdi#4, %rdi_2#7, %rdi_2#8, %rdi_6#13, %rdi_8#16, %rdi_2#19) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_2#17 = ϕ(%rdi_2#8, %rdi_8#16) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_2#20 = ϕ(%rdi_2#8, %rdi_8#16, %rdi_2#17, %rdi_2#19) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_2#19 = ϕ(%rdi_2#8, %rdi_2#17) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdi_2#20 = ϕ(%rdi_2#8, %rdi_8#16, %rdi_2#17, %rdi_2#19) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rsi_3#10 = %rdx_34#69 + %rax_143#195 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rsi_3#17 = ϕ(arg2#6, %rsi_2#7, %rsi_2#8, %rsi_3#10, %rsi_3#11, %rsi_2#14) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rsi_3#11 = ϕ(%rsi_2#8, %rsi_3#10) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rsi_3#9 = ϕ(%rsi_2#8, %rsi_3#10) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_144#196, mem#60 = 0xa994(%rdi_6#13, %rsi_3#10, %rdx_35#70, %rcx_1#6) @ mem#59 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: rpl_mbrtowc 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_144 version 196> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_136#229 = ϕ(%rax_144#196, %rax_163#213, %rax_150#221, %rax_136#228) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 247 -     taint_prop_fw()] WARNING    var_38_1#4 = %rax_144#196 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_150#214 = ϕ(%rax_144#196, %rax_150#220) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_159#209 = ϕ(%rax_144#196, %rax_159#198) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_144#197 = ϕ(%rax_144#196, %rax_158#208) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_38_1#10 = ϕ(var_38_1#2, var_38_1#4, var_38_1#5, var_38_1#8) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_38_1#5 = ϕ(var_38_1#2, var_38_1#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_38_1#3 = ϕ(var_38_1#2, var_38_1#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_38_1#4 == 0) then 762 @ 0x83c5 else 763 @ 0x82c1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_38_1#4 != -1) then 839 @ 0x82d1 else 840 @ 0x82c3 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_38_1#4 != -2) then 928 @ 0x831b else 929 @ 0x82d3 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    if (%rax_159#198 u< var_38_1#4) then 1221 @ 0x8330 else 1233 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_162#212 = var_38_1#4 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_48_1#5 = var_48_1#4 + %rax_162#212 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_48_1#9 = ϕ(var_48_1#4, var_48_1#5, var_48_1#6, var_48_1#8) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_48_1#4 = ϕ(var_48_1#3, var_48_1#5) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#14 = ϕ(var_48_1#2, var_48_1#4, var_48_1#9, var_48_1#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#9 = ϕ(var_48_1#4, var_48_1#5, var_48_1#6, var_48_1#8) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_139#191 = var_48_1#4 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_142#194 = var_48_1#4 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#6 = ϕ(var_48_1#4, var_48_1#7) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#5 = var_48_1#4 + %rax_162#212 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_151#199 = var_48_1#4 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_40#73 = %rdx_39#72 + %rax_151#199 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_41#74 = %rdx_40#73 + %rax_152#200 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_154#202 = %rax_153#201 + %rdx_41#74 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_41#75.%dl = %rax_157#205 u> 0x21 @ %rdx_41#74 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#9 = ϕ(var_48_1#4, var_48_1#5, var_48_1#6, var_48_1#8) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_145#215 = var_48_1#6 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_147#217 = var_48_1#6 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#7 = var_48_1#6 + 1 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_48_1#6 = ϕ(var_48_1#4, var_48_1#7) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_38#82 = %rdx_37#81 + %rax_147#217 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_38#79 = ϕ(%rdx_35#70, %rdx_38#82) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_149#219 = %rax_148#218 + %rdx_38#82 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_38#83 = ϕ(%rdx_36#80, %rdx_38#82) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_30#86 = ϕ(%rdx_35#70, %rdx_35#78, %rdx_38#83, %rdx_30#85) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_146#216 = %rax_145#215 + %rdx_36#80 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_a8#8 u<= %rax_146#216) then 1065 else 1066 @ 0x82f6 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_150#221 = ϕ(%rax_146#216, %rax_150#220) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#14 = ϕ(var_48_1#2, var_48_1#4, var_48_1#9, var_48_1#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#10 = ϕ(var_48_1#2, var_48_1#9) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    if (var_48_1#9 u> 1) then 590 else 591 @ 0x83da 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#13 = ϕ(var_48_1#2, var_48_1#9, var_48_1#10, var_48_1#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_167#234 = var_48_1#9 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_168#235 = %rax_167#234 + %rdx_43#87 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_30_1#3 = %rax_168#235 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_215#236 = ϕ(%rax_168#235, %rax_215#299) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_30_1#6 = ϕ(var_30_1#2, var_30_1#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_30_1#5 = ϕ(var_30_1#2, var_30_1#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_30_1#3 u<= %rax_201#281) then 1234 @ 0x8616 else 1235 @ 0x857a 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 313 -     taint_prop_fw()] WARNING    var_30_1#4 = ϕ(var_30_1#2, var_30_1#5) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_30_1#2 = ϕ(var_30_1#1, var_30_1#4) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_30_1#1 = ϕ(var_30#0, var_30_1#2) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_30_1#6 = ϕ(var_30_1#2, var_30_1#3) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_30_1#4 = ϕ(var_30_1#2, var_30_1#5) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_30_1#5 = ϕ(var_30_1#2, var_30_1#3) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_30_1#7 = ϕ(var_30_1#2, var_30_1#6) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_30_1#7 = ϕ(var_30_1#2, var_30_1#6) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_30_1#2 = ϕ(var_30_1#1, var_30_1#4) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#11 = ϕ(var_48_1#2, var_48_1#13) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#2 = ϕ(var_48_1#1, var_48_1#11) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#1 = ϕ(var_48#0, var_48_1#2) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#14 = ϕ(var_48_1#2, var_48_1#4, var_48_1#9, var_48_1#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#10 = ϕ(var_48_1#2, var_48_1#9) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#11 = ϕ(var_48_1#2, var_48_1#13) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#12 = ϕ(var_48_1#2, var_48_1#10) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#13 = ϕ(var_48_1#2, var_48_1#9, var_48_1#10, var_48_1#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#15 = ϕ(var_48_1#2, var_48_1#14) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#14 = ϕ(var_48_1#2, var_48_1#4, var_48_1#9, var_48_1#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#13 = ϕ(var_48_1#2, var_48_1#9, var_48_1#10, var_48_1#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#15 = ϕ(var_48_1#2, var_48_1#14) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#12 = ϕ(var_48_1#2, var_48_1#10) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#13 = ϕ(var_48_1#2, var_48_1#9, var_48_1#10, var_48_1#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_48_1#2 = ϕ(var_48_1#1, var_48_1#11) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_34#69 = %rdx_33#68 + %rax_142#194 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rsi_3#10 = %rdx_34#69 + %rax_143#195 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_32#67 = %rdx_31#66 + %rax_139#191 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_141#193 = %rax_140#192 - %rdx_32#67 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_5#12 = %rax_141#193 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_35#70 = %rdi_5#12 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_30#86 = ϕ(%rdx_35#70, %rdx_35#78, %rdx_38#83, %rdx_30#85) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_144#196, mem#60 = 0xa994(%rdi_6#13, %rsi_3#10, %rdx_35#70, %rcx_1#6) @ mem#59 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_38#79 = ϕ(%rdx_35#70, %rdx_38#82) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_35#78 = ϕ(%rdx_35#70, %rdx_35#71) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_35#71 = ϕ(%rdx_35#70, %rdx_42#77) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#10 = ϕ(var_38_1#2, var_38_1#4, var_38_1#5, var_38_1#8) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#6 = ϕ(var_38_1#2, var_38_1#5) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#9 = ϕ(var_38_1#2, var_38_1#5, var_38_1#6, var_38_1#8) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#7 = ϕ(var_38_1#2, var_38_1#9) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#2 = ϕ(var_38_1#1, var_38_1#7) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#1 = ϕ(var_38#0, var_38_1#2) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#10 = ϕ(var_38_1#2, var_38_1#4, var_38_1#5, var_38_1#8) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#6 = ϕ(var_38_1#2, var_38_1#5) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#5 = ϕ(var_38_1#2, var_38_1#4) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#3 = ϕ(var_38_1#2, var_38_1#4) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#7 = ϕ(var_38_1#2, var_38_1#9) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#8 = ϕ(var_38_1#2, var_38_1#6) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#9 = ϕ(var_38_1#2, var_38_1#5, var_38_1#6, var_38_1#8) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#11 = ϕ(var_38_1#2, var_38_1#10) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#10 = ϕ(var_38_1#2, var_38_1#4, var_38_1#5, var_38_1#8) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#9 = ϕ(var_38_1#2, var_38_1#5, var_38_1#6, var_38_1#8) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#11 = ϕ(var_38_1#2, var_38_1#10) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#8 = ϕ(var_38_1#2, var_38_1#6) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#9 = ϕ(var_38_1#2, var_38_1#5, var_38_1#6, var_38_1#8) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_38_1#2 = ϕ(var_38_1#1, var_38_1#7) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_3#17 = ϕ(arg2#6, %rsi_2#7, %rsi_2#8, %rsi_3#10, %rsi_3#11, %rsi_2#14) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_2#12 = ϕ(%rsi_2#8, %rsi_3#11) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_2#15 = ϕ(%rsi_2#8, %rsi_3#11, %rsi_2#12, %rsi_2#14) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_2#13 = ϕ(%rsi_2#8, %rsi_2#15) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    arg2#6 = ϕ(arg2#5, %rsi_2#13) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    arg2#1 = ϕ(arg2#0, arg2#6) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_2#8 = ϕ(arg2#6, %rsi_2#7) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_3#17 = ϕ(arg2#6, %rsi_2#7, %rsi_2#8, %rsi_3#10, %rsi_3#11, %rsi_2#14) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_5#19 = ϕ(arg2#6, %rsi_4#16, %rsi_5#18) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_3#17 = ϕ(arg2#6, %rsi_2#7, %rsi_2#8, %rsi_3#10, %rsi_3#11, %rsi_2#14) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_2#12 = ϕ(%rsi_2#8, %rsi_3#11) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_3#11 = ϕ(%rsi_2#8, %rsi_3#10) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_3#9 = ϕ(%rsi_2#8, %rsi_3#10) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_2#13 = ϕ(%rsi_2#8, %rsi_2#15) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_2#14 = ϕ(%rsi_2#8, %rsi_2#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_2#15 = ϕ(%rsi_2#8, %rsi_3#11, %rsi_2#12, %rsi_2#14) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_3#17 = ϕ(arg2#6, %rsi_2#7, %rsi_2#8, %rsi_3#10, %rsi_3#11, %rsi_2#14) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_2#15 = ϕ(%rsi_2#8, %rsi_3#11, %rsi_2#12, %rsi_2#14) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_2#14 = ϕ(%rsi_2#8, %rsi_2#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_2#15 = ϕ(%rsi_2#8, %rsi_3#11, %rsi_2#12, %rsi_2#14) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    arg2#5 = ϕ(arg2#1, %rsi_1#4) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rsi_1#4 = ϕ(arg2#1, %rsi_1#3) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    arg2#5 = ϕ(arg2#1, %rsi_1#4) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    arg2#6 = ϕ(arg2#5, %rsi_2#13) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_263#384, mem#117 = 0x79f7(%rdi_12#25, %rsi_5#18, %rdx_74#151, %rcx_7#27, %r8_1#2, %r9_1#2, 0, var_e0_2#2, var_d8_2#2) @ mem#116 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_74#152 = ϕ(%rdx_70#142, %rdx_73#149, %rdx_74#151) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: quotearg_buffer_restyled 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_263 version 384> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_263#385 = ϕ(%rax_263#362, %rax_263#379, %rax_263#384) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    return %rax_263#385 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_RET 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_263#362, mem#109 = 0x79f7(%rdi_10#22, %rsi_4#16, %rdx_70#142, %rcx_6#25, 5, %r9#1, var_e8_1#1, var_e0_1#1, var_d8_1#1) @ mem#19 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_74#152 = ϕ(%rdx_70#142, %rdx_73#149, %rdx_74#151) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: quotearg_buffer_restyled 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_263 version 362> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_263#385 = ϕ(%rax_263#362, %rax_263#379, %rax_263#384) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_4#10 = %rax_137#188 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_138#189, mem#58 = 0x2480(%rdi_4#10) @ mem#57 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_8#11 = ϕ(%rdi_3#9, %rdi_4#10, %rdi_8#15) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 278 -     taint_prop_fw()]   ERROR    Import fun: strlen 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_138 version 189> 
+[Line: 247 -     taint_prop_fw()] WARNING    var_a8#7 = %rax_138#189 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_163#190 = ϕ(%rax_50#187, %rax_138#189, %rax_163#213) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_a8#8 = ϕ(var_a8#6, var_a8#7, var_a8#8) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#14 = ϕ(var_a8#3, var_a8#5, var_a8#6, var_a8#8, var_a8#9, var_a8#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#9 = ϕ(var_a8#6, var_a8#8) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#8 = ϕ(var_a8#6, var_a8#7, var_a8#8) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_140#192 = var_a8#8 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    if (var_a8#8 u<= %rax_146#216) then 1065 else 1066 @ 0x82f6 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_141#193 = %rax_140#192 - %rdx_32#67 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#14 = ϕ(var_a8#3, var_a8#5, var_a8#6, var_a8#8, var_a8#9, var_a8#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#10 = ϕ(var_a8#6, var_a8#9) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#13 = ϕ(var_a8#6, var_a8#9, var_a8#10, var_a8#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#11 = ϕ(var_a8#6, var_a8#13) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#3 = ϕ(var_a8#2, var_a8#11) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#2 = ϕ(var_a8#1, var_a8#3) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    if (var_a8#3 != -1) then 199 @ 0x8808 else 202 @ 0x87f0 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_259#52.%al = %rax_259#51 != var_a8#3 @ %rax_259#51 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#6 = ϕ(var_a8#3, var_a8#5) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    if (var_a8#3 != -1) then 342 else 343 @ 0x7cbc 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#14 = ϕ(var_a8#3, var_a8#5, var_a8#6, var_a8#8, var_a8#9, var_a8#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_39#62 = var_a8#3 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#5 = ϕ(var_a8#3, var_a8#4) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_6#25 = var_a8#3 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#15 = ϕ(var_a8#3, var_a8#14) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_263#362, mem#109 = 0x79f7(%rdi_10#22, %rsi_4#16, %rdx_70#142, %rcx_6#25, 5, %r9#1, var_e8_1#1, var_e0_1#1, var_d8_1#1) @ mem#19 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx_7#28 = ϕ(arg4#2, %rcx_6#25, %rcx_7#27) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#6 = ϕ(var_a8#3, var_a8#5) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#14 = ϕ(var_a8#3, var_a8#5, var_a8#6, var_a8#8, var_a8#9, var_a8#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rcx_7#27 = var_a8#14 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#15 = ϕ(var_a8#3, var_a8#14) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_263#384, mem#117 = 0x79f7(%rdi_12#25, %rsi_5#18, %rdx_74#151, %rcx_7#27, %r8_1#2, %r9_1#2, 0, var_e0_2#2, var_d8_2#2) @ mem#116 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rcx_7#28 = ϕ(arg4#2, %rcx_6#25, %rcx_7#27) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    if (var_a8#6 != -1) then 404 @ 0x80f8 else 406 @ 0x80db 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#14 = ϕ(var_a8#3, var_a8#5, var_a8#6, var_a8#8, var_a8#9, var_a8#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    if (var_a8#6 != -1) then 458 else 459 @ 0x8253 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_50#160.%al = var_a8#6 != 1 @ %rax_50#75 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#10 = ϕ(var_a8#6, var_a8#9) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#9 = ϕ(var_a8#6, var_a8#8) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#8 = ϕ(var_a8#6, var_a8#7, var_a8#8) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#11 = ϕ(var_a8#6, var_a8#13) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    if (var_a8#6 u<= %rax_86#120) then 791 else 792 @ 0x7f1e 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#12 = ϕ(var_a8#6, var_a8#10) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#13 = ϕ(var_a8#6, var_a8#9, var_a8#10, var_a8#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    if (var_a8#6 u<= %rax_66#98) then 1085 else 1086 @ 0x7e3b 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#14 = ϕ(var_a8#3, var_a8#5, var_a8#6, var_a8#8, var_a8#9, var_a8#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#13 = ϕ(var_a8#6, var_a8#9, var_a8#10, var_a8#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#12 = ϕ(var_a8#6, var_a8#10) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#13 = ϕ(var_a8#6, var_a8#9, var_a8#10, var_a8#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_39#63 = ϕ(%rax_39#61, %rax_39#62) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_42#67 = ϕ(%rax_259#57, %rax_39#63, %rax_42#66) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    if (%rax_39#63 u< %rbx_1#3) then 702 else 703 @ 0x7ce9 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 313 -     taint_prop_fw()] WARNING    var_a8#3 = ϕ(var_a8#2, var_a8#11) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_1#5 = %rax_37#59 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_38#60, mem#20 = 0x2480(%rdi_1#5) @ mem#19 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi_1#6 = ϕ(%rdi#4, %rdi_1#5) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 278 -     taint_prop_fw()]   ERROR    Import fun: strlen 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_38 version 60> 
+[Line: 247 -     taint_prop_fw()] WARNING    var_a8#4 = %rax_38#60 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_39#61 = var_a8#4 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_a8#5 = ϕ(var_a8#3, var_a8#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_39#63 = ϕ(%rax_39#61, %rax_39#62) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_120#162 = %rax_119#161 + 1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_50#163 = zx.q(zx.d([%rax_120#162].b @ mem#23)) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_50#164.%al = %rax_50#163.%al != 0 @ %rax_50#163 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_44#69 = %rax_43#68 + %rdx_8#22 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_9#64 = ϕ(%rdx_8#22, %rdx_9#23) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#65 = ϕ(%rdx_9#64, %rdx_35#78) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_45#70 = [%rax_44#69].b @ mem#23 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#3 = %rax_45#70 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_46#71 = zx.d(var_7b_1#3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_117#159 = var_7b_1#3 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#19 = ϕ(var_7b_1#2, var_7b_1#3, var_7b_1#11, var_7b_1#17) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_29#84 = zx.q(zx.d(var_7b_1#3)) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#15 = ϕ(var_7b_1#3, var_7b_1#5, var_7b_1#9) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#5 = ϕ(var_7b_1#3, var_7b_1#4) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#16 = ϕ(var_7b_1#3, var_7b_1#18) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#9 = ϕ(var_7b_1#3, var_7b_1#8) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#18 = ϕ(var_7b_1#3, var_7b_1#13, var_7b_1#15, var_7b_1#17) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#8 = ϕ(var_7b_1#3, var_7b_1#7) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#11 = ϕ(var_7b_1#3, var_7b_1#14) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#7 = ϕ(var_7b_1#3, var_7b_1#6) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7b_1#15 = ϕ(var_7b_1#3, var_7b_1#5, var_7b_1#9) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_30#85 = %rdx_29#84 + %rdx_29#84 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_133#224 = %rax_132#223 + %rdx_30#85 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_30#86 = ϕ(%rdx_35#70, %rdx_35#78, %rdx_38#83, %rdx_30#85) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_134#225 = [%rax_133#224].w @ mem#63 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_135#226 = zx.d(%rax_134#225) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_136#227 = %rax_135#226 & 0x4000 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_136#228.%al = %rax_136#227 != 0 @ %rax_136#227 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7a_1#10 = %rax_117#159 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_170#380 = ϕ(%rax_259#57, %rax_42#66, %rax_50#75, %rax_100#134, %rax_117#159, %rax_50#168, %rax_117#186, %rax_158#207, %rax_170#238, %rax_118#320) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_117#186 = ϕ(%rax_50#75, %rax_117#159) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_229#340 = ϕ(%rax_117#159, %rax_201#281, %rax_229#317, %rax_243#339) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_245#351 = ϕ(%rax_229#340, %rax_245#342, %rax_251#350) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_170#380 = ϕ(%rax_259#57, %rax_42#66, %rax_50#75, %rax_100#134, %rax_117#159, %rax_50#168, %rax_117#186, %rax_158#207, %rax_170#238, %rax_118#320) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_50#184 = ϕ(%rax_50#75, %rax_117#186) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_166#300 = ϕ(%rax_50#75, %rax_82#116, %rax_50#158, %rax_50#165, %rax_50#166, %rax_50#168, %rax_50#183, %rax_50#184, %rax_164#230, %rax_166#232) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7a_1#17 = ϕ(var_7a_1#2, var_7a_1#10, var_7a_1#12, var_7a_1#15) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7a_1#12 = ϕ(var_7a_1#6, var_7a_1#7, var_7a_1#8, var_7a_1#10) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7a_1#16 = ϕ(var_7a_1#2, var_7a_1#10, var_7a_1#13, var_7a_1#15) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#14 = ϕ(var_7a_1#2, var_7a_1#16) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#2 = ϕ(var_7a_1#1, var_7a_1#14) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#1 = ϕ(var_7a#0, var_7a_1#2) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#17 = ϕ(var_7a_1#2, var_7a_1#10, var_7a_1#12, var_7a_1#15) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#13 = ϕ(var_7a_1#2, var_7a_1#11) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#14 = ϕ(var_7a_1#2, var_7a_1#16) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#16 = ϕ(var_7a_1#2, var_7a_1#10, var_7a_1#13, var_7a_1#15) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#18 = ϕ(var_7a_1#2, var_7a_1#17) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#15 = ϕ(var_7a_1#11, var_7a_1#13) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#16 = ϕ(var_7a_1#2, var_7a_1#10, var_7a_1#13, var_7a_1#15) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#17 = ϕ(var_7a_1#2, var_7a_1#10, var_7a_1#12, var_7a_1#15) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#16 = ϕ(var_7a_1#2, var_7a_1#10, var_7a_1#13, var_7a_1#15) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#18 = ϕ(var_7a_1#2, var_7a_1#17) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#2 = ϕ(var_7a_1#1, var_7a_1#14) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#17 = ϕ(var_7a_1#2, var_7a_1#10, var_7a_1#12, var_7a_1#15) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#11 = ϕ(var_7a_1#3, var_7a_1#4, var_7a_1#5, var_7a_1#9, var_7a_1#12) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#13 = ϕ(var_7a_1#2, var_7a_1#11) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_118#185 = var_7a_1#11 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 313 -     taint_prop_fw()] WARNING    var_7a_1#15 = ϕ(var_7a_1#11, var_7a_1#13) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#10 = %rax_118#185 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_118#320 = ϕ(%rax_118#185, %rax_229#318) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    var_7b_1#17 = ϕ(var_7b_1#10, var_7b_1#15) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (%rax_46#71 u> 0x7e) then 288 else 289 @ 0x7d3e 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_47#72 = zx.q(%rax_46#71) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_50#187 = ϕ(%rax_46#71, %rax_50#75) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_163#190 = ϕ(%rax_50#187, %rax_138#189, %rax_163#213) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_9#23 = %rax_47#72 << 2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_48#73 = [%rdx_9#23 + 0x116d8].d @ mem#23 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_9#64 = ϕ(%rdx_8#22, %rdx_9#23) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_42#150 = ϕ(%rdx_69#17, %rdx_7#20, %rdx_9#23, %rdx_20#43, %rdx_42#76, %rdx_57#88, %rdx_9#123) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_9#116 = ϕ(%rdx_9#23, %rdx_9#40, %rdx_9#56, %rdx_9#63, %rdx_30#86) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_9#63 = ϕ(%rdx_9#23, %rdx_28#62) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_9#40 = ϕ(%rdx_9#23, %rdx_15#39) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_9#122 = ϕ(%rdx_9#23, %rdx_68#141) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_9#56 = ϕ(%rdx_9#23, %rdx_18#55) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_9#123 = ϕ(%rdx_9#23, %rdx_60#121) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_9#133 = ϕ(%rdx_9#23, %rdx_57#106, %rdx_60#120, %rdx_64#132) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_9#30 = ϕ(%rdx_9#23, %rdx_12#29) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_18#55 = ϕ(%rdx_9#23, %rdx_18#41, %rdx_20#54) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_10#25 = ϕ(%rdx_9#23, %rdx_10#24) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_26#58 = ϕ(%rdx_9#23, %rdx_26#57) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_27#60 = ϕ(%rdx_26#58, %rdx_27#59) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_28#62 = ϕ(%rdx_27#60, %rdx_28#61) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#63 = ϕ(%rdx_9#23, %rdx_28#62) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#116 = ϕ(%rdx_9#23, %rdx_9#40, %rdx_9#56, %rdx_9#63, %rdx_30#86) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_11#27 = ϕ(%rdx_10#25, %rdx_11#26) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_12#29 = ϕ(%rdx_11#27, %rdx_12#28) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#30 = ϕ(%rdx_9#23, %rdx_12#29) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_13#32 = ϕ(%rdx_9#30, %rdx_13#31) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_15#39 = ϕ(%rdx_13#32, %rdx_14#33, %rdx_15#34, %rdx_17#38) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#40 = ϕ(%rdx_9#23, %rdx_15#39) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rdx_9#116 = ϕ(%rdx_9#23, %rdx_9#40, %rdx_9#56, %rdx_9#63, %rdx_30#86) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_49#74 = sx.q(%rax_48#73) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_50#75 = %rax_49#74 + 0x116d8 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    jump(%rax_50#75 => 309 @ 0x7d65, 310 @ 0x7ed9, 311 @ 0x8046, 313 @ 0x804c, 315 @ 0x8052, 317 @ 0x8058, 319 @ 0x805e, 321 @ 0x8064, 323 @ 0x806a, 325 @ 0x8070, 328 @ 0x80d9, 329 @ 0x8108, 331 @ 0x810e, 334 @ 0x8119, 337 @ 0x812e, 340 @ 0x81e6, 306 @ 0x81f3) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_JUMP_TO 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_50#187 = ϕ(%rax_46#71, %rax_50#75) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_50#166 = ϕ(%rax_50#75, %rax_50#165) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_50#167 = ϕ(%rax_50#75, %rax_50#166) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_50#168 = ϕ(%rax_50#75, %rax_50#167) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_170#380 = ϕ(%rax_259#57, %rax_42#66, %rax_50#75, %rax_100#134, %rax_117#159, %rax_50#168, %rax_117#186, %rax_158#207, %rax_170#238, %rax_118#320) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_50#184 = ϕ(%rax_50#75, %rax_117#186) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_117#186 = ϕ(%rax_50#75, %rax_117#159) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_50#160.%al = var_a8#6 != 1 @ %rax_50#75 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_166#300 = ϕ(%rax_50#75, %rax_82#116, %rax_50#158, %rax_50#165, %rax_50#166, %rax_50#168, %rax_50#183, %rax_50#184, %rax_164#230, %rax_166#232) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_50#183 = ϕ(%rax_50#75, %rax_130#182) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_50#158 = ϕ(%rax_50#75, %rax_90#157) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_52#92 = ϕ(%rax_50#75, %rax_52#79, %rax_61#91) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_121#170 = ϕ(%rax_50#75, %rax_121#169) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_166#300 = ϕ(%rax_50#75, %rax_82#116, %rax_50#158, %rax_50#165, %rax_50#166, %rax_50#168, %rax_50#183, %rax_50#184, %rax_164#230, %rax_166#232) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_170#380 = ϕ(%rax_259#57, %rax_42#66, %rax_50#75, %rax_100#134, %rax_117#159, %rax_50#168, %rax_117#186, %rax_158#207, %rax_170#238, %rax_118#320) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_166#300 = ϕ(%rax_50#75, %rax_82#116, %rax_50#158, %rax_50#165, %rax_50#166, %rax_50#168, %rax_50#183, %rax_50#184, %rax_164#230, %rax_166#232) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_50#168 = ϕ(%rax_50#75, %rax_50#167) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_50#167 = ϕ(%rax_50#75, %rax_50#166) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    %rax_166#300 = ϕ(%rax_50#75, %rax_82#116, %rax_50#158, %rax_50#165, %rax_50#166, %rax_50#168, %rax_50#183, %rax_50#184, %rax_164#230, %rax_166#232) 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_258#54 = %rax_257#53 + %rdx_69#16 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_69#17 = ϕ(%rdx#15, %rdx_69#16) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_259#55 = zx.q(zx.d([%rax_258#54].b @ mem#19)) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_259#56.%al = %rax_259#55.%al != 0 @ %rax_259#55 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA_FIELD 
+[Line: 236 -     taint_prop_fw()]    INFO    Taint propagation forward 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa var_10 version 1> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax#1 = var_10#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi#1 = %rax#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_1#2, mem#1 = 0xa69b(%rdi#1) @ mem#0 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 296 -     taint_prop_fw()] CRITICAL    Fun to visit: xmalloc 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_1 version 2> 
+[Line: 247 -     taint_prop_fw()] WARNING    return %rax_1#2 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_RET 
+[Line: 236 -     taint_prop_fw()]    INFO    Taint propagation forward 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa var_38 version 1> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rsi#1 = var_38#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_6#7 = var_38#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_7#8 = [%rax_6#7].b @ mem#2 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_1d_1#1 = %rax_7#8 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    var_1d_1#2 = ϕ(var_1d#0, var_1d_1#1) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_1#2 = zx.d(var_1d_1#1) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdx_1#3 = ϕ(%rdx#1, %rdx_1#2) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    [%rax_8#9].d = %rdx_1#2 @ mem#2 -> mem#3 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_STORE_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_3#4, mem#1 = 0x24b0(%rdi#1, %rsi#1, %rdx#1, %rcx#1) @ mem#0 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 278 -     taint_prop_fw()]   ERROR    Import fun: mbrtowc 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_3 version 4> 
+[Line: 247 -     taint_prop_fw()] WARNING    var_18#1 = %rax_3#4 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax_5#11 = ϕ(%rax_3#4, %rax_5#6) 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_18#1 u<= -3) then 20 else 21 @ 0xa9f6 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_9#12 = var_18#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_9#13 = ϕ(%rax_9#10, %rax_9#12) 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_VAR_PHI 
+[Line: 313 -     taint_prop_fw()] WARNING    return %rax_9#13 
+[Line: 314 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_RET 
+[Line: 236 -     taint_prop_fw()]    INFO    Taint propagation forward 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa var_20 version 1> 
+[Line: 247 -     taint_prop_fw()] WARNING    %rax#1 = var_20#1 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 247 -     taint_prop_fw()] WARNING    if (var_20#1 == 0) then 10 else 11 @ 0xa6c9 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rdi#1 = %rax#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_1#2, mem#1 = 0x25d0(%rdi#1) @ mem#0 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_CALL_SSA 
+[Line: 278 -     taint_prop_fw()]   ERROR    Import fun: malloc 
+[Line: 242 -     taint_prop_fw()]   DEBUG    <ssa %rax_1 version 2> 
+[Line: 247 -     taint_prop_fw()] WARNING    var_10#1 = %rax_1#2 
+[Line: 248 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    if (var_10#1 != 0) then 6 else 7 @ 0xa6c7 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_IF 
+[Line: 256 -     taint_prop_fw()] WARNING    %rax_2#3 = var_10#1 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_SET_VAR_SSA 
+[Line: 256 -     taint_prop_fw()] WARNING    return %rax_2#3 
+[Line: 257 -     taint_prop_fw()] WARNING    ↳ MediumLevelILOperation.MLIL_RET 
+[Line: 468 -    analyze_binary()] CRITICAL    set_program_name: Operand Index: 0 
+[Line: 468 -    analyze_binary()] CRITICAL    print_factors: Operand Index: 0 
+[Line: 468 -    analyze_binary()] CRITICAL    strto2uintmax: Operand Index: 2 
+[Line: 468 -    analyze_binary()] CRITICAL    quote: Operand Index: 0 
+[Line: 468 -    analyze_binary()] CRITICAL    quote_n: Operand Index: 1 
+[Line: 468 -    analyze_binary()] CRITICAL    quote_n_mem: Operand Index: 1 
+[Line: 468 -    analyze_binary()] CRITICAL    quotearg_n_options: Operand Index: 1 
+[Line: 468 -    analyze_binary()] CRITICAL    quotearg_buffer_restyled: Operand Index: 2 
+[Line: 468 -    analyze_binary()] CRITICAL    xcharalloc: Operand Index: 0 
+[Line: 468 -    analyze_binary()] CRITICAL    rpl_mbrtowc: Operand Index: 1 
+[Line: 468 -    analyze_binary()] CRITICAL    xmalloc: Operand Index: 0 
+<ssa var_38 version 1>
+
+
+
+
+
+
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 0
+
+void* set_program_name(void* arg1) idx:  0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int64_t print_factors(char* arg1) idx:  0
+
+
+
+
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 0
+
+
+
+
+
+
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 0
+
+
+
+
+
+
+
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 2
+
+
+
+
+
+
+uint64_t strto2uintmax(int64_t* arg1, int64_t* arg2, char* arg3) idx:  2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void* quote(char* arg1) idx:  0
+
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 1
+
+
+
+void* quote_n(int32_t arg1, char* arg2) idx:  1
+
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 1
+
+
+
+void* quote_n_mem(int32_t arg1, char* arg2, uint64_t arg3) idx:  1
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 1
+
+
+
+void* quotearg_n_options(int32_t arg1, char* arg2, uint64_t arg3, int32_t* arg4) idx:  1
+
+
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 2
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void* quotearg_buffer_restyled(void* arg1, int64_t arg2, char* arg3, uint64_t arg4, int32_t arg5, int32_t arg6, int64_t arg7, void* arg8, void* arg9) idx:  2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 2
+
+
+
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int64_t xcharalloc(uint64_t arg1) idx:  0
+
+
+
+
+Inserting:  <class 'binaryninja.function.Function'> 0
+
+
+
+uint64_t rpl_mbrtowc(void* arg1, char* arg2, uint64_t arg3, mbstate_t* arg4) idx:  1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int64_t xmalloc(uint64_t arg1) idx:  0
+
+
+
+
+
+
+
+
+
+
+
+set_program_name MY_IOCTL 0_0
+print_factors MY_IOCTL 0_0
+strto2uintmax MY_IOCTL 0_2
+quote MY_IOCTL 0_0
+quote_n MY_IOCTL 0_1
+quote_n_mem MY_IOCTL 0_2
+quotearg_n_options MY_IOCTL 0_3
+quotearg_buffer_restyled MY_IOCTL 0_8
+xcharalloc MY_IOCTL 0_0
+rpl_mbrtowc MY_IOCTL 0_3
+xmalloc MY_IOCTL 0_0
+Make dir: ./benchmark/warns-factor.config-2026-11-04
+Generate a unified bug report including all warning types...
+10/10
+high-order/total: 0/1
+Extract the warnings: IntegerOverflowDetector.
+high-order/total: 0/1
+Extract the warnings: TaintedLoopBoundDetector.
+high-order/total: 0/1
+Extract the warnings: TaintedPointerDereferenceChecker.
+high-order/total: 0/1
+Extract the warnings: ImproperTaintedDataUseDetector.
+high-order/total: 0/0
+
+[exit 0]

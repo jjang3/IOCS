@@ -1,0 +1,45 @@
+# --- Binary Ninja: commercial, licence-bound. Never commit or bake into a pushed image. ---
+license.dat
+license.txt
+*.bndb
+BinaryNinja*.zip
+BinaryNinja*.dmg
+binaryninja/
+
+# --- local configuration ---
+config.env
+
+# --- Python / editor cruft ---
+__pycache__/
+*.pyc
+.venv/
+.vscode/
+*.code-workspace
+.gdb_history
+*~
+.DS_Store
+
+# --- build and run outputs (regenerated; recorded runs live under evidence/) ---
+result/
+build/
+lib/
+*.o
+*.so
+*.out
+*.new
+*.log
+pin-3.*_build/
+*.tar.gz
+
+# core dumps from crashing test binaries
+core
+core.*
+
+# third_party build outputs (PIN kit, LLVM 9 for SUTURE)
+third_party/pin/
+third_party/.deps/
+
+# evidence/ is a tracked plain-text record of each scripted run (overrides *.log etc. above)
+!evidence/**
+# artifacts/ holds tested binaries and their table.so (overrides *.so, lib/ above)
+!artifacts/**

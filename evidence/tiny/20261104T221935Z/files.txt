@@ -1,0 +1,17 @@
+1-tools-build.log
+2-dta.log
+3-sta.log
+4-rewrite.log.xz
+5-link.log
+6-check.log
+env.txt
+hybrid-taint.dot
+hybrid-taint.txt
+rewrite.diff
+rewritten-sites.txt
+sha256.txt
+summary.txt
+table.c
+tiny.config
+tiny.suture.log.xz
+tiny.vuln

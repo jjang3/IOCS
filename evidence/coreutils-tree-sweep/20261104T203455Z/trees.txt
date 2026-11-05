@@ -1,0 +1,3105 @@
+== chroot
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# chroot, 10 function(s) on the taint path.
+
+Root Function: main, Register Offset: -164 (uid)
+      └─ Function: parse_user_spec, Register Offset: -48 (arg 1, uid)
+         └─ Function: parse_with_separator, Register Offset: -136 (arg 2, uid)
+
+Root Function: main, Register Offset: -160 (gid)
+      └─ Function: parse_user_spec, Register Offset: -56 (arg 2, gid)
+         └─ Function: parse_with_separator, Register Offset: -144 (arg 3, gid)
+
+Root Function: main, Register Offset: -136 (out_gids)
+      └─ Function: parse_additional_groups, Register Offset: -112 (arg 1, pgids)
+      └─ Function: xgetgroups, Register Offset: -40 (arg 2, groups)
+         └─ Function: mgetgroups, Register Offset: -88 (arg 2, groups)
+
+Root Function: main, Register Offset: -128 (n_gids)
+      └─ Function: parse_additional_groups, Register Offset: -120 (arg 2, pn_gids)
+
+Root Function: main, Register Offset: -120 (in_gids)
+      └─ Function: parse_additional_groups, Register Offset: -112 (arg 1, pgids)
+      └─ Function: xgetgroups, Register Offset: -40 (arg 2, groups)
+         └─ Function: mgetgroups, Register Offset: -88 (arg 2, groups)
+
+Root Function: parse_additional_groups, Register Offset: -72 (value)
+      └─ Function: xstrtoul, Register Offset: -96 (arg 3, val)
+
+Root Function: parse_additional_groups, Register Offset: -80 (n_gids_allocated)
+      └─ Function: x2nrealloc, Register Offset: -32 (arg 1, pn)
+
+
+== hostid
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# hostid, 3 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== timeout
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# timeout, 17 function(s) on the taint path.
+
+Root Function: cleanup, Register Offset: -32 (signame)
+      └─ Function: sig2str, Register Offset: -48 (arg 1, signame)
+
+Root Function: main, Register Offset: -48 (signame)
+      └─ Function: operand2sig, Register Offset: -64 (arg 1, signame)
+         └─ Function: sig2str, Register Offset: -48 (arg 1, signame)
+
+Root Function: main, Register Offset: -176 (cleanup_set)
+      └─ Function: block_cleanup_and_chld, Register Offset: -160 (arg 1, old_set)
+
+Root Function: operand2sig, Register Offset: -48 (signum)
+      └─ Function: str2sig, Register Offset: -16 (arg 1, signum)
+
+Root Function: parse_duration, Register Offset: -16 (ep)
+      └─ Function: xstrtod, Register Offset: -48 (arg 1, ptr)
+
+Root Function: parse_duration, Register Offset: -24 (duration)
+      └─ Function: xstrtod, Register Offset: -56 (arg 2, result)
+      └─ Function: apply_time_suffix, Register Offset: -24 (arg 0, x)
+
+
+== nice
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# nice, 6 function(s) on the taint path.
+
+Root Function: main, Register Offset: -56 (tmp)
+      └─ Function: xstrtol, Register Offset: -80 (arg 3, val)
+
+
+== who
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# who, 21 function(s) on the taint path.
+
+Root Function: print_line, Register Offset: -72 (buf)
+      └─ Function: rpl_asprintf, Register Offset: -232 (arg 0, resultp)
+         └─ Function: rpl_vasprintf, Register Offset: -40 (arg 0, resultp)
+
+Root Function: print_user, Register Offset: -512 (stats)
+      └─ Function: is_tty_writable, Register Offset: -8 (arg 0, pstat)
+
+Root Function: print_user, Register Offset: -288 (ut_host)
+      └─ Function: stzncpy, Register Offset: -24 (arg 0, dest)
+      └─ Function: canon_host, Register Offset: -8 (arg 0, host)
+         └─ Function: canon_host_r, Register Offset: -40 (arg 0, host)
+
+Root Function: who, Register Offset: -40 (n_users)
+      └─ Function: read_utmp, Register Offset: -64 (arg 1, n_entries)
+
+Root Function: who, Register Offset: -32 (utmp_buf)
+      └─ Function: read_utmp, Register Offset: -72 (arg 2, utmp_buf)
+
+
+== users
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# users, 6 function(s) on the taint path.
+
+Root Function: users, Register Offset: -40 (n_users)
+      └─ Function: read_utmp, Register Offset: -64 (arg 1, n_entries)
+
+Root Function: users, Register Offset: -32 (utmp_buf)
+      └─ Function: read_utmp, Register Offset: -72 (arg 2, utmp_buf)
+
+
+== pinky
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# pinky, 16 function(s) on the taint path.
+
+Root Function: print_entry, Register Offset: -272 (name)
+      └─ Function: stzncpy, Register Offset: -24 (arg 0, dest)
+      └─ Function: canon_host, Register Offset: -8 (arg 0, host)
+         └─ Function: canon_host_r, Register Offset: -40 (arg 0, host)
+
+Root Function: short_pinky, Register Offset: -40 (n_users)
+      └─ Function: read_utmp, Register Offset: -64 (arg 1, n_entries)
+
+Root Function: short_pinky, Register Offset: -32 (utmp_buf)
+      └─ Function: read_utmp, Register Offset: -72 (arg 2, utmp_buf)
+
+
+== uptime
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# uptime, 6 function(s) on the taint path.
+
+Root Function: print_uptime, Register Offset: -8208 (buf)
+      └─ Function: c_strtod, Register Offset: -24 (arg 0, nptr)
+
+Root Function: print_uptime, Register Offset: -8312 (time_now)
+      └─ Function: c_strtod, Register Offset: -32 (arg 1, endptr)
+
+Root Function: uptime, Register Offset: -40 (n_users)
+      └─ Function: read_utmp, Register Offset: -64 (arg 1, n_entries)
+
+Root Function: uptime, Register Offset: -32 (utmp_buf)
+      └─ Function: read_utmp, Register Offset: -72 (arg 2, utmp_buf)
+
+
+== stty
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# stty, 28 function(s) on the taint path.
+
+Root Function: display_window_size, Register Offset: -32 (win)
+      └─ Function: get_win_size, Register Offset: -32 (arg 1, win)
+
+Root Function: main, Register Offset: -64 (speed_was_set)
+      └─ Function: apply_settings, Register Offset: -72 (arg 5, speed_was_set)
+
+Root Function: recover_mode, Register Offset: -56 (p)
+      └─ Function: strtoul_tcflag_t, Register Offset: -40 (arg 2, p)
+      └─ Function: strtoul_cc_t, Register Offset: -40 (arg 2, p)
+
+Root Function: screen_columns, Register Offset: -16 (win)
+      └─ Function: get_win_size, Register Offset: -32 (arg 1, win)
+
+Root Function: screen_columns, Register Offset: -32 (n_columns)
+      └─ Function: xstrtol, Register Offset: -80 (arg 3, val)
+
+Root Function: set_window_size, Register Offset: -32 (win)
+      └─ Function: get_win_size, Register Offset: -32 (arg 1, win)
+
+Root Function: wrapf, Register Offset: -216 (buf)
+      └─ Function: rpl_vasprintf, Register Offset: -40 (arg 0, resultp)
+
+Root Function: wrapf, Register Offset: -208 (args)
+      └─ Function: rpl_vasprintf, Register Offset: -56 (arg 2, args)
+         └─ Function: vasnprintf, Register Offset: -2784 (arg 3, args)
+            └─ Function: printf_fetchargs, Register Offset: -24 (arg 0, args)
+
+
+== df
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# df, 39 function(s) on the taint path.
+
+Root Function: devlist_for_dev, Register Offset: -32 (dev_entry)
+      └─ Function: hash_lookup, Register Offset: -32 (arg 1, entry)
+         └─ Function: safe_hasher, Register Offset: -32 (arg 1, key)
+
+Root Function: find_mount_point, Register Offset: -336 (cwd)
+      └─ Function: save_cwd, Register Offset: -8 (arg 0, cwd)
+      └─ Function: restore_cwd, Register Offset: -8 (arg 0, cwd)
+      └─ Function: free_cwd, Register Offset: -8 (arg 0, cwd)
+
+Root Function: get_dev, Register Offset: -1024 (fsu)
+      └─ Function: get_fs_usage, Register Offset: -152 (arg 2, fsp)
+      └─ Function: get_field_values, Register Offset: -24 (arg 2, fsu)
+
+Root Function: get_dev, Register Offset: -960 (block_values)
+      └─ Function: get_field_values, Register Offset: -8 (arg 0, bv)
+      └─ Function: add_to_grand_total, Register Offset: -8 (arg 0, bv)
+
+Root Function: get_dev, Register Offset: -896 (inode_values)
+      └─ Function: get_field_values, Register Offset: -16 (arg 1, iv)
+      └─ Function: add_to_grand_total, Register Offset: -16 (arg 1, iv)
+
+Root Function: get_dev, Register Offset: -688 (buf)
+      └─ Function: df_readable, Register Offset: -40 (arg 2, buf)
+
+Root Function: get_dev, Register Offset: -1144 (cell)
+      └─ Function: rpl_asprintf, Register Offset: -232 (arg 0, resultp)
+         └─ Function: rpl_vasprintf, Register Offset: -40 (arg 0, resultp)
+
+Root Function: get_header, Register Offset: -672 (buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: get_header, Register Offset: -736 (cell)
+      └─ Function: rpl_asprintf, Register Offset: -232 (arg 0, resultp)
+         └─ Function: rpl_vasprintf, Register Offset: -40 (arg 0, resultp)
+
+Root Function: print_table, Register Offset: -40 (width)
+      └─ Function: ambsalign, Register Offset: -64 (arg 1, width)
+         └─ Function: mbsalign, Register Offset: -144 (arg 3, width)
+
+Root Function: replace_invalid_chars, Register Offset: -60 (wc)
+      └─ Function: rpl_mbrtowc, Register Offset: -40 (arg 0, pwc)
+
+Root Function: replace_invalid_chars, Register Offset: -16 (mbstate)
+      └─ Function: rpl_mbrtowc, Register Offset: -64 (arg 3, ps)
+
+
+== stdbuf
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# stdbuf, 10 function(s) on the taint path.
+
+Root Function: parse_size, Register Offset: -32 (tmp_size)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+Root Function: set_LD_PRELOAD, Register Offset: -240 (libstdbuf)
+      └─ Function: rpl_asprintf, Register Offset: -232 (arg 0, resultp)
+         └─ Function: rpl_vasprintf, Register Offset: -40 (arg 0, resultp)
+
+Root Function: set_LD_PRELOAD, Register Offset: -248 (LD_PRELOAD)
+      └─ Function: rpl_asprintf, Register Offset: -232 (arg 0, resultp)
+         └─ Function: rpl_vasprintf, Register Offset: -40 (arg 0, resultp)
+
+Root Function: set_libstdbuf_options, Register Offset: -40 (var)
+      └─ Function: rpl_asprintf, Register Offset: -232 (arg 0, resultp)
+         └─ Function: rpl_vasprintf, Register Offset: -40 (arg 0, resultp)
+
+
+== b2sum
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# b2sum, 33 function(s) on the taint path.
+
+Root Function: blake2b, Register Offset: -256 (S)
+      └─ Function: blake2b_init_key, Register Offset: -216 (arg 0, S)
+         └─ Function: blake2b_init_param, Register Offset: -24 (arg 0, S)
+            └─ Function: blake2b_init0, Register Offset: -24 (arg 0, S)
+         └─ Function: blake2b_update, Register Offset: -40 (arg 0, S)
+            └─ Function: blake2b_increment_counter, Register Offset: -8 (arg 0, S)
+            └─ Function: blake2b_compress, Register Offset: -296 (arg 0, S)
+      └─ Function: blake2b_init, Register Offset: -88 (arg 0, S)
+         └─ Function: blake2b_init_param, Register Offset: -24 (arg 0, S)
+            └─ Function: blake2b_init0, Register Offset: -24 (arg 0, S)
+      └─ Function: blake2b_update, Register Offset: -40 (arg 0, S)
+         └─ Function: blake2b_increment_counter, Register Offset: -8 (arg 0, S)
+         └─ Function: blake2b_compress, Register Offset: -296 (arg 0, S)
+      └─ Function: blake2b_final, Register Offset: -104 (arg 0, S)
+         └─ Function: blake2b_is_lastblock, Register Offset: -8 (arg 0, S)
+         └─ Function: blake2b_increment_counter, Register Offset: -8 (arg 0, S)
+         └─ Function: blake2b_set_lastblock, Register Offset: -8 (arg 0, S)
+            └─ Function: blake2b_set_lastnode, Register Offset: -8 (arg 0, S)
+         └─ Function: blake2b_compress, Register Offset: -296 (arg 0, S)
+
+Root Function: blake2b_final, Register Offset: -80 (buffer)
+      └─ Function: secure_zero_memory, Register Offset: -8 (arg 0, v)
+
+Root Function: blake2b_init, Register Offset: -80 (P)
+      └─ Function: store32, Register Offset: -24 (arg 0, dst)
+      └─ Function: blake2b_init_param, Register Offset: -32 (arg 1, P)
+
+Root Function: blake2b_init_key, Register Offset: -208 (P)
+      └─ Function: store32, Register Offset: -24 (arg 0, dst)
+      └─ Function: blake2b_init_param, Register Offset: -32 (arg 1, P)
+
+Root Function: blake2b_init_key, Register Offset: -144 (block)
+      └─ Function: blake2b_update, Register Offset: -48 (arg 1, pin)
+      └─ Function: secure_zero_memory, Register Offset: -8 (arg 0, v)
+
+Root Function: blake2b_stream, Register Offset: -256 (S)
+      └─ Function: blake2b_init, Register Offset: -88 (arg 0, S)
+         └─ Function: blake2b_init_param, Register Offset: -24 (arg 0, S)
+            └─ Function: blake2b_init0, Register Offset: -24 (arg 0, S)
+      └─ Function: blake2b_update, Register Offset: -40 (arg 0, S)
+         └─ Function: blake2b_increment_counter, Register Offset: -8 (arg 0, S)
+         └─ Function: blake2b_compress, Register Offset: -296 (arg 0, S)
+      └─ Function: blake2b_final, Register Offset: -104 (arg 0, S)
+         └─ Function: blake2b_is_lastblock, Register Offset: -8 (arg 0, S)
+         └─ Function: blake2b_increment_counter, Register Offset: -8 (arg 0, S)
+         └─ Function: blake2b_set_lastblock, Register Offset: -8 (arg 0, S)
+            └─ Function: blake2b_set_lastnode, Register Offset: -8 (arg 0, S)
+         └─ Function: blake2b_compress, Register Offset: -296 (arg 0, S)
+
+Root Function: digest_check, Register Offset: -96 (bin_buffer_unaligned)
+      └─ Function: ptr_align, Register Offset: -24 (arg 0, ptr)
+
+Root Function: digest_check, Register Offset: -184 (hex_digest)
+      └─ Function: split_3, Register Offset: -88 (arg 2, hex_digest)
+         └─ Function: bsd_split_3, Register Offset: -40 (arg 2, hex_digest)
+
+Root Function: digest_check, Register Offset: -212 (binary)
+      └─ Function: split_3, Register Offset: -96 (arg 3, binary)
+      └─ Function: digest_file, Register Offset: -48 (arg 1, binary)
+
+Root Function: digest_check, Register Offset: -192 (filename)
+      └─ Function: split_3, Register Offset: -104 (arg 4, file_name)
+         └─ Function: bsd_split_3, Register Offset: -48 (arg 3, file_name)
+
+Root Function: digest_check, Register Offset: -218 (missing)
+      └─ Function: digest_file, Register Offset: -64 (arg 3, missing)
+
+Root Function: main, Register Offset: -96 (bin_buffer_unaligned)
+      └─ Function: ptr_align, Register Offset: -24 (arg 0, ptr)
+
+Root Function: main, Register Offset: -164 (file_is_binary)
+      └─ Function: digest_file, Register Offset: -48 (arg 1, binary)
+
+Root Function: main, Register Offset: -169 (missing)
+      └─ Function: digest_file, Register Offset: -64 (arg 3, missing)
+
+Root Function: split_3, Register Offset: -56 (tmp_ulong)
+      └─ Function: xstrtoul, Register Offset: -96 (arg 3, val)
+
+
+== base64
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# base64, 8 function(s) on the taint path.
+
+Root Function: do_decode, Register Offset: -16 (ctx)
+      └─ Function: base64_decode_ctx_init, Register Offset: -8 (arg 0, ctx)
+      └─ Function: base64_decode_ctx, Register Offset: -56 (arg 0, ctx)
+         └─ Function: get_4, Register Offset: -40 (arg 0, ctx)
+
+Root Function: do_decode, Register Offset: -56 (n)
+      └─ Function: base64_decode_ctx, Register Offset: -88 (arg 4, outlen)
+
+Root Function: do_encode, Register Offset: -48 (current_column)
+      └─ Function: wrap_write, Register Offset: -64 (arg 3, current_column)
+
+
+== base32
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# base32, 8 function(s) on the taint path.
+
+Root Function: do_decode, Register Offset: -20 (ctx)
+      └─ Function: base32_decode_ctx_init, Register Offset: -8 (arg 0, ctx)
+      └─ Function: base32_decode_ctx, Register Offset: -56 (arg 0, ctx)
+         └─ Function: get_8, Register Offset: -40 (arg 0, ctx)
+
+Root Function: do_decode, Register Offset: -64 (n)
+      └─ Function: base32_decode_ctx, Register Offset: -88 (arg 4, outlen)
+
+Root Function: do_encode, Register Offset: -48 (current_column)
+      └─ Function: wrap_write, Register Offset: -64 (arg 3, current_column)
+
+
+== basenc
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# basenc, 41 function(s) on the taint path.
+
+Root Function: do_encode, Register Offset: -64 (current_column)
+      └─ Function: wrap_write, Register Offset: -64 (arg 3, current_column)
+
+
+== basename
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# basename, 6 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== cat
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# cat, 10 function(s) on the taint path.
+
+Root Function: cat, Register Offset: -72 (bpout)
+      └─ Function: write_pending, Register Offset: -32 (arg 1, bpout)
+
+
+== chcon
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# chcon, 9 function(s) on the taint path.
+
+Root Function: change_file_context, Register Offset: -56 (context)
+      └─ Function: compute_context_from_mask, Register Offset: -48 (arg 1, ret)
+
+
+== chgrp
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# chgrp, 13 function(s) on the taint path.
+
+Root Function: gid_to_name, Register Offset: -32 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: main, Register Offset: -224 (chopt)
+      └─ Function: chopt_init, Register Offset: -8 (arg 0, chopt)
+
+Root Function: parse_group, Register Offset: -24 (tmp)
+      └─ Function: xstrtoul, Register Offset: -96 (arg 3, val)
+
+Root Function: uid_to_name, Register Offset: -32 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+
+== chmod
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# chmod, 7 function(s) on the taint path.
+
+Root Function: describe_change, Register Offset: -48 (perms)
+      └─ Function: strmode, Register Offset: -16 (arg 1, str)
+
+Root Function: describe_change, Register Offset: -36 (old_perms)
+      └─ Function: strmode, Register Offset: -16 (arg 1, str)
+
+Root Function: main, Register Offset: -88 (mode_alloc)
+      └─ Function: x2realloc, Register Offset: -16 (arg 1, pn)
+         └─ Function: x2nrealloc, Register Offset: -32 (arg 1, pn)
+
+Root Function: process_file, Register Offset: -48 (new_perms)
+      └─ Function: strmode, Register Offset: -16 (arg 1, str)
+
+Root Function: process_file, Register Offset: -36 (naively_expected_perms)
+      └─ Function: strmode, Register Offset: -16 (arg 1, str)
+
+
+== chown
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# chown, 12 function(s) on the taint path.
+
+Root Function: gid_to_name, Register Offset: -32 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: main, Register Offset: -224 (chopt)
+      └─ Function: chopt_init, Register Offset: -8 (arg 0, chopt)
+      └─ Function: parse_user_spec, Register Offset: -64 (arg 3, username)
+         └─ Function: parse_with_separator, Register Offset: -152 (arg 4, username)
+      └─ Function: parse_user_spec, Register Offset: -72 (arg 4, groupname)
+         └─ Function: parse_with_separator, Register Offset: -160 (arg 5, groupname)
+
+Root Function: main, Register Offset: -260 (required_uid)
+      └─ Function: parse_user_spec, Register Offset: -48 (arg 1, uid)
+         └─ Function: parse_with_separator, Register Offset: -136 (arg 2, uid)
+
+Root Function: main, Register Offset: -256 (required_gid)
+      └─ Function: parse_user_spec, Register Offset: -56 (arg 2, gid)
+         └─ Function: parse_with_separator, Register Offset: -144 (arg 3, gid)
+
+Root Function: main, Register Offset: -268 (uid)
+      └─ Function: parse_user_spec, Register Offset: -48 (arg 1, uid)
+         └─ Function: parse_with_separator, Register Offset: -136 (arg 2, uid)
+
+Root Function: main, Register Offset: -264 (gid)
+      └─ Function: parse_user_spec, Register Offset: -56 (arg 2, gid)
+         └─ Function: parse_with_separator, Register Offset: -144 (arg 3, gid)
+
+Root Function: uid_to_name, Register Offset: -32 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+
+== cksum
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# cksum, 4 function(s) on the taint path.
+
+Root Function: cksum, Register Offset: -65600 (length_buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+
+== comm
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# comm, 6 function(s) on the taint path.
+
+Root Function: compare_files, Register Offset: -80 (buf3)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: compare_files, Register Offset: -112 (buf2)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: compare_files, Register Offset: -144 (buf1)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+
+== cp
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# cp, 73 function(s) on the taint path.
+
+Root Function: copy_dir, Register Offset: -112 (non_command_line_options)
+      └─ Function: copy_internal, Register Offset: -832 (arg 5, x)
+         └─ Function: should_dereference, Register Offset: -8 (arg 0, x)
+         └─ Function: same_file_ok, Register Offset: -392 (arg 4, x)
+         └─ Function: abandon_move, Register Offset: -8 (arg 0, x)
+            └─ Function: overwrite_ok, Register Offset: -56 (arg 0, x)
+         └─ Function: overwrite_ok, Register Offset: -56 (arg 0, x)
+         └─ Function: set_file_security_ctx, Register Offset: -56 (arg 3, x)
+         └─ Function: set_process_security_ctx, Register Offset: -80 (arg 4, x)
+         └─ Function: copy_dir, Register Offset: -208 (arg 5, x)
+         └─ Function: copy_reg, Register Offset: -488 (arg 2, x)
+            └─ Function: set_file_security_ctx, Register Offset: -56 (arg 3, x)
+            └─ Function: set_process_security_ctx, Register Offset: -80 (arg 4, x)
+            └─ Function: set_owner, Register Offset: -72 (arg 0, x)
+               └─ Function: owner_failure_ok, Register Offset: -8 (arg 0, x)
+               └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+         └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+         └─ Function: set_owner, Register Offset: -72 (arg 0, x)
+            └─ Function: owner_failure_ok, Register Offset: -8 (arg 0, x)
+            └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+
+Root Function: copy_internal, Register Offset: -608 (src_sb)
+      └─ Function: seen_file, Register Offset: -56 (arg 2, stats)
+      └─ Function: record_file, Register Offset: -40 (arg 2, stats)
+      └─ Function: same_file_ok, Register Offset: -368 (arg 1, src_sb)
+      └─ Function: utimecmp, Register Offset: -24 (arg 2, src_stat)
+         └─ Function: utimecmpat, Register Offset: -368 (arg 3, src_stat)
+            └─ Function: get_stat_mtime_ns, Register Offset: -8 (arg 0, st)
+      └─ Function: source_is_dst_backup, Register Offset: -256 (arg 1, src_st)
+      └─ Function: is_ancestor, Register Offset: -8 (arg 0, sb)
+      └─ Function: copy_dir, Register Offset: -192 (arg 3, src_sb)
+         └─ Function: copy_internal, Register Offset: -816 (arg 3, parent)
+      └─ Function: get_stat_atime, Register Offset: -8 (arg 0, st)
+      └─ Function: get_stat_mtime, Register Offset: -8 (arg 0, st)
+      └─ Function: set_owner, Register Offset: -96 (arg 3, src_sb)
+
+Root Function: copy_internal, Register Offset: -464 (dst_sb)
+      └─ Function: same_file_ok, Register Offset: -384 (arg 3, dst_sb)
+      └─ Function: utimecmp, Register Offset: -16 (arg 1, dst_stat)
+         └─ Function: utimecmpat, Register Offset: -360 (arg 2, dst_stat)
+            └─ Function: get_stat_mtime_ns, Register Offset: -8 (arg 0, st)
+            └─ Function: get_stat_atime_ns, Register Offset: -8 (arg 0, st)
+            └─ Function: get_stat_ctime_ns, Register Offset: -8 (arg 0, st)
+      └─ Function: abandon_move, Register Offset: -24 (arg 2, dst_sb)
+         └─ Function: overwrite_ok, Register Offset: -72 (arg 2, dst_sb)
+      └─ Function: overwrite_ok, Register Offset: -72 (arg 2, dst_sb)
+      └─ Function: seen_file, Register Offset: -56 (arg 2, stats)
+      └─ Function: set_owner, Register Offset: -104 (arg 5, dst_sb)
+
+Root Function: copy_internal, Register Offset: -771 (return_now)
+      └─ Function: same_file_ok, Register Offset: -400 (arg 5, return_now)
+
+Root Function: copy_internal, Register Offset: -804 (new_dst)
+      └─ Function: copy_reg, Register Offset: -504 (arg 5, new_dst)
+
+Root Function: copy_internal, Register Offset: -176 (timespec)
+      └─ Function: record_file, Register Offset: -40 (arg 2, stats)
+      └─ Function: utimens_symlink, Register Offset: -32 (arg 1, timespec)
+         └─ Function: lutimens, Register Offset: -240 (arg 1, timespec)
+      └─ Function: utimens, Register Offset: -16 (arg 1, timespec)
+         └─ Function: fdutimens, Register Offset: -360 (arg 2, timespec)
+
+Root Function: copy_reg, Register Offset: -320 (src_open_sb)
+      └─ Function: is_probably_sparse, Register Offset: -8 (arg 0, sb)
+
+Root Function: copy_reg, Register Offset: -352 (timespec)
+      └─ Function: fdutimens, Register Offset: -360 (arg 2, timespec)
+
+Root Function: copy_reg, Register Offset: -176 (sb)
+      └─ Function: set_owner, Register Offset: -104 (arg 5, dst_sb)
+
+Root Function: do_copy, Register Offset: -176 (sb)
+      └─ Function: target_directory_operand, Register Offset: -32 (arg 1, st)
+
+Root Function: do_copy, Register Offset: -314 (new_dst)
+      └─ Function: target_directory_operand, Register Offset: -40 (arg 2, new_dst)
+      └─ Function: make_dir_parents_private, Register Offset: -456 (arg 4, new_dst)
+
+Root Function: do_copy, Register Offset: -296 (unused)
+      └─ Function: file_name_concat, Register Offset: -40 (arg 2, base_in_result)
+         └─ Function: mfile_name_concat, Register Offset: -88 (arg 2, base_in_result)
+      └─ Function: copy, Register Offset: -56 (arg 4, copy_into_self)
+
+Root Function: do_copy, Register Offset: -304 (attr_list)
+      └─ Function: make_dir_parents_private, Register Offset: -448 (arg 3, attr_list)
+
+Root Function: do_copy, Register Offset: -313 (copy_into_self)
+      └─ Function: copy, Register Offset: -56 (arg 4, copy_into_self)
+
+Root Function: extent_copy, Register Offset: -80 (scan)
+      └─ Function: extent_scan_init, Register Offset: -16 (arg 1, scan)
+      └─ Function: extent_scan_read, Register Offset: -4184 (arg 0, scan)
+      └─ Function: extent_scan_free, Register Offset: -8 (arg 0, scan)
+
+Root Function: force_linkat, Register Offset: -272 (buf)
+      └─ Function: samedir_template, Register Offset: -48 (arg 1, buf)
+
+Root Function: force_linkat, Register Offset: -304 (arg)
+      └─ Function: try_tempname_len, Register Offset: -88 (arg 2, args)
+
+Root Function: force_symlinkat, Register Offset: -272 (buf)
+      └─ Function: samedir_template, Register Offset: -48 (arg 1, buf)
+
+Root Function: force_symlinkat, Register Offset: -288 (arg)
+      └─ Function: try_tempname_len, Register Offset: -88 (arg 2, args)
+
+Root Function: forget_created, Register Offset: -32 (probe)
+      └─ Function: hash_delete, Register Offset: -80 (arg 1, entry)
+         └─ Function: hash_find_entry, Register Offset: -64 (arg 1, entry)
+            └─ Function: safe_hasher, Register Offset: -32 (arg 1, key)
+
+Root Function: main, Register Offset: -256 (x)
+      └─ Function: cp_option_init, Register Offset: -8 (arg 0, x)
+         └─ Function: cp_options_default, Register Offset: -8 (arg 0, x)
+      └─ Function: decode_preserve_arg, Register Offset: -48 (arg 1, x)
+      └─ Function: do_copy, Register Offset: -352 (arg 4, x)
+
+Root Function: overwrite_ok, Register Offset: -36 (perms)
+      └─ Function: strmode, Register Offset: -16 (arg 1, str)
+
+Root Function: re_protect, Register Offset: -64 (timespec)
+      └─ Function: utimens, Register Offset: -16 (arg 1, timespec)
+         └─ Function: fdutimens, Register Offset: -360 (arg 2, timespec)
+
+Root Function: src_to_dest_lookup, Register Offset: -32 (ent)
+      └─ Function: hash_lookup, Register Offset: -32 (arg 1, entry)
+         └─ Function: safe_hasher, Register Offset: -32 (arg 1, key)
+
+
+== csplit
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# csplit, 44 function(s) on the taint path.
+
+Root Function: close_output_file, Register Offset: -48 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: handle_line_error, Register Offset: -32 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: max_out, Register Offset: -24 (flags)
+      └─ Function: get_format_flags, Register Offset: -32 (arg 1, flags_ptr)
+
+Root Function: parse_patterns, Register Offset: -64 (val)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+Root Function: parse_patterns, Register Offset: -48 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: parse_repeat_count, Register Offset: -24 (val)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+Root Function: regexp_error, Register Offset: -32 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+
+== cut
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# cut, 18 function(s) on the taint path.
+
+Root Function: cut_bytes, Register Offset: -16 (byte_idx)
+      └─ Function: next_item, Register Offset: -8 (arg 0, item_idx)
+
+Root Function: cut_fields, Register Offset: -32 (field_idx)
+      └─ Function: next_item, Register Offset: -8 (arg 0, item_idx)
+
+
+== date
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# date, 8 function(s) on the taint path.
+
+Root Function: batch_convert, Register Offset: -48 (when)
+      └─ Function: parse_datetime2, Register Offset: -1336 (arg 0, result)
+         └─ Function: localtime_rz, Register Offset: -32 (arg 1, t)
+
+Root Function: main, Register Offset: -192 (when)
+      └─ Function: posixtime, Register Offset: -200 (arg 0, p)
+      └─ Function: gettime, Register Offset: -8 (arg 0, ts)
+      └─ Function: parse_datetime2, Register Offset: -1336 (arg 0, result)
+         └─ Function: localtime_rz, Register Offset: -32 (arg 1, t)
+      └─ Function: settime, Register Offset: -56 (arg 0, ts)
+
+Root Function: main, Register Offset: -176 (refstats)
+      └─ Function: get_stat_mtime, Register Offset: -8 (arg 0, st)
+
+Root Function: show_date, Register Offset: -128 (when)
+      └─ Function: localtime_rz, Register Offset: -32 (arg 1, t)
+
+Root Function: show_date, Register Offset: -96 (tm)
+      └─ Function: localtime_rz, Register Offset: -40 (arg 2, tm)
+         └─ Function: save_abbr, Register Offset: -48 (arg 1, tm)
+      └─ Function: fprintftime, Register Offset: -40 (arg 2, tp)
+
+Root Function: show_date, Register Offset: -32 (buf)
+      └─ Function: timetostr, Register Offset: -16 (arg 1, buf)
+         └─ Function: imaxtostr, Register Offset: -32 (arg 1, buf)
+
+
+== dd
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# dd, 49 function(s) on the taint path.
+
+Root Function: alloc_ibuf, Register Offset: -672 (hbuf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: alloc_obuf, Register Offset: -672 (hbuf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: dd_copy, Register Offset: -288 (n_bytes_read)
+      └─ Function: skip, Register Offset: -248 (arg 4, bytes)
+      └─ Function: swab_buffer, Register Offset: -48 (arg 1, nread)
+
+Root Function: nl_error, Register Offset: -208 (ap)
+      └─ Function: verror, Register Offset: -24 (arg 3, args)
+         └─ Function: verror_at_line, Register Offset: -56 (arg 5, args)
+            └─ Function: xvasprintf, Register Offset: -48 (arg 1, args)
+               └─ Function: xstrcat, Register Offset: -112 (arg 1, args)
+               └─ Function: rpl_vasprintf, Register Offset: -56 (arg 2, args)
+                  └─ Function: vasnprintf, Register Offset: -2784 (arg 3, args)
+                     └─ Function: printf_fetchargs, Register Offset: -24 (arg 0, args)
+
+Root Function: parse_integer, Register Offset: -40 (suffix)
+      └─ Function: xstrtoumax, Register Offset: -80 (arg 1, ptr)
+
+Root Function: parse_integer, Register Offset: -48 (n)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+Root Function: print_xfer_stats, Register Offset: -2016 (hbuf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: scanargs, Register Offset: -88 (invalid)
+      └─ Function: parse_integer, Register Offset: -80 (arg 1, invalid)
+
+Root Function: skip, Register Offset: -176 (st)
+      └─ Function: usable_st_size, Register Offset: -8 (arg 0, sb)
+
+
+== dir
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# dir, 155 function(s) on the taint path.
+
+Root Function: abformat_init, Register Offset: -1552 (abmon)
+      └─ Function: abmon_init, Register Offset: -88 (arg 0, abmon)
+
+Root Function: abmon_init, Register Offset: -64 (width)
+      └─ Function: mbsalign, Register Offset: -144 (arg 3, width)
+
+Root Function: decode_switches, Register Offset: -16 (oi)
+      └─ Function: xstrtoul, Register Offset: -96 (arg 3, val)
+
+Root Function: gobble_file, Register Offset: -688 (buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: gobble_file, Register Offset: -720 (b)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: length_of_file_name_and_frills, Register Offset: -672 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: long_time_expected_width, Register Offset: -1104 (epoch)
+      └─ Function: localtime_rz, Register Offset: -32 (arg 1, t)
+
+Root Function: long_time_expected_width, Register Offset: -1088 (tm)
+      └─ Function: localtime_rz, Register Offset: -40 (arg 2, tm)
+         └─ Function: save_abbr, Register Offset: -48 (arg 1, tm)
+      └─ Function: align_nstrftime, Register Offset: -48 (arg 3, tm)
+         └─ Function: nstrftime, Register Offset: -48 (arg 3, tp)
+            └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+               └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+
+Root Function: long_time_expected_width, Register Offset: -1024 (buf)
+      └─ Function: align_nstrftime, Register Offset: -24 (arg 0, buf)
+         └─ Function: nstrftime, Register Offset: -24 (arg 0, s)
+            └─ Function: __strftime_internal, Register Offset: -1736 (arg 0, s)
+      └─ Function: mbsnwidth, Register Offset: -72 (arg 0, string)
+
+Root Function: main, Register Offset: -32 (di)
+      └─ Function: hash_delete, Register Offset: -80 (arg 1, entry)
+         └─ Function: hash_find_entry, Register Offset: -64 (arg 1, entry)
+            └─ Function: safe_hasher, Register Offset: -32 (arg 1, key)
+
+Root Function: needs_quoting, Register Offset: -10 (test)
+      └─ Function: quotearg_buffer, Register Offset: -40 (arg 0, buffer)
+         └─ Function: quotearg_buffer_restyled, Register Offset: -136 (arg 0, buffer)
+            └─ Function: quotearg_buffer_restyled, Register Offset: -136 (arg 0, buffer)
+
+Root Function: parse_ls_color, Register Offset: -56 (buf)
+      └─ Function: get_funky_string, Register Offset: -40 (arg 0, dest)
+
+Root Function: parse_ls_color, Register Offset: -64 (p)
+      └─ Function: get_funky_string, Register Offset: -48 (arg 1, src)
+
+Root Function: parse_ls_color, Register Offset: -11 (label)
+      └─ Function: quote, Register Offset: -8 (arg 0, arg)
+         └─ Function: quote_n, Register Offset: -16 (arg 1, arg)
+            └─ Function: quote_n_mem, Register Offset: -16 (arg 1, arg)
+               └─ Function: quotearg_n_options, Register Offset: -64 (arg 1, arg)
+                  └─ Function: quotearg_buffer_restyled, Register Offset: -152 (arg 2, arg)
+                     └─ Function: quotearg_buffer_restyled, Register Offset: -152 (arg 2, arg)
+
+Root Function: print_dir, Register Offset: -672 (buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: print_file_name_and_frills, Register Offset: -672 (buf)
+      └─ Function: format_inode, Register Offset: -8 (arg 0, buf)
+         └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: print_long_format, Register Offset: -4380 (modebuf)
+      └─ Function: filemodestring, Register Offset: -16 (arg 1, str)
+         └─ Function: strmode, Register Offset: -16 (arg 1, str)
+
+Root Function: print_long_format, Register Offset: -4336 (hbuf)
+      └─ Function: format_inode, Register Offset: -8 (arg 0, buf)
+         └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+      └─ Function: timetostr, Register Offset: -16 (arg 1, buf)
+         └─ Function: imaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: print_long_format, Register Offset: -4368 (majorbuf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: print_long_format, Register Offset: -4480 (when_timespec)
+      └─ Function: localtime_rz, Register Offset: -32 (arg 1, t)
+
+Root Function: print_long_format, Register Offset: -4448 (when_local)
+      └─ Function: localtime_rz, Register Offset: -40 (arg 2, tm)
+         └─ Function: save_abbr, Register Offset: -48 (arg 1, tm)
+      └─ Function: align_nstrftime, Register Offset: -48 (arg 3, tm)
+         └─ Function: nstrftime, Register Offset: -48 (arg 3, tp)
+            └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+               └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+
+Root Function: quote_name, Register Offset: -8288 (buf)
+      └─ Function: quote_name_buf, Register Offset: -152 (arg 0, inbuf)
+
+Root Function: quote_name_buf, Register Offset: -132 (wc)
+      └─ Function: rpl_mbrtowc, Register Offset: -40 (arg 0, pwc)
+
+Root Function: quote_name_buf, Register Offset: -32 (mbstate)
+      └─ Function: rpl_mbrtowc, Register Offset: -64 (arg 3, ps)
+
+Root Function: quote_name_width, Register Offset: -8224 (buf)
+      └─ Function: quote_name_buf, Register Offset: -152 (arg 0, inbuf)
+
+Root Function: quote_name_width, Register Offset: -8216 (width)
+      └─ Function: quote_name_buf, Register Offset: -192 (arg 5, width)
+
+Root Function: set_line_length, Register Offset: -16 (val)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+
+== dircolors
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# dircolors, 9 function(s) on the taint path.
+
+Root Function: dc_parse_stream, Register Offset: -216 (keywd)
+      └─ Function: parse_line, Register Offset: -64 (arg 1, keyword)
+
+Root Function: dc_parse_stream, Register Offset: -208 (arg)
+      └─ Function: parse_line, Register Offset: -72 (arg 2, arg)
+
+
+== dirname
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# dirname, 3 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== du
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# du, 19 function(s) on the taint path.
+
+Root Function: main, Register Offset: -112 (ai_err)
+      └─ Function: xstrtoul, Register Offset: -96 (arg 3, val)
+      └─ Function: argv_iter, Register Offset: -32 (arg 1, err)
+
+Root Function: print_only_size, Register Offset: -688 (buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: process_file, Register Offset: -80 (dui)
+      └─ Function: duinfo_set, Register Offset: -8 (arg 0, a)
+      └─ Function: duinfo_add, Register Offset: -32 (arg 1, b)
+
+Root Function: process_file, Register Offset: -48 (dui_to_print)
+      └─ Function: duinfo_add, Register Offset: -24 (arg 0, a)
+      └─ Function: print_size, Register Offset: -8 (arg 0, pdui)
+
+Root Function: show_date, Register Offset: -144 (when)
+      └─ Function: localtime_rz, Register Offset: -32 (arg 1, t)
+
+Root Function: show_date, Register Offset: -96 (tm)
+      └─ Function: localtime_rz, Register Offset: -40 (arg 2, tm)
+         └─ Function: save_abbr, Register Offset: -48 (arg 1, tm)
+      └─ Function: fprintftime, Register Offset: -40 (arg 2, tp)
+         └─ Function: __strftime_internal, Register Offset: -1992 (arg 2, tp)
+            └─ Function: __strftime_internal, Register Offset: -1992 (arg 2, tp)
+
+Root Function: show_date, Register Offset: -32 (buf)
+      └─ Function: timetostr, Register Offset: -16 (arg 1, buf)
+         └─ Function: imaxtostr, Register Offset: -32 (arg 1, buf)
+
+
+== echo
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# echo, 4 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== env
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# env, 21 function(s) on the taint path.
+
+Root Function: build_argv, Register Offset: -56 (buflen)
+      └─ Function: validate_split_str, Register Offset: -48 (arg 1, bufsize)
+
+Root Function: build_argv, Register Offset: -60 (newargc)
+      └─ Function: validate_split_str, Register Offset: -56 (arg 2, maxargc)
+
+Root Function: list_signal_handling, Register Offset: -32 (signame)
+      └─ Function: sig2str, Register Offset: -48 (arg 1, signame)
+
+Root Function: main, Register Offset: -68 (argc)
+      └─ Function: parse_split_string, Register Offset: -56 (arg 2, orig_argc)
+
+Root Function: main, Register Offset: -80 (argv)
+      └─ Function: parse_split_string, Register Offset: -64 (arg 3, orig_argv)
+
+Root Function: operand2sig, Register Offset: -48 (signum)
+      └─ Function: str2sig, Register Offset: -16 (arg 1, signum)
+
+Root Function: parse_block_signal_params, Register Offset: -32 (signame)
+      └─ Function: operand2sig, Register Offset: -64 (arg 1, signame)
+         └─ Function: sig2str, Register Offset: -48 (arg 1, signame)
+
+Root Function: parse_signal_action_params, Register Offset: -32 (signame)
+      └─ Function: sig2str, Register Offset: -48 (arg 1, signame)
+      └─ Function: operand2sig, Register Offset: -64 (arg 1, signame)
+         └─ Function: sig2str, Register Offset: -48 (arg 1, signame)
+
+Root Function: reset_signal_handlers, Register Offset: -32 (signame)
+      └─ Function: sig2str, Register Offset: -48 (arg 1, signame)
+
+Root Function: set_signal_proc_mask, Register Offset: -32 (signame)
+      └─ Function: sig2str, Register Offset: -48 (arg 1, signame)
+
+
+== expand
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# expand, 18 function(s) on the taint path.
+
+Root Function: expand, Register Offset: -56 (tab_index)
+      └─ Function: get_next_tab_column, Register Offset: -32 (arg 1, tab_index)
+
+Root Function: expand, Register Offset: -62 (last_tab)
+      └─ Function: get_next_tab_column, Register Offset: -40 (arg 2, last_tab)
+
+Root Function: main, Register Offset: -10 (tab_stop)
+      └─ Function: parse_tab_stops, Register Offset: -72 (arg 0, stops)
+
+
+== expr
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# expr, 42 function(s) on the taint path.
+
+Root Function: docolon, Register Offset: -336 (re_buffer)
+      └─ Function: rpl_re_compile_pattern, Register Offset: -40 (arg 2, bufp)
+         └─ Function: re_compile_internal, Register Offset: -184 (arg 0, preg)
+            └─ Function: free_workarea_compile, Register Offset: -40 (arg 0, preg)
+            └─ Function: parse, Register Offset: -80 (arg 1, preg)
+               └─ Function: parse_reg_exp, Register Offset: -64 (arg 1, preg)
+                  └─ Function: parse_branch, Register Offset: -48 (arg 1, preg)
+                     └─ Function: parse_expression, Register Offset: -64 (arg 1, preg)
+                        └─ Function: parse_sub_exp, Register Offset: -48 (arg 1, preg)
+                           └─ Function: parse_reg_exp, Register Offset: -64 (arg 1, preg)
+            └─ Function: analyze, Register Offset: -40 (arg 0, preg)
+               └─ Function: postorder, Register Offset: -56 (arg 2, extra)
+      └─ Function: rpl_re_match, Register Offset: -8 (arg 0, bufp)
+         └─ Function: re_search_stub, Register Offset: -56 (arg 0, bufp)
+            └─ Function: rpl_re_compile_fastmap, Register Offset: -24 (arg 0, bufp)
+            └─ Function: re_search_internal, Register Offset: -392 (arg 0, preg)
+               └─ Function: set_regs, Register Offset: -136 (arg 0, preg)
+      └─ Function: rpl_regfree, Register Offset: -24 (arg 0, preg)
+
+Root Function: docolon, Register Offset: -368 (re_regs)
+      └─ Function: rpl_re_match, Register Offset: -40 (arg 4, regs)
+
+Root Function: mbs_logical_cspn, Register Offset: -80 (aiter)
+      └─ Function: mbuiter_multi_next, Register Offset: -24 (arg 0, iter)
+
+Root Function: mbs_logical_cspn, Register Offset: -144 (iter)
+      └─ Function: mbuiter_multi_next, Register Offset: -24 (arg 0, iter)
+
+Root Function: mbs_logical_substr, Register Offset: -80 (iter)
+      └─ Function: mbuiter_multi_next, Register Offset: -24 (arg 0, iter)
+
+Root Function: mbs_offset_to_chars, Register Offset: -80 (iter)
+      └─ Function: mbuiter_multi_next, Register Offset: -24 (arg 0, iter)
+
+Root Function: mpz_get_str, Register Offset: -32 (buf)
+      └─ Function: imaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: mpz_out_str, Register Offset: -32 (buf)
+      └─ Function: imaxtostr, Register Offset: -32 (arg 1, buf)
+
+
+== factor
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# factor, 30 function(s) on the taint path.
+
+Root Function: do_stdin, Register Offset: -32 (tokenbuffer)
+      └─ Function: init_tokenbuffer, Register Offset: -8 (arg 0, tokenbuffer)
+      └─ Function: readtoken, Register Offset: -112 (arg 3, tokenbuffer)
+
+Root Function: factor, Register Offset: -8 (t1)
+      └─ Function: factor_using_division, Register Offset: -72 (arg 0, t1p)
+
+Root Function: factor_using_pollard_rho2, Register Offset: -224 (r1m)
+      └─ Function: mulredc2, Register Offset: -88 (arg 0, r1p)
+
+Root Function: factor_using_pollard_rho2, Register Offset: -232 (g1)
+      └─ Function: gcd2_odd, Register Offset: -8 (arg 0, r1)
+
+Root Function: factor_using_pollard_rho2, Register Offset: -256 (x1)
+      └─ Function: mod2, Register Offset: -40 (arg 0, r1)
+
+Root Function: factor_using_pollard_rho2, Register Offset: -248 (z1)
+      └─ Function: mod2, Register Offset: -40 (arg 0, r1)
+
+Root Function: factor_using_pollard_rho2, Register Offset: -240 (y1)
+      └─ Function: mod2, Register Offset: -40 (arg 0, r1)
+
+Root Function: lbuf_putint, Register Offset: -32 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: millerrabin2, Register Offset: -48 (r1m)
+      └─ Function: powm2, Register Offset: -72 (arg 0, r1m)
+         └─ Function: mulredc2, Register Offset: -88 (arg 0, r1p)
+      └─ Function: mulredc2, Register Offset: -88 (arg 0, r1p)
+
+Root Function: prime2_p, Register Offset: -320 (na)
+      └─ Function: millerrabin2, Register Offset: -72 (arg 0, np)
+         └─ Function: powm2, Register Offset: -96 (arg 3, np)
+      └─ Function: powm2, Register Offset: -96 (arg 3, np)
+
+Root Function: prime2_p, Register Offset: -352 (a_prim)
+      └─ Function: millerrabin2, Register Offset: -88 (arg 2, bp)
+         └─ Function: powm2, Register Offset: -80 (arg 1, bp)
+      └─ Function: powm2, Register Offset: -80 (arg 1, bp)
+
+Root Function: prime2_p, Register Offset: -384 (q)
+      └─ Function: millerrabin2, Register Offset: -96 (arg 3, qp)
+         └─ Function: powm2, Register Offset: -88 (arg 2, ep)
+
+Root Function: prime2_p, Register Offset: -336 (one)
+      └─ Function: millerrabin2, Register Offset: -112 (arg 5, one)
+         └─ Function: powm2, Register Offset: -112 (arg 5, one)
+      └─ Function: powm2, Register Offset: -112 (arg 5, one)
+
+Root Function: prime2_p, Register Offset: -272 (factors)
+      └─ Function: factor, Register Offset: -24 (arg 2, factors)
+         └─ Function: factor_using_division, Register Offset: -96 (arg 3, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_insert_refind, Register Offset: -24 (arg 0, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_insert_large, Register Offset: -8 (arg 0, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_using_pollard_rho, Register Offset: -232 (arg 2, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_using_pollard_rho2, Register Offset: -288 (arg 3, factors)
+            └─ Function: factor_using_pollard_rho, Register Offset: -232 (arg 2, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_using_pollard_rho2, Register Offset: -288 (arg 3, factors)
+            └─ Function: factor_insert_large, Register Offset: -8 (arg 0, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+
+Root Function: prime2_p, Register Offset: -288 (y)
+      └─ Function: powm2, Register Offset: -72 (arg 0, r1m)
+         └─ Function: mulredc2, Register Offset: -88 (arg 0, r1p)
+
+Root Function: prime2_p, Register Offset: -304 (e)
+      └─ Function: powm2, Register Offset: -88 (arg 2, ep)
+
+Root Function: prime_p, Register Offset: -272 (factors)
+      └─ Function: factor, Register Offset: -24 (arg 2, factors)
+         └─ Function: factor_using_division, Register Offset: -96 (arg 3, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_insert_refind, Register Offset: -24 (arg 0, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_insert_large, Register Offset: -8 (arg 0, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_using_pollard_rho, Register Offset: -232 (arg 2, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_using_pollard_rho2, Register Offset: -288 (arg 3, factors)
+            └─ Function: factor_using_pollard_rho, Register Offset: -232 (arg 2, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_using_pollard_rho2, Register Offset: -288 (arg 3, factors)
+            └─ Function: factor_insert_large, Register Offset: -8 (arg 0, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+
+Root Function: print_factors, Register Offset: -24 (t1)
+      └─ Function: strto2uintmax, Register Offset: -56 (arg 0, hip)
+
+Root Function: print_factors, Register Offset: -16 (t0)
+      └─ Function: strto2uintmax, Register Offset: -64 (arg 1, lop)
+
+Root Function: print_factors_single, Register Offset: -272 (factors)
+      └─ Function: factor, Register Offset: -24 (arg 2, factors)
+         └─ Function: factor_using_division, Register Offset: -96 (arg 3, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_insert_refind, Register Offset: -24 (arg 0, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_insert_large, Register Offset: -8 (arg 0, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_using_pollard_rho, Register Offset: -232 (arg 2, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+         └─ Function: factor_using_pollard_rho2, Register Offset: -288 (arg 3, factors)
+            └─ Function: factor_using_pollard_rho, Register Offset: -232 (arg 2, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+            └─ Function: factor_using_pollard_rho2, Register Offset: -288 (arg 3, factors)
+            └─ Function: factor_insert_large, Register Offset: -8 (arg 0, factors)
+               └─ Function: factor_insert_multiplicity, Register Offset: -40 (arg 0, factors)
+
+
+== false
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# false, 3 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== fmt
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# fmt, 23 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== fold
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# fold, 8 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== ginstall
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# ginstall, 86 function(s) on the taint path.
+
+Root Function: change_timestamps, Register Offset: -64 (timespec)
+      └─ Function: utimens, Register Offset: -16 (arg 1, timespec)
+         └─ Function: fdutimens, Register Offset: -360 (arg 2, timespec)
+
+Root Function: copy_dir, Register Offset: -112 (non_command_line_options)
+      └─ Function: copy_internal, Register Offset: -832 (arg 5, x)
+         └─ Function: should_dereference, Register Offset: -8 (arg 0, x)
+         └─ Function: same_file_ok, Register Offset: -392 (arg 4, x)
+         └─ Function: abandon_move, Register Offset: -8 (arg 0, x)
+            └─ Function: overwrite_ok, Register Offset: -56 (arg 0, x)
+         └─ Function: overwrite_ok, Register Offset: -56 (arg 0, x)
+         └─ Function: set_file_security_ctx, Register Offset: -56 (arg 3, x)
+         └─ Function: set_process_security_ctx, Register Offset: -80 (arg 4, x)
+         └─ Function: copy_dir, Register Offset: -208 (arg 5, x)
+         └─ Function: copy_reg, Register Offset: -488 (arg 2, x)
+            └─ Function: set_file_security_ctx, Register Offset: -56 (arg 3, x)
+            └─ Function: set_process_security_ctx, Register Offset: -80 (arg 4, x)
+            └─ Function: set_owner, Register Offset: -72 (arg 0, x)
+               └─ Function: owner_failure_ok, Register Offset: -8 (arg 0, x)
+               └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+         └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+         └─ Function: set_owner, Register Offset: -72 (arg 0, x)
+            └─ Function: owner_failure_ok, Register Offset: -8 (arg 0, x)
+            └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+
+Root Function: copy_file, Register Offset: -9 (copy_into_self)
+      └─ Function: copy, Register Offset: -56 (arg 4, copy_into_self)
+
+Root Function: copy_internal, Register Offset: -608 (src_sb)
+      └─ Function: seen_file, Register Offset: -56 (arg 2, stats)
+      └─ Function: record_file, Register Offset: -40 (arg 2, stats)
+      └─ Function: same_file_ok, Register Offset: -368 (arg 1, src_sb)
+      └─ Function: utimecmp, Register Offset: -24 (arg 2, src_stat)
+         └─ Function: utimecmpat, Register Offset: -368 (arg 3, src_stat)
+            └─ Function: get_stat_mtime_ns, Register Offset: -8 (arg 0, st)
+      └─ Function: source_is_dst_backup, Register Offset: -256 (arg 1, src_st)
+      └─ Function: is_ancestor, Register Offset: -8 (arg 0, sb)
+      └─ Function: copy_dir, Register Offset: -192 (arg 3, src_sb)
+         └─ Function: copy_internal, Register Offset: -816 (arg 3, parent)
+      └─ Function: get_stat_atime, Register Offset: -8 (arg 0, st)
+      └─ Function: get_stat_mtime, Register Offset: -8 (arg 0, st)
+      └─ Function: set_owner, Register Offset: -96 (arg 3, src_sb)
+
+Root Function: copy_internal, Register Offset: -464 (dst_sb)
+      └─ Function: same_file_ok, Register Offset: -384 (arg 3, dst_sb)
+      └─ Function: utimecmp, Register Offset: -16 (arg 1, dst_stat)
+         └─ Function: utimecmpat, Register Offset: -360 (arg 2, dst_stat)
+            └─ Function: get_stat_mtime_ns, Register Offset: -8 (arg 0, st)
+            └─ Function: get_stat_atime_ns, Register Offset: -8 (arg 0, st)
+            └─ Function: get_stat_ctime_ns, Register Offset: -8 (arg 0, st)
+      └─ Function: abandon_move, Register Offset: -24 (arg 2, dst_sb)
+         └─ Function: overwrite_ok, Register Offset: -72 (arg 2, dst_sb)
+      └─ Function: overwrite_ok, Register Offset: -72 (arg 2, dst_sb)
+      └─ Function: seen_file, Register Offset: -56 (arg 2, stats)
+      └─ Function: set_owner, Register Offset: -104 (arg 5, dst_sb)
+
+Root Function: copy_internal, Register Offset: -771 (return_now)
+      └─ Function: same_file_ok, Register Offset: -400 (arg 5, return_now)
+
+Root Function: copy_internal, Register Offset: -804 (new_dst)
+      └─ Function: copy_reg, Register Offset: -504 (arg 5, new_dst)
+
+Root Function: copy_internal, Register Offset: -176 (timespec)
+      └─ Function: record_file, Register Offset: -40 (arg 2, stats)
+      └─ Function: utimens_symlink, Register Offset: -32 (arg 1, timespec)
+         └─ Function: lutimens, Register Offset: -240 (arg 1, timespec)
+      └─ Function: utimens, Register Offset: -16 (arg 1, timespec)
+         └─ Function: fdutimens, Register Offset: -360 (arg 2, timespec)
+
+Root Function: copy_reg, Register Offset: -320 (src_open_sb)
+      └─ Function: is_probably_sparse, Register Offset: -8 (arg 0, sb)
+
+Root Function: copy_reg, Register Offset: -352 (timespec)
+      └─ Function: fdutimens, Register Offset: -360 (arg 2, timespec)
+
+Root Function: copy_reg, Register Offset: -176 (sb)
+      └─ Function: set_owner, Register Offset: -104 (arg 5, dst_sb)
+
+Root Function: extent_copy, Register Offset: -80 (scan)
+      └─ Function: extent_scan_init, Register Offset: -16 (arg 1, scan)
+      └─ Function: extent_scan_read, Register Offset: -4184 (arg 0, scan)
+      └─ Function: extent_scan_free, Register Offset: -8 (arg 0, scan)
+
+Root Function: force_linkat, Register Offset: -272 (buf)
+      └─ Function: samedir_template, Register Offset: -48 (arg 1, buf)
+
+Root Function: force_linkat, Register Offset: -304 (arg)
+      └─ Function: try_tempname_len, Register Offset: -88 (arg 2, args)
+
+Root Function: force_symlinkat, Register Offset: -272 (buf)
+      └─ Function: samedir_template, Register Offset: -48 (arg 1, buf)
+
+Root Function: force_symlinkat, Register Offset: -288 (arg)
+      └─ Function: try_tempname_len, Register Offset: -88 (arg 2, args)
+
+Root Function: forget_created, Register Offset: -32 (probe)
+      └─ Function: hash_delete, Register Offset: -80 (arg 1, entry)
+         └─ Function: hash_find_entry, Register Offset: -64 (arg 1, entry)
+            └─ Function: safe_hasher, Register Offset: -32 (arg 1, key)
+
+Root Function: get_ids, Register Offset: -32 (tmp)
+      └─ Function: xstrtoul, Register Offset: -96 (arg 3, val)
+
+Root Function: install_file_in_file, Register Offset: -176 (from_sb)
+      └─ Function: change_timestamps, Register Offset: -72 (arg 0, src_sb)
+         └─ Function: get_stat_atime, Register Offset: -8 (arg 0, st)
+         └─ Function: get_stat_mtime, Register Offset: -8 (arg 0, st)
+
+Root Function: main, Register Offset: -256 (x)
+      └─ Function: cp_option_init, Register Offset: -8 (arg 0, x)
+         └─ Function: cp_options_default, Register Offset: -8 (arg 0, x)
+      └─ Function: savewd_process_files, Register Offset: -80 (arg 3, options)
+      └─ Function: install_file_in_file_parents, Register Offset: -24 (arg 2, x)
+         └─ Function: mkancesdirs_safe_wd, Register Offset: -72 (arg 2, x)
+            └─ Function: mkancesdirs, Register Offset: -80 (arg 3, make_dir_arg)
+         └─ Function: install_file_in_file, Register Offset: -200 (arg 2, x)
+            └─ Function: copy_file, Register Offset: -40 (arg 2, x)
+               └─ Function: need_copy, Register Offset: -376 (arg 2, x)
+               └─ Function: copy, Register Offset: -48 (arg 3, options)
+                  └─ Function: valid_options, Register Offset: -8 (arg 0, co)
+                  └─ Function: copy_internal, Register Offset: -832 (arg 5, x)
+                     └─ Function: should_dereference, Register Offset: -8 (arg 0, x)
+                     └─ Function: same_file_ok, Register Offset: -392 (arg 4, x)
+                     └─ Function: abandon_move, Register Offset: -8 (arg 0, x)
+                        └─ Function: overwrite_ok, Register Offset: -56 (arg 0, x)
+                     └─ Function: overwrite_ok, Register Offset: -56 (arg 0, x)
+                     └─ Function: set_file_security_ctx, Register Offset: -56 (arg 3, x)
+                     └─ Function: set_process_security_ctx, Register Offset: -80 (arg 4, x)
+                     └─ Function: copy_dir, Register Offset: -208 (arg 5, x)
+                     └─ Function: copy_reg, Register Offset: -488 (arg 2, x)
+                        └─ Function: set_file_security_ctx, Register Offset: -56 (arg 3, x)
+                        └─ Function: set_process_security_ctx, Register Offset: -80 (arg 4, x)
+                        └─ Function: set_owner, Register Offset: -72 (arg 0, x)
+                           └─ Function: owner_failure_ok, Register Offset: -8 (arg 0, x)
+                           └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+                     └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+                     └─ Function: set_owner, Register Offset: -72 (arg 0, x)
+                        └─ Function: owner_failure_ok, Register Offset: -8 (arg 0, x)
+                        └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+      └─ Function: install_file_in_file, Register Offset: -200 (arg 2, x)
+         └─ Function: copy_file, Register Offset: -40 (arg 2, x)
+            └─ Function: need_copy, Register Offset: -376 (arg 2, x)
+            └─ Function: copy, Register Offset: -48 (arg 3, options)
+               └─ Function: valid_options, Register Offset: -8 (arg 0, co)
+               └─ Function: copy_internal, Register Offset: -832 (arg 5, x)
+                  └─ Function: should_dereference, Register Offset: -8 (arg 0, x)
+                  └─ Function: same_file_ok, Register Offset: -392 (arg 4, x)
+                  └─ Function: abandon_move, Register Offset: -8 (arg 0, x)
+                     └─ Function: overwrite_ok, Register Offset: -56 (arg 0, x)
+                  └─ Function: overwrite_ok, Register Offset: -56 (arg 0, x)
+                  └─ Function: set_file_security_ctx, Register Offset: -56 (arg 3, x)
+                  └─ Function: set_process_security_ctx, Register Offset: -80 (arg 4, x)
+                  └─ Function: copy_dir, Register Offset: -208 (arg 5, x)
+                  └─ Function: copy_reg, Register Offset: -488 (arg 2, x)
+                     └─ Function: set_file_security_ctx, Register Offset: -56 (arg 3, x)
+                     └─ Function: set_process_security_ctx, Register Offset: -80 (arg 4, x)
+                     └─ Function: set_owner, Register Offset: -72 (arg 0, x)
+                        └─ Function: owner_failure_ok, Register Offset: -8 (arg 0, x)
+                        └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+                  └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+                  └─ Function: set_owner, Register Offset: -72 (arg 0, x)
+                     └─ Function: owner_failure_ok, Register Offset: -8 (arg 0, x)
+                     └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+      └─ Function: dest_info_init, Register Offset: -8 (arg 0, x)
+      └─ Function: install_file_in_dir, Register Offset: -56 (arg 2, x)
+         └─ Function: mkancesdirs_safe_wd, Register Offset: -72 (arg 2, x)
+            └─ Function: mkancesdirs, Register Offset: -80 (arg 3, make_dir_arg)
+         └─ Function: install_file_in_file, Register Offset: -200 (arg 2, x)
+            └─ Function: copy_file, Register Offset: -40 (arg 2, x)
+               └─ Function: need_copy, Register Offset: -376 (arg 2, x)
+               └─ Function: copy, Register Offset: -48 (arg 3, options)
+                  └─ Function: valid_options, Register Offset: -8 (arg 0, co)
+                  └─ Function: copy_internal, Register Offset: -832 (arg 5, x)
+                     └─ Function: should_dereference, Register Offset: -8 (arg 0, x)
+                     └─ Function: same_file_ok, Register Offset: -392 (arg 4, x)
+                     └─ Function: abandon_move, Register Offset: -8 (arg 0, x)
+                        └─ Function: overwrite_ok, Register Offset: -56 (arg 0, x)
+                     └─ Function: overwrite_ok, Register Offset: -56 (arg 0, x)
+                     └─ Function: set_file_security_ctx, Register Offset: -56 (arg 3, x)
+                     └─ Function: set_process_security_ctx, Register Offset: -80 (arg 4, x)
+                     └─ Function: copy_dir, Register Offset: -208 (arg 5, x)
+                     └─ Function: copy_reg, Register Offset: -488 (arg 2, x)
+                        └─ Function: set_file_security_ctx, Register Offset: -56 (arg 3, x)
+                        └─ Function: set_process_security_ctx, Register Offset: -80 (arg 4, x)
+                        └─ Function: set_owner, Register Offset: -72 (arg 0, x)
+                           └─ Function: owner_failure_ok, Register Offset: -8 (arg 0, x)
+                           └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+                     └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+                     └─ Function: set_owner, Register Offset: -72 (arg 0, x)
+                        └─ Function: owner_failure_ok, Register Offset: -8 (arg 0, x)
+                        └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+
+Root Function: mkancesdirs_safe_wd, Register Offset: -32 (wd)
+      └─ Function: savewd_init, Register Offset: -8 (arg 0, wd)
+      └─ Function: savewd_finish, Register Offset: -8 (arg 0, wd)
+      └─ Function: mkancesdirs, Register Offset: -64 (arg 1, wd)
+         └─ Function: savewd_chdir, Register Offset: -24 (arg 0, wd)
+            └─ Function: savewd_save, Register Offset: -24 (arg 0, wd)
+      └─ Function: savewd_restore, Register Offset: -40 (arg 0, wd)
+
+Root Function: overwrite_ok, Register Offset: -36 (perms)
+      └─ Function: strmode, Register Offset: -16 (arg 1, str)
+
+Root Function: prog_fprintf, Register Offset: -208 (ap)
+      └─ Function: rpl_vfprintf, Register Offset: -2072 (arg 2, args)
+         └─ Function: vasnprintf, Register Offset: -2784 (arg 3, args)
+            └─ Function: printf_fetchargs, Register Offset: -24 (arg 0, args)
+
+Root Function: src_to_dest_lookup, Register Offset: -32 (ent)
+      └─ Function: hash_lookup, Register Offset: -32 (arg 1, entry)
+         └─ Function: safe_hasher, Register Offset: -32 (arg 1, key)
+
+
+== groups
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# groups, 6 function(s) on the taint path.
+
+Root Function: print_group, Register Offset: -36 (gid)
+      └─ Function: gidtostr_ptr, Register Offset: -8 (arg 0, gid)
+
+Root Function: print_group_list, Register Offset: -40 (groups)
+      └─ Function: xgetgroups, Register Offset: -40 (arg 2, groups)
+         └─ Function: mgetgroups, Register Offset: -88 (arg 2, groups)
+
+
+== head
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# head, 21 function(s) on the taint path.
+
+Root Function: copy_fd, Register Offset: -8208 (buf)
+      └─ Function: safe_read, Register Offset: -32 (arg 1, buf)
+      └─ Function: xwrite_stdout, Register Offset: -24 (arg 0, buffer)
+
+Root Function: elide_tail_lines_seekable, Register Offset: -8224 (buffer)
+      └─ Function: safe_read, Register Offset: -32 (arg 1, buf)
+      └─ Function: xwrite_stdout, Register Offset: -24 (arg 0, buffer)
+
+Root Function: elseek, Register Offset: -64 (buf)
+      └─ Function: offtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: head, Register Offset: -176 (st)
+      └─ Function: usable_st_size, Register Offset: -8 (arg 0, sb)
+      └─ Function: elide_tail_lines_file, Register Offset: -48 (arg 3, st)
+      └─ Function: elide_tail_bytes_file, Register Offset: -64 (arg 3, st)
+
+Root Function: head_bytes, Register Offset: -8224 (buffer)
+      └─ Function: safe_read, Register Offset: -32 (arg 1, buf)
+      └─ Function: xwrite_stdout, Register Offset: -24 (arg 0, buffer)
+
+Root Function: head_lines, Register Offset: -8224 (buffer)
+      └─ Function: safe_read, Register Offset: -32 (arg 1, buf)
+      └─ Function: xwrite_stdout, Register Offset: -24 (arg 0, buffer)
+
+Root Function: main, Register Offset: -32 (umax_buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+
+== id
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# id, 12 function(s) on the taint path.
+
+Root Function: print_full_info, Register Offset: -48 (groups)
+      └─ Function: xgetgroups, Register Offset: -40 (arg 2, groups)
+         └─ Function: mgetgroups, Register Offset: -88 (arg 2, groups)
+
+Root Function: print_group_list, Register Offset: -40 (groups)
+      └─ Function: xgetgroups, Register Offset: -40 (arg 2, groups)
+         └─ Function: mgetgroups, Register Offset: -88 (arg 2, groups)
+
+Root Function: print_user, Register Offset: -20 (uid)
+      └─ Function: uidtostr_ptr, Register Offset: -8 (arg 0, uid)
+
+
+== join
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# join, 27 function(s) on the taint path.
+
+Root Function: add_field_list, Register Offset: -36 (file_index)
+      └─ Function: decode_field_spec, Register Offset: -16 (arg 1, file_index)
+
+Root Function: add_field_list, Register Offset: -32 (field_index)
+      └─ Function: decode_field_spec, Register Offset: -24 (arg 2, field_index)
+
+Root Function: main, Register Offset: -64 (val)
+      └─ Function: xstrtoul, Register Offset: -96 (arg 3, val)
+
+Root Function: main, Register Offset: -40 (operand_status)
+      └─ Function: add_file_name, Register Offset: -40 (arg 2, operand_status)
+
+Root Function: main, Register Offset: -32 (joption_count)
+      └─ Function: add_file_name, Register Offset: -48 (arg 3, joption_count)
+
+Root Function: main, Register Offset: -76 (nfiles)
+      └─ Function: add_file_name, Register Offset: -56 (arg 4, nfiles)
+
+Root Function: main, Register Offset: -80 (prev_optc_status)
+      └─ Function: add_file_name, Register Offset: -64 (arg 5, prev_optc_status)
+
+Root Function: string_to_join_field, Register Offset: -24 (val)
+      └─ Function: xstrtoul, Register Offset: -96 (arg 3, val)
+
+Root Function: system_join, Register Offset: -64 (seq1)
+      └─ Function: initseq, Register Offset: -8 (arg 0, seq)
+      └─ Function: getseq, Register Offset: -32 (arg 1, seq)
+      └─ Function: advance_seq, Register Offset: -16 (arg 1, seq)
+         └─ Function: getseq, Register Offset: -32 (arg 1, seq)
+      └─ Function: delseq, Register Offset: -24 (arg 0, seq)
+
+Root Function: system_join, Register Offset: -32 (seq2)
+      └─ Function: initseq, Register Offset: -8 (arg 0, seq)
+      └─ Function: getseq, Register Offset: -32 (arg 1, seq)
+      └─ Function: advance_seq, Register Offset: -16 (arg 1, seq)
+         └─ Function: getseq, Register Offset: -32 (arg 1, seq)
+      └─ Function: delseq, Register Offset: -24 (arg 0, seq)
+
+Root Function: system_join, Register Offset: -120 (line)
+      └─ Function: get_line, Register Offset: -32 (arg 1, linep)
+         └─ Function: init_linep, Register Offset: -24 (arg 0, linep)
+
+
+== kill
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# kill, 8 function(s) on the taint path.
+
+Root Function: list_signals, Register Offset: -32 (signame)
+      └─ Function: sig2str, Register Offset: -48 (arg 1, signame)
+      └─ Function: operand2sig, Register Offset: -64 (arg 1, signame)
+         └─ Function: sig2str, Register Offset: -48 (arg 1, signame)
+      └─ Function: print_table_row, Register Offset: -40 (arg 3, signame)
+
+Root Function: main, Register Offset: -48 (signame)
+      └─ Function: operand2sig, Register Offset: -64 (arg 1, signame)
+         └─ Function: sig2str, Register Offset: -48 (arg 1, signame)
+
+Root Function: operand2sig, Register Offset: -48 (signum)
+      └─ Function: str2sig, Register Offset: -16 (arg 1, signum)
+
+
+== link
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# link, 3 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== ln
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# ln, 17 function(s) on the taint path.
+
+Root Function: do_link, Register Offset: -176 (dest_stats)
+      └─ Function: seen_file, Register Offset: -56 (arg 2, stats)
+
+Root Function: do_link, Register Offset: -320 (source_stats)
+      └─ Function: record_file, Register Offset: -40 (arg 2, stats)
+
+Root Function: force_linkat, Register Offset: -272 (buf)
+      └─ Function: samedir_template, Register Offset: -48 (arg 1, buf)
+
+Root Function: force_linkat, Register Offset: -304 (arg)
+      └─ Function: try_tempname_len, Register Offset: -88 (arg 2, args)
+
+Root Function: force_symlinkat, Register Offset: -272 (buf)
+      └─ Function: samedir_template, Register Offset: -48 (arg 1, buf)
+
+Root Function: force_symlinkat, Register Offset: -288 (arg)
+      └─ Function: try_tempname_len, Register Offset: -88 (arg 2, args)
+
+Root Function: main, Register Offset: -232 (dest_base)
+      └─ Function: file_name_concat, Register Offset: -40 (arg 2, base_in_result)
+         └─ Function: mfile_name_concat, Register Offset: -88 (arg 2, base_in_result)
+
+Root Function: relpath, Register Offset: -56 (buf)
+      └─ Function: buffer_or_output, Register Offset: -32 (arg 1, pbuf)
+
+Root Function: relpath, Register Offset: -64 (len)
+      └─ Function: buffer_or_output, Register Offset: -40 (arg 2, plen)
+
+
+== logname
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# logname, 3 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== ls
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# ls, 155 function(s) on the taint path.
+
+Root Function: abformat_init, Register Offset: -1552 (abmon)
+      └─ Function: abmon_init, Register Offset: -88 (arg 0, abmon)
+
+Root Function: abmon_init, Register Offset: -64 (width)
+      └─ Function: mbsalign, Register Offset: -144 (arg 3, width)
+
+Root Function: decode_switches, Register Offset: -16 (oi)
+      └─ Function: xstrtoul, Register Offset: -96 (arg 3, val)
+
+Root Function: gobble_file, Register Offset: -688 (buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: gobble_file, Register Offset: -720 (b)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: length_of_file_name_and_frills, Register Offset: -672 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: long_time_expected_width, Register Offset: -1104 (epoch)
+      └─ Function: localtime_rz, Register Offset: -32 (arg 1, t)
+
+Root Function: long_time_expected_width, Register Offset: -1088 (tm)
+      └─ Function: localtime_rz, Register Offset: -40 (arg 2, tm)
+         └─ Function: save_abbr, Register Offset: -48 (arg 1, tm)
+      └─ Function: align_nstrftime, Register Offset: -48 (arg 3, tm)
+         └─ Function: nstrftime, Register Offset: -48 (arg 3, tp)
+            └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+               └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+
+Root Function: long_time_expected_width, Register Offset: -1024 (buf)
+      └─ Function: align_nstrftime, Register Offset: -24 (arg 0, buf)
+         └─ Function: nstrftime, Register Offset: -24 (arg 0, s)
+            └─ Function: __strftime_internal, Register Offset: -1736 (arg 0, s)
+      └─ Function: mbsnwidth, Register Offset: -72 (arg 0, string)
+
+Root Function: main, Register Offset: -32 (di)
+      └─ Function: hash_delete, Register Offset: -80 (arg 1, entry)
+         └─ Function: hash_find_entry, Register Offset: -64 (arg 1, entry)
+            └─ Function: safe_hasher, Register Offset: -32 (arg 1, key)
+
+Root Function: needs_quoting, Register Offset: -10 (test)
+      └─ Function: quotearg_buffer, Register Offset: -40 (arg 0, buffer)
+         └─ Function: quotearg_buffer_restyled, Register Offset: -136 (arg 0, buffer)
+            └─ Function: quotearg_buffer_restyled, Register Offset: -136 (arg 0, buffer)
+
+Root Function: parse_ls_color, Register Offset: -56 (buf)
+      └─ Function: get_funky_string, Register Offset: -40 (arg 0, dest)
+
+Root Function: parse_ls_color, Register Offset: -64 (p)
+      └─ Function: get_funky_string, Register Offset: -48 (arg 1, src)
+
+Root Function: parse_ls_color, Register Offset: -11 (label)
+      └─ Function: quote, Register Offset: -8 (arg 0, arg)
+         └─ Function: quote_n, Register Offset: -16 (arg 1, arg)
+            └─ Function: quote_n_mem, Register Offset: -16 (arg 1, arg)
+               └─ Function: quotearg_n_options, Register Offset: -64 (arg 1, arg)
+                  └─ Function: quotearg_buffer_restyled, Register Offset: -152 (arg 2, arg)
+                     └─ Function: quotearg_buffer_restyled, Register Offset: -152 (arg 2, arg)
+
+Root Function: print_dir, Register Offset: -672 (buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: print_file_name_and_frills, Register Offset: -672 (buf)
+      └─ Function: format_inode, Register Offset: -8 (arg 0, buf)
+         └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: print_long_format, Register Offset: -4380 (modebuf)
+      └─ Function: filemodestring, Register Offset: -16 (arg 1, str)
+         └─ Function: strmode, Register Offset: -16 (arg 1, str)
+
+Root Function: print_long_format, Register Offset: -4336 (hbuf)
+      └─ Function: format_inode, Register Offset: -8 (arg 0, buf)
+         └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+      └─ Function: timetostr, Register Offset: -16 (arg 1, buf)
+         └─ Function: imaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: print_long_format, Register Offset: -4368 (majorbuf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: print_long_format, Register Offset: -4480 (when_timespec)
+      └─ Function: localtime_rz, Register Offset: -32 (arg 1, t)
+
+Root Function: print_long_format, Register Offset: -4448 (when_local)
+      └─ Function: localtime_rz, Register Offset: -40 (arg 2, tm)
+         └─ Function: save_abbr, Register Offset: -48 (arg 1, tm)
+      └─ Function: align_nstrftime, Register Offset: -48 (arg 3, tm)
+         └─ Function: nstrftime, Register Offset: -48 (arg 3, tp)
+            └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+               └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+
+Root Function: quote_name, Register Offset: -8288 (buf)
+      └─ Function: quote_name_buf, Register Offset: -152 (arg 0, inbuf)
+
+Root Function: quote_name_buf, Register Offset: -132 (wc)
+      └─ Function: rpl_mbrtowc, Register Offset: -40 (arg 0, pwc)
+
+Root Function: quote_name_buf, Register Offset: -32 (mbstate)
+      └─ Function: rpl_mbrtowc, Register Offset: -64 (arg 3, ps)
+
+Root Function: quote_name_width, Register Offset: -8224 (buf)
+      └─ Function: quote_name_buf, Register Offset: -152 (arg 0, inbuf)
+
+Root Function: quote_name_width, Register Offset: -8216 (width)
+      └─ Function: quote_name_buf, Register Offset: -192 (arg 5, width)
+
+Root Function: set_line_length, Register Offset: -16 (val)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+
+== md5sum
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# md5sum, 14 function(s) on the taint path.
+
+Root Function: digest_check, Register Offset: -48 (bin_buffer_unaligned)
+      └─ Function: ptr_align, Register Offset: -24 (arg 0, ptr)
+
+Root Function: digest_check, Register Offset: -136 (hex_digest)
+      └─ Function: split_3, Register Offset: -56 (arg 2, hex_digest)
+         └─ Function: bsd_split_3, Register Offset: -40 (arg 2, hex_digest)
+
+Root Function: digest_check, Register Offset: -164 (binary)
+      └─ Function: split_3, Register Offset: -64 (arg 3, binary)
+      └─ Function: digest_file, Register Offset: -48 (arg 1, binary)
+
+Root Function: digest_check, Register Offset: -144 (filename)
+      └─ Function: split_3, Register Offset: -72 (arg 4, file_name)
+         └─ Function: bsd_split_3, Register Offset: -48 (arg 3, file_name)
+
+Root Function: digest_check, Register Offset: -170 (missing)
+      └─ Function: digest_file, Register Offset: -64 (arg 3, missing)
+
+Root Function: main, Register Offset: -48 (bin_buffer_unaligned)
+      └─ Function: ptr_align, Register Offset: -24 (arg 0, ptr)
+
+Root Function: main, Register Offset: -108 (file_is_binary)
+      └─ Function: digest_file, Register Offset: -48 (arg 1, binary)
+
+Root Function: main, Register Offset: -113 (missing)
+      └─ Function: digest_file, Register Offset: -64 (arg 3, missing)
+
+
+== mkdir
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# mkdir, 14 function(s) on the taint path.
+
+Root Function: main, Register Offset: -64 (options)
+      └─ Function: mode_adjust, Register Offset: -64 (arg 4, pmode_bits)
+      └─ Function: savewd_process_files, Register Offset: -80 (arg 3, options)
+
+Root Function: prog_fprintf, Register Offset: -208 (ap)
+      └─ Function: rpl_vfprintf, Register Offset: -2072 (arg 2, args)
+         └─ Function: vasnprintf, Register Offset: -2784 (arg 3, args)
+            └─ Function: printf_fetchargs, Register Offset: -24 (arg 0, args)
+
+
+== mkfifo
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# mkfifo, 8 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== mknod
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# mknod, 8 function(s) on the taint path.
+
+Root Function: main, Register Offset: -96 (i_major)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+Root Function: main, Register Offset: -88 (i_minor)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+
+== mktemp
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# mktemp, 7 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== mv
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# mv, 84 function(s) on the taint path.
+
+Root Function: copy_dir, Register Offset: -112 (non_command_line_options)
+      └─ Function: copy_internal, Register Offset: -832 (arg 5, x)
+         └─ Function: should_dereference, Register Offset: -8 (arg 0, x)
+         └─ Function: same_file_ok, Register Offset: -392 (arg 4, x)
+         └─ Function: abandon_move, Register Offset: -8 (arg 0, x)
+            └─ Function: overwrite_ok, Register Offset: -56 (arg 0, x)
+         └─ Function: overwrite_ok, Register Offset: -56 (arg 0, x)
+         └─ Function: set_file_security_ctx, Register Offset: -56 (arg 3, x)
+         └─ Function: set_process_security_ctx, Register Offset: -80 (arg 4, x)
+         └─ Function: copy_dir, Register Offset: -208 (arg 5, x)
+         └─ Function: copy_reg, Register Offset: -488 (arg 2, x)
+            └─ Function: set_file_security_ctx, Register Offset: -56 (arg 3, x)
+            └─ Function: set_process_security_ctx, Register Offset: -80 (arg 4, x)
+            └─ Function: set_owner, Register Offset: -72 (arg 0, x)
+               └─ Function: owner_failure_ok, Register Offset: -8 (arg 0, x)
+               └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+         └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+         └─ Function: set_owner, Register Offset: -72 (arg 0, x)
+            └─ Function: owner_failure_ok, Register Offset: -8 (arg 0, x)
+            └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+
+Root Function: copy_internal, Register Offset: -608 (src_sb)
+      └─ Function: seen_file, Register Offset: -56 (arg 2, stats)
+      └─ Function: record_file, Register Offset: -40 (arg 2, stats)
+      └─ Function: same_file_ok, Register Offset: -368 (arg 1, src_sb)
+      └─ Function: utimecmp, Register Offset: -24 (arg 2, src_stat)
+         └─ Function: utimecmpat, Register Offset: -368 (arg 3, src_stat)
+            └─ Function: get_stat_mtime_ns, Register Offset: -8 (arg 0, st)
+      └─ Function: source_is_dst_backup, Register Offset: -256 (arg 1, src_st)
+      └─ Function: is_ancestor, Register Offset: -8 (arg 0, sb)
+      └─ Function: copy_dir, Register Offset: -192 (arg 3, src_sb)
+         └─ Function: copy_internal, Register Offset: -816 (arg 3, parent)
+      └─ Function: get_stat_atime, Register Offset: -8 (arg 0, st)
+      └─ Function: get_stat_mtime, Register Offset: -8 (arg 0, st)
+      └─ Function: set_owner, Register Offset: -96 (arg 3, src_sb)
+
+Root Function: copy_internal, Register Offset: -464 (dst_sb)
+      └─ Function: same_file_ok, Register Offset: -384 (arg 3, dst_sb)
+      └─ Function: utimecmp, Register Offset: -16 (arg 1, dst_stat)
+         └─ Function: utimecmpat, Register Offset: -360 (arg 2, dst_stat)
+            └─ Function: get_stat_mtime_ns, Register Offset: -8 (arg 0, st)
+            └─ Function: get_stat_atime_ns, Register Offset: -8 (arg 0, st)
+            └─ Function: get_stat_ctime_ns, Register Offset: -8 (arg 0, st)
+      └─ Function: abandon_move, Register Offset: -24 (arg 2, dst_sb)
+         └─ Function: overwrite_ok, Register Offset: -72 (arg 2, dst_sb)
+      └─ Function: overwrite_ok, Register Offset: -72 (arg 2, dst_sb)
+      └─ Function: seen_file, Register Offset: -56 (arg 2, stats)
+      └─ Function: set_owner, Register Offset: -104 (arg 5, dst_sb)
+
+Root Function: copy_internal, Register Offset: -771 (return_now)
+      └─ Function: same_file_ok, Register Offset: -400 (arg 5, return_now)
+
+Root Function: copy_internal, Register Offset: -804 (new_dst)
+      └─ Function: copy_reg, Register Offset: -504 (arg 5, new_dst)
+
+Root Function: copy_internal, Register Offset: -176 (timespec)
+      └─ Function: record_file, Register Offset: -40 (arg 2, stats)
+      └─ Function: utimens_symlink, Register Offset: -32 (arg 1, timespec)
+         └─ Function: lutimens, Register Offset: -240 (arg 1, timespec)
+      └─ Function: utimens, Register Offset: -16 (arg 1, timespec)
+         └─ Function: fdutimens, Register Offset: -360 (arg 2, timespec)
+
+Root Function: copy_reg, Register Offset: -320 (src_open_sb)
+      └─ Function: is_probably_sparse, Register Offset: -8 (arg 0, sb)
+
+Root Function: copy_reg, Register Offset: -352 (timespec)
+      └─ Function: fdutimens, Register Offset: -360 (arg 2, timespec)
+
+Root Function: copy_reg, Register Offset: -176 (sb)
+      └─ Function: set_owner, Register Offset: -104 (arg 5, dst_sb)
+
+Root Function: do_move, Register Offset: -79 (copy_into_self)
+      └─ Function: copy, Register Offset: -56 (arg 4, copy_into_self)
+
+Root Function: do_move, Register Offset: -78 (rename_succeeded)
+      └─ Function: copy, Register Offset: -64 (arg 5, rename_succeeded)
+
+Root Function: do_move, Register Offset: -64 (rm_options)
+      └─ Function: rm_option_init, Register Offset: -24 (arg 0, x)
+      └─ Function: rm, Register Offset: -48 (arg 1, x)
+         └─ Function: rm_fts, Register Offset: -232 (arg 2, x)
+            └─ Function: prompt, Register Offset: -256 (arg 3, x)
+            └─ Function: excise, Register Offset: -216 (arg 2, x)
+               └─ Function: ignorable_missing, Register Offset: -8 (arg 0, x)
+
+Root Function: do_move, Register Offset: -32 (dir)
+      └─ Function: rm, Register Offset: -40 (arg 0, file)
+         └─ Function: xfts_open, Register Offset: -24 (arg 0, argv)
+            └─ Function: rpl_fts_open, Register Offset: -104 (arg 0, argv)
+               └─ Function: fts_maxarglen, Register Offset: -24 (arg 0, argv)
+
+Root Function: excise, Register Offset: -176 (st)
+      └─ Function: lstatat, Register Offset: -24 (arg 2, st)
+
+Root Function: extent_copy, Register Offset: -80 (scan)
+      └─ Function: extent_scan_init, Register Offset: -16 (arg 1, scan)
+      └─ Function: extent_scan_read, Register Offset: -4184 (arg 0, scan)
+      └─ Function: extent_scan_free, Register Offset: -8 (arg 0, scan)
+
+Root Function: force_linkat, Register Offset: -272 (buf)
+      └─ Function: samedir_template, Register Offset: -48 (arg 1, buf)
+
+Root Function: force_linkat, Register Offset: -304 (arg)
+      └─ Function: try_tempname_len, Register Offset: -88 (arg 2, args)
+
+Root Function: force_symlinkat, Register Offset: -272 (buf)
+      └─ Function: samedir_template, Register Offset: -48 (arg 1, buf)
+
+Root Function: force_symlinkat, Register Offset: -288 (arg)
+      └─ Function: try_tempname_len, Register Offset: -88 (arg 2, args)
+
+Root Function: forget_created, Register Offset: -32 (probe)
+      └─ Function: hash_delete, Register Offset: -80 (arg 1, entry)
+         └─ Function: hash_find_entry, Register Offset: -64 (arg 1, entry)
+            └─ Function: safe_hasher, Register Offset: -32 (arg 1, key)
+
+Root Function: main, Register Offset: -256 (x)
+      └─ Function: cp_option_init, Register Offset: -24 (arg 0, x)
+         └─ Function: cp_options_default, Register Offset: -8 (arg 0, x)
+      └─ Function: dest_info_init, Register Offset: -8 (arg 0, x)
+      └─ Function: movefile, Register Offset: -64 (arg 3, x)
+         └─ Function: do_move, Register Offset: -104 (arg 2, x)
+            └─ Function: copy, Register Offset: -48 (arg 3, options)
+               └─ Function: valid_options, Register Offset: -8 (arg 0, co)
+               └─ Function: copy_internal, Register Offset: -832 (arg 5, x)
+                  └─ Function: should_dereference, Register Offset: -8 (arg 0, x)
+                  └─ Function: same_file_ok, Register Offset: -392 (arg 4, x)
+                  └─ Function: abandon_move, Register Offset: -8 (arg 0, x)
+                     └─ Function: overwrite_ok, Register Offset: -56 (arg 0, x)
+                  └─ Function: overwrite_ok, Register Offset: -56 (arg 0, x)
+                  └─ Function: set_file_security_ctx, Register Offset: -56 (arg 3, x)
+                  └─ Function: set_process_security_ctx, Register Offset: -80 (arg 4, x)
+                  └─ Function: copy_dir, Register Offset: -208 (arg 5, x)
+                  └─ Function: copy_reg, Register Offset: -488 (arg 2, x)
+                     └─ Function: set_file_security_ctx, Register Offset: -56 (arg 3, x)
+                     └─ Function: set_process_security_ctx, Register Offset: -80 (arg 4, x)
+                     └─ Function: set_owner, Register Offset: -72 (arg 0, x)
+                        └─ Function: owner_failure_ok, Register Offset: -8 (arg 0, x)
+                        └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+                  └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+                  └─ Function: set_owner, Register Offset: -72 (arg 0, x)
+                     └─ Function: owner_failure_ok, Register Offset: -8 (arg 0, x)
+                     └─ Function: chown_failure_ok, Register Offset: -8 (arg 0, x)
+
+Root Function: overwrite_ok, Register Offset: -36 (perms)
+      └─ Function: strmode, Register Offset: -16 (arg 1, str)
+
+Root Function: prompt, Register Offset: -160 (st via sbuf)
+      └─ Function: cache_stat_init, Register Offset: -8 (arg 0, st)
+      └─ Function: write_protected_non_symlink, Register Offset: -24 (arg 2, buf)
+         └─ Function: cache_fstatat, Register Offset: -40 (arg 2, st)
+      └─ Function: cache_fstatat, Register Offset: -40 (arg 2, st)
+      └─ Function: file_type, Register Offset: -8 (arg 0, st)
+
+Root Function: rm_fts, Register Offset: -200 (is_empty_directory)
+      └─ Function: prompt, Register Offset: -264 (arg 5, is_empty_p)
+
+Root Function: src_to_dest_lookup, Register Offset: -32 (ent)
+      └─ Function: hash_lookup, Register Offset: -32 (arg 1, entry)
+         └─ Function: safe_hasher, Register Offset: -32 (arg 1, key)
+
+
+== nl
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# nl, 14 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== nproc
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# nproc, 3 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== nohup
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# nohup, 4 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== numfmt
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# numfmt, 40 function(s) on the taint path.
+
+Root Function: double_to_human, Register Offset: -116 (power)
+      └─ Function: expld, Register Offset: -32 (arg 2, x)
+
+Root Function: parse_human_number, Register Offset: -32 (ptr)
+      └─ Function: simple_strtod_human, Register Offset: -64 (arg 1, endptr)
+         └─ Function: simple_strtod_float, Register Offset: -80 (arg 1, endptr)
+            └─ Function: simple_strtod_int, Register Offset: -48 (arg 1, endptr)
+
+Root Function: prepare_padded_number, Register Offset: -164 (x)
+      └─ Function: expld, Register Offset: -32 (arg 2, x)
+
+Root Function: prepare_padded_number, Register Offset: -144 (buf)
+      └─ Function: double_to_human, Register Offset: -144 (arg 2, buf)
+         └─ Function: quote, Register Offset: -8 (arg 0, arg)
+            └─ Function: quote_n, Register Offset: -16 (arg 1, arg)
+               └─ Function: quote_n_mem, Register Offset: -16 (arg 1, arg)
+                  └─ Function: quotearg_n_options, Register Offset: -64 (arg 1, arg)
+                     └─ Function: quotearg_buffer_restyled, Register Offset: -152 (arg 2, arg)
+                        └─ Function: quotearg_buffer_restyled, Register Offset: -152 (arg 2, arg)
+      └─ Function: quote, Register Offset: -8 (arg 0, arg)
+         └─ Function: quote_n, Register Offset: -16 (arg 1, arg)
+            └─ Function: quote_n_mem, Register Offset: -16 (arg 1, arg)
+               └─ Function: quotearg_n_options, Register Offset: -64 (arg 1, arg)
+                  └─ Function: quotearg_buffer_restyled, Register Offset: -152 (arg 2, arg)
+                     └─ Function: quotearg_buffer_restyled, Register Offset: -152 (arg 2, arg)
+      └─ Function: mbsalign, Register Offset: -120 (arg 0, src)
+
+Root Function: prepare_padded_number, Register Offset: -160 (w)
+      └─ Function: mbsalign, Register Offset: -144 (arg 3, width)
+
+Root Function: process_field, Register Offset: -32 (val)
+      └─ Function: process_suffixed_number, Register Offset: -96 (arg 1, result)
+
+Root Function: process_field, Register Offset: -40 (precision)
+      └─ Function: process_suffixed_number, Register Offset: -104 (arg 2, precision)
+         └─ Function: parse_human_number, Register Offset: -72 (arg 2, precision)
+            └─ Function: simple_strtod_human, Register Offset: -80 (arg 3, precision)
+               └─ Function: simple_strtod_float, Register Offset: -96 (arg 3, precision)
+
+Root Function: process_line, Register Offset: -40 (line)
+      └─ Function: next_field, Register Offset: -24 (arg 0, line)
+
+Root Function: process_suffixed_number, Register Offset: -48 (val)
+      └─ Function: parse_human_number, Register Offset: -64 (arg 1, value)
+         └─ Function: simple_strtod_human, Register Offset: -72 (arg 2, value)
+            └─ Function: simple_strtod_float, Register Offset: -88 (arg 2, value)
+               └─ Function: simple_strtod_int, Register Offset: -56 (arg 2, value)
+
+Root Function: simple_strtod_float, Register Offset: -58 (negative)
+      └─ Function: simple_strtod_int, Register Offset: -64 (arg 3, negative)
+
+Root Function: simple_strtod_float, Register Offset: -48 (ptr2)
+      └─ Function: simple_strtod_int, Register Offset: -48 (arg 1, endptr)
+
+Root Function: simple_strtod_float, Register Offset: -32 (val_frac)
+      └─ Function: simple_strtod_int, Register Offset: -56 (arg 2, value)
+
+Root Function: simple_strtod_float, Register Offset: -57 (neg_frac)
+      └─ Function: simple_strtod_int, Register Offset: -64 (arg 3, negative)
+
+Root Function: unit_to_umax, Register Offset: -56 (end)
+      └─ Function: xstrtoumax, Register Offset: -80 (arg 1, ptr)
+
+Root Function: unit_to_umax, Register Offset: -48 (n)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+
+== od
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# od, 38 function(s) on the taint path.
+
+Root Function: decode_format_string, Register Offset: -24 (next)
+      └─ Function: decode_one_format, Register Offset: -104 (arg 2, next)
+
+Root Function: decode_one_format, Register Offset: -56 (p)
+      └─ Function: simple_strtoul, Register Offset: -32 (arg 1, p)
+
+Root Function: decode_one_format, Register Offset: -64 (size)
+      └─ Function: simple_strtoul, Register Offset: -40 (arg 2, val)
+
+Root Function: dump, Register Offset: -64 (n_bytes_read)
+      └─ Function: read_block, Register Offset: -56 (arg 2, n_bytes_in_buffer)
+
+Root Function: dump_strings, Register Offset: -44 (c)
+      └─ Function: read_char, Register Offset: -24 (arg 0, c)
+
+Root Function: dump_strings, Register Offset: -40 (bufsize)
+      └─ Function: x2realloc, Register Offset: -16 (arg 1, pn)
+         └─ Function: x2nrealloc, Register Offset: -32 (arg 1, pn)
+
+Root Function: main, Register Offset: -48 (tmp)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+      └─ Function: parse_old_offset, Register Offset: -32 (arg 1, offset)
+         └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+Root Function: main, Register Offset: -56 (oi)
+      └─ Function: parse_old_offset, Register Offset: -32 (arg 1, offset)
+         └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+Root Function: print_double, Register Offset: -48 (buf)
+      └─ Function: dtoastr, Register Offset: -72 (arg 0, buf)
+
+Root Function: print_float, Register Offset: -48 (buf)
+      └─ Function: ftoastr, Register Offset: -72 (arg 0, buf)
+
+Root Function: print_long_double, Register Offset: -64 (buf)
+      └─ Function: ldtoastr, Register Offset: -88 (arg 0, buf)
+
+Root Function: skip, Register Offset: -8368 (file_stats)
+      └─ Function: usable_st_size, Register Offset: -8 (arg 0, sb)
+
+
+== paste
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# paste, 11 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== pathchk
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# pathchk, 8 function(s) on the taint path.
+
+Root Function: portable_chars_only, Register Offset: -32 (mbstate)
+      └─ Function: rpl_mbrlen, Register Offset: -24 (arg 2, ps)
+
+
+== pr
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# pr, 45 function(s) on the taint path.
+
+Root Function: first_last_page, Register Offset: -40 (p)
+      └─ Function: xstrtoumax, Register Offset: -80 (arg 1, ptr)
+
+Root Function: first_last_page, Register Offset: -32 (first)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+Root Function: first_last_page, Register Offset: -24 (last)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+Root Function: getoptarg, Register Offset: -32 (tmp_long)
+      └─ Function: xstrtol, Register Offset: -80 (arg 3, val)
+
+Root Function: init_header, Register Offset: -192 (st)
+      └─ Function: get_stat_mtime, Register Offset: -8 (arg 0, st)
+
+Root Function: init_header, Register Offset: -272 (t)
+      └─ Function: localtime_rz, Register Offset: -32 (arg 1, t)
+
+Root Function: init_header, Register Offset: -256 (tm)
+      └─ Function: localtime_rz, Register Offset: -40 (arg 2, tm)
+         └─ Function: save_abbr, Register Offset: -48 (arg 1, tm)
+      └─ Function: nstrftime, Register Offset: -48 (arg 3, tp)
+         └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+            └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+
+Root Function: init_header, Register Offset: -48 (secbuf)
+      └─ Function: timetostr, Register Offset: -16 (arg 1, buf)
+         └─ Function: imaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: main, Register Offset: -40 (n_alloc)
+      └─ Function: x2realloc, Register Offset: -16 (arg 1, pn)
+         └─ Function: x2nrealloc, Register Offset: -32 (arg 1, pn)
+
+Root Function: main, Register Offset: -56 (tmp_cpl)
+      └─ Function: getoptnum, Register Offset: -40 (arg 2, num)
+
+Root Function: print_header, Register Offset: -304 (page_text)
+      └─ Function: gnu_mbswidth, Register Offset: -8 (arg 0, string)
+         └─ Function: mbsnwidth, Register Offset: -72 (arg 0, string)
+
+
+== printenv
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# printenv, 4 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== printf
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# printf, 13 function(s) on the taint path.
+
+Root Function: vstrtold, Register Offset: -40 (end)
+      └─ Function: cl_strtold, Register Offset: -96 (arg 1, endptr)
+
+
+== ptx
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# ptx, 26 function(s) on the taint path.
+
+Root Function: digest_break_file, Register Offset: -32 (file_contents)
+      └─ Function: swallow_file_in_memory, Register Offset: -64 (arg 1, block)
+
+Root Function: digest_word_file, Register Offset: -32 (file_contents)
+      └─ Function: swallow_file_in_memory, Register Offset: -64 (arg 1, block)
+
+Root Function: main, Register Offset: -40 (tmp)
+      └─ Function: xstrtoimax, Register Offset: -80 (arg 3, val)
+
+Root Function: swallow_file_in_memory, Register Offset: -32 (used_length)
+      └─ Function: fread_file, Register Offset: -256 (arg 1, length)
+      └─ Function: read_file, Register Offset: -16 (arg 1, length)
+         └─ Function: internal_read_file, Register Offset: -48 (arg 1, length)
+            └─ Function: fread_file, Register Offset: -256 (arg 1, length)
+
+
+== pwd
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# pwd, 12 function(s) on the taint path.
+
+Root Function: robust_getcwd, Register Offset: -192 (dev_ino_buf)
+      └─ Function: get_root_dev_ino, Register Offset: -168 (arg 0, root_d_i)
+
+Root Function: robust_getcwd, Register Offset: -176 (dot_sb)
+      └─ Function: find_dir_entry, Register Offset: -376 (arg 0, dot_sb)
+
+
+== readlink
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# readlink, 3 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== realpath
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# realpath, 10 function(s) on the taint path.
+
+Root Function: relpath, Register Offset: -56 (buf)
+      └─ Function: buffer_or_output, Register Offset: -32 (arg 1, pbuf)
+
+Root Function: relpath, Register Offset: -64 (len)
+      └─ Function: buffer_or_output, Register Offset: -40 (arg 2, plen)
+
+
+== rm
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# rm, 20 function(s) on the taint path.
+
+Root Function: excise, Register Offset: -176 (st)
+      └─ Function: lstatat, Register Offset: -24 (arg 2, st)
+
+Root Function: main, Register Offset: -64 (x)
+      └─ Function: rm_option_init, Register Offset: -8 (arg 0, x)
+      └─ Function: rm, Register Offset: -48 (arg 1, x)
+         └─ Function: rm_fts, Register Offset: -232 (arg 2, x)
+            └─ Function: prompt, Register Offset: -256 (arg 3, x)
+            └─ Function: excise, Register Offset: -216 (arg 2, x)
+               └─ Function: ignorable_missing, Register Offset: -8 (arg 0, x)
+
+Root Function: prompt, Register Offset: -160 (st via sbuf)
+      └─ Function: cache_stat_init, Register Offset: -8 (arg 0, st)
+      └─ Function: write_protected_non_symlink, Register Offset: -24 (arg 2, buf)
+         └─ Function: cache_fstatat, Register Offset: -40 (arg 2, st)
+      └─ Function: cache_fstatat, Register Offset: -40 (arg 2, st)
+      └─ Function: file_type, Register Offset: -8 (arg 0, st)
+
+Root Function: rm_fts, Register Offset: -200 (is_empty_directory)
+      └─ Function: prompt, Register Offset: -264 (arg 5, is_empty_p)
+
+
+== rmdir
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# rmdir, 11 function(s) on the taint path.
+
+Root Function: prog_fprintf, Register Offset: -208 (ap)
+      └─ Function: rpl_vfprintf, Register Offset: -2072 (arg 2, args)
+         └─ Function: vasnprintf, Register Offset: -2784 (arg 3, args)
+            └─ Function: printf_fetchargs, Register Offset: -24 (arg 0, args)
+
+
+== runcon
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# runcon, 4 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== seq
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# seq, 15 function(s) on the taint path.
+
+Root Function: main, Register Offset: -128 (layout)
+      └─ Function: long_double_format, Register Offset: -96 (arg 1, layout)
+
+Root Function: main, Register Offset: -168 (s1)
+      └─ Function: rpl_asprintf, Register Offset: -232 (arg 0, resultp)
+         └─ Function: rpl_vasprintf, Register Offset: -40 (arg 0, resultp)
+
+Root Function: main, Register Offset: -160 (s2)
+      └─ Function: rpl_asprintf, Register Offset: -232 (arg 0, resultp)
+         └─ Function: rpl_vasprintf, Register Offset: -40 (arg 0, resultp)
+
+Root Function: scan_arg, Register Offset: -64 (ret)
+      └─ Function: xstrtold, Register Offset: -72 (arg 2, result)
+
+
+== sha1sum
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# sha1sum, 14 function(s) on the taint path.
+
+Root Function: digest_check, Register Offset: -48 (bin_buffer_unaligned)
+      └─ Function: ptr_align, Register Offset: -24 (arg 0, ptr)
+
+Root Function: digest_check, Register Offset: -136 (hex_digest)
+      └─ Function: split_3, Register Offset: -56 (arg 2, hex_digest)
+         └─ Function: bsd_split_3, Register Offset: -40 (arg 2, hex_digest)
+
+Root Function: digest_check, Register Offset: -164 (binary)
+      └─ Function: split_3, Register Offset: -64 (arg 3, binary)
+      └─ Function: digest_file, Register Offset: -48 (arg 1, binary)
+
+Root Function: digest_check, Register Offset: -144 (filename)
+      └─ Function: split_3, Register Offset: -72 (arg 4, file_name)
+         └─ Function: bsd_split_3, Register Offset: -48 (arg 3, file_name)
+
+Root Function: digest_check, Register Offset: -170 (missing)
+      └─ Function: digest_file, Register Offset: -64 (arg 3, missing)
+
+Root Function: main, Register Offset: -48 (bin_buffer_unaligned)
+      └─ Function: ptr_align, Register Offset: -24 (arg 0, ptr)
+
+Root Function: main, Register Offset: -108 (file_is_binary)
+      └─ Function: digest_file, Register Offset: -48 (arg 1, binary)
+
+Root Function: main, Register Offset: -113 (missing)
+      └─ Function: digest_file, Register Offset: -64 (arg 3, missing)
+
+
+== sha224sum
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# sha224sum, 14 function(s) on the taint path.
+
+Root Function: digest_check, Register Offset: -64 (bin_buffer_unaligned)
+      └─ Function: ptr_align, Register Offset: -24 (arg 0, ptr)
+
+Root Function: digest_check, Register Offset: -152 (hex_digest)
+      └─ Function: split_3, Register Offset: -56 (arg 2, hex_digest)
+         └─ Function: bsd_split_3, Register Offset: -40 (arg 2, hex_digest)
+
+Root Function: digest_check, Register Offset: -180 (binary)
+      └─ Function: split_3, Register Offset: -64 (arg 3, binary)
+      └─ Function: digest_file, Register Offset: -48 (arg 1, binary)
+
+Root Function: digest_check, Register Offset: -160 (filename)
+      └─ Function: split_3, Register Offset: -72 (arg 4, file_name)
+         └─ Function: bsd_split_3, Register Offset: -48 (arg 3, file_name)
+
+Root Function: digest_check, Register Offset: -186 (missing)
+      └─ Function: digest_file, Register Offset: -64 (arg 3, missing)
+
+Root Function: main, Register Offset: -64 (bin_buffer_unaligned)
+      └─ Function: ptr_align, Register Offset: -24 (arg 0, ptr)
+
+Root Function: main, Register Offset: -124 (file_is_binary)
+      └─ Function: digest_file, Register Offset: -48 (arg 1, binary)
+
+Root Function: main, Register Offset: -129 (missing)
+      └─ Function: digest_file, Register Offset: -64 (arg 3, missing)
+
+
+== sha256sum
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# sha256sum, 14 function(s) on the taint path.
+
+Root Function: digest_check, Register Offset: -64 (bin_buffer_unaligned)
+      └─ Function: ptr_align, Register Offset: -24 (arg 0, ptr)
+
+Root Function: digest_check, Register Offset: -152 (hex_digest)
+      └─ Function: split_3, Register Offset: -56 (arg 2, hex_digest)
+         └─ Function: bsd_split_3, Register Offset: -40 (arg 2, hex_digest)
+
+Root Function: digest_check, Register Offset: -180 (binary)
+      └─ Function: split_3, Register Offset: -64 (arg 3, binary)
+      └─ Function: digest_file, Register Offset: -48 (arg 1, binary)
+
+Root Function: digest_check, Register Offset: -160 (filename)
+      └─ Function: split_3, Register Offset: -72 (arg 4, file_name)
+         └─ Function: bsd_split_3, Register Offset: -48 (arg 3, file_name)
+
+Root Function: digest_check, Register Offset: -186 (missing)
+      └─ Function: digest_file, Register Offset: -64 (arg 3, missing)
+
+Root Function: main, Register Offset: -64 (bin_buffer_unaligned)
+      └─ Function: ptr_align, Register Offset: -24 (arg 0, ptr)
+
+Root Function: main, Register Offset: -124 (file_is_binary)
+      └─ Function: digest_file, Register Offset: -48 (arg 1, binary)
+
+Root Function: main, Register Offset: -129 (missing)
+      └─ Function: digest_file, Register Offset: -64 (arg 3, missing)
+
+
+== sha384sum
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# sha384sum, 14 function(s) on the taint path.
+
+Root Function: digest_check, Register Offset: -80 (bin_buffer_unaligned)
+      └─ Function: ptr_align, Register Offset: -24 (arg 0, ptr)
+
+Root Function: digest_check, Register Offset: -168 (hex_digest)
+      └─ Function: split_3, Register Offset: -56 (arg 2, hex_digest)
+         └─ Function: bsd_split_3, Register Offset: -40 (arg 2, hex_digest)
+
+Root Function: digest_check, Register Offset: -196 (binary)
+      └─ Function: split_3, Register Offset: -64 (arg 3, binary)
+      └─ Function: digest_file, Register Offset: -48 (arg 1, binary)
+
+Root Function: digest_check, Register Offset: -176 (filename)
+      └─ Function: split_3, Register Offset: -72 (arg 4, file_name)
+         └─ Function: bsd_split_3, Register Offset: -48 (arg 3, file_name)
+
+Root Function: digest_check, Register Offset: -202 (missing)
+      └─ Function: digest_file, Register Offset: -64 (arg 3, missing)
+
+Root Function: main, Register Offset: -80 (bin_buffer_unaligned)
+      └─ Function: ptr_align, Register Offset: -24 (arg 0, ptr)
+
+Root Function: main, Register Offset: -140 (file_is_binary)
+      └─ Function: digest_file, Register Offset: -48 (arg 1, binary)
+
+Root Function: main, Register Offset: -145 (missing)
+      └─ Function: digest_file, Register Offset: -64 (arg 3, missing)
+
+
+== sha512sum
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# sha512sum, 14 function(s) on the taint path.
+
+Root Function: digest_check, Register Offset: -96 (bin_buffer_unaligned)
+      └─ Function: ptr_align, Register Offset: -24 (arg 0, ptr)
+
+Root Function: digest_check, Register Offset: -184 (hex_digest)
+      └─ Function: split_3, Register Offset: -56 (arg 2, hex_digest)
+         └─ Function: bsd_split_3, Register Offset: -40 (arg 2, hex_digest)
+
+Root Function: digest_check, Register Offset: -212 (binary)
+      └─ Function: split_3, Register Offset: -64 (arg 3, binary)
+      └─ Function: digest_file, Register Offset: -48 (arg 1, binary)
+
+Root Function: digest_check, Register Offset: -192 (filename)
+      └─ Function: split_3, Register Offset: -72 (arg 4, file_name)
+         └─ Function: bsd_split_3, Register Offset: -48 (arg 3, file_name)
+
+Root Function: digest_check, Register Offset: -218 (missing)
+      └─ Function: digest_file, Register Offset: -64 (arg 3, missing)
+
+Root Function: main, Register Offset: -96 (bin_buffer_unaligned)
+      └─ Function: ptr_align, Register Offset: -24 (arg 0, ptr)
+
+Root Function: main, Register Offset: -156 (file_is_binary)
+      └─ Function: digest_file, Register Offset: -48 (arg 1, binary)
+
+Root Function: main, Register Offset: -161 (missing)
+      └─ Function: digest_file, Register Offset: -64 (arg 3, missing)
+
+
+== shred
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# shred, 22 function(s) on the taint path.
+
+Root Function: do_wipefd, Register Offset: -160 (st)
+      └─ Function: dopass, Register Offset: -2160 (arg 1, st)
+         └─ Function: dorewind, Register Offset: -48 (arg 1, st)
+
+Root Function: do_wipefd, Register Offset: -240 (pass_size)
+      └─ Function: dopass, Register Offset: -2176 (arg 3, sizep)
+
+Root Function: dopass, Register Offset: -1991 (pass_string)
+      └─ Function: passname, Register Offset: -16 (arg 1, name)
+
+Root Function: dopass, Register Offset: -672 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: dopass, Register Offset: -1328 (offset_buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: main, Register Offset: -64 (flags)
+      └─ Function: wipefd, Register Offset: -48 (arg 3, flags)
+         └─ Function: do_wipefd, Register Offset: -288 (arg 3, flags)
+      └─ Function: wipefile, Register Offset: -48 (arg 3, flags)
+         └─ Function: do_wipefd, Register Offset: -288 (arg 3, flags)
+         └─ Function: wipename, Register Offset: -88 (arg 2, flags)
+
+
+== shuf
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# shuf, 17 function(s) on the taint path.
+
+Root Function: input_size, Register Offset: -160 (stat_buf)
+      └─ Function: usable_st_size, Register Offset: -8 (arg 0, sb)
+
+Root Function: main, Register Offset: -128 (argval)
+      └─ Function: xstrtoul, Register Offset: -96 (arg 3, val)
+
+Root Function: main, Register Offset: -144 (input_lines)
+      └─ Function: read_input, Register Offset: -88 (arg 2, pline)
+
+Root Function: main, Register Offset: -136 (reservoir)
+      └─ Function: read_input_reservoir_sampling, Register Offset: -120 (arg 4, out_rsrv)
+
+Root Function: read_input, Register Offset: -64 (used)
+      └─ Function: fread_file, Register Offset: -256 (arg 1, length)
+
+Root Function: read_input_reservoir_sampling, Register Offset: -32 (dummy)
+      └─ Function: initbuffer, Register Offset: -8 (arg 0, linebuffer)
+      └─ Function: freebuffer, Register Offset: -8 (arg 0, linebuffer)
+
+
+== sleep
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# sleep, 4 function(s) on the taint path.
+
+Root Function: main, Register Offset: -24 (p)
+      └─ Function: xstrtod, Register Offset: -48 (arg 1, ptr)
+
+Root Function: main, Register Offset: -32 (s)
+      └─ Function: xstrtod, Register Offset: -56 (arg 2, result)
+      └─ Function: apply_suffix, Register Offset: -24 (arg 0, x)
+
+
+== sort
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# sort, 105 function(s) on the taint path.
+
+Root Function: async_safe_die, Register Offset: -20 (errbuf)
+      └─ Function: inttostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: avoid_trashing_input, Register Offset: -192 (tftp)
+      └─ Function: create_temp, Register Offset: -8 (arg 0, pfp)
+         └─ Function: maybe_create_temp, Register Offset: -40 (arg 0, pfp)
+
+Root Function: check, Register Offset: -112 (buf)
+      └─ Function: initbuf, Register Offset: -8 (arg 0, buf)
+      └─ Function: buffer_linelim, Register Offset: -24 (arg 0, buf)
+      └─ Function: fillbuf, Register Offset: -136 (arg 0, buf)
+         └─ Function: buffer_linelim, Register Offset: -24 (arg 0, buf)
+
+Root Function: check, Register Offset: -144 (temp)
+      └─ Function: compare, Register Offset: -40 (arg 0, a)
+         └─ Function: keycompare, Register Offset: -4184 (arg 0, a)
+            └─ Function: limfield, Register Offset: -40 (arg 0, line)
+            └─ Function: begfield, Register Offset: -40 (arg 0, line)
+
+Root Function: check, Register Offset: -48 (hr_buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: compare_random, Register Offset: -4336 (s)
+      └─ Function: md5_process_bytes, Register Offset: -56 (arg 2, ctx)
+         └─ Function: md5_process_block, Register Offset: -184 (arg 2, ctx)
+      └─ Function: md5_finish_ctx, Register Offset: -24 (arg 0, ctx)
+         └─ Function: md5_process_block, Register Offset: -184 (arg 2, ctx)
+         └─ Function: md5_read_ctx, Register Offset: -24 (arg 0, ctx)
+
+Root Function: compare_random, Register Offset: -4368 (dig)
+      └─ Function: md5_finish_ctx, Register Offset: -32 (arg 1, resbuf)
+         └─ Function: md5_read_ctx, Register Offset: -32 (arg 1, resbuf)
+
+Root Function: create_temp_file, Register Offset: -160 (cs)
+      └─ Function: cs_enter, Register Offset: -24 (arg 0, status)
+      └─ Function: cs_leave, Register Offset: -8 (arg 0, status)
+
+Root Function: debug_key, Register Offset: -88 (tighter_lim)
+      └─ Function: getmonth, Register Offset: -72 (arg 1, ea)
+
+Root Function: debug_key, Register Offset: -80 (p)
+      └─ Function: traverse_raw_number, Register Offset: -24 (arg 0, number)
+
+Root Function: delete_proc, Register Offset: -32 (test)
+      └─ Function: hash_delete, Register Offset: -80 (arg 1, entry)
+         └─ Function: hash_find_entry, Register Offset: -64 (arg 1, entry)
+            └─ Function: safe_hasher, Register Offset: -32 (arg 1, key)
+
+Root Function: exit_cleanup, Register Offset: -144 (cs)
+      └─ Function: cs_enter, Register Offset: -24 (arg 0, status)
+      └─ Function: cs_leave, Register Offset: -8 (arg 0, status)
+
+Root Function: fillbuf, Register Offset: -112 (line_alloc)
+      └─ Function: x2nrealloc, Register Offset: -32 (arg 1, pn)
+
+Root Function: find_unit_order, Register Offset: -16 (p)
+      └─ Function: traverse_raw_number, Register Offset: -24 (arg 0, number)
+
+Root Function: key_warnings, Register Offset: -160 (tmp)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: key_warnings, Register Offset: -80 (opts)
+      └─ Function: quote_n, Register Offset: -16 (arg 1, arg)
+         └─ Function: quote_n_mem, Register Offset: -16 (arg 1, arg)
+            └─ Function: quotearg_n_options, Register Offset: -64 (arg 1, arg)
+               └─ Function: quotearg_buffer_restyled, Register Offset: -152 (arg 2, arg)
+                  └─ Function: quotearg_buffer_restyled, Register Offset: -152 (arg 2, arg)
+      └─ Function: key_to_opts, Register Offset: -16 (arg 1, opts)
+
+Root Function: key_warnings, Register Offset: -128 (obuf)
+      └─ Function: quote_n, Register Offset: -16 (arg 1, arg)
+         └─ Function: quote_n_mem, Register Offset: -16 (arg 1, arg)
+            └─ Function: quotearg_n_options, Register Offset: -64 (arg 1, arg)
+               └─ Function: quotearg_buffer_restyled, Register Offset: -152 (arg 2, arg)
+                  └─ Function: quotearg_buffer_restyled, Register Offset: -152 (arg 2, arg)
+
+Root Function: key_warnings, Register Offset: -240 (ugkey)
+      └─ Function: default_key_compare, Register Offset: -8 (arg 0, key)
+         └─ Function: key_numeric, Register Offset: -8 (arg 0, key)
+      └─ Function: key_to_opts, Register Offset: -8 (arg 0, key)
+
+Root Function: main, Register Offset: -560 (gkey)
+      └─ Function: key_init, Register Offset: -8 (arg 0, key)
+
+Root Function: maybe_create_temp, Register Offset: -28 (tempfd)
+      └─ Function: create_temp_file, Register Offset: -216 (arg 0, pfd)
+
+Root Function: maybe_create_temp, Register Offset: -16 (pipefds)
+      └─ Function: pipe_fork, Register Offset: -184 (arg 0, pipefds)
+         └─ Function: rpl_pipe2, Register Offset: -40 (arg 0, fd)
+
+Root Function: merge, Register Offset: -112 (tfp)
+      └─ Function: create_temp, Register Offset: -8 (arg 0, pfp)
+         └─ Function: maybe_create_temp, Register Offset: -40 (arg 0, pfp)
+      └─ Function: maybe_create_temp, Register Offset: -40 (arg 0, pfp)
+
+Root Function: merge, Register Offset: -120 (fps)
+      └─ Function: open_input_files, Register Offset: -40 (arg 2, pfps)
+
+Root Function: mergefiles, Register Offset: -24 (fps)
+      └─ Function: open_input_files, Register Offset: -40 (arg 2, pfps)
+
+Root Function: mergefps, Register Offset: -64 (saved)
+      └─ Function: write_line, Register Offset: -56 (arg 0, line)
+         └─ Function: debug_line, Register Offset: -24 (arg 0, line)
+            └─ Function: debug_key, Register Offset: -104 (arg 0, line)
+               └─ Function: begfield, Register Offset: -40 (arg 0, line)
+               └─ Function: limfield, Register Offset: -40 (arg 0, line)
+
+Root Function: open_temp, Register Offset: -32 (pipefds)
+      └─ Function: pipe_fork, Register Offset: -184 (arg 0, pipefds)
+         └─ Function: rpl_pipe2, Register Offset: -40 (arg 0, fd)
+
+Root Function: parse_field_count, Register Offset: -24 (suffix)
+      └─ Function: xstrtoumax, Register Offset: -80 (arg 1, ptr)
+
+Root Function: parse_field_count, Register Offset: -16 (n)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+Root Function: pipe_fork, Register Offset: -144 (cs)
+      └─ Function: cs_enter, Register Offset: -24 (arg 0, status)
+      └─ Function: cs_leave, Register Offset: -8 (arg 0, status)
+
+Root Function: random_md5_state_init, Register Offset: -32 (buf)
+      └─ Function: randread, Register Offset: -16 (arg 1, buf)
+         └─ Function: readsource, Register Offset: -48 (arg 1, p)
+         └─ Function: readisaac, Register Offset: -48 (arg 1, p)
+      └─ Function: md5_process_bytes, Register Offset: -40 (arg 0, buffer)
+         └─ Function: md5_process_block, Register Offset: -168 (arg 0, buffer)
+
+Root Function: sort, Register Offset: -280 (fp)
+      └─ Function: sort_buffer_size, Register Offset: -216 (arg 0, fps)
+
+Root Function: sort, Register Offset: -176 (buf)
+      └─ Function: initbuf, Register Offset: -8 (arg 0, buf)
+      └─ Function: buffer_linelim, Register Offset: -24 (arg 0, buf)
+      └─ Function: fillbuf, Register Offset: -136 (arg 0, buf)
+         └─ Function: buffer_linelim, Register Offset: -24 (arg 0, buf)
+
+Root Function: sort, Register Offset: -272 (tfp)
+      └─ Function: create_temp, Register Offset: -8 (arg 0, pfp)
+         └─ Function: maybe_create_temp, Register Offset: -40 (arg 0, pfp)
+
+Root Function: sort, Register Offset: -112 (queue)
+      └─ Function: queue_init, Register Offset: -8 (arg 0, queue)
+      └─ Function: sortlines, Register Offset: -168 (arg 4, queue)
+         └─ Function: sortlines, Register Offset: -168 (arg 4, queue)
+         └─ Function: queue_insert, Register Offset: -8 (arg 0, queue)
+         └─ Function: merge_loop, Register Offset: -24 (arg 0, queue)
+            └─ Function: queue_pop, Register Offset: -24 (arg 0, queue)
+            └─ Function: queue_insert, Register Offset: -8 (arg 0, queue)
+            └─ Function: queue_check_insert, Register Offset: -24 (arg 0, queue)
+               └─ Function: queue_insert, Register Offset: -8 (arg 0, queue)
+            └─ Function: queue_check_insert_parent, Register Offset: -8 (arg 0, queue)
+               └─ Function: queue_check_insert, Register Offset: -24 (arg 0, queue)
+                  └─ Function: queue_insert, Register Offset: -8 (arg 0, queue)
+               └─ Function: queue_insert, Register Offset: -8 (arg 0, queue)
+
+Root Function: specify_nmerge, Register Offset: -56 (n)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+Root Function: specify_nmerge, Register Offset: -19 (max_nmerge_buf)
+      └─ Function: uinttostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: specify_nthreads, Register Offset: -16 (nthreads)
+      └─ Function: xstrtoul, Register Offset: -96 (arg 3, val)
+
+Root Function: specify_sort_size, Register Offset: -24 (suffix)
+      └─ Function: xstrtoumax, Register Offset: -80 (arg 1, ptr)
+
+Root Function: specify_sort_size, Register Offset: -32 (n)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+Root Function: zaptemp, Register Offset: -144 (cs)
+      └─ Function: cs_enter, Register Offset: -24 (arg 0, status)
+      └─ Function: cs_leave, Register Offset: -8 (arg 0, status)
+
+
+== split
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# split, 26 function(s) on the taint path.
+
+Root Function: closeout, Register Offset: -48 (signame)
+      └─ Function: sig2str, Register Offset: -48 (arg 1, signame)
+
+Root Function: main, Register Offset: -280 (k_units)
+      └─ Function: parse_chunk, Register Offset: -8 (arg 0, k_units)
+
+Root Function: main, Register Offset: -272 (n_units)
+      └─ Function: parse_chunk, Register Offset: -16 (arg 1, n_units)
+
+Root Function: main, Register Offset: -48 (buffer)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: set_suffix_length, Register Offset: -40 (n_start)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+
+== stat
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# stat, 31 function(s) on the taint path.
+
+Root Function: do_stat, Register Offset: -176 (statbuf)
+      └─ Function: print_it, Register Offset: -120 (arg 4, data)
+
+Root Function: do_statfs, Register Offset: -144 (statfsbuf)
+      └─ Function: print_it, Register Offset: -120 (arg 4, data)
+
+Root Function: find_mount_point, Register Offset: -336 (cwd)
+      └─ Function: save_cwd, Register Offset: -8 (arg 0, cwd)
+      └─ Function: restore_cwd, Register Offset: -8 (arg 0, cwd)
+      └─ Function: free_cwd, Register Offset: -8 (arg 0, cwd)
+
+Root Function: human_time, Register Offset: -128 (t)
+      └─ Function: localtime_rz, Register Offset: -32 (arg 1, t)
+
+Root Function: human_time, Register Offset: -96 (tm)
+      └─ Function: localtime_rz, Register Offset: -40 (arg 2, tm)
+         └─ Function: save_abbr, Register Offset: -48 (arg 1, tm)
+      └─ Function: nstrftime, Register Offset: -48 (arg 3, tp)
+         └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+            └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+
+Root Function: human_time, Register Offset: -32 (secbuf)
+      └─ Function: timetostr, Register Offset: -16 (arg 1, buf)
+         └─ Function: imaxtostr, Register Offset: -32 (arg 1, buf)
+
+
+== sum
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# sum, 6 function(s) on the taint path.
+
+Root Function: bsd_sum_file, Register Offset: -688 (hbuf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: sysv_sum_file, Register Offset: -8224 (buf)
+      └─ Function: safe_read, Register Offset: -32 (arg 1, buf)
+
+Root Function: sysv_sum_file, Register Offset: -8880 (hbuf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+
+== sync
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# sync, 4 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== tac
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# tac, 12 function(s) on the taint path.
+
+Root Function: copy_to_temp, Register Offset: -56 (fp)
+      └─ Function: temp_stream, Register Offset: -56 (arg 0, fp)
+
+Root Function: copy_to_temp, Register Offset: -48 (file_name)
+      └─ Function: temp_stream, Register Offset: -64 (arg 1, file_name)
+
+Root Function: tac_nonseekable, Register Offset: -48 (tmp_stream)
+      └─ Function: copy_to_temp, Register Offset: -72 (arg 0, g_tmp)
+
+Root Function: tac_nonseekable, Register Offset: -40 (tmp_file)
+      └─ Function: copy_to_temp, Register Offset: -80 (arg 1, g_tempfile)
+
+
+== tail
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# tail, 42 function(s) on the taint path.
+
+Root Function: check_fspec, Register Offset: -160 (stats)
+      └─ Function: get_stat_mtime, Register Offset: -8 (arg 0, st)
+
+Root Function: dump_remainder, Register Offset: -8224 (buffer)
+      └─ Function: safe_read, Register Offset: -32 (arg 1, buf)
+      └─ Function: xwrite_stdout, Register Offset: -24 (arg 0, buffer)
+
+Root Function: file_lines, Register Offset: -8224 (buffer)
+      └─ Function: safe_read, Register Offset: -32 (arg 1, buf)
+
+Root Function: main, Register Offset: -208 (n_units)
+      └─ Function: parse_obsolete_option, Register Offset: -88 (arg 2, n_units)
+         └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+      └─ Function: parse_options, Register Offset: -56 (arg 2, n_units)
+
+Root Function: main, Register Offset: -216 (header_mode)
+      └─ Function: parse_options, Register Offset: -64 (arg 3, header_mode)
+
+Root Function: main, Register Offset: -200 (sleep_interval)
+      └─ Function: parse_options, Register Offset: -72 (arg 4, sleep_interval)
+
+Root Function: parse_options, Register Offset: -16 (s)
+      └─ Function: xstrtod, Register Offset: -56 (arg 2, result)
+
+Root Function: recheck, Register Offset: -176 (new_stats)
+      └─ Function: record_open_fd, Register Offset: -48 (arg 3, st)
+         └─ Function: get_stat_mtime, Register Offset: -8 (arg 0, st)
+
+Root Function: start_bytes, Register Offset: -8224 (buffer)
+      └─ Function: safe_read, Register Offset: -32 (arg 1, buf)
+
+Root Function: start_lines, Register Offset: -8224 (buffer)
+      └─ Function: safe_read, Register Offset: -32 (arg 1, buf)
+
+Root Function: tail_bytes, Register Offset: -176 (stats)
+      └─ Function: usable_st_size, Register Offset: -8 (arg 0, sb)
+
+Root Function: tail_file, Register Offset: -184 (read_pos)
+      └─ Function: tail, Register Offset: -32 (arg 3, read_pos)
+         └─ Function: tail_lines, Register Offset: -240 (arg 3, read_pos)
+            └─ Function: start_lines, Register Offset: -8288 (arg 3, read_pos)
+            └─ Function: file_lines, Register Offset: -8304 (arg 5, read_pos)
+            └─ Function: pipe_lines, Register Offset: -144 (arg 3, read_pos)
+         └─ Function: tail_bytes, Register Offset: -240 (arg 3, read_pos)
+            └─ Function: start_bytes, Register Offset: -8272 (arg 3, read_pos)
+            └─ Function: pipe_bytes, Register Offset: -112 (arg 3, read_pos)
+
+Root Function: tail_file, Register Offset: -176 (stats)
+      └─ Function: record_open_fd, Register Offset: -48 (arg 3, st)
+         └─ Function: get_stat_mtime, Register Offset: -8 (arg 0, st)
+
+Root Function: tail_forever, Register Offset: -176 (stats)
+      └─ Function: get_stat_mtime, Register Offset: -8 (arg 0, st)
+
+Root Function: tail_forever_inotify, Register Offset: -384 (prev_fspec)
+      └─ Function: check_fspec, Register Offset: -208 (arg 1, prev_fspec)
+
+Root Function: tail_forever_inotify, Register Offset: -272 (delay)
+      └─ Function: hash_lookup, Register Offset: -32 (arg 1, entry)
+         └─ Function: safe_hasher, Register Offset: -32 (arg 1, key)
+
+Root Function: xlseek, Register Offset: -48 (buf)
+      └─ Function: offtostr, Register Offset: -32 (arg 1, buf)
+
+
+== tee
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# tee, 5 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== test
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# test, 22 function(s) on the taint path.
+
+Root Function: binary_operator, Register Offset: -64 (lbuf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: binary_operator, Register Offset: -32 (rbuf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: binary_operator, Register Offset: -384 (lt)
+      └─ Function: get_mtime, Register Offset: -192 (arg 1, mtime)
+
+Root Function: binary_operator, Register Offset: -368 (rt)
+      └─ Function: get_mtime, Register Offset: -192 (arg 1, mtime)
+
+Root Function: get_mtime, Register Offset: -160 (finfo)
+      └─ Function: get_stat_mtime, Register Offset: -8 (arg 0, st)
+
+Root Function: test_syntax_error, Register Offset: -208 (ap)
+      └─ Function: verror, Register Offset: -24 (arg 3, args)
+         └─ Function: verror_at_line, Register Offset: -56 (arg 5, args)
+            └─ Function: xvasprintf, Register Offset: -48 (arg 1, args)
+               └─ Function: xstrcat, Register Offset: -112 (arg 1, args)
+               └─ Function: rpl_vasprintf, Register Offset: -56 (arg 2, args)
+                  └─ Function: vasnprintf, Register Offset: -2784 (arg 3, args)
+                     └─ Function: printf_fetchargs, Register Offset: -24 (arg 0, args)
+
+Root Function: unary_operator, Register Offset: -160 (stat_buf)
+      └─ Function: get_stat_atime, Register Offset: -8 (arg 0, st)
+      └─ Function: get_stat_mtime, Register Offset: -8 (arg 0, st)
+
+
+== touch
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# touch, 6 function(s) on the taint path.
+
+Root Function: main, Register Offset: -176 (ref_stats)
+      └─ Function: get_stat_atime, Register Offset: -8 (arg 0, st)
+      └─ Function: get_stat_mtime, Register Offset: -8 (arg 0, st)
+
+Root Function: main, Register Offset: -224 (now)
+      └─ Function: gettime, Register Offset: -8 (arg 0, ts)
+      └─ Function: get_reldate, Register Offset: -24 (arg 2, now)
+         └─ Function: parse_datetime, Register Offset: -56 (arg 2, now)
+            └─ Function: parse_datetime2, Register Offset: -1352 (arg 2, now)
+
+Root Function: main, Register Offset: -192 (notnow1)
+      └─ Function: get_reldate, Register Offset: -8 (arg 0, result)
+         └─ Function: parse_datetime, Register Offset: -40 (arg 0, result)
+            └─ Function: parse_datetime2, Register Offset: -1336 (arg 0, result)
+               └─ Function: localtime_rz, Register Offset: -32 (arg 1, t)
+
+Root Function: main, Register Offset: -208 (notnow)
+      └─ Function: get_reldate, Register Offset: -24 (arg 2, now)
+         └─ Function: parse_datetime, Register Offset: -56 (arg 2, now)
+            └─ Function: parse_datetime2, Register Offset: -1352 (arg 2, now)
+
+
+== tr
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# tr, 38 function(s) on the taint path.
+
+Root Function: build_spec_list, Register Offset: -64 (repeat_count)
+      └─ Function: find_closing_delim, Register Offset: -48 (arg 3, result_idx)
+      └─ Function: find_bracketed_repeat, Register Offset: -80 (arg 3, repeat_count)
+         └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+Root Function: build_spec_list, Register Offset: -78 (char_to_repeat)
+      └─ Function: find_bracketed_repeat, Register Offset: -72 (arg 2, char_to_repeat)
+
+Root Function: build_spec_list, Register Offset: -72 (closing_bracket_idx)
+      └─ Function: find_bracketed_repeat, Register Offset: -88 (arg 4, closing_bracket_idx)
+
+Root Function: find_bracketed_repeat, Register Offset: -48 (d_end)
+      └─ Function: xstrtoumax, Register Offset: -80 (arg 1, ptr)
+
+Root Function: main, Register Offset: -128 (buf1 via s1)
+      └─ Function: spec_init, Register Offset: -24 (arg 0, spec_list)
+      └─ Function: parse_str, Register Offset: -64 (arg 1, spec_list)
+         └─ Function: build_spec_list, Register Offset: -96 (arg 1, result)
+            └─ Function: append_char_class, Register Offset: -24 (arg 0, list)
+            └─ Function: append_equiv_class, Register Offset: -24 (arg 0, list)
+            └─ Function: append_repeated_char, Register Offset: -24 (arg 0, list)
+            └─ Function: append_range, Register Offset: -40 (arg 0, list)
+            └─ Function: append_normal_char, Register Offset: -24 (arg 0, list)
+      └─ Function: validate, Register Offset: -8 (arg 0, s1)
+         └─ Function: get_s1_spec_stats, Register Offset: -8 (arg 0, s1)
+            └─ Function: get_spec_stats, Register Offset: -56 (arg 0, s)
+            └─ Function: card_of_complement, Register Offset: -296 (arg 0, s)
+               └─ Function: get_next, Register Offset: -24 (arg 0, s)
+         └─ Function: validate_case_classes, Register Offset: -88 (arg 0, s1)
+            └─ Function: get_next, Register Offset: -24 (arg 0, s)
+            └─ Function: skip_construct, Register Offset: -8 (arg 0, s)
+         └─ Function: string2_extend, Register Offset: -24 (arg 0, s1)
+      └─ Function: set_initialize, Register Offset: -24 (arg 0, s)
+         └─ Function: get_next, Register Offset: -24 (arg 0, s)
+      └─ Function: get_next, Register Offset: -24 (arg 0, s)
+      └─ Function: skip_construct, Register Offset: -8 (arg 0, s)
+
+Root Function: main, Register Offset: -224 (class_s1)
+      └─ Function: get_next, Register Offset: -32 (arg 1, class)
+
+Root Function: main, Register Offset: -220 (class_s2)
+      └─ Function: get_next, Register Offset: -32 (arg 1, class)
+
+Root Function: parse_str, Register Offset: -32 (es)
+      └─ Function: unquote, Register Offset: -48 (arg 1, es)
+      └─ Function: build_spec_list, Register Offset: -88 (arg 0, es)
+         └─ Function: es_match, Register Offset: -8 (arg 0, es)
+         └─ Function: find_closing_delim, Register Offset: -24 (arg 0, es)
+         └─ Function: star_digits_closebracket, Register Offset: -24 (arg 0, es)
+            └─ Function: es_match, Register Offset: -8 (arg 0, es)
+         └─ Function: find_bracketed_repeat, Register Offset: -56 (arg 0, es)
+            └─ Function: es_match, Register Offset: -8 (arg 0, es)
+      └─ Function: es_free, Register Offset: -8 (arg 0, es)
+
+Root Function: validate_case_classes, Register Offset: -76 (class_s1)
+      └─ Function: get_next, Register Offset: -32 (arg 1, class)
+
+Root Function: validate_case_classes, Register Offset: -72 (class_s2)
+      └─ Function: get_next, Register Offset: -32 (arg 1, class)
+
+
+== true
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# true, 3 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== truncate
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# truncate, 8 function(s) on the taint path.
+
+Root Function: do_ftruncate, Register Offset: -176 (sb)
+      └─ Function: usable_st_size, Register Offset: -8 (arg 0, sb)
+
+Root Function: main, Register Offset: -176 (sb)
+      └─ Function: usable_st_size, Register Offset: -8 (arg 0, sb)
+
+
+== tsort
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# tsort, 13 function(s) on the taint path.
+
+Root Function: tsort, Register Offset: -48 (tokenbuffer)
+      └─ Function: init_tokenbuffer, Register Offset: -8 (arg 0, tokenbuffer)
+      └─ Function: readtoken, Register Offset: -112 (arg 3, tokenbuffer)
+
+
+== tty
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# tty, 4 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== uname
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# uname, 5 function(s) on the taint path.
+
+Root Function: main, Register Offset: -400 (name)
+      └─ Function: print_element, Register Offset: -8 (arg 0, element)
+
+
+== unexpand
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# unexpand, 18 function(s) on the taint path.
+
+Root Function: unexpand, Register Offset: -56 (tab_index)
+      └─ Function: get_next_tab_column, Register Offset: -32 (arg 1, tab_index)
+
+Root Function: unexpand, Register Offset: -65 (last_tab)
+      └─ Function: get_next_tab_column, Register Offset: -40 (arg 2, last_tab)
+
+
+== uniq
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# uniq, 11 function(s) on the taint path.
+
+Root Function: main, Register Offset: -40 (size)
+      └─ Function: xstrtoul, Register Offset: -96 (arg 3, val)
+
+Root Function: size_opt, Register Offset: -16 (size)
+      └─ Function: xstrtoul, Register Offset: -96 (arg 3, val)
+
+
+== unlink
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# unlink, 3 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== vdir
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# vdir, 155 function(s) on the taint path.
+
+Root Function: abformat_init, Register Offset: -1552 (abmon)
+      └─ Function: abmon_init, Register Offset: -88 (arg 0, abmon)
+
+Root Function: abmon_init, Register Offset: -64 (width)
+      └─ Function: mbsalign, Register Offset: -144 (arg 3, width)
+
+Root Function: decode_switches, Register Offset: -16 (oi)
+      └─ Function: xstrtoul, Register Offset: -96 (arg 3, val)
+
+Root Function: gobble_file, Register Offset: -688 (buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: gobble_file, Register Offset: -720 (b)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: length_of_file_name_and_frills, Register Offset: -672 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: long_time_expected_width, Register Offset: -1104 (epoch)
+      └─ Function: localtime_rz, Register Offset: -32 (arg 1, t)
+
+Root Function: long_time_expected_width, Register Offset: -1088 (tm)
+      └─ Function: localtime_rz, Register Offset: -40 (arg 2, tm)
+         └─ Function: save_abbr, Register Offset: -48 (arg 1, tm)
+      └─ Function: align_nstrftime, Register Offset: -48 (arg 3, tm)
+         └─ Function: nstrftime, Register Offset: -48 (arg 3, tp)
+            └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+               └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+
+Root Function: long_time_expected_width, Register Offset: -1024 (buf)
+      └─ Function: align_nstrftime, Register Offset: -24 (arg 0, buf)
+         └─ Function: nstrftime, Register Offset: -24 (arg 0, s)
+            └─ Function: __strftime_internal, Register Offset: -1736 (arg 0, s)
+      └─ Function: mbsnwidth, Register Offset: -72 (arg 0, string)
+
+Root Function: main, Register Offset: -32 (di)
+      └─ Function: hash_delete, Register Offset: -80 (arg 1, entry)
+         └─ Function: hash_find_entry, Register Offset: -64 (arg 1, entry)
+            └─ Function: safe_hasher, Register Offset: -32 (arg 1, key)
+
+Root Function: needs_quoting, Register Offset: -10 (test)
+      └─ Function: quotearg_buffer, Register Offset: -40 (arg 0, buffer)
+         └─ Function: quotearg_buffer_restyled, Register Offset: -136 (arg 0, buffer)
+            └─ Function: quotearg_buffer_restyled, Register Offset: -136 (arg 0, buffer)
+
+Root Function: parse_ls_color, Register Offset: -56 (buf)
+      └─ Function: get_funky_string, Register Offset: -40 (arg 0, dest)
+
+Root Function: parse_ls_color, Register Offset: -64 (p)
+      └─ Function: get_funky_string, Register Offset: -48 (arg 1, src)
+
+Root Function: parse_ls_color, Register Offset: -11 (label)
+      └─ Function: quote, Register Offset: -8 (arg 0, arg)
+         └─ Function: quote_n, Register Offset: -16 (arg 1, arg)
+            └─ Function: quote_n_mem, Register Offset: -16 (arg 1, arg)
+               └─ Function: quotearg_n_options, Register Offset: -64 (arg 1, arg)
+                  └─ Function: quotearg_buffer_restyled, Register Offset: -152 (arg 2, arg)
+                     └─ Function: quotearg_buffer_restyled, Register Offset: -152 (arg 2, arg)
+
+Root Function: print_dir, Register Offset: -672 (buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: print_file_name_and_frills, Register Offset: -672 (buf)
+      └─ Function: format_inode, Register Offset: -8 (arg 0, buf)
+         └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+
+Root Function: print_long_format, Register Offset: -4380 (modebuf)
+      └─ Function: filemodestring, Register Offset: -16 (arg 1, str)
+         └─ Function: strmode, Register Offset: -16 (arg 1, str)
+
+Root Function: print_long_format, Register Offset: -4336 (hbuf)
+      └─ Function: format_inode, Register Offset: -8 (arg 0, buf)
+         └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+      └─ Function: human_readable, Register Offset: -240 (arg 1, buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+      └─ Function: timetostr, Register Offset: -16 (arg 1, buf)
+         └─ Function: imaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: print_long_format, Register Offset: -4368 (majorbuf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+Root Function: print_long_format, Register Offset: -4480 (when_timespec)
+      └─ Function: localtime_rz, Register Offset: -32 (arg 1, t)
+
+Root Function: print_long_format, Register Offset: -4448 (when_local)
+      └─ Function: localtime_rz, Register Offset: -40 (arg 2, tm)
+         └─ Function: save_abbr, Register Offset: -48 (arg 1, tm)
+      └─ Function: align_nstrftime, Register Offset: -48 (arg 3, tm)
+         └─ Function: nstrftime, Register Offset: -48 (arg 3, tp)
+            └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+               └─ Function: __strftime_internal, Register Offset: -1760 (arg 3, tp)
+
+Root Function: quote_name, Register Offset: -8288 (buf)
+      └─ Function: quote_name_buf, Register Offset: -152 (arg 0, inbuf)
+
+Root Function: quote_name_buf, Register Offset: -132 (wc)
+      └─ Function: rpl_mbrtowc, Register Offset: -40 (arg 0, pwc)
+
+Root Function: quote_name_buf, Register Offset: -32 (mbstate)
+      └─ Function: rpl_mbrtowc, Register Offset: -64 (arg 3, ps)
+
+Root Function: quote_name_width, Register Offset: -8224 (buf)
+      └─ Function: quote_name_buf, Register Offset: -152 (arg 0, inbuf)
+
+Root Function: quote_name_width, Register Offset: -8216 (width)
+      └─ Function: quote_name_buf, Register Offset: -192 (arg 5, width)
+
+Root Function: set_line_length, Register Offset: -16 (val)
+      └─ Function: xstrtoumax, Register Offset: -96 (arg 3, val)
+
+
+== wc
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# wc, 13 function(s) on the taint path.
+
+Root Function: main, Register Offset: -464 (tok)
+      └─ Function: readtokens0_init, Register Offset: -8 (arg 0, t)
+      └─ Function: readtokens0, Register Offset: -144 (arg 1, t)
+         └─ Function: save_token, Register Offset: -120 (arg 0, t)
+      └─ Function: readtokens0_free, Register Offset: -56 (arg 0, t)
+
+Root Function: main, Register Offset: -540 (ai_err)
+      └─ Function: argv_iter, Register Offset: -32 (arg 1, err)
+
+Root Function: wc, Register Offset: -16416 (buf)
+      └─ Function: safe_read, Register Offset: -32 (arg 1, buf)
+
+Root Function: wc, Register Offset: -16584 (wide_char)
+      └─ Function: rpl_mbrtowc, Register Offset: -40 (arg 0, pwc)
+
+Root Function: wc, Register Offset: -16432 (state)
+      └─ Function: rpl_mbrtowc, Register Offset: -64 (arg 3, ps)
+
+Root Function: write_counts, Register Offset: -32 (buf)
+      └─ Function: umaxtostr, Register Offset: -32 (arg 1, buf)
+
+
+== whoami
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# whoami, 3 function(s) on the taint path.
+
+(no pointer offset trees)
+
+== yes
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# yes, 4 function(s) on the taint path.
+
+(no pointer offset trees)
+

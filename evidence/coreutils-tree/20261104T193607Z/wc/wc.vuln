@@ -1,0 +1,280 @@
+file: src/wc.c - line_num: 580 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add361 = add i64 %209, %208, !dbg !762
+
+file: src/wc.c - line_num: 580 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add361 = add i64 %209, %208, !dbg !762
+
+file: src/wc.c - line_num: 580 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add361 = add i64 %209, %208, !dbg !762
+
+file: src/wc.c - line_num: 581 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add362 = add i64 %211, %210, !dbg !764
+
+file: src/wc.c - line_num: 581 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add362 = add i64 %211, %210, !dbg !764
+
+file: src/wc.c - line_num: 581 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add362 = add i64 %211, %210, !dbg !764
+
+file: src/wc.c - line_num: 307 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add89 = add i64 %61, %60, !dbg !331
+
+file: src/wc.c - line_num: 307 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add89 = add i64 %61, %60, !dbg !331
+
+file: src/wc.c - line_num: 307 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add89 = add i64 %61, %60, !dbg !331
+
+file: src/wc.c - line_num: 580 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add361 = add i64 %209, %208, !dbg !762
+
+file: src/wc.c - line_num: 580 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add361 = add i64 %209, %208, !dbg !762
+
+file: src/wc.c - line_num: 580 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add361 = add i64 %209, %208, !dbg !762
+
+file: src/wc.c - line_num: 284 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub i64 %37, %38, !dbg !275
+
+file: src/wc.c - line_num: 284 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub i64 %37, %38, !dbg !275
+
+file: src/wc.c - line_num: 284 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub i64 %37, %38, !dbg !275
+
+file: src/wc.c - line_num: 261 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %20 = load i32, i32* %failed, align 8, !dbg !227
+
+file: src/wc.c - line_num: 261 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %20 = load i32, i32* %failed, align 8, !dbg !227
+
+file: src/wc.c - line_num: 267 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %25 = load i32, i32* %failed32, align 8, !dbg !239
+
+file: src/wc.c - line_num: 267 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %25 = load i32, i32* %failed32, align 8, !dbg !239
+
+file: src/wc.c - line_num: 270 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %30 = load i64, i64* %st_size42, align 8, !dbg !255
+
+file: src/wc.c - line_num: 270 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %30 = load i64, i64* %st_size42, align 8, !dbg !255
+
+file: src/wc.c - line_num: 581 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add362 = add i64 %211, %210, !dbg !764
+
+file: src/wc.c - line_num: 581 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add362 = add i64 %211, %210, !dbg !764
+
+file: src/wc.c - line_num: 581 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add362 = add i64 %211, %210, !dbg !764
+
+file: src/wc.c - line_num: 262 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i32 %call29, i32* %failed30, align 8, !dbg !236
+
+file: src/wc.c - line_num: 262 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i32 %call29, i32* %failed30, align 8, !dbg !236
+
+file: src/wc.c - line_num: 268 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %28 = load i64, i64* %st_size, align 8, !dbg !247
+
+file: src/wc.c - line_num: 268 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %28 = load i64, i64* %st_size, align 8, !dbg !247
+
+file: src/wc.c - line_num: 289 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %42 = load i64, i64* %st_blksize, align 8, !dbg !284
+
+file: src/wc.c - line_num: 289 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %44 = load i64, i64* %st_blksize59, align 8, !dbg !284
+
+file: src/wc.c - line_num: 289 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %46 = load i64, i64* %st_blksize63, align 8, !dbg !284
+
+file: src/wc.c - line_num: 289 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add = add nsw i64 %cond66, 1, !dbg !285
+
+file: src/wc.c - line_num: 289 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub68 = sub i64 %39, %rem67, !dbg !287
+
+file: src/wc.c - line_num: 289 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %42 = load i64, i64* %st_blksize, align 8, !dbg !284
+
+file: src/wc.c - line_num: 289 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %44 = load i64, i64* %st_blksize59, align 8, !dbg !284
+
+file: src/wc.c - line_num: 289 - fun_name: wc
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %46 = load i64, i64* %st_blksize63, align 8, !dbg !284
+
+file: src/wc.c - line_num: 289 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add = add nsw i64 %cond66, 1, !dbg !285
+
+file: src/wc.c - line_num: 289 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub68 = sub i64 %39, %rem67, !dbg !287
+
+file: src/wc.c - line_num: 292 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub76 = sub nsw i64 %52, %53, !dbg !303
+
+file: src/wc.c - line_num: 292 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub76 = sub nsw i64 %52, %53, !dbg !303
+
+file: src/wc.c - line_num: 292 - fun_name: wc
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub76 = sub nsw i64 %52, %53, !dbg !303
+
+file: src/wc.c - line_num: 661 - fun_name: compute_number_width
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i32, i32* %failed4, align 8, !dbg !170
+
+file: src/wc.c - line_num: 664 - fun_name: compute_number_width
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %13 = load i64, i64* %st_size, align 8, !dbg !179
+
+file: src/wc.c - line_num: 664 - fun_name: compute_number_width
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %add = add i64 %14, %13, !dbg !180
+
+file: src/wc.c - line_num: 660 - fun_name: compute_number_width
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %cmp2, label %for.body, label %for.end, !dbg !166
+
+file: src/wc.c - line_num: 663 - fun_name: compute_number_width
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %10 = load i32, i32* %st_mode, align 8, !dbg !172
+
+file: src/wc.c - line_num: 669 - fun_name: compute_number_width
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %cmp13, label %for.body14, label %for.end17, !dbg !193
+
+file: src/wc.c - line_num: 655 - fun_name: compute_number_width
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %2 = load i32, i32* %failed, align 8, !dbg !150
+
+file: src/system.h - line_num: 704 - fun_name: usable_st_size
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i32, i32* %st_mode, align 8, !dbg !138
+
+file: src/system.h - line_num: 704 - fun_name: usable_st_size
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i32, i32* %st_mode1, align 8, !dbg !140
+
+file: src/system.h - line_num: 704 - fun_name: usable_st_size
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i32, i32* %st_mode, align 8, !dbg !138
+
+file: src/system.h - line_num: 704 - fun_name: usable_st_size
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i32, i32* %st_mode1, align 8, !dbg !140
+
+file: src/system.h - line_num: 704 - fun_name: usable_st_size
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i32, i32* %st_mode, align 8, !dbg !138
+
+file: src/system.h - line_num: 704 - fun_name: usable_st_size
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %3 = load i32, i32* %st_mode1, align 8, !dbg !140
+
+file: src/system.h - line_num: 705 - fun_name: usable_st_size
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %5 = load i32, i32* %st_mode5, align 8, !dbg !142
+
+file: src/system.h - line_num: 705 - fun_name: usable_st_size
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i32, i32* %st_mode6, align 8, !dbg !142
+
+file: src/system.h - line_num: 705 - fun_name: usable_st_size
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub i32 %5, %7, !dbg !142
+
+file: src/system.h - line_num: 705 - fun_name: usable_st_size
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub i32 %5, %7, !dbg !142
+
+file: src/system.h - line_num: 705 - fun_name: usable_st_size
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %5 = load i32, i32* %st_mode5, align 8, !dbg !142
+
+file: src/system.h - line_num: 705 - fun_name: usable_st_size
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i32, i32* %st_mode6, align 8, !dbg !142
+
+file: src/system.h - line_num: 705 - fun_name: usable_st_size
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub i32 %5, %7, !dbg !142
+
+file: src/system.h - line_num: 705 - fun_name: usable_st_size
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub i32 %5, %7, !dbg !142
+
+file: src/system.h - line_num: 705 - fun_name: usable_st_size
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %5 = load i32, i32* %st_mode5, align 8, !dbg !142
+
+file: src/system.h - line_num: 705 - fun_name: usable_st_size
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %7 = load i32, i32* %st_mode6, align 8, !dbg !142
+
+file: src/system.h - line_num: 705 - fun_name: usable_st_size
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub i32 %5, %7, !dbg !142
+
+file: src/system.h - line_num: 705 - fun_name: usable_st_size
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub i32 %5, %7, !dbg !142
+
+file: src/wc.c - line_num: 638 - fun_name: get_input_fstatus
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %15 = load i8*, i8** %arrayidx18, align 8, !dbg !180
+
+file: src/wc.c - line_num: 638 - fun_name: get_input_fstatus
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %18 = load i8*, i8** %arrayidx21, align 8, !dbg !183
+
+file: src/wc.c - line_num: 637 - fun_name: get_input_fstatus
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %cmp16, label %for.body, label %for.end, !dbg !179
+
+file: src/wc.c - line_num: 640 - fun_name: get_input_fstatus
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %23 = load i8*, i8** %arrayidx29, align 8, !dbg !189
+

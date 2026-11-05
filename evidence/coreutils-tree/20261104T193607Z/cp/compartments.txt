@@ -1,0 +1,26 @@
+compartments: 24 (slots the rewritten code uses)
+table slots: 24 (unused: 0, placeholder/padding: 0), kept on stack: 4, rounds: 1
+used      0 abandon_move -24(%rbp) dst_sb
+used      1 abandon_move -8(%rbp) x
+used      2 chown_failure_ok -8(%rbp) x
+used      3 copy_reg -488(%rbp) x
+used      4 dest_info_init -8(%rbp) x
+used      5 do_copy -352(%rbp) x
+used      6 do_copy -324(%rbp) n_files
+used      7 make_dir_parents_private -464(%rbp) x
+used      8 make_dir_parents_private -424(%rbp) const_dir
+used      9 overwrite_ok -72(%rbp) dst_sb
+used     10 overwrite_ok -56(%rbp) x
+used     11 owner_failure_ok -8(%rbp) x
+used     12 re_protect -160(%rbp) x
+used     13 re_protect -136(%rbp) const_dst_name
+used     14 same_file_ok -392(%rbp) x
+used     15 same_file_ok -400(%rbp) return_now
+used     16 samedir_template -40(%rbp) dstname
+used     17 set_file_security_ctx -56(%rbp) x
+used     18 set_owner -104(%rbp) dst_sb
+used     19 set_owner -72(%rbp) x
+used     20 set_process_security_ctx -80(%rbp) x
+used     21 should_dereference -8(%rbp) x
+used     22 src_info_init -8(%rbp) x
+used     23 valid_options -8(%rbp) co

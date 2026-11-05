@@ -1,0 +1,4 @@
+$ D bash benchmarks/coreutils/coreutils.sh basename bitcode
+basename: 18976 bytes of bitcode
+
+[exit 0]

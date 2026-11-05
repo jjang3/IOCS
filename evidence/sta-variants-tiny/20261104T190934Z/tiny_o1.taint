@@ -1,0 +1,221 @@
+=========================GROUP 0 (1 - 1)=========================
+#####Warned Insts#####
+('benchmarks/tiny.c', 71, ['TaintedPointerDereferenceChecker'])
+######################
+
+++++++++++++++++WARN 0 (1 - 1)++++++++++++++++
+TaintedPointerDereferenceChecker says: benchmarks/tiny.c@71 (rio_readinitb :   store i8* %arraydecay, i8** %rio_bufptr, align 8, !dbg !87, !tbaa !88)
+********Trace 0(1)********
+#####CTX##### rio_readinitb
+rio_readinitb (benchmarks/tiny.c@69)
+#####INSTS#####
+>>>>>>>>>>>>>>>>>>tag: 0x55555841f120 tf: 0x555558859ce0 (2)>>>>>>>>>>>>>>>>>>
+benchmarks/tiny.c@69 (  %rio_fd = getelementptr inbounds %struct.rio_t, %struct.rio_t* %rp, i64 0, i32 0, !dbg !74)
+benchmarks/tiny.c@71 (  %rio_bufptr = getelementptr inbounds %struct.rio_t, %struct.rio_t* %rp, i64 0, i32 2, !dbg !86)
+benchmarks/tiny.c@71 (  store i8* %arraydecay, i8** %rio_bufptr, align 8, !dbg !87, !tbaa !88)
+
+=========================GROUP 1 (1 - 1)=========================
+#####Warned Insts#####
+('benchmarks/tiny.c', 309, ['TaintedPointerDereferenceChecker'])
+######################
+
+++++++++++++++++WARN 0 (1 - 1)++++++++++++++++
+TaintedPointerDereferenceChecker says: benchmarks/tiny.c@309 (log_access :   %0 = load i32, i32* %coerce.dive, align 4, !dbg !97)
+********Trace 0(1)********
+#####CTX##### process
+process (benchmarks/tiny.c@352)
+#####INSTS#####
+>>>>>>>>>>>>>>>>>>tag: 0x55555866f520 tf: 0x55555835d1e0 (3)>>>>>>>>>>>>>>>>>>
+benchmarks/tiny.c@352 (  %req = alloca %struct.http_request, align 8)
+benchmarks/tiny.c@386 (  call void @log_access(i32 %status.2, %struct.sockaddr_in* %clientaddr, %struct.http_request* nonnull %req), !dbg !194)
+#####CTX##### process -> log_access
+process (benchmarks/tiny.c@352)
+----> (benchmarks/tiny.c@386 :   call void @log_access(i32 %status.2, %struct.sockaddr_in* %clientaddr, %struct.http_request* nonnull %req), !dbg !194)
+log_access (benchmarks/tiny.c@309)
+#####INSTS#####
+benchmarks/tiny.c@309 (  %coerce.dive = getelementptr inbounds %struct.sockaddr_in, %struct.sockaddr_in* %c_addr, i64 0, i32 2, i32 0, !dbg !97)
+benchmarks/tiny.c@309 (  %0 = load i32, i32* %coerce.dive, align 4, !dbg !97)
+
+=========================GROUP 2 (1 - 1)=========================
+#####Warned Insts#####
+('benchmarks/tiny.c', 286, ['IntegerOverflowDetector', 'TaintedPointerDereferenceChecker'])
+######################
+
+++++++++++++++++WARN 0 (1 - 1)++++++++++++++++
+TaintedPointerDereferenceChecker says: benchmarks/tiny.c@286 (parse_request :   %11 = load i64, i64* %end, align 8, !dbg !133, !tbaa !135)
+********Trace 0(1)********
+#####CTX##### parse_request
+parse_request (benchmarks/tiny.c@271)
+#####INSTS#####
+>>>>>>>>>>>>>>>>>>tag: 0x5555586300d0 tf: 0x555558763430 (2)>>>>>>>>>>>>>>>>>>
+benchmarks/tiny.c@271 (  %rio = alloca %struct.rio_t, align 8)
+benchmarks/tiny.c@275 (  %end = getelementptr inbounds %struct.http_request, %struct.http_request* %req, i64 0, i32 2, !dbg !108)
+benchmarks/tiny.c@286 (  %11 = load i64, i64* %end, align 8, !dbg !133, !tbaa !135)
+
+++++++++++++++++WARN 1 (1 - 1)++++++++++++++++
+IntegerOverflowDetector says: benchmarks/tiny.c@286 (parse_request :   %inc = add i64 %11, 1, !dbg !140)
+********Trace 0(1)********
+#####CTX##### parse_request
+parse_request (benchmarks/tiny.c@271)
+#####INSTS#####
+>>>>>>>>>>>>>>>>>>tag: 0x5555586300d0 tf: 0x555558430b70 (3)>>>>>>>>>>>>>>>>>>
+benchmarks/tiny.c@271 (  %rio = alloca %struct.rio_t, align 8)
+benchmarks/tiny.c@275 (  %end = getelementptr inbounds %struct.http_request, %struct.http_request* %req, i64 0, i32 2, !dbg !108)
+benchmarks/tiny.c@286 (  %11 = load i64, i64* %end, align 8, !dbg !133, !tbaa !135)
+benchmarks/tiny.c@286 (  %inc = add i64 %11, 1, !dbg !140)
+
+++++++++++++++++WARN 2 (1 - 1)++++++++++++++++
+TaintedPointerDereferenceChecker says: benchmarks/tiny.c@286 (parse_request :   store i64 %inc, i64* %end, align 8, !dbg !140, !tbaa !135)
+********Trace 0(1)********
+#####CTX##### parse_request
+parse_request (benchmarks/tiny.c@271)
+#####INSTS#####
+>>>>>>>>>>>>>>>>>>tag: 0x5555586300d0 tf: 0x555558763430 (2)>>>>>>>>>>>>>>>>>>
+benchmarks/tiny.c@271 (  %rio = alloca %struct.rio_t, align 8)
+benchmarks/tiny.c@275 (  %end = getelementptr inbounds %struct.http_request, %struct.http_request* %req, i64 0, i32 2, !dbg !108)
+benchmarks/tiny.c@286 (  store i64 %inc, i64* %end, align 8, !dbg !140, !tbaa !135)
+
+=========================GROUP 3 (1 - 1)=========================
+#####Warned Insts#####
+('benchmarks/tiny.c', 79, ['TaintedLoopBoundDetector'])
+('benchmarks/tiny.c', 86, ['IntegerOverflowDetector'])
+######################
+
+++++++++++++++++WARN 0 (1 - 1)++++++++++++++++
+IntegerOverflowDetector says: benchmarks/tiny.c@86 (writen :   %sub = sub i64 %nleft.017, %nwritten.0, !dbg !91)
+********Trace 0(1)********
+#####CTX##### writen
+writen (benchmarks/tiny.c@79)
+#####INSTS#####
+>>>>>>>>>>>>>>>>>>tag: 0x5555587b9d60 tf: 0x555558784220 (2)>>>>>>>>>>>>>>>>>>
+benchmarks/tiny.c@79 (  %cmp16 = icmp eq i64 %n, 0, !dbg !74)
+benchmarks/tiny.c@74 (  %nleft.017 = phi i64 [ %sub, %if.end5 ], [ %n, %entry ])
+benchmarks/tiny.c@86 (  %sub = sub i64 %nleft.017, %nwritten.0, !dbg !91)
+
+++++++++++++++++WARN 1 (1 - 1)++++++++++++++++
+TaintedLoopBoundDetector says: benchmarks/tiny.c@79 (writen :   br i1 %cmp, label %cleanup, label %while.body, !dbg !75, !llvm.loop !93)
+********Trace 0(1)********
+#####CTX##### writen
+writen (benchmarks/tiny.c@79)
+#####INSTS#####
+>>>>>>>>>>>>>>>>>>tag: 0x5555587b9d60 tf: 0x5555585cab30 (4)>>>>>>>>>>>>>>>>>>
+benchmarks/tiny.c@79 (  %cmp16 = icmp eq i64 %n, 0, !dbg !74)
+benchmarks/tiny.c@74 (  %nleft.017 = phi i64 [ %sub, %if.end5 ], [ %n, %entry ])
+benchmarks/tiny.c@86 (  %sub = sub i64 %nleft.017, %nwritten.0, !dbg !91)
+benchmarks/tiny.c@79 (  %cmp = icmp eq i64 %sub, 0, !dbg !74)
+benchmarks/tiny.c@79 (  br i1 %cmp, label %cleanup, label %while.body, !dbg !75, !llvm.loop !93)
+
+=========================GROUP 4 (1 - 1)=========================
+#####Warned Insts#####
+('benchmarks/tiny.c', 70, ['TaintedPointerDereferenceChecker'])
+######################
+
+++++++++++++++++WARN 0 (1 - 1)++++++++++++++++
+TaintedPointerDereferenceChecker says: benchmarks/tiny.c@70 (rio_readinitb :   store i32 0, i32* %rio_cnt, align 4, !dbg !83, !tbaa !84)
+********Trace 0(1)********
+#####CTX##### rio_readinitb
+rio_readinitb (benchmarks/tiny.c@69)
+#####INSTS#####
+>>>>>>>>>>>>>>>>>>tag: 0x55555841f120 tf: 0x555558445fc0 (2)>>>>>>>>>>>>>>>>>>
+benchmarks/tiny.c@69 (  %rio_fd = getelementptr inbounds %struct.rio_t, %struct.rio_t* %rp, i64 0, i32 0, !dbg !74)
+benchmarks/tiny.c@70 (  %rio_cnt = getelementptr inbounds %struct.rio_t, %struct.rio_t* %rp, i64 0, i32 1, !dbg !82)
+benchmarks/tiny.c@70 (  store i32 0, i32* %rio_cnt, align 4, !dbg !83, !tbaa !84)
+
+=========================GROUP 5 (1 - 1)=========================
+#####Warned Insts#####
+('benchmarks/tiny.c', 262, ['TaintedPointerDereferenceChecker'])
+('benchmarks/tiny.c', 265, ['TaintedPointerDereferenceChecker'])
+('benchmarks/tiny.c', 268, ['TaintedPointerDereferenceChecker'])
+######################
+
+++++++++++++++++WARN 0 (1 - 1)++++++++++++++++
+TaintedPointerDereferenceChecker says: benchmarks/tiny.c@265 (url_decode :   store i8 %3, i8* %dest.addr.017, align 1, !dbg !91, !tbaa !72)
+********Trace 0(1)********
+#####CTX##### parse_request
+parse_request (benchmarks/tiny.c@271)
+#####INSTS#####
+>>>>>>>>>>>>>>>>>>tag: 0x5555586300d0 tf: 0x5555583844a0 (4)>>>>>>>>>>>>>>>>>>
+benchmarks/tiny.c@271 (  %rio = alloca %struct.rio_t, align 8)
+benchmarks/tiny.c@304 (  %arraydecay61 = getelementptr inbounds %struct.http_request, %struct.http_request* %req, i64 0, i32 0, i64 0, !dbg !167)
+benchmarks/tiny.c@304 (  call void @url_decode(i8* nonnull %filename.1, i8* %arraydecay61, i32 1024), !dbg !168)
+#####CTX##### parse_request -> url_decode
+parse_request (benchmarks/tiny.c@271)
+----> (benchmarks/tiny.c@304 :   call void @url_decode(i8* nonnull %filename.1, i8* %arraydecay61, i32 1024), !dbg !168)
+url_decode (benchmarks/tiny.c@256)
+#####INSTS#####
+benchmarks/tiny.c@256 (  %dest.addr.017 = phi i8* [ %dest, %land.rhs.lr.ph ], [ %dest.addr.1, %if.end ])
+benchmarks/tiny.c@265 (  store i8 %3, i8* %dest.addr.017, align 1, !dbg !91, !tbaa !72)
+
+++++++++++++++++WARN 1 (1 - 1)++++++++++++++++
+TaintedPointerDereferenceChecker says: benchmarks/tiny.c@262 (url_decode :   store i8 %conv5, i8* %dest.addr.017, align 1, !dbg !88, !tbaa !72)
+********Trace 0(1)********
+#####CTX##### parse_request
+parse_request (benchmarks/tiny.c@271)
+#####INSTS#####
+>>>>>>>>>>>>>>>>>>tag: 0x5555586300d0 tf: 0x5555583844a0 (4)>>>>>>>>>>>>>>>>>>
+benchmarks/tiny.c@271 (  %rio = alloca %struct.rio_t, align 8)
+benchmarks/tiny.c@304 (  %arraydecay61 = getelementptr inbounds %struct.http_request, %struct.http_request* %req, i64 0, i32 0, i64 0, !dbg !167)
+benchmarks/tiny.c@304 (  call void @url_decode(i8* nonnull %filename.1, i8* %arraydecay61, i32 1024), !dbg !168)
+#####CTX##### parse_request -> url_decode
+parse_request (benchmarks/tiny.c@271)
+----> (benchmarks/tiny.c@304 :   call void @url_decode(i8* nonnull %filename.1, i8* %arraydecay61, i32 1024), !dbg !168)
+url_decode (benchmarks/tiny.c@256)
+#####INSTS#####
+benchmarks/tiny.c@256 (  %dest.addr.017 = phi i8* [ %dest, %land.rhs.lr.ph ], [ %dest.addr.1, %if.end ])
+benchmarks/tiny.c@262 (  store i8 %conv5, i8* %dest.addr.017, align 1, !dbg !88, !tbaa !72)
+
+++++++++++++++++WARN 2 (1 - 1)++++++++++++++++
+TaintedPointerDereferenceChecker says: benchmarks/tiny.c@268 (url_decode :   store i8 0, i8* %dest.addr.0.lcssa, align 1, !dbg !95, !tbaa !72)
+********Trace 0(1)********
+#####CTX##### parse_request
+parse_request (benchmarks/tiny.c@271)
+#####INSTS#####
+>>>>>>>>>>>>>>>>>>tag: 0x5555586300d0 tf: 0x5555584de9a0 (4)>>>>>>>>>>>>>>>>>>
+benchmarks/tiny.c@271 (  %rio = alloca %struct.rio_t, align 8)
+benchmarks/tiny.c@304 (  %arraydecay61 = getelementptr inbounds %struct.http_request, %struct.http_request* %req, i64 0, i32 0, i64 0, !dbg !167)
+benchmarks/tiny.c@304 (  call void @url_decode(i8* nonnull %filename.1, i8* %arraydecay61, i32 1024), !dbg !168)
+#####CTX##### parse_request -> url_decode
+parse_request (benchmarks/tiny.c@271)
+----> (benchmarks/tiny.c@304 :   call void @url_decode(i8* nonnull %filename.1, i8* %arraydecay61, i32 1024), !dbg !168)
+url_decode (benchmarks/tiny.c@256)
+#####INSTS#####
+benchmarks/tiny.c@256 (  %dest.addr.0.lcssa = phi i8* [ %dest, %entry ], [ %dest.addr.017, %land.rhs ], [ %dest.addr.1, %if.end ])
+benchmarks/tiny.c@268 (  store i8 0, i8* %dest.addr.0.lcssa, align 1, !dbg !95, !tbaa !72)
+
+=========================GROUP 6 (1 - 1)=========================
+#####Warned Insts#####
+('benchmarks/tiny.c', 310, ['TaintedPointerDereferenceChecker'])
+######################
+
+++++++++++++++++WARN 0 (1 - 1)++++++++++++++++
+TaintedPointerDereferenceChecker says: benchmarks/tiny.c@310 (log_access :   %1 = load i16, i16* %sin_port, align 2, !dbg !98, !tbaa !99)
+********Trace 0(1)********
+#####CTX##### process
+process (benchmarks/tiny.c@352)
+#####INSTS#####
+>>>>>>>>>>>>>>>>>>tag: 0x55555866f520 tf: 0x5555586359f0 (3)>>>>>>>>>>>>>>>>>>
+benchmarks/tiny.c@352 (  %req = alloca %struct.http_request, align 8)
+benchmarks/tiny.c@386 (  call void @log_access(i32 %status.2, %struct.sockaddr_in* %clientaddr, %struct.http_request* nonnull %req), !dbg !194)
+#####CTX##### process -> log_access
+process (benchmarks/tiny.c@352)
+----> (benchmarks/tiny.c@386 :   call void @log_access(i32 %status.2, %struct.sockaddr_in* %clientaddr, %struct.http_request* nonnull %req), !dbg !194)
+log_access (benchmarks/tiny.c@309)
+#####INSTS#####
+benchmarks/tiny.c@310 (  %sin_port = getelementptr inbounds %struct.sockaddr_in, %struct.sockaddr_in* %c_addr, i64 0, i32 1, !dbg !98)
+benchmarks/tiny.c@310 (  %1 = load i16, i16* %sin_port, align 2, !dbg !98, !tbaa !99)
+
+=========================GROUP 7 (1 - 1)=========================
+#####Warned Insts#####
+('benchmarks/tiny.c', 69, ['TaintedPointerDereferenceChecker'])
+######################
+
+++++++++++++++++WARN 0 (1 - 1)++++++++++++++++
+TaintedPointerDereferenceChecker says: benchmarks/tiny.c@69 (rio_readinitb :   store i32 %fd, i32* %rio_fd, align 8, !dbg !75, !tbaa !76)
+********Trace 0(1)********
+#####CTX##### rio_readinitb
+rio_readinitb (benchmarks/tiny.c@69)
+#####INSTS#####
+>>>>>>>>>>>>>>>>>>tag: 0x55555841f120 tf: 0x5555583fc020 (1)>>>>>>>>>>>>>>>>>>
+benchmarks/tiny.c@69 (  %rio_fd = getelementptr inbounds %struct.rio_t, %struct.rio_t* %rp, i64 0, i32 0, !dbg !74)
+benchmarks/tiny.c@69 (  store i32 %fd, i32* %rio_fd, align 8, !dbg !75, !tbaa !76)
+

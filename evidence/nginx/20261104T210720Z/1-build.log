@@ -1,0 +1,8 @@
+$ in_image iocs-nginx-build:20.04 bash -c INTEL=1 bash benchmarks/nginx/build_nginx.sh && cp /iocs/build/nginx/nginx-1.3.9/objs/nginx /iocs/build/nginx/nginx.orig
+/iocs/build/nginx/nginx-1.3.9.tar.gz: OK
+patching file src/os/unix/ngx_user.c
+Hunk #1 succeeded at 34 with fuzz 1 (offset -1 lines).
+nginx built: 107 .s, 107 .o, 107 .intel
+nginx version: nginx/1.3.9
+
+[exit 0]

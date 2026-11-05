@@ -1,0 +1,19 @@
+tiny.s:582: mov_store_gs %rdx, 24, 64    <-verifier_metadata_0:
+tiny.s:585: mov_load_gs %rax, 24, 64    <- # movq -56(%rbp), %rax
+tiny.s:631: mov_load_gs %rax, 24, 64    <- # movq -56(%rbp), %rax
+tiny.s:1619: lea_gs %rax, 8    <-verifier_metadata_3:
+tiny.s:1629: lea_gs %rax, 8    <-verifier_metadata_4:
+tiny.s:1651: lea_gs %rax, 8    <-verifier_metadata_5:
+tiny.s:2207: lea_gs %rdx, 16    <-verifier_metadata_6:
+tiny.s:2214: mov_mem_load_gs %rax, 16, 512, 64    <- # movq -32(%rbp), %rax
+tiny.s:2226: lea_gs %rax, 16    <-verifier_metadata_7:
+tiny.s:2268: mov_mem_load_gs %rax, 16, 520, 64    <- # movq -24(%rbp), %rax
+tiny.s:2276: mov_mem_store_gs %rax, 16, 520, 64    <- # movq %rax, -24(%rbp)
+tiny.s:2280: mov_mem_load_gs %rax, 16, 512, 64    <- # movq -32(%rbp), %rax
+tiny.s:2295: lea_gs %rdx, 16    <-verifier_metadata_8:
+tiny.s:2316: lea_gs %rdx, 16    <-verifier_metadata_9:
+tiny.s:2350: lea_gs %rdx, 16    <-verifier_metadata_10:
+tiny.s:2553: lea_gs %rcx, 0    <-verifier_metadata_11:
+tiny.s:2564: lea_gs %rdx, 0    <-verifier_metadata_12:
+tiny.s:2606: lea_gs %rcx, 0    <-verifier_metadata_13:
+tiny.s:2617: lea_gs %rdx, 0    <-verifier_metadata_14:

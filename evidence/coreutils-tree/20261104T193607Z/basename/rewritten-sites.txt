@@ -1,0 +1,9 @@
+basename.s:841: mov_store_gs %rdi, 0, 64    <-verifier_metadata_0:
+basename.s:846: mov_store_gs %rsi, 8, 64    <-verifier_metadata_1:
+basename.s:849: mov_load_gs %rax, 0, 64    <- # movq -24(%rbp), %rax
+basename.s:854: mov_load_gs %rdx, 0, 64    <- # movq -24(%rbp), %rdx
+basename.s:859: mov_load_gs %rax, 8, 64    <- # movq -32(%rbp), %rax
+basename.s:864: mov_load_gs %rdx, 8, 64    <- # movq -32(%rbp), %rdx
+basename.s:887: cmp_load_gs %rax, 0, 64    <- # cmpq -24(%rbp), %rax
+basename.s:892: cmp_load_gs %rax, 8, 64    <- # cmpq -32(%rbp), %rax
+basename.s:898: cmp_load_gs %rax, 0, 64    <- # cmpq -24(%rbp), %rax

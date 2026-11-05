@@ -1,0 +1,11 @@
+$ in_image iocs:dev env TARGET_DIR=/iocs/result/tiny bash benchmarks/tiny.check.sh
+index: ok
+big.bin (300000 bytes): identical
+directory listing: 3 rows
+missing file: 404
+200 sequential requests: 200 ok
+benchmarks/../tests/serve_tiny.sh: line 20:   234 Segmentation fault      timeout 30 "$R/tiny.new" $((P+1)) > /dev/null 2>&1
+without table.so: request not served (http=000; process exited (status 139)), redirection is live
+serve_tiny: PASS
+
+[exit 0]

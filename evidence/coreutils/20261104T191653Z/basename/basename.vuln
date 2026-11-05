@@ -1,0 +1,12 @@
+file: src/basename.c - line_num: 94 - fun_name: remove_suffix
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %cmp6, label %if.then, label %if.end, !dbg !65
+
+file: src/basename.c - line_num: 97 - fun_name: remove_suffix
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i8 0, i8* %15, align 1, !dbg !75
+
+file: src/basename.c - line_num: 93 - fun_name: remove_suffix
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %8, label %while.body, label %while.end, !dbg !50
+

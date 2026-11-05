@@ -1,0 +1,19 @@
+# Pointer offset trees (paper Listing 3): a caller's object -> the callee parameters it reaches.
+# pwd, 9 function(s) on the taint path.
+
+(no pointer offset trees)
+
+# Function summaries (function trees' nodes)
+clear_ungetc_buffer_preserving_position: params fp@-8*
+    0x668c call rpl_fseeko(0:-8)
+close_stream: params stream@-24*
+    0x64a7 call rpl_fclose(0:-24)
+logical_getcwd: params -
+    0x34c1 call __stat()
+    0x34db call __stat()
+rpl_fclose: params fp@-24*
+    0x661e call rpl_fflush(0:-24)
+rpl_fflush: params stream@-8*
+    0x66d0 call clear_ungetc_buffer_preserving_position(0:-8)
+rpl_fseeko: params fp@-24*, offset@-32, whence@-36
+set_program_name: params argv0@-24*

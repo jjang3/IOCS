@@ -1,0 +1,148 @@
+$ in_image iocs-nginx-build:20.04 bash -c cd /iocs/build/nginx/nginx-1.3.9 && make && make install && cd objs/src && make -s lib
+/usr/bin/make -f objs/Makefile
+make[1]: Entering directory '/iocs/build/nginx/nginx-1.3.9'
+gcc -o objs/nginx \
+objs/src/core/nginx.o \
+objs/src/core/ngx_log.o \
+objs/src/core/ngx_palloc.o \
+objs/src/core/ngx_array.o \
+objs/src/core/ngx_list.o \
+objs/src/core/ngx_hash.o \
+objs/src/core/ngx_buf.o \
+objs/src/core/ngx_queue.o \
+objs/src/core/ngx_output_chain.o \
+objs/src/core/ngx_string.o \
+objs/src/core/ngx_parse.o \
+objs/src/core/ngx_inet.o \
+objs/src/core/ngx_file.o \
+objs/src/core/ngx_crc32.o \
+objs/src/core/ngx_murmurhash.o \
+objs/src/core/ngx_md5.o \
+objs/src/core/ngx_rbtree.o \
+objs/src/core/ngx_radix_tree.o \
+objs/src/core/ngx_slab.o \
+objs/src/core/ngx_times.o \
+objs/src/core/ngx_shmtx.o \
+objs/src/core/ngx_connection.o \
+objs/src/core/ngx_cycle.o \
+objs/src/core/ngx_spinlock.o \
+objs/src/core/ngx_cpuinfo.o \
+objs/src/core/ngx_conf_file.o \
+objs/src/core/ngx_resolver.o \
+objs/src/core/ngx_open_file_cache.o \
+objs/src/core/ngx_crypt.o \
+objs/src/event/ngx_event.o \
+objs/src/event/ngx_event_timer.o \
+objs/src/event/ngx_event_posted.o \
+objs/src/event/ngx_event_busy_lock.o \
+objs/src/event/ngx_event_accept.o \
+objs/src/event/ngx_event_connect.o \
+objs/src/event/ngx_event_pipe.o \
+objs/src/os/unix/ngx_time.o \
+objs/src/os/unix/ngx_errno.o \
+objs/src/os/unix/ngx_alloc.o \
+objs/src/os/unix/ngx_files.o \
+objs/src/os/unix/ngx_socket.o \
+objs/src/os/unix/ngx_recv.o \
+objs/src/os/unix/ngx_readv_chain.o \
+objs/src/os/unix/ngx_udp_recv.o \
+objs/src/os/unix/ngx_send.o \
+objs/src/os/unix/ngx_writev_chain.o \
+objs/src/os/unix/ngx_channel.o \
+objs/src/os/unix/ngx_shmem.o \
+objs/src/os/unix/ngx_process.o \
+objs/src/os/unix/ngx_daemon.o \
+objs/src/os/unix/ngx_setaffinity.o \
+objs/src/os/unix/ngx_setproctitle.o \
+objs/src/os/unix/ngx_posix_init.o \
+objs/src/os/unix/ngx_user.o \
+objs/src/os/unix/ngx_process_cycle.o \
+objs/src/os/unix/ngx_linux_init.o \
+objs/src/event/modules/ngx_epoll_module.o \
+objs/src/os/unix/ngx_linux_sendfile_chain.o \
+objs/src/core/ngx_regex.o \
+objs/src/http/ngx_http.o \
+objs/src/http/ngx_http_core_module.o \
+objs/src/http/ngx_http_special_response.o \
+objs/src/http/ngx_http_request.o \
+objs/src/http/ngx_http_parse.o \
+objs/src/http/ngx_http_header_filter_module.o \
+objs/src/http/ngx_http_write_filter_module.o \
+objs/src/http/ngx_http_copy_filter_module.o \
+objs/src/http/modules/ngx_http_log_module.o \
+objs/src/http/ngx_http_request_body.o \
+objs/src/http/ngx_http_variables.o \
+objs/src/http/ngx_http_script.o \
+objs/src/http/ngx_http_upstream.o \
+objs/src/http/ngx_http_upstream_round_robin.o \
+objs/src/http/ngx_http_parse_time.o \
+objs/src/http/modules/ngx_http_static_module.o \
+objs/src/http/modules/ngx_http_index_module.o \
+objs/src/http/modules/ngx_http_chunked_filter_module.o \
+objs/src/http/modules/ngx_http_range_filter_module.o \
+objs/src/http/modules/ngx_http_headers_filter_module.o \
+objs/src/http/modules/ngx_http_not_modified_filter_module.o \
+objs/src/http/ngx_http_busy_lock.o \
+objs/src/http/ngx_http_file_cache.o \
+objs/src/http/modules/ngx_http_gzip_filter_module.o \
+objs/src/http/ngx_http_postpone_filter_module.o \
+objs/src/http/modules/ngx_http_ssi_filter_module.o \
+objs/src/http/modules/ngx_http_charset_filter_module.o \
+objs/src/http/modules/ngx_http_userid_filter_module.o \
+objs/src/http/modules/ngx_http_autoindex_module.o \
+objs/src/http/modules/ngx_http_auth_basic_module.o \
+objs/src/http/modules/ngx_http_access_module.o \
+objs/src/http/modules/ngx_http_limit_conn_module.o \
+objs/src/http/modules/ngx_http_limit_req_module.o \
+objs/src/http/modules/ngx_http_geo_module.o \
+objs/src/http/modules/ngx_http_map_module.o \
+objs/src/http/modules/ngx_http_split_clients_module.o \
+objs/src/http/modules/ngx_http_referer_module.o \
+objs/src/http/modules/ngx_http_rewrite_module.o \
+objs/src/http/modules/ngx_http_proxy_module.o \
+objs/src/http/modules/ngx_http_fastcgi_module.o \
+objs/src/http/modules/ngx_http_uwsgi_module.o \
+objs/src/http/modules/ngx_http_scgi_module.o \
+objs/src/http/modules/ngx_http_memcached_module.o \
+objs/src/http/modules/ngx_http_empty_gif_module.o \
+objs/src/http/modules/ngx_http_browser_module.o \
+objs/src/http/modules/ngx_http_upstream_ip_hash_module.o \
+objs/src/http/modules/ngx_http_upstream_least_conn_module.o \
+objs/src/http/modules/ngx_http_upstream_keepalive_module.o \
+objs/ngx_modules.o \
+-lpthread -lcrypt -lpcre -lcrypto -lcrypto -lz
+make[1]: Leaving directory '/iocs/build/nginx/nginx-1.3.9'
+/usr/bin/make -f objs/Makefile manpage
+make[1]: Entering directory '/iocs/build/nginx/nginx-1.3.9'
+make[1]: Nothing to be done for 'manpage'.
+make[1]: Leaving directory '/iocs/build/nginx/nginx-1.3.9'
+/usr/bin/make -f objs/Makefile install
+make[1]: Entering directory '/iocs/build/nginx/nginx-1.3.9'
+test -d '/iocs/build/nginx/install' || mkdir -p '/iocs/build/nginx/install'
+test -d '/iocs/build/nginx/install/sbin' 		|| mkdir -p '/iocs/build/nginx/install/sbin'
+test ! -f '/iocs/build/nginx/install/sbin/nginx' 		|| mv '/iocs/build/nginx/install/sbin/nginx' 			'/iocs/build/nginx/install/sbin/nginx.old'
+cp objs/nginx '/iocs/build/nginx/install/sbin/nginx'
+test -d '/iocs/build/nginx/install/conf' 		|| mkdir -p '/iocs/build/nginx/install/conf'
+cp conf/koi-win '/iocs/build/nginx/install/conf'
+cp conf/koi-utf '/iocs/build/nginx/install/conf'
+cp conf/win-utf '/iocs/build/nginx/install/conf'
+test -f '/iocs/build/nginx/install/conf/mime.types' 		|| cp conf/mime.types '/iocs/build/nginx/install/conf'
+cp conf/mime.types '/iocs/build/nginx/install/conf/mime.types.default'
+test -f '/iocs/build/nginx/install/conf/fastcgi_params' 		|| cp conf/fastcgi_params '/iocs/build/nginx/install/conf'
+cp conf/fastcgi_params 		'/iocs/build/nginx/install/conf/fastcgi_params.default'
+test -f '/iocs/build/nginx/install/conf/fastcgi.conf' 		|| cp conf/fastcgi.conf '/iocs/build/nginx/install/conf'
+cp conf/fastcgi.conf '/iocs/build/nginx/install/conf/fastcgi.conf.default'
+test -f '/iocs/build/nginx/install/conf/uwsgi_params' 		|| cp conf/uwsgi_params '/iocs/build/nginx/install/conf'
+cp conf/uwsgi_params 		'/iocs/build/nginx/install/conf/uwsgi_params.default'
+test -f '/iocs/build/nginx/install/conf/scgi_params' 		|| cp conf/scgi_params '/iocs/build/nginx/install/conf'
+cp conf/scgi_params 		'/iocs/build/nginx/install/conf/scgi_params.default'
+test -f '/iocs/build/nginx/install/conf/nginx.conf' 		|| cp conf/nginx.conf '/iocs/build/nginx/install/conf/nginx.conf'
+cp conf/nginx.conf '/iocs/build/nginx/install/conf/nginx.conf.default'
+test -d '/iocs/build/nginx/install/logs' 		|| mkdir -p '/iocs/build/nginx/install/logs'
+test -d '/iocs/build/nginx/install/logs' || 		mkdir -p '/iocs/build/nginx/install/logs'
+test -d '/iocs/build/nginx/install/html' 		|| cp -R html '/iocs/build/nginx/install'
+test -d '/iocs/build/nginx/install/logs' || 		mkdir -p '/iocs/build/nginx/install/logs'
+make[1]: Leaving directory '/iocs/build/nginx/nginx-1.3.9'
+/iocs/build/nginx/nginx-1.3.9/objs/src
+
+[exit 0]

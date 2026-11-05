@@ -1,0 +1,76 @@
+file: src/factor.c - line_num: 2320 - fun_name: strto2uintmax
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %13 = load i8, i8* %12, align 1, !dbg !171
+
+file: src/factor.c - line_num: 2320 - fun_name: strto2uintmax
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %13 = load i8, i8* %12, align 1, !dbg !171
+
+file: src/factor.c - line_num: 2290 - fun_name: strto2uintmax
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %cmp, label %if.then, label %if.else, !dbg !119
+
+file: src/factor.c - line_num: 2290 - fun_name: strto2uintmax
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %cmp, label %if.then, label %if.else, !dbg !119
+
+file: src/factor.c - line_num: 2348 - fun_name: strto2uintmax
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    store i64 %33, i64* %34, align 8, !dbg !222
+
+file: src/factor.c - line_num: 2309 - fun_name: strto2uintmax
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub i32 %10, 48, !dbg !150
+
+file: src/factor.c - line_num: 2309 - fun_name: strto2uintmax
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %tobool, label %if.then19, label %if.end20, !dbg !152
+
+file: src/factor.c - line_num: 2309 - fun_name: strto2uintmax
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub = sub i32 %10, 48, !dbg !150
+
+file: src/factor.c - line_num: 2309 - fun_name: strto2uintmax
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %tobool, label %if.then19, label %if.end20, !dbg !152
+
+file: src/factor.c - line_num: 2306 - fun_name: strto2uintmax
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %cmp12, label %if.then14, label %if.end15, !dbg !148
+
+file: src/factor.c - line_num: 2306 - fun_name: strto2uintmax
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %cmp12, label %if.then14, label %if.end15, !dbg !148
+
+file: src/factor.c - line_num: 2321 - fun_name: strto2uintmax
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %cmp28, label %if.then30, label %if.end31, !dbg !175
+
+file: src/factor.c - line_num: 2321 - fun_name: strto2uintmax
+			- vuln_type: TaintedLoopBoundDetector
+			- instruction:    br i1 %cmp28, label %if.then30, label %if.end31, !dbg !175
+
+file: src/factor.c - line_num: 2305 - fun_name: strto2uintmax
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %8 = load i8, i8* %7, align 1, !dbg !144
+
+file: src/factor.c - line_num: 2305 - fun_name: strto2uintmax
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %8 = load i8, i8* %7, align 1, !dbg !144
+
+file: src/factor.c - line_num: 2289 - fun_name: strto2uintmax
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %0, align 1, !dbg !115
+
+file: src/factor.c - line_num: 2289 - fun_name: strto2uintmax
+			- vuln_type: TaintedPointerDereferenceChecker
+			- instruction:    %1 = load i8, i8* %0, align 1, !dbg !115
+
+file: src/factor.c - line_num: 2324 - fun_name: strto2uintmax
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub32 = sub i32 %15, 48, !dbg !177
+
+file: src/factor.c - line_num: 2324 - fun_name: strto2uintmax
+			- vuln_type: IntegerOverflowDetector
+			- instruction:    %sub32 = sub i32 %15, 48, !dbg !177
+

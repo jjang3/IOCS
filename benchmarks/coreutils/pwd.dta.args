@@ -1,0 +1,4 @@
+# Workload for pwd: -L prints $PWD after logical_getcwd checks it names the working directory
+# (pwd's own code; with no option pwd only calls libcoreutils' xgetcwd from main, which DTA does
+# not record). PIN runs the program in $work.
+DTA_ARGS=(-L)

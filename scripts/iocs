@@ -1,0 +1,67 @@
+#!/bin/bash
+# IOCS: one entry point for everything a user runs on the host.
+#
+#   scripts/iocs setup                      prerequisites, submodules, VMs, images, smoke tests
+#   scripts/iocs images [--force]           build or refresh the Docker images
+#   scripts/iocs run <target>               benchmarks/<target>.c end to end (tiny), with evidence
+#     (IOCS_REWRITE_MODE=directory|binary|tree selects the rewriter; see iocs.sh)
+#   scripts/iocs nginx                      Nginx 1.3.9: build, rewrite, relink, serve
+#   scripts/iocs coreutils [utility...]     coreutils 8.31 (paper Table 1)
+#   scripts/iocs sta-variants [target]      SUTURE under three bitcode recipes
+#   scripts/iocs artifacts export <name>    copy a recorded run's binaries into artifacts/<name>
+#   scripts/iocs artifacts test <name>      run the pre-built binaries (tiny|nginx)
+#   scripts/iocs stage <target> <stage>...  run iocs.sh stages in the right container/VM
+#   scripts/iocs evidence                   list recorded runs with their summaries
+#   scripts/iocs vm build|run|stop          (macOS) switch to a VM, or stop both
+#   scripts/iocs shell [build|run]          a shell in iocs:dev with the repository at /iocs
+#   scripts/iocs help
+#
+# Each run writes evidence/<run>/<UTC stamp>/ (env.txt, per-step logs, summary.txt, ...).
+# Settings: config.env (copy config.env.example). Inside the container, ./iocs.sh is the
+# stage driver; this script decides where it runs.
+here=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+cmd=${1:-help}; shift || true
+case $cmd in
+  setup)        exec bash "$here/setup.sh" "$@" ;;
+  images)       exec bash "$here/build_images.sh" "$@" ;;
+  run)          exec bash "$here/run.sh" "$@" ;;
+  nginx)        exec bash "$here/run_nginx.sh" "$@" ;;
+  coreutils)    exec bash "$here/run_coreutils.sh" "$@" ;;
+  sta-variants) exec bash "$here/sta_variants.sh" "$@" ;;
+  artifacts)
+    sub=${1:-}; shift || true
+    case $sub in
+      export) exec bash "$here/export_artifacts.sh" "$@" ;;
+      test)   exec bash "$here/../artifacts/test.sh" "$@" ;;
+      *) echo "usage: iocs artifacts export|test <name>"; exit 2 ;;
+    esac ;;
+  stage)
+    . "$here/lib.sh"
+    t=${1:?target}; shift; [ $# -gt 0 ] || die "usage: iocs stage <target> <stage>..."
+    role=build; for s in "$@"; do case $s in dta|run|all) role=run ;; esac; done   # ptrace / FSGSBASE
+    use_vm $role
+    exec docker run --rm -it --platform linux/amd64 -v "$IOCS_HOME:/iocs" -w /iocs \
+        -v "${BN_LICENSE:?set BN_LICENSE in config.env}:/root/.binaryninja/license.dat:ro" iocs:dev ./iocs.sh "$t" "$@" ;;
+  evidence)
+    . "$here/lib.sh"
+    for d in "$IOCS_HOME"/evidence/*/*/; do
+        [ -d "$d" ] || continue
+        echo "== ${d#$IOCS_HOME/}  ($(sed -n 's/^repo: *//p' "$d/env.txt" 2>/dev/null))"
+        sed 's/^/   /' "$d/summary.txt" 2>/dev/null | head -${EVIDENCE_LINES:-12}
+    done ;;
+  vm)
+    . "$here/lib.sh"
+    case ${1:-} in
+      build|run) use_vm "$1"; echo "DOCKER_CONTEXT=$DOCKER_CONTEXT" ;;
+      stop) [ "$IOCS_HOST" = mac ] && for p in "$BUILD_PROFILE" "$RUN_PROFILE"; do
+                [ "$(profile_status "$p")" = Running ] && { say "stopping $p"; colima stop --profile "$p" >/dev/null 2>&1; }; done; true ;;
+      *) echo "usage: iocs vm build|run|stop"; exit 2 ;;
+    esac ;;
+  shell)
+    . "$here/lib.sh"
+    use_vm "${1:-build}"
+    exec docker run --rm -it --platform linux/amd64 -v "$IOCS_HOME:/iocs" -w /iocs \
+        -v "${BN_LICENSE:?set BN_LICENSE in config.env}:/root/.binaryninja/license.dat:ro" iocs:dev bash ;;
+  help|-h|--help) sed -n '2,20p' "$0" | sed 's/^# \{0,1\}//' ;;
+  *) echo "iocs: unknown command '$cmd' (try: iocs help)"; exit 2 ;;
+esac

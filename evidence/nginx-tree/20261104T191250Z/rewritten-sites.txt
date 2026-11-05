@@ -1,0 +1,484 @@
+core/ngx_conf_file.s:2764: mov_store_gs %rdi, 24, 64    <-verifier_metadata_882:
+core/ngx_conf_file.s:2767: mov_load_gs %rax, 24, 64    <- # movq -8(%rbp), %rax
+core/ngx_file.s:2256: mov_store_gs %rdi, 56, 64    <-verifier_metadata_837:
+core/ngx_file.s:2264: mov_load_gs %rax, 56, 64    <- # movq -216(%rbp), %rax
+core/ngx_file.s:2297: mov_load_gs %rax, 56, 64    <- # movq -216(%rbp), %rax
+core/ngx_file.s:2313: mov_load_gs %rax, 56, 64    <- # movq -216(%rbp), %rax
+core/ngx_file.s:2349: mov_load_gs %rax, 56, 64    <- # movq -216(%rbp), %rax
+core/ngx_file.s:2369: mov_load_gs %rax, 56, 64    <- # movq -216(%rbp), %rax
+core/ngx_file.s:2406: mov_load_gs %rax, 56, 64    <- # movq -216(%rbp), %rax
+core/ngx_file.s:2426: mov_load_gs %rax, 56, 64    <- # movq -216(%rbp), %rax
+core/ngx_file.s:2471: mov_load_gs %rax, 56, 64    <- # movq -216(%rbp), %rax
+core/ngx_file.s:2491: mov_load_gs %rax, 56, 64    <- # movq -216(%rbp), %rax
+core/ngx_file.s:2513: mov_load_gs %rax, 56, 64    <- # movq -216(%rbp), %rax
+core/ngx_hash.s:2425: mov_store_gs %rdi, 88, 64    <-verifier_metadata_858:
+core/ngx_hash.s:2430: mov_store_gs %rsi, 80, 64    <-verifier_metadata_859:
+core/ngx_hash.s:2446: mov_load_gs %rdx, 88, 64    <- # movq -24(%rbp), %rdx
+core/ngx_hash.s:2460: cmp_load_gs %rax, 80, 64    <- # cmpq -32(%rbp), %rax
+core/ngx_hash.s:2490: mov_store_gs %rdi, 104, 64    <-verifier_metadata_862:
+core/ngx_hash.s:2495: mov_store_gs %rsi, 96, 64    <-verifier_metadata_863:
+core/ngx_hash.s:2511: mov_load_gs %rdx, 104, 64    <- # movq -24(%rbp), %rdx
+core/ngx_hash.s:2520: mov_load_gs %rdx, 104, 64    <- # movq -24(%rbp), %rdx
+core/ngx_hash.s:2529: mov_load_gs %rdx, 104, 64    <- # movq -24(%rbp), %rdx
+core/ngx_hash.s:2540: mov_load_gs %rdx, 104, 64    <- # movq -24(%rbp), %rdx
+core/ngx_hash.s:2556: cmp_load_gs %rax, 96, 64    <- # cmpq -32(%rbp), %rax
+core/ngx_hash.s:2586: mov_store_gs %rdi, 128, 64    <-verifier_metadata_869:
+core/ngx_hash.s:2591: mov_store_gs %rsi, 120, 64    <-verifier_metadata_870:
+core/ngx_hash.s:2596: mov_store_gs %rdx, 112, 64    <-verifier_metadata_871:
+core/ngx_hash.s:2604: mov_load_gs %rax, 120, 64    <- # movq -32(%rbp), %rax
+core/ngx_hash.s:2611: mov_load_gs %rax, 120, 64    <- # movq -32(%rbp), %rax
+core/ngx_hash.s:2618: mov_load_gs %rax, 120, 64    <- # movq -32(%rbp), %rax
+core/ngx_hash.s:2626: mov_load_gs %rax, 120, 64    <- # movq -32(%rbp), %rax
+core/ngx_hash.s:2631: mov_load_gs %rdx, 128, 64    <- # movq -24(%rbp), %rdx
+core/ngx_hash.s:2641: mov_load_gs %rax, 128, 64    <- # movq -24(%rbp), %rax
+core/ngx_hash.s:2649: add_store_gs $1, 128, 64    <- # addq $1, -24(%rbp)
+core/ngx_hash.s:2652: add_store_gs $1, 120, 64    <- # addq $1, -32(%rbp)
+core/ngx_hash.s:2656: mov_load_gs %rax, 112, 64    <- # movq -40(%rbp), %rax
+core/ngx_hash.s:2662: mov_store_gs %rdx, 112, 64    <-verifier_metadata_881:
+core/ngx_inet.s:496: mov_store_gs %rdi, 160, 64    <-verifier_metadata_489:
+core/ngx_inet.s:506: mov_load_gs %rax, 160, 64    <- # movq -40(%rbp), %rax
+core/ngx_inet.s:569: mov_load_gs %rdx, 160, 64    <- # movq -40(%rbp), %rdx
+core/ngx_inet.s:634: mov_store_gs %rdi, 280, 64    <-verifier_metadata_492:
+core/ngx_inet.s:639: mov_store_gs %rsi, 272, 64    <-verifier_metadata_493:
+core/ngx_inet.s:644: mov_load_gs %rax, 280, 64    <- # movq -40(%rbp), %rax
+core/ngx_inet.s:654: mov_load_gs %rax, 280, 64    <- # movq -40(%rbp), %rax
+core/ngx_inet.s:697: mov_load_gs %rax, 272, 64    <- # movq -48(%rbp), %rax
+core/ngx_inet.s:734: mov_load_gs %rax, 272, 64    <- # movq -48(%rbp), %rax
+core/ngx_inet.s:750: sub_load_gs %rax, 272, 64    <- # subq -48(%rbp), %rax
+core/ngx_inet.s:755: mov_load_gs %rax, 280, 64    <- # movq -40(%rbp), %rax
+core/ngx_inet.s:763: mov_load_gs %rax, 272, 64    <- # movq -48(%rbp), %rax
+core/ngx_inet.s:771: sub_load_gs %rax, 272, 64    <- # subq -48(%rbp), %rax
+core/ngx_log.s:921: mov_store_gs $16, 184, 32    <-verifier_metadata_848:
+core/ngx_log.s:923: mov_mem_store_gs $48, 184, 4, 32    <- # movl $48, -1236(%rbp)
+core/ngx_log.s:926: mov_mem_store_gs %rax, 184, 8, 64    <- # movq %rax, -1232(%rbp)
+core/ngx_log.s:929: mov_mem_store_gs %rax, 184, 16, 64    <- # movq %rax, -1224(%rbp)
+core/ngx_log.s:937: lea_gs %rcx, 184    <-verifier_metadata_849:
+core/ngx_log.s:1043: mov_store_gs $16, 200, 32    <-verifier_metadata_850:
+core/ngx_log.s:1045: mov_mem_store_gs $48, 200, 4, 32    <- # movl $48, -2260(%rbp)
+core/ngx_log.s:1048: mov_mem_store_gs %rax, 200, 8, 64    <- # movq %rax, -2256(%rbp)
+core/ngx_log.s:1051: mov_mem_store_gs %rax, 200, 16, 64    <- # movq %rax, -2248(%rbp)
+core/ngx_log.s:1057: lea_gs %rcx, 200    <-verifier_metadata_851:
+core/ngx_log.s:1239: mov_store_gs %rdi, 192, 64    <-verifier_metadata_852:
+core/ngx_log.s:1272: cmp_store_gs $0, 192, 64    <- # cmpq $0, -40(%rbp)
+core/ngx_log.s:1276: mov_load_gs %rax, 192, 64    <- # movq -40(%rbp), %rax
+core/ngx_log.s:1288: mov_store_gs %rax, 192, 64    <-verifier_metadata_855:
+core/ngx_log.s:1291: mov_load_gs %rax, 192, 64    <- # movq -40(%rbp), %rax
+core/ngx_log.s:1318: mov_load_gs %rcx, 192, 64    <- # movq -40(%rbp), %rcx
+core/ngx_queue.s:447: mov_store_gs %rdi, 240, 64    <-verifier_metadata_473:
+core/ngx_queue.s:450: mov_load_gs %rax, 240, 64    <- # movq -24(%rbp), %rax
+core/ngx_queue.s:455: mov_load_gs %rax, 240, 64    <- # movq -24(%rbp), %rax
+core/ngx_queue.s:466: mov_load_gs %rax, 240, 64    <- # movq -24(%rbp), %rax
+core/ngx_queue.s:480: mov_load_gs %rax, 240, 64    <- # movq -24(%rbp), %rax
+core/ngx_queue.s:495: mov_load_gs %rax, 240, 64    <- # movq -24(%rbp), %rax
+core/ngx_resolver.s:7736: mov_store_gs %rdi, 248, 64    <-verifier_metadata_884:
+core/ngx_resolver.s:7744: mov_load_gs %rax, 248, 64    <- # movq -24(%rbp), %rax
+core/ngx_resolver.s:7751: mov_load_gs %rax, 248, 64    <- # movq -24(%rbp), %rax
+core/ngx_resolver.s:7769: mov_load_gs %rax, 248, 64    <- # movq -24(%rbp), %rax
+core/ngx_string.s:447: mov_store_gs %rdi, 328, 64    <-verifier_metadata_502:
+core/ngx_string.s:452: mov_store_gs %rsi, 344, 64    <-verifier_metadata_503:
+core/ngx_string.s:457: mov_store_gs %rdx, 336, 64    <-verifier_metadata_504:
+core/ngx_string.s:463: mov_load_gs %rax, 344, 64    <- # movq -16(%rbp), %rax
+core/ngx_string.s:470: mov_load_gs %rax, 344, 64    <- # movq -16(%rbp), %rax
+core/ngx_string.s:477: mov_load_gs %rax, 344, 64    <- # movq -16(%rbp), %rax
+core/ngx_string.s:485: mov_load_gs %rax, 344, 64    <- # movq -16(%rbp), %rax
+core/ngx_string.s:490: mov_load_gs %rdx, 328, 64    <- # movq -8(%rbp), %rdx
+core/ngx_string.s:494: add_store_gs $1, 328, 64    <- # addq $1, -8(%rbp)
+core/ngx_string.s:497: add_store_gs $1, 344, 64    <- # addq $1, -16(%rbp)
+core/ngx_string.s:500: sub_store_gs $1, 336, 64    <- # subq $1, -24(%rbp)
+core/ngx_string.s:504: cmp_store_gs $0, 336, 64    <- # cmpq $0, -24(%rbp)
+core/ngx_string.s:534: mov_store_gs %rdi, 40, 64    <-verifier_metadata_514:
+core/ngx_string.s:539: mov_store_gs %rsi, 32, 64    <-verifier_metadata_515:
+core/ngx_string.s:544: mov_store_gs %rdx, 48, 64    <-verifier_metadata_516:
+core/ngx_string.s:547: cmp_store_gs $0, 48, 64    <- # cmpq $0, -24(%rbp)
+core/ngx_string.s:551: mov_load_gs %rax, 40, 64    <- # movq -8(%rbp), %rax
+core/ngx_string.s:556: mov_load_gs %rax, 32, 64    <- # movq -16(%rbp), %rax
+core/ngx_string.s:560: mov_load_gs %rax, 40, 64    <- # movq -8(%rbp), %rax
+core/ngx_string.s:564: mov_load_gs %rax, 40, 64    <- # movq -8(%rbp), %rax
+core/ngx_string.s:571: mov_load_gs %rax, 40, 64    <- # movq -8(%rbp), %rax
+core/ngx_string.s:576: add_store_gs $1, 40, 64    <- # addq $1, -8(%rbp)
+core/ngx_string.s:579: add_store_gs $1, 32, 64    <- # addq $1, -16(%rbp)
+core/ngx_string.s:583: sub_store_gs $1, 48, 64    <- # subq $1, -24(%rbp)
+core/ngx_string.s:585: cmp_store_gs $0, 48, 64    <- # cmpq $0, -24(%rbp)
+core/ngx_string.s:589: mov_load_gs %rax, 40, 64    <- # movq -8(%rbp), %rax
+core/ngx_string.s:593: mov_load_gs %rax, 40, 64    <- # movq -8(%rbp), %rax
+core/ngx_string.s:698: mov_store_gs $16, 288, 32    <-verifier_metadata_529:
+core/ngx_string.s:700: mov_mem_store_gs $48, 288, 4, 32    <- # movl $48, -204(%rbp)
+core/ngx_string.s:703: mov_mem_store_gs %rax, 288, 8, 64    <- # movq %rax, -200(%rbp)
+core/ngx_string.s:706: mov_mem_store_gs %rax, 288, 16, 64    <- # movq %rax, -192(%rbp)
+core/ngx_string.s:712: lea_gs %rcx, 288    <-verifier_metadata_530:
+core/ngx_string.s:775: mov_store_gs $24, 264, 32    <-verifier_metadata_531:
+core/ngx_string.s:777: mov_mem_store_gs $48, 264, 4, 32    <- # movl $48, -204(%rbp)
+core/ngx_string.s:780: mov_mem_store_gs %rax, 264, 8, 64    <- # movq %rax, -200(%rbp)
+core/ngx_string.s:783: mov_mem_store_gs %rax, 264, 16, 64    <- # movq %rax, -192(%rbp)
+core/ngx_string.s:792: lea_gs %rcx, 264    <-verifier_metadata_532:
+core/ngx_string.s:854: mov_store_gs $24, 256, 32    <-verifier_metadata_533:
+core/ngx_string.s:856: mov_mem_store_gs $48, 256, 4, 32    <- # movl $48, -204(%rbp)
+core/ngx_string.s:859: mov_mem_store_gs %rax, 256, 8, 64    <- # movq %rax, -200(%rbp)
+core/ngx_string.s:862: mov_mem_store_gs %rax, 256, 16, 64    <- # movq %rax, -192(%rbp)
+core/ngx_string.s:868: lea_gs %rcx, 256    <-verifier_metadata_534:
+core/ngx_string.s:909: mov_store_gs %rdi, 392, 64    <-verifier_metadata_535:
+core/ngx_string.s:914: mov_store_gs %rsi, 376, 64    <-verifier_metadata_536:
+core/ngx_string.s:919: mov_store_gs %rdx, 384, 64    <-verifier_metadata_537:
+core/ngx_string.s:924: mov_store_gs %rcx, 400, 64    <-verifier_metadata_538:
+core/ngx_string.s:930: mov_load_gs %rax, 384, 64    <- # movq -168(%rbp), %rax
+core/ngx_string.s:941: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:944: mov_load_gs %rax, 384, 64    <- # movq -168(%rbp), %rax
+core/ngx_string.s:982: mov_load_gs %rax, 384, 64    <- # movq -168(%rbp), %rax
+core/ngx_string.s:988: mov_store_gs %rdx, 384, 64    <-verifier_metadata_543:
+core/ngx_string.s:1000: mov_load_gs %rax, 384, 64    <- # movq -168(%rbp), %rax
+core/ngx_string.s:1007: mov_load_gs %rax, 384, 64    <- # movq -168(%rbp), %rax
+core/ngx_string.s:1015: mov_load_gs %rax, 384, 64    <- # movq -168(%rbp), %rax
+core/ngx_string.s:1046: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:1054: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:1064: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:1074: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:1080: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:1093: mov_load_gs %rax, 384, 64    <- # movq -168(%rbp), %rax
+core/ngx_string.s:1099: mov_store_gs %rdx, 384, 64    <-verifier_metadata_553:
+core/ngx_string.s:1111: mov_load_gs %rax, 384, 64    <- # movq -168(%rbp), %rax
+core/ngx_string.s:1118: mov_load_gs %rax, 384, 64    <- # movq -168(%rbp), %rax
+core/ngx_string.s:1128: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1133: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1136: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1141: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1145: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1150: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1154: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1161: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:1176: mov_load_gs %rax, 384, 64    <- # movq -168(%rbp), %rax
+core/ngx_string.s:1289: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1294: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1297: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1302: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1306: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1311: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1315: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1322: mov_load_gs %rax, 376, 64    <- # movq -160(%rbp), %rax
+core/ngx_string.s:1324: sub_load_gs %rax, 392, 64    <- # subq -152(%rbp), %rax
+core/ngx_string.s:1340: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:1351: mov_store_gs %rax, 392, 64    <-verifier_metadata_575:
+core/ngx_string.s:1354: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:1360: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1365: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1368: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1373: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1377: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1382: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1386: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1393: mov_load_gs %rax, 376, 64    <- # movq -160(%rbp), %rax
+core/ngx_string.s:1395: sub_load_gs %rax, 392, 64    <- # subq -152(%rbp), %rax
+core/ngx_string.s:1413: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:1424: mov_store_gs %rax, 392, 64    <-verifier_metadata_587:
+core/ngx_string.s:1427: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:1433: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1438: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1441: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1446: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1450: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1455: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1459: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1476: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:1482: mov_store_gs %rcx, 392, 64    <-verifier_metadata_597:
+core/ngx_string.s:1496: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:1498: cmp_load_gs %rax, 376, 64    <- # cmpq -160(%rbp), %rax
+core/ngx_string.s:1504: mov_load_gs %rax, 376, 64    <- # movq -160(%rbp), %rax
+core/ngx_string.s:1506: sub_load_gs %rax, 392, 64    <- # subq -152(%rbp), %rax
+core/ngx_string.s:1515: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:1526: mov_store_gs %rax, 392, 64    <-verifier_metadata_603:
+core/ngx_string.s:1530: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:1536: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1541: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1544: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1549: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1553: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1558: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1562: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1574: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1579: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1582: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1587: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1591: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1596: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1600: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1614: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1619: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1622: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1627: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1631: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1636: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1640: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1652: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1657: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1660: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1665: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1669: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1674: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1678: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1706: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1711: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1714: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1719: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1723: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1728: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1732: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1742: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1747: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1750: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1755: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1759: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1764: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1768: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1781: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1786: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1789: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1794: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1798: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1803: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1807: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1816: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1821: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1824: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1829: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1833: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1838: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1842: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1861: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1866: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1869: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1874: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1878: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1883: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1887: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1899: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1904: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1907: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1912: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1916: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1921: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1925: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1940: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1945: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1948: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1953: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1957: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1962: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1966: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1976: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1981: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1984: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:1989: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1993: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:1998: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2002: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2015: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2020: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2023: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2028: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2032: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2037: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2041: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2053: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2058: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2061: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2066: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2070: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2075: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2079: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2094: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2099: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2102: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2107: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2111: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2116: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2120: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2130: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2135: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2138: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2143: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2147: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2152: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2156: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2169: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2174: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2177: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2182: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2186: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2191: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2195: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2204: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2209: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2212: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2217: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2221: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2226: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2230: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2246: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2251: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2254: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2259: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2263: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2268: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2272: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2283: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:2289: mov_store_gs %rdx, 392, 64    <-verifier_metadata_739:
+core/ngx_string.s:2394: mov_load_gs %rsi, 376, 64    <- # movq -160(%rbp), %rsi
+core/ngx_string.s:2396: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:2405: mov_store_gs %rax, 392, 64    <-verifier_metadata_742:
+core/ngx_string.s:2411: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:2413: cmp_load_gs %rax, 376, 64    <- # cmpq -160(%rbp), %rax
+core/ngx_string.s:2417: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:2423: mov_store_gs %rdx, 392, 64    <-verifier_metadata_746:
+core/ngx_string.s:2431: mov_load_gs %rsi, 376, 64    <- # movq -160(%rbp), %rsi
+core/ngx_string.s:2433: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:2443: mov_store_gs %rax, 392, 64    <-verifier_metadata_749:
+core/ngx_string.s:2447: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:2453: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2458: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2461: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2466: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2470: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2475: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2479: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2492: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2497: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2500: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2505: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2509: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2514: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2518: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2537: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2542: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2545: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2550: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2554: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2559: mov_load_gs %rax, 400, 64    <- # movq -176(%rbp), %rax
+core/ngx_string.s:2563: mov_load_gs %rdx, 400, 64    <- # movq -176(%rbp), %rdx
+core/ngx_string.s:2570: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:2576: mov_store_gs %rdx, 392, 64    <-verifier_metadata_773:
+core/ngx_string.s:2583: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:2589: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:2595: mov_store_gs %rdx, 392, 64    <-verifier_metadata_776:
+core/ngx_string.s:2600: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:2606: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:2612: mov_store_gs %rdx, 392, 64    <-verifier_metadata_779:
+core/ngx_string.s:2617: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:2623: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:2629: mov_store_gs %rdx, 392, 64    <-verifier_metadata_782:
+core/ngx_string.s:2634: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:2640: mov_load_gs %rax, 384, 64    <- # movq -168(%rbp), %rax
+core/ngx_string.s:2646: mov_store_gs %rdx, 384, 64    <-verifier_metadata_785:
+core/ngx_string.s:2651: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:2657: mov_store_gs %rdx, 392, 64    <-verifier_metadata_787:
+core/ngx_string.s:2680: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:2686: mov_store_gs %rdx, 392, 64    <-verifier_metadata_789:
+core/ngx_string.s:2706: mov_load_gs %rsi, 376, 64    <- # movq -160(%rbp), %rsi
+core/ngx_string.s:2708: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:2717: mov_store_gs %rax, 392, 64    <-verifier_metadata_792:
+core/ngx_string.s:2720: add_store_gs $1, 384, 64    <- # addq $1, -168(%rbp)
+core/ngx_string.s:2725: mov_load_gs %rax, 384, 64    <- # movq -168(%rbp), %rax
+core/ngx_string.s:2731: mov_store_gs %rdx, 384, 64    <-verifier_metadata_795:
+core/ngx_string.s:2736: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:2742: mov_store_gs %rdx, 392, 64    <-verifier_metadata_797:
+core/ngx_string.s:2750: mov_load_gs %rax, 384, 64    <- # movq -168(%rbp), %rax
+core/ngx_string.s:2757: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:2759: cmp_load_gs %rax, 376, 64    <- # cmpq -160(%rbp), %rax
+core/ngx_string.s:2764: mov_load_gs %rax, 392, 64    <- # movq -152(%rbp), %rax
+core/ngx_string.s:2791: mov_store_gs %rdi, 296, 64    <-verifier_metadata_802:
+core/ngx_string.s:2796: mov_store_gs %rsi, 304, 64    <-verifier_metadata_803:
+core/ngx_string.s:2943: mov_load_gs %rax, 296, 64    <- # movq -72(%rbp), %rax
+core/ngx_string.s:2949: mov_store_gs %rdx, 296, 64    <-verifier_metadata_805:
+core/ngx_string.s:2963: mov_load_gs %rax, 296, 64    <- # movq -72(%rbp), %rax
+core/ngx_string.s:2965: cmp_load_gs %rax, 304, 64    <- # cmpq -80(%rbp), %rax
+core/ngx_string.s:2977: mov_load_gs %rdx, 296, 64    <- # movq -72(%rbp), %rdx
+core/ngx_string.s:2982: cmp_store_gs %rax, 304, 64    <- # cmpq %rax, -80(%rbp)
+core/ngx_string.s:2986: mov_load_gs %rax, 304, 64    <- # movq -80(%rbp), %rax
+core/ngx_string.s:2988: sub_load_gs %rax, 296, 64    <- # subq -72(%rbp), %rax
+core/ngx_string.s:2996: mov_load_gs %rax, 296, 64    <- # movq -72(%rbp), %rax
+core/ngx_string.s:3034: mov_store_gs %rdi, 312, 64    <-verifier_metadata_813:
+core/ngx_string.s:3039: mov_store_gs %rsi, 320, 64    <-verifier_metadata_814:
+core/ngx_string.s:3043: mov_load_gs %rax, 312, 64    <- # movq -24(%rbp), %rax
+core/ngx_string.s:3049: mov_store_gs %rdx, 312, 64    <-verifier_metadata_816:
+core/ngx_string.s:3057: mov_load_gs %rax, 320, 64    <- # movq -32(%rbp), %rax
+core/ngx_string.s:3063: mov_store_gs %rdx, 320, 64    <-verifier_metadata_818:
+core/ngx_string.s:3145: mov_store_gs %rdi, 368, 64    <-verifier_metadata_819:
+core/ngx_string.s:3150: mov_store_gs %rsi, 352, 64    <-verifier_metadata_820:
+core/ngx_string.s:3155: mov_store_gs %rdx, 360, 64    <-verifier_metadata_821:
+core/ngx_string.s:3161: mov_load_gs %rax, 368, 64    <- # movq -24(%rbp), %rax
+core/ngx_string.s:3167: mov_store_gs %rdx, 368, 64    <-verifier_metadata_823:
+core/ngx_string.s:3175: mov_load_gs %rax, 352, 64    <- # movq -32(%rbp), %rax
+core/ngx_string.s:3181: mov_store_gs %rdx, 352, 64    <-verifier_metadata_825:
+core/ngx_string.s:3228: sub_store_gs $1, 360, 64    <- # subq $1, -40(%rbp)
+core/ngx_string.s:3243: cmp_store_gs $0, 360, 64    <- # cmpq $0, -40(%rbp)
+core/ngx_string.s:3995: mov_store_gs %rdi, 8, 64    <-verifier_metadata_828:
+core/ngx_string.s:4000: mov_store_gs %rsi, 16, 64    <-verifier_metadata_829:
+core/ngx_string.s:4003: cmp_store_gs $0, 16, 64    <- # cmpq $0, -32(%rbp)
+core/ngx_string.s:4016: mov_load_gs %rax, 8, 64    <- # movq -24(%rbp), %rax
+core/ngx_string.s:4023: mov_load_gs %rax, 8, 64    <- # movq -24(%rbp), %rax
+core/ngx_string.s:4042: mov_load_gs %rax, 8, 64    <- # movq -24(%rbp), %rax
+core/ngx_string.s:4053: add_store_gs $1, 8, 64    <- # addq $1, -24(%rbp)
+core/ngx_string.s:4057: mov_load_gs %rax, 16, 64    <- # movq -32(%rbp), %rax
+core/ngx_string.s:4063: mov_store_gs %rdx, 16, 64    <-verifier_metadata_836:
+core/ngx_times.s:1414: mov_store_gs %rdi, 64, 64    <-verifier_metadata_479:
+core/ngx_times.s:1419: mov_store_gs %rsi, 72, 64    <-verifier_metadata_480:
+core/ngx_times.s:1422: mov_load_gs %rax, 64, 64    <- # movq -104(%rbp), %rax
+core/ngx_times.s:1674: mov_load_gs %rax, 72, 64    <- # movq -112(%rbp), %rax
+core/ngx_times.s:1681: mov_load_gs %rax, 72, 64    <- # movq -112(%rbp), %rax
+core/ngx_times.s:1688: mov_load_gs %rax, 72, 64    <- # movq -112(%rbp), %rax
+core/ngx_times.s:1695: mov_load_gs %rax, 72, 64    <- # movq -112(%rbp), %rax
+core/ngx_times.s:1702: mov_load_gs %rax, 72, 64    <- # movq -112(%rbp), %rax
+core/ngx_times.s:1709: mov_load_gs %rax, 72, 64    <- # movq -112(%rbp), %rax
+core/ngx_times.s:1716: mov_load_gs %rax, 72, 64    <- # movq -112(%rbp), %rax
+event/ngx_event_accept.s:1770: mov_store_gs %rdi, 0, 64    <-verifier_metadata_940:
+event/ngx_event_accept.s:1775: mov_load_gs %rax, 0, 64    <- # movq -8(%rbp), %rax
+http/ngx_http_request.s:9231: mov_store_gs %rdi, 136, 64    <-verifier_metadata_888:
+http/ngx_http_request.s:9236: mov_store_gs %rsi, 144, 64    <-verifier_metadata_889:
+http/ngx_http_request.s:9241: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_request.s:9272: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_request.s:9279: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_request.s:9286: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_request.s:9309: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_request.s:9319: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_request.s:9328: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_request.s:9332: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_request.s:9336: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_request.s:9341: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_request.s:9348: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_request.s:9369: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_request.s:9371: cmp_load_gs %rax, 144, 64    <- # cmpq -48(%rbp), %rax
+http/ngx_http_request.s:9375: mov_load_gs %rax, 144, 64    <- # movq -48(%rbp), %rax
+http/ngx_http_request.s:9396: mov_load_gs %rax, 144, 64    <- # movq -48(%rbp), %rax
+http/ngx_http_request.s:9461: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_request.s:9468: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_request.s:9491: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_request.s:9498: mov_load_gs %rax, 136, 64    <- # movq -40(%rbp), %rax
+http/ngx_http_script.s:1561: mov_store_gs %rdi, 152, 64    <-verifier_metadata_909:
+http/ngx_http_script.s:1571: mov_load_gs %rax, 152, 64    <- # movq -24(%rbp), %rax
+http/ngx_http_script.s:1588: mov_load_gs %rax, 152, 64    <- # movq -24(%rbp), %rax
+os/unix/ngx_linux_init.s:466: mov_store_gs %rdi, 216, 64    <-verifier_metadata_934:
+os/unix/ngx_linux_init.s:480: mov_load_gs %rax, 216, 64    <- # movq -408(%rbp), %rax
+os/unix/ngx_linux_init.s:490: mov_load_gs %rax, 216, 64    <- # movq -408(%rbp), %rax
+os/unix/ngx_linux_init.s:567: mov_store_gs %rdi, 224, 64    <-verifier_metadata_937:
+os/unix/ngx_linux_init.s:570: mov_load_gs %rax, 224, 64    <- # movq -8(%rbp), %rax
+os/unix/ngx_linux_init.s:577: mov_load_gs %rax, 224, 64    <- # movq -8(%rbp), %rax
+os/unix/ngx_posix_init.s:470: mov_store_gs %rdi, 208, 64    <-verifier_metadata_912:
+os/unix/ngx_posix_init.s:473: mov_load_gs %rax, 208, 64    <- # movq -24(%rbp), %rax
+os/unix/ngx_posix_init.s:485: mov_load_gs %rax, 208, 64    <- # movq -24(%rbp), %rax
+os/unix/ngx_posix_init.s:541: mov_load_gs %rax, 208, 64    <- # movq -24(%rbp), %rax
+os/unix/ngx_posix_init.s:551: mov_load_gs %rax, 208, 64    <- # movq -24(%rbp), %rax
+os/unix/ngx_posix_init.s:614: mov_store_gs %rdi, 232, 64    <-verifier_metadata_917:
+os/unix/ngx_posix_init.s:617: mov_load_gs %rax, 232, 64    <- # movq -8(%rbp), %rax
+os/unix/ngx_posix_init.s:624: mov_load_gs %rax, 232, 64    <- # movq -8(%rbp), %rax
+os/unix/ngx_posix_init.s:634: mov_load_gs %rax, 232, 64    <- # movq -8(%rbp), %rax
+os/unix/ngx_posix_init.s:641: mov_load_gs %rax, 232, 64    <- # movq -8(%rbp), %rax
+os/unix/ngx_posix_init.s:651: mov_load_gs %rax, 232, 64    <- # movq -8(%rbp), %rax
+os/unix/ngx_posix_init.s:656: mov_load_gs %rax, 232, 64    <- # movq -8(%rbp), %rax
+os/unix/ngx_posix_init.s:665: mov_load_gs %rax, 232, 64    <- # movq -8(%rbp), %rax
+os/unix/ngx_process.s:1611: mov_store_gs %rdi, 168, 64    <-verifier_metadata_925:
+os/unix/ngx_process.s:1651: mov_load_gs %rax, 168, 64    <- # movq -200(%rbp), %rax
+os/unix/ngx_process.s:1664: mov_load_gs %rax, 168, 64    <- # movq -200(%rbp), %rax
+os/unix/ngx_time.s:504: mov_store_gs %rsi, 176, 64    <-verifier_metadata_928:
+os/unix/ngx_time.s:507: mov_load_gs %rdx, 176, 64    <- # movq -16(%rbp), %rdx
+os/unix/ngx_time.s:514: mov_load_gs %rax, 176, 64    <- # movq -16(%rbp), %rax
+os/unix/ngx_time.s:519: mov_load_gs %rax, 176, 64    <- # movq -16(%rbp), %rax
+os/unix/ngx_time.s:523: mov_load_gs %rax, 176, 64    <- # movq -16(%rbp), %rax
+os/unix/ngx_time.s:527: mov_load_gs %rax, 176, 64    <- # movq -16(%rbp), %rax

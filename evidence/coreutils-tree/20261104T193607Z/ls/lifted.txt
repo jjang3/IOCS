@@ -1,0 +1,12 @@
+# Tainted pointer parameters: lifted to the caller objects they point to, or kept in their
+# own slot (why). Variables without a compartment: kept-on-stack lines.
+own slot: attach dirname@-32 (call of attach at 0x9150: gobble_file passes its parameter dirname, which it may have reassigned)
+own slot: attach dest@-24 (call of attach at 0x9150: gobble_file passes full_name, a pointer not set from one frame address)
+own slot: attach name@-40 (call of gobble_file at 0x85ae passes no frame address)
+own slot: file_has_acl_cache f@-32 (call of file_has_acl_cache at 0x94ae: gobble_file passes f, a pointer not set from one frame address)
+own slot: gobble_file name@-968 (call of gobble_file at 0x85ae passes no frame address)
+own slot: gobble_file dirname@-992 (gobble_file may reassign its parameter dirname)
+own slot: has_capability_cache f@-32 (call of has_capability_cache at 0x9373: gobble_file passes f, a pointer not set from one frame address)
+own slot: make_link_name linkname@-32 (call of make_link_name at 0x9602 passes no frame address)
+own slot: make_link_name name@-24 (call of make_link_name at 0x9602: gobble_file passes full_name, a pointer not set from one frame address)
+own slot: needs_quoting name@-40 (call of gobble_file at 0x85ae passes no frame address)

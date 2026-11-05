@@ -1,0 +1,10 @@
+# Set the LD_PRELOAD environment variable
+set environment LD_PRELOAD=~/Downloads/nginx-1.3.9/objs/src/lib/table.so
+
+# Set the executable to debug
+file ./nginx
+
+# Run the program with the specific configuration file
+run -c ~/Downloads/nginx-1.3.9/conf/nginx_taint.conf
+
+# gdb -x nginx_command
